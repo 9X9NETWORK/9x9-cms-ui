@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<link rel="stylesheet" href="stylesheets/style.css" />
+<link rel="stylesheet" href="stylesheets/lightbox.css" />
+<link rel="stylesheet" href="stylesheets/library.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
+<script src="javascripts/nn-sdk.js"></script>
+<script src="javascripts/jquery.mousewheel.min.js"></script>
+<script src="javascripts/jquery.ellipsis.js"></script>
+<script src="javascripts/jquery.blockUI.js"></script>
+<script src="javascripts/jquery.toggleval.min.js"></script>
+<script src="javascripts/jquery.tmpl.min.js"></script>
+<script src="javascripts/jquery.cookie.js"></script>
+<script src="javascripts/json2.js"></script>
+<script src="javascripts/purl.js"></script>
+<script src="javascripts/vertical.slider.js"></script>
+<script src="javascripts/config.js"></script>
+<script src="javascripts/basic.js"></script>
+<script src="javascripts/uploads.js"></script>
+<title>9x9.tv - My Uploads</title>
+</head>
+<body>
+
+<div id="lightbox-upload-video" class="lightbox-content lightbox-upload-video">
+<div class="upload-audio">
+<div class="upload-audio-wrap">
+<a href="#" class="btn-close">Close</a>
+<h3><img src="images/text_audio_file.png" alt="Upload Audio File" title="Upload Audio File" /></h3>
+<p class="required"><acronym title="Required field" class="mark-required">*</acronym>Required field</p>
+<form name="lightboxUploadForm" id="lightboxUploadForm" method="get" action="uploads-list.html">
+<div class="fminput">
+<label><acronym title="Required field" class="mark-required">*</acronym>Upload file</label>
+<div class="fmfield">
+<p class="btns btn-upload-file"><span><input type="button" name="fileName" value="Select file from your computer" /></span></p>
+<p class="notice clear">Support mp3 file.</p>
+</div>
+</div>
+<div class="fminput">
+<label><acronym title="Required field" class="mark-required">*</acronym>File title</label>
+<div class="fmfield">
+<p class="text"><span><input type="text" name="title" id="title" maxlength="100" value="" class="text" /></span></p>
+</div>
+</div>
+<div class="fminput">
+<label>Playback image</label>
+<div class="fmfield">
+<p class="img"><img src="images/thumbnail_box_up.png" alt="" /></p>
+<div class="upload-func">
+<p class="radio-list">
+<span class="radio first on"><a href="#" class="radio-upload">Upload file</a></span>
+<span class="radio"><a href="#" class="radio-url">From URL</a></span>
+</p>
+<p class="btns upload"><span><a href="#">Upload</a></span></p>
+<p class="img-url text"><span><input type="text" name="imgUrl" id="imgUrl" maxlength="100" value="Copy and paste image URL here" class="text" /></span></p>
+</div>
+<span class="notice clear">Better results with 720x480 or higher resolution image.</span>
+<span class="notice clear hide">Support jpeg, png, gif file, ex. http://9x9.tv/1234.jpeg</span>
+</div>
+</div>
+<div class="form-btn">
+<div class="form-btn-wrap">
+<p class="btns btn-cancel"><span><input type="reset" value="Cancel" /></span></p>
+<p class="btns btn-save"><span><input type="submit" value="Save" /></span></p>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+<!--============================== header start ==============================-->
+<div id="header">
+  <p id="logo"></p>
+  <ul id="nav">
+    <li id="home"><span><a href="/#!home">Home</a></span></li>
+    <li id="guide"><span><a href="/#!guide">Guide</a></span></li>
+    <li id="browse"><span><a href="/#!directory">Browse</a></span></li>
+    <li id="profile">
+      <p id="btn-profile"></p>
+      <p id="selected-profile">Guest</p>
+      <ul id="profile-dropdown" class="dropdown">
+        <li><a id="profile-mypage" href="/#!curator=profileUrl">My page</a></li>
+        <li><a href="./">Studio</a></li>
+        <li id="profile-settings"><a href="/#!settings">Settings</a></li>
+        <li><a id="profile-logout" href="/api/login">Log out</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<!--============================== header close ==============================-->
+
+<div id="studio-nav">
+<div class="studio-nav-wrap">
+<h3><a href="./">Studio</a></h3>
+<ul>
+<li><span><a href="./">My Channels</a></span></li>
+<li><span><a href="library-first.html">My Library</a></span></li>
+<li class="on"><span><a href="uploads-first.html">My Uploads</a></span></li>
+</ul>
+</div>
+</div>
+
+<!--============================== content-wrap start ========================-->
+<div id="content-wrap">
+
+<div id="content-nav">
+&nbsp;
+</div>
+
+<div id="main-wrap-slider" class="slider-wrap"><div class="slider-vertical"></div></div>
+
+<div id="content-main">
+<div id="title-func" class="clearfix">
+<h2>My Uploads</h2>
+</div>
+
+<div id="content-main-wrap">
+<div class="constrain">
+<div id="uploads-video-list" class="video-list">
+<p class="no-video"><img src="images/text_noupload.png" alt="You have no videos in your library." title="You have no videos in your library." /></p>
+<p class="btn-upload-audio btns"><span><a href="#">Upload audio file</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<!--============================== content-wrap close ========================-->
+
+<!--============================== footer start ==============================-->
+<p id="footer-control"></p>
+<div id="footer">
+  <ul id="footer-list">
+    <li>
+      <p class="select-txt">About Us</p>
+      <p class="select-btn"></p>
+      <ul class="select-list">
+        <li><a href="/#!about=about">About us</a></li>
+        <li><a href="/#!about=help">Help</a></li>
+        <li><a href="/#!about=report">Report</a></li>
+        <li><a href="/#!about=terms">Terms & Policy</a></li>
+        <li><a href="/#!about=contact">Contact us</a></li>
+        <li><a href="/#!about=partners">Partners</a></li>
+        <li><a href="/#!about=curators">Curators</a></li>
+        <li><a href="/#!about=press">Press</a></li>
+        <li><a href="/#!about=contest">Curation Contest</a></li>
+      </ul>
+    </li>
+    <li>
+      <p class="select-txt">Language</p>
+      <p class="select-btn"></p>
+      <ul class="select-list">
+        <li>English</li>
+        <li>中文</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<!--============================== footer close ==============================-->
+
+<div id="overlay-s">
+<p class="overlay-content"><span class="overlay-right"><span class="overlay-middle"><img src="images/icon_load_l.gif" alt="" />Saving...</span></span></p>
+</div>
+
+<div id="system-error" class="lightbox-content overlay-l">
+<div class="overlay-container">
+<div class="overlay-wrap">
+<a href="#" class="btn-close">Close</a>
+<p class="content">You are not authorized to edit episodes in this channel.</p>
+<div class="overlay-btn">
+<p class="btns btn-ok"><span><a href="#">OK</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="delete-prompt" class="lightbox-content overlay-l">
+<div class="overlay-container">
+<div class="overlay-wrap">
+<a href="#" class="btn-close">Close</a>
+<p class="content">Are you sure you want to delete this file?</p>
+<div class="overlay-btn">
+<p class="btns btn-del"><span><a href="#">Delete</a></span></p>
+<p class="btns btn-no"><span><a href="#">No</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

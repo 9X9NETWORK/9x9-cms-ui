@@ -1,0 +1,702 @@
+/*-----------------------------------------------------------------------------
+[TABLE OF CONTENTS]
+    +content-main
+        =lightbox-create-channel
+        =lightbox-upload-video
+        =lightbox-play-video
+        =overlay-l
+        =draft-notice, =invalid-notice
+-----------------------------------------------------------------------------*/
+
+.blockOverlay {
+    position: absolute !important;
+    background-color: #777 !important;
+    cursor: default !important;
+}
+
+.blockMsg {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    border: none !important;
+    background: transparent !important;
+    cursor: default !important;
+}
+
+.lightbox-content {
+    display: none;
+}
+
+/**
+*
+* =lightbox-create-channel
+*
+**/
+
+#lightbox-create-channel {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 644px;
+    height: 342px;
+    margin: -171px 0 0 -322px;
+    text-align: center;
+}
+
+#lightbox-create-channel h3 {
+    margin-bottom: 15px;
+}
+
+#lightbox-create-channel p.desc {
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#lightbox-create-channel p.create {
+    position: relative;
+    width: 180px;
+    margin: 0 auto 20px;
+    border: 3px dashed #fff;
+}
+
+#lightbox-create-channel p.create a {
+    display: block;
+    width: 180px;
+    height: 180px;
+    text-indent: -100000px;
+    text-decoration: none;
+    behavior: url(PIE.htc);
+}
+
+#lightbox-create-channel p.create a:hover {
+    background-color: #7f7f7f\9;
+    box-shadow: 0 0 15px 3px #fff, 0 0 15px 1px #fff inset;
+    behavior: url(PIE.htc);
+}
+
+#lightbox-create-channel p.create img {
+    position: absolute;
+    top: 47px;
+    left: 77px;
+    border: none;
+}
+
+#lightbox-create-channel p.create span {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    width: 120px;
+    margin-left: -60px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    text-indent: 0;
+    cursor: pointer;
+}
+
+#lightbox-create-channel p.btns {
+    width: 188px;
+    margin: 0 auto;
+}
+
+#lightbox-create-channel p.btns:hover {
+	background-image: url(../images/popup_btn_left_press.png) !important;
+}
+
+#lightbox-create-channel p.btns:hover span {
+	background-image: url(../images/popup_btn_right_press.png) !important;
+}
+
+#lightbox-create-channel p.btns:hover span a {
+	background-image: url(../images/popup_btn_middle_press.png) !important;
+}
+
+/**
+*
+* =lightbox-upload-video
+*
+**/
+
+.lightbox-upload-video {
+    display: none;
+    width: 635px;
+    height: 422px;
+    margin: -211px 0 0 -317px;
+    padding: 0 0 0 11px;
+    background: url(../images/bg_popup_box_left.png) no-repeat 0 0;
+    cursor: default;
+}
+
+.lightbox-upload-video .btn-save               span input,
+.lightbox-upload-video .btn-cancel           span input,
+.lightbox-upload-video .btn-upload-file span input {
+    padding: 0 10px;
+}
+
+.lightbox-upload-video h3 {
+    text-align: center;
+}
+
+.lightbox-upload-video .upload-audio {
+    height: 422px;
+    padding-right: 11px;
+    background: url(../images/bg_popup_box_right.png) no-repeat right 0;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap {
+    position: relative;
+    height: 399px;
+    padding: 23px 5px 0 0;
+    background: url(../images/bg_popup_box_middle.png) repeat-x;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap .btn-close {
+    display: block;
+    position: absolute;
+    top: 7px;
+    right: -3px;
+    width: 22px;
+    height: 24px;
+    background: url(../images/btn_popup_close.png) no-repeat 0 0;
+    text-indent: -100000px;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap .btn-close:hover {
+    background: url(../images/btn_popup_close_on.png) no-repeat 0 0;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap p.required {
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 13px;
+    text-align: right;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form {
+    position: relative;
+    height: 326px;
+    padding: 0 0 0 8px;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput {
+    overflow: auto;
+    margin-bottom: 18px;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput label {
+    float: left;
+    width: 109px;
+    height: 26px;
+    margin-right: 10px;
+    padding: 0 0 0 10px;
+    color: #555;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 26px;
+    text-align: left;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput label acronym {
+    margin-left: -10px;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield {
+    position: relative;
+    overflow: auto;
+    color: #777;
+    font-size: 13px;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield .notice {
+    float: left;
+    margin-top: 15px;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield .highlight {
+	margin: 2px 0 0;
+    color: #f00;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield p.btns {
+    float: left;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield p.text {
+    overflow: hidden;
+    float: left;
+    width: 470px;
+    height: 31px;
+    margin-right: 10px;
+    padding: 0 0 0 3px;
+    background: url(../images/popup_input_box_left.png) no-repeat 0 0;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield p.text span {
+    display: block;
+    padding-right: 3px;
+    background: url(../images/popup_input_box_right.png) no-repeat right 0;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield p.text span .text {
+    width: 465px;
+    height: 32px;
+    padding-left: 2px;
+    border: none;
+    background: url(../images/popup_input_box_middle.png) repeat-x;
+    color: #555;
+    font-family: Arial, Helvetica;
+    font-size: 13px;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield p.img {
+    float: left;
+    width: 129px;
+    height: 82px;
+    margin-right: 10px;
+    background: url(../images/thumbnail_box2_lg.png) no-repeat 0 0;
+    line-height: 82px;
+    text-align: center;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield p.img img {
+    vertical-align: middle;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield .upload-func {
+    position: relative;
+    float: left;
+    height: 80px;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield .upload-func .radio-list {
+    overflow: hidden;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield .upload-func .radio-list .radio {
+    float: left;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield .upload-func .radio-list .radio a {
+    float: left;
+    height: 19px;
+    padding-left: 25px;
+    background: url(../images/btn_radio_off.png) no-repeat 0 0;
+    color: #555;
+    line-height: 18px;
+    text-decoration: none;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield .upload-func .radio-list .radio.on a,
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield .upload-func .radio-list .radio       a:hover {
+    background: url(../images/btn_radio_on.png) no-repeat 0 0;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield .upload-func .radio-list .first {
+    margin-right: 40px;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield .upload-func .upload {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield .upload-func .img-url {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 331px;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield .upload-func .img-url .text {
+    width: 328px;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield .upload-func .upload a {
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .form-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 51px;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .form-btn .notice {
+    color: #f00;
+    font-size: 13px;
+    text-align: right;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .form-btn .form-btn-wrap {
+    float: right;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .form-btn .form-btn-wrap .btns {
+    float: left;
+}
+
+.lightbox-upload-video .upload-audio .upload-audio-wrap form .form-btn .form-btn-wrap .btn-cancel {
+    margin-right: 10px;
+}
+
+/**
+*
+* =lightbox-play-video
+*
+**/
+
+#lightbox-play-video,
+#lightbox-play-audio {
+    display: none;
+	overflow: hidden;
+    width: 707px;
+    height: 490px;
+    margin: -245px 0 0 -354px;
+}
+
+#lightbox-play-video .video-wrap iframe {
+	float: left;
+}
+
+#lightbox-play-audio .video-wrap img {
+	float: left;
+	width: 707px;
+	height: 398px;
+}
+
+/**
+*
+* =overlay-l
+*
+**/
+
+.overlay-l {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+	width: 253px;
+	height: 172px;
+	margin: -86px 0 0 -127px;
+	padding-left: 10px;
+	background: url(../images/bg_popup_box_s_left.png) no-repeat 0 0;
+}
+
+.zh .overlay-l {
+	width: 266px;
+    margin: -86px 0 0 -133px;
+}
+
+.overlay-l .overlay-container {
+	height: 172px;
+	padding-right: 10px;
+	background: url(../images/bg_popup_box_s_right.png) no-repeat right 0;
+}
+
+.overlay-l .overlay-container .overlay-wrap {
+	position: relative;
+	height: 122px;
+	padding: 50px 0 0;
+	background: url(../images/bg_popup_box_s_middle.png) repeat-x;
+}
+
+.overlay-l .overlay-container .overlay-wrap .btn-close {
+	position: absolute;
+	top: 7px;
+	right: -3px;
+	display: block;
+	width: 22px;
+	height: 24px;
+	background: url(../images/btn_popup_close.png) no-repeat 0 0;
+	text-indent: -100000px;
+}
+
+.overlay-l .overlay-container .overlay-wrap .btn-close:hover {
+	background: url(../images/btn_popup_close_press.png) no-repeat 0 0;
+}
+
+.overlay-l .overlay-container .overlay-wrap p.content {
+	padding: 0 8px;
+	color: #555;
+	font-weight: normal;
+	font-size: 13px;
+	text-align: left;
+}
+
+.overlay-l .overlay-container .overlay-wrap p.content span {
+    font-weight: bold;
+}
+
+.zh .overlay-l .overlay-container .overlay-wrap p.content {
+    text-align: center;
+}
+
+.overlay-l .overlay-container .overlay-wrap .overlay-btn {
+	overflow: hidden;
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
+
+.overlay-l .overlay-container .overlay-wrap .overlay-btn .btns {
+	display: inline-block;
+	width: 67px;
+}
+
+.overlay-l .overlay-container .overlay-wrap .overlay-btn .btns:first-child {
+	margin-right: 13px;
+}
+
+/**
+*
+* =draft-notice, =invalid-notice
+*
+**/
+
+#draft-notice,
+#invalid-notice {
+    width: 417px;
+    margin-left: -214px;
+}
+
+#draft-notice .overlay-wrap {
+    height: 127px;
+    padding-top: 45px;
+}
+
+#draft-notice h4 {
+    margin-bottom: 16px;
+    color: #555;
+    font: bold 13px Arial, Helvetica;
+}
+
+#invalid-notice h4 {
+    margin-top: 22px;
+    color: #555;
+    font: bold 13px Arial, Helvetica;
+    text-align: center;
+}
+
+#draft-notice p.content {
+    padding: 0;
+    line-height: 17px;
+    text-align: center;
+}
+
+/**
+*
+* =draft-notice, =invalid-notice
+*
+**/
+
+.setup-notice,
+.zh .setup-notice {
+    width: 427px;
+    height: 271px;
+    margin: -136px 0 0 -219px;
+    background: url(../images/bg_popup_box_m_left.png) no-repeat 0 0;
+}
+
+.setup-notice .overlay-container {
+    height: 271px;
+    background: url(../images/bg_popup_box_m_right.png) no-repeat right 0;
+}
+
+.setup-notice .overlay-container .overlay-wrap {
+    height: 252px;
+    padding: 19px 0 0;
+    background: url(../images/bg_popup_box_m_middle.png) repeat-x;
+}
+
+.setup-notice h4 {
+    text-align: center;
+}
+
+.setup-notice h5 {
+    color: #777;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 17px;
+    text-align: center;
+}
+
+.setup-notice p.fb-connect,
+.setup-notice .reconnect-func {
+    overflow: hidden;
+    width: 185px;
+    margin: 42px auto 0;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 25px;
+    text-align: center;
+}
+
+.setup-notice .reconnect-func {
+    width: 263px;
+}
+
+.setup-notice p.fb-connect span,
+.setup-notice .reconnect-func span {
+    float: left;
+    color: #555;
+}
+
+.setup-notice p.fb-connect img,
+.setup-notice .reconnect-func img {
+    float: left;
+    margin: 6px 12px 0 16px;
+}
+
+.setup-notice .reconnect-func .btn-reconnect {
+    float: left;
+}
+
+.setup-notice .reconnect-func .btn-reconnect a {
+    height: 31px;
+    padding: 0 10px;
+    line-height: 28px;
+}
+
+.setup-notice p.fb-connect a.switch-on,
+.setup-notice p.fb-connect a.switch-off {
+    float: left;
+    width: 63px;
+    height: 24px;
+    margin: 2px 5px 0 0;
+    background: url(../images/setting_btn_control.png) no-repeat 0 0;
+    color: #555;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 26px;
+    text-decoration: none;
+}
+
+.setup-notice p.fb-connect a.switch-on {
+    color: #fff;
+    text-indent: -29px;
+    text-shadow: 0px 0px 10px #fff;
+}
+
+.setup-notice p.fb-connect a.switch-off {
+    background-position: 0 -24px;
+    text-indent: 29px;
+}
+
+.setup-notice .overlay-container .overlay-wrap p.content {
+    padding-left: 16px;
+    line-height: 17px;
+}
+
+.setup-notice .overlay-container .fb-connect p.content,
+.setup-notice .overlay-container .restart-connect p.content {
+    margin-top: 12px;
+}
+
+.setup-notice .overlay-container .restart-connect p.content {
+    text-align: justify;
+}
+
+.setup-notice .overlay-container .restart-connect p.notice {
+    color: #f00;
+}
+
+.zh .setup-notice .overlay-container .fb-connect p.content {
+    text-align: left;
+}
+
+.setup-notice .overlay-container .connect-fail h5 {
+    margin-top: 49px;
+}
+
+.setup-notice .overlay-container .connect-fail p.content {
+    margin-top: 17px;
+}
+
+.setup-notice .overlay-container .channel-connect-fail h5 {
+    margin-top: 64px;
+}
+
+.setup-notice .overlay-container .channel-connect-fail p.content {
+    margin-top: 17px;
+    text-align: center;
+}
+
+.setup-notice .overlay-container .disconnect p.content {
+    margin-top: 62px;
+}
+
+.zh .setup-notice .overlay-container .disconnect p.content,
+.zh .setup-notice .overlay-container .restart-connect p.content {
+    text-align: left;
+}
+
+.setup-notice .overlay-container .disconnect .overlay-btn .btns {
+    width: 91px;
+}
+
+.setup-notice .overlay-container .disconnect-notice h5 {
+    margin-top: 21px;
+}
+
+.setup-notice .overlay-container .disconnect-notice p.content {
+    margin-top: 17px;
+    padding-left: 31px;
+}
+
+.zh .setup-notice .overlay-container .disconnect-notice p.content {
+    padding-left: 66px;
+    text-align: left;
+}
+
+/**
+*
+* =poi-zoom
+*
+**/
+
+#poi-zoom {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 640px;
+    height: 411px;
+    margin: -205px 0 0 -320px;
+}
+
+#poi-zoom .video-wrap {
+    overflow: hidden;
+    width: 640px;
+    height: 360px;
+    margin-bottom: 20px;
+}
+
+#poi-zoom .btn-close {
+    width: 220px;
+    margin: 0 auto;
+}
+
+#poi-zoom .btn-close a {
+    position: relative;
+}
+
+#poi-zoom .btn-close a img {
+    position: absolute;
+    top: -12px;
+    left: 5px;
+    border: none;
+    clip: rect(17px, 16px, 35px, 0);
+}

@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html class="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<link rel="stylesheet" href="stylesheets/style.css" />
+<link rel="stylesheet" href="stylesheets/lightbox.css" />
+<link rel="stylesheet" href="stylesheets/uniform.css" />
+<link rel="stylesheet" href="stylesheets/playback.css" />
+<link rel="stylesheet" href="stylesheets/epcurate.css" />
+<link rel="stylesheet" href="stylesheets/ep-curation.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
+<script src="javascripts/nn-sdk.js"></script>
+<script src="javascripts/jquery.mousewheel.min.js"></script>
+<script src="javascripts/jquery.ellipsis.js"></script>
+<script src="javascripts/jquery.blockUI.js"></script>
+<script src="javascripts/jquery.toggleval.min.js"></script>
+<script src="javascripts/jquery.uniform.min.js"></script>
+<script src="javascripts/jquery.swfobject.min.js"></script>
+<script src="javascripts/jquery.titlecard.js"></script>
+<script src="javascripts/jquery.tmpl.min.js"></script>
+<script src="javascripts/jquery.cookie.js"></script>
+<script src="javascripts/jquery.countdown.min.js"></script>
+<script src="javascripts/jquery.autotab.min.js"></script>
+<script src="javascripts/jquery.cycle.all.js"></script>
+<script src="javascripts/json2.js"></script>
+<script src="javascripts/purl.js"></script>
+<script src="javascripts/swfupload/swfupload.js"></script>
+<script src="javascripts/horizontal-slider.js"></script>
+<script src="javascripts/config.js"></script>
+<script src="javascripts/basic.js"></script>
+<script src="javascripts/curation.js"></script>
+<title>9x9.tv - Episode Curation - Curation</title>
+</head>
+<body>
+
+<!--============================== header start ==============================-->
+<div id="header" class="hide">
+  <p id="logo"></p>
+  <ul id="nav">
+    <li id="home"><span><a href="/#!home">Home</a></span></li>
+    <li id="guide"><span><a href="/#!guide">Guide</a></span></li>
+    <li id="browse"><span><a href="/#!directory">Browse</a></span></li>
+    <li id="profile">
+      <p id="btn-profile"></p>
+      <p id="selected-profile">Guest</p>
+      <ul id="profile-dropdown" class="dropdown">
+        <li><a id="profile-mypage" href="/#!curator=profileUrl">My page</a></li>
+        <li><a href="./">Studio</a></li>
+        <li id="profile-settings"><a href="/#!settings">Settings</a></li>
+        <li><a id="profile-logout" href="/api/login">Log out</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<!--============================== header close ==============================-->
+
+<div id="epcurate-nav">
+<div class="epcurate-nav-wrap">
+<h3><a href="episode-list.html" id="epcurate-nav-back" class="btn-back">Back<span class="tip"><img src="images/bg_tip_top.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle langkey">Leave</span></span></span></span></a><a href="javascript:void(0);" class="langkey">Episode Curation</a></h3>
+<ul>
+<li class="curation on"><a href="epcurate-curation.html" id="epcurate-nav-curation"><span class="nav-right"><span class="nav-middle langkey">Curation</span></span></a></li>
+<li class="publish off"><a href="epcurate-publish.html" id="epcurate-nav-publish"><span class="nav-right"><span class="nav-middle langkey">Publish</span></span></a></li>
+</ul>
+</div>
+</div>
+
+<!--============================== content-wrap start ========================-->
+<div id="content-wrap" class="epcurate-curation hidden">
+<form name="epcurateForm" id="epcurateForm" method="get" action="" class="clearfix curation">
+<input type="hidden" name="name" id="name" value="" />
+<input type="hidden" name="intro" id="intro" value="" />
+<input type="hidden" name="id" id="id" value="" />
+<input type="hidden" name="channelId" id="channelId" value="" />
+<div id="content-main">
+<div id="content-main-wrap" class="curation">
+<div class="constrain">
+
+<div id="epcurate-curation" class="clearfix">
+<ul class="tabs">
+<li class="first last on"><span><a href="#cur-add" class="cur-add langkey">Add Video</a></span></li>
+<li class="edit-video hide on"><span><a href="#cur-edit" class="cur-edit langkey">Edit</a></span></li>
+<li class="poi last hide"><span><a href="#cur-poi" class="cur-poi langkey">POI &amp; interactive event</a></span></li>
+<li class="edit-poi on last hide"><span><a href="#cur-edit-poi" class="cur-edit-poi langkey"><img src="images/icon_edit.png" alt="" width="16" height="16" /></a></span></li>
+</ul>
+<div class="curation-content clearfix">
+<p class="auto-height"></p>
+<div id="video-player" data-width="400" data-height="269">
+<div class="video">
+<!-- template = #titlecard-tmpl -->
+</div>
+<div id="video-control">
+<p id="play-dragger"></p>
+<div id="progress-bar">
+<p id="loaded"></p>
+<p id="played"></p>
+</div>
+<ul>
+<li id="btn-play"></li>
+<li id="btn-pause" class="hide"></li>
+<li id="play-time" class="last"><span class="played">00:00</span>/<span class="duration">00:07</span></li>
+</ul>
+</div>
+</div>
+<div id="cur-add" class="tab-content clearfix">
+<p class="langkey">Add video by URL</p>
+<p class="textarea"><span><textarea name="videourl" id="videourl" cols="80" class="textarea">Paste YouTube video URLs to add (separate with different lines)</textarea></span></p>
+<p class="notice hide">You have reached the maximum amount of 50 videos.</p>
+<div class="func">
+<p class="btns btn-add"><span><a href="#" id="btn-add-videourl" class="langkey">Add</a></span></p>
+</div>
+</div>
+<div id="cur-edit" class="tab-content clearfix hide">
+<div id="video-info" class="edit-time hide">
+<!-- template = #video-info-tmpl -->
+</div>
+<div class="edit-title hide disable">
+<!-- template = #titlecard-edit-tmpl -->
+</div>
+</div>
+
+<div id="cur-poi" class="tab-content clearfix hide">
+<h3 class="ellipsis multiline"><span class="title">Bruno Mars - "The lazy song" MV</span></h3>
+<p>00:00:10 - 00:02:14 (Original <span class="duration">03:12:59</span>) | From <a href="#" target="_blank">YouTube.com</a> | 
+By <a href="#" class="uploader" target="_blank">BrunoMars</a> on <span class="uploaded">2007-06-01</span></p>
+<div class="add clearfix">
+<h3>Add POI & interactive event</h3>
+<a class="add-notice" href="javascript:void(0);"><img src="images/icon_question.png" alt="" /><span class="tip"><img src="images/bg_tip_top.png" alt="" /><span class="tip-right"><span class="tip-middle">Add an interactive event and call to action message at a point of interaction.</span></span></span></a>
+<p class="btns btn-add-poi"><span><a href="#">+ Add</a></span></p>
+</div>
+
+<div class="poi-list">
+<h3>Edit POI & interactive event</h3>
+<div class="poi-list-wrap">
+<a href="#" class="prev">prev</a>
+<a href="#" class="next">next</a>
+<ul data-item="5">
+<li>
+<ol>
+<li><p>01Hyper GossipTW</p><a href="#" class="edit"><span></span>Edit</a></li>
+<li><p>02Hyper H&M Sales Hyper H&M Sales Hyper H&M Sales Hyper H&M Sales Hyper H&M Sales Hyper H&M Sales</p><a href="#" class="edit"><span></span>Edit</a></li>
+<li><p>03Hyper 2012 Fashion Sales All-in-one</p><a href="#" class="edit"><span></span>Edit</a></li>
+<li><p>04[News]130109冬日進補-女性</p><a href="#" class="edit"><span></span>Edit</a></li>
+<li><p>05[News]130109冬日進補-男性</p><a href="#" class="edit"><span></span>Edit</a></li>
+<li><p>05Hyper GossipTW</p><a href="#" class="edit"><span></span>Edit</a></li>
+<li><p>05Hyper H&M Sales Hyper H&M Sales Hyper H&M Sales Hyper H&M Sales Hyper H&M Sales Hyper H&M Sales</p><a href="#" class="edit"><span></span>Edit</a></li>
+<li><p>05Hyper 2012 Fashion Sales All-in-one</p><a href="#" class="edit"><span></span>Edit</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><p>06Hyper GossipTW</p><a href="#" class="edit"><span></span>Edit</a></li>
+<li><p>07Hyper H&M Sales Hyper H&M Sales Hyper H&M Sales Hyper H&M Sales Hyper H&M Sales Hyper H&M Sales</p><a href="#" class="edit"><span></span>Edit</a></li>
+<li><p>08Hyper 2012 Fashion Sales All-in-one</p><a href="#" class="edit"><span></span>Edit</a></li>
+<li><p>09[News]130109冬日進補-女性</p><a href="#" class="edit"><span></span>Edit</a></li>
+<li><p>10[News]130109冬日進補-男性</p><a href="#" class="edit"><span></span>Edit</a></li>
+<li><p>10Hyper 2012 Fashion Sales All-in-one</p><a href="#" class="edit"><span></span>Edit</a></li>
+<li><p>10[News]130109冬日進補-女性</p><a href="#" class="edit"><span></span>Edit</a></li>
+<li><p>10[News]130109冬日進補-男性</p><a href="#" class="edit"><span></span>Edit</a></li>
+</ol>
+</li>
+<li>
+<ol>
+<li><p>11Hyper GossipTW</p><a href="#" class="edit"><span></span>Edit</a></li>
+<li><p>12Hyper H&M Sales Hyper H&M Sales Hyper H&M Sales Hyper H&M Sales Hyper H&M Sales Hyper H&M Sales</p><a href="#" class="edit"><span></span>Edit</a></li>
+<li><p>13Hyper 2012 Fashion Sales All-in-one</p><a href="#" class="edit"><span></span>Edit</a></li>
+<li><p>14[News]130109冬日進補-女性</p><a href="#" class="edit"><span></span>Edit</a></li>
+</ol>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="cur-poi-edit" class="tab-content clearfix hide">
+<div class="content">
+<h3>Add POI & interactive event</h3>
+<h3 class="edit">Edit POI & interactive event ><span> [Hyper]Gossip TW</span></h3>
+<ul>
+<li class="active"><a href="#poi-edit">Create POI</a></li>
+<li class="last"><a href="#event-edit">Add interactive event</a></li>
+</ul>
+<ul class="edit">
+<li class="active"><a href="#poi-edit">POI</a></li>
+<li class="last"><a href="#event-edit">Interactive event</a></li>
+</ul>
+<p class="required"><acronym title="Required field" class="mark-required">*</acronym>Required field</p>
+
+<div id="poi-edit" class="edit-form">
+<div class="fminput clearfix">
+<label for="poiName"><acronym title="Required field" class="mark-required">*</acronym>Name</label>
+<div class="fmfield">
+<p class="text"><span><input type="text" name="poiName" id="poiName" value="" class="text" /></span></p>
+</div>
+</div>
+<div class="fminput clearfix">
+<label for="name"><acronym title="Required field" class="mark-required">*</acronym>Duration</label>
+<div class="fmfield duration">
+<div class="start-time">
+<span>Start from:</span>
+<p class="time"><input type="text" name="poiStartH" id="poiStartH" maxlength="2" value="00" class="time time-h" /> :</p>
+<p class="time"><input type="text" name="poiStartM" id="poiStartM" maxlength="2" value="00" class="time time-m" /> :</p>
+<p class="time"><input type="text" name="poiStartS" id="poiStartS" maxlength="2" value="00" class="time time-s" /></p>
+</div>
+<div class="end-time">
+<span>To:</span>
+<p class="time"><input type="text" name="poiEndH" id="poiEndH" maxlength="2" value="00" class="time time-h" /> :</p>
+<p class="time"><input type="text" name="poiEndM" id="poiEndM" maxlength="2" value="00" class="time time-m" /> :</p>
+<p class="time"><input type="text" name="poiEndS" id="poiEndS" maxlength="2" value="00" class="time time-s" /></p>
+</div>
+<p class="btns btn-reset"><span><a href="#">Reset</a></span></p>
+<p class="notice invalid-notice hide">Invalid time, please try again.</p>
+<p class="notice playback-notice hide">
+Start time or end time is not in the video playback time:<br />
+<span id="video-name">Bruno Mars - "The Lazy Song" MV is very very very very very very ???</span><span class="time">(00:00:15 to 00:02:59)</span>
+</p>
+<p class="notice overlap-notice hide">
+Duration overlaps another POI's duration:<br />
+<span id="poi-name">[Hyper]POINamePOINamePOINamePOINamePOINamePOINamePOIName</span><span class="time">(00:00:12 to 00:01:38)</span>
+</p>
+</div>
+</div>
+<div class="fminput clearfix">
+<label for="name">Tags</label>
+<div class="fmfield">
+<p class="text"><span><input type="text" name="tags" id="tags" value="" class="text" /></span></p>
+<p class="tag-notice">Separate with commas</p>
+</div>
+</div>
+
+<div class="btn-container">
+<p class="notice hide">Please fill in all required fields.</p>
+<p class="btn-del"><a href="#">Del</a></p>
+<p class="btns btn-cancel"><span><a href="#">Cancel</a></span></p>
+<p class="btns btn-next"><span><a href="#">Next</a></span></p>
+<p class="btns btn-save"><span><a href="#">Save</a></span></p>
+</div>
+</div>
+
+<div id="event-edit" class="edit-form hide">
+<div class="fminput clearfix">
+<label for="name">Type</label>
+<div class="fmfield">
+<p class="type">Hyper channel<a class="event-notice" href="javascript:void(0);"><img src="images/icon_question.png" alt="" /><span class="tip"><img src="images/bg_tip_top.png" alt="" /><span class="tip-right"><span class="tip-middle">User can go to watch another 9x9.tv channel or episode.</span></span></span></a></p>
+</div>
+</div>
+<div class="fminput clearfix">
+<label for="displayText"><acronym title="Required field" class="mark-required">*</acronym>Display text</label>
+<div class="fmfield">
+<p class="text"><span><input type="text" name="displayText" id="displayText" value="Hyper to related channel to watch more!" class="text" /></span></p>
+</div>
+</div>
+<div class="fminput clearfix">
+<label for="btnText"><acronym title="Required field" class="mark-required">*</acronym>Button text</label>
+<div class="fmfield">
+<p class="text"><span><input type="text" name="btnText" id="btnText" value="Watch now" class="text" /></span></p>
+</div>
+</div>
+<div class="fminput clearfix">
+<label for="channelUrl"><acronym title="Required field" class="mark-required">*</acronym>Hyper channel URL</label>
+<div class="fmfield">
+<p class="text"><span><input type="text" name="channelUrl" id="channelUrl" value="Input 9x9 channel or episode URL" class="text" /></span></p>
+</div>
+</div>
+
+<div class="btn-container">
+<p class="notice hide">Please fill in all required fields.</p>
+<p class="btn-del"><a href="#">Del</a></p>
+<p class="btns btn-cancel"><span><a href="#">Cancel</a></span></p>
+<p class="btns btn-add"><span><a href="#">Add</a></span></p>
+<p class="btns btn-save"><span><a href="#">Save</a></span></p>
+</div>
+</div>
+</div>
+</div>
+<p class="auto-height clear"></p>
+</div>
+</div>
+
+<div id="storyboard">
+<div class="storyboard-info">
+<p class="episode-storyboard">Episode storyboard (<em id="storyboard-length">50</em> videos left)<span>Duration <em id="storyboard-duration">00:00:00</em></span></p>
+<div class="channel-name"><p class="title">Channel:</p><p id="channel-name" data-meta="<Kuso>CH test 'en' 很長很長的頻道名稱很長很長的頻道名稱很長很長的頻道名稱很長很長的頻道名稱很長很長的頻道名稱很長很長的頻道名稱很長很長的頻道名稱"><Kuso>CH test "en" 很長很長的頻道名稱很長很長的頻道名稱很長很長的頻道名稱很長很長的頻道名稱很長很長的頻道名稱很長很長的頻道名稱很長很長的頻道名稱</p></div>
+<div class="episode-name"><p class="title">Episode:</p><p id="episode-name" data-meta="<Kuso>EP name test 'en'，所有錯誤tooltip我都有，很長很長的節目名稱很長很長的節目名稱很長很長的節目名稱很長很長的節目名稱很長很長的節目名稱很長很長的節目名稱很長很長"><Kuso>EP name test "en"，所有錯誤tooltip我都有，很長很長的節目名稱很長很長的節目名稱很長很長的節目名稱很長很長的節目名稱很長很長的節目名稱很長很長的節目名稱很長很長</p></div>
+</div>
+<div id="storyboard-wrap" class="storyboard-list">
+<div id="storyboard-list">
+<p class="notice langkey">+ Add videos here</p>
+<ul id="storyboard-listing">
+<!-- template = #storyboard-listing-tmpl-item -->
+<li data-ytid="qh5982Xa9yA" data-ytduration="20" data-starttime="0" data-endtime="20">
+<p class="img">
+<img src="http://i.ytimg.com/vi/qh5982Xa9yA/default.jpg" alt="" width="80" height="45" />
+<span class="time"><span class="time-right"><span class="time-middle">00:20</span></span></span>
+</p>
+<h4 class="ellipsis multiline">60 Hours of Animation in 20 seconds.</h4>
+<p class="title"></p>
+<p class="hover-func">
+<a href="#" class="video-del">Video Del</a>
+<a href="#" class="video-play">Video Play</a>
+<a href="#" class="begin-title">Edit<span class="tip"><span class="tip-left"><span class="tip-right"><span class="tip-middle">Add Title</span></span></span></span></a>
+<a href="#" class="end-title">Edit<span class="tip"><span class="tip-left"><span class="tip-right"><span class="tip-middle">Add Title</span></span></span></span></a>
+</p>
+</li>
+<li data-ytid="PH1BAcVJ3IY" data-ytduration="31" data-starttime="0" data-endtime="31">
+<p class="img">
+<img src="http://i.ytimg.com/vi/PH1BAcVJ3IY/default.jpg" alt="" width="80" height="45" />
+<span class="time"><span class="time-right"><span class="time-middle">00:31</span></span></span>
+</p>
+<h4 class="ellipsis multiline">十秒讓益世告訴你錢太多要怎麼花 (蔡阿嘎10秒影展11部曲)</h4>
+<p class="title">
+<a href="#" class="begin-title">Edit<span class="tip"><span class="tip-left"><span class="tip-right"><span class="tip-middle">Edit Title</span></span></span></span></a>
+<a href="#" class="end-title">Edit<span class="tip"><span class="tip-left"><span class="tip-right"><span class="tip-middle">Edit Title</span></span></span></span></a>
+</p>
+<p class="hover-func">
+<a href="#" class="video-del">Video Del</a>
+<a href="#" class="video-play">Video Play</a>
+</p>
+</li>
+<li data-ytid="" data-ytduration="0" data-starttime="0" data-endtime="0" class="invalid">
+<p class="img">
+<img src="images/thumbnail_box_empty.png" alt="" width="80" height="45" />
+<span class="time"><span class="time-right"><span class="time-middle">00:31</span></span></span>
+</p>
+<h4>[Invalid Video]</h4>
+<p class="title">
+<a href="#" class="begin-title">Edit<span class="tip"><span class="tip-left"><span class="tip-right"><span class="tip-middle">Edit Title</span></span></span></span></a>
+</p>
+<p class="hover-func">
+<a href="#" class="video-del">Video Del</a>
+<a href="#" class="end-title">Edit<span class="tip"><span class="tip-left"><span class="tip-right"><span class="tip-middle">Add Title</span></span></span></span></a>
+</p>
+</li>
+<li data-ytid="nCgQDjiotG0" data-ytduration="130" data-starttime="20" data-endtime="30">
+<a href="#" class="warning2"><span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Not playable in some regions & on mobile device</span></span></span></span></a>
+<p class="img">
+<img src="http://i.ytimg.com/vi/nCgQDjiotG0/default.jpg" alt="" width="80" height="45" />
+<span class="time"><span class="time-right"><span class="time-middle">02:10</span></span></span>
+</p>
+<h4 class="ellipsis multiline">Google Chrome Speed Tests</h4>
+<p class="title">
+<a href="#" class="begin-title">Edit<span class="tip"><span class="tip-left"><span class="tip-right"><span class="tip-middle">Edit Title</span></span></span></span></a>
+</p>
+<p class="hover-func">
+<a href="#" class="video-del">Video Del</a>
+<a href="#" class="video-play">Video Play</a>
+<a href="#" class="end-title">Edit<span class="tip"><span class="tip-left"><span class="tip-right"><span class="tip-middle">Add Title</span></span></span></span></a>
+</p>
+</li>
+<li data-ytid="4G60hM1W_mk" data-ytduration="312" data-starttime="0" data-endtime="10">
+<p class="img">
+<img src="http://i.ytimg.com/vi/4G60hM1W_mk/default.jpg" alt="" width="80" height="45" />
+<span class="time"><span class="time-right"><span class="time-middle">05:12</span></span></span>
+</p>
+<h4 class="ellipsis multiline">Hearing Test</h4>
+<p class="title">
+<a href="#" class="end-title">Edit<span class="tip"><span class="tip-left"><span class="tip-right"><span class="tip-middle">Edit Title</span></span></span></span></a>
+</p>
+<p class="hover-func">
+<a href="#" class="video-del">Video Del</a>
+<a href="#" class="video-play">Video Play</a>
+<a href="#" class="begin-title">Edit<span class="tip"><span class="tip-left"><span class="tip-right"><span class="tip-middle">Add Title</span></span></span></span></a>
+</p>
+</li>
+<li data-ytid="vJG698U2Mvo" data-ytduration="82" data-starttime="70" data-endtime="82">
+<a href="#" class="error"><span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Not playable outside YouTube</span></span></span></span></a>
+<p class="img">
+<img src="http://i.ytimg.com/vi/vJG698U2Mvo/default.jpg" alt="" width="80" height="45" />
+<span class="time"><span class="time-right"><span class="time-middle">01:22</span></span></span>
+</p>
+<h4 class="ellipsis multiline">selective attention test</h4>
+<p class="title"></p>
+<p class="hover-func">
+<a href="#" class="video-del">Video Del</a>
+<a href="#" class="video-play">Video Play</a>
+<a href="#" class="begin-title">Edit<span class="tip"><span class="tip-left"><span class="tip-right"><span class="tip-middle">Add Title</span></span></span></span></a>
+<a href="#" class="end-title">Edit<span class="tip"><span class="tip-left"><span class="tip-right"><span class="tip-middle">Add Title</span></span></span></span></a>
+</p>
+</li>
+<li data-ytid="CWyrp3hu4KE" data-ytduration="116" data-starttime="30" data-endtime="40">
+<p class="img">
+<img src="http://i.ytimg.com/vi/CWyrp3hu4KE/default.jpg" alt="" width="80" height="45" />
+<span class="time"><span class="time-right"><span class="time-middle">01:56</span></span></span>
+</p>
+<h4 class="ellipsis multiline">Color Blindness test - Real !</h4>
+<p class="title"></p>
+<p class="hover-func">
+<a href="#" class="video-del">Video Del</a>
+<a href="#" class="video-play">Video Play</a>
+<a href="#" class="begin-title">Edit<span class="tip"><span class="tip-left"><span class="tip-right"><span class="tip-middle">Add Title</span></span></span></span></a>
+<a href="#" class="end-title">Edit<span class="tip"><span class="tip-left"><span class="tip-right"><span class="tip-middle">Add Title</span></span></span></span></a>
+</p>
+</li>
+<li data-ytid="0vu23EbuBVI" data-ytduration="2650" data-starttime="100" data-endtime="110">
+<p class="img">
+<img src="http://i.ytimg.com/vi/0vu23EbuBVI/default.jpg" alt="" width="80" height="45" />
+<span class="time"><span class="time-right"><span class="time-middle">44:10</span></span></span>
+</p>
+<h4 class="ellipsis multiline">Physics / 100 Greatest Discoveries - Documentary [Full Length]</h4>
+<p class="title"></p>
+<p class="hover-func">
+<a href="#" class="video-del">Video Del</a>
+<a href="#" class="video-play">Video Play</a>
+<a href="#" class="begin-title">Edit<span class="tip"><span class="tip-left"><span class="tip-right"><span class="tip-middle">Add Title</span></span></span></span></a>
+<a href="#" class="end-title">Edit<span class="tip"><span class="tip-left"><span class="tip-right"><span class="tip-middle">Add Title</span></span></span></span></a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+<p class="auto-height"></p>
+<div id="storyboard-slider"><div class="slider-h"></div></div>
+<p class="auto-height"></p>
+</div>
+
+<div class="form-btn">
+<div class="wrap">
+<p class="btns btn-leave"><span class="btn-right"><span class="btn-middle"><input type="button" id="form-btn-leave" value="Leave" class="langkey-val" /></span></span></p>
+<p class="btns btn-save"><span class="btn-right"><span class="btn-middle"><input type="button" id="form-btn-save" value="Save" class="langkey-val" /></span></span></p>
+<p class="next"><a href="epcurate-publish.html" id="form-btn-next" rel="publish" class="langkey">Next to Publish &gt;</a></p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</form>
+</div>
+<!--============================== content-wrap close ========================-->
+
+<script id="titlecard-tmpl" type="text/x-jquery-tmpl">
+<div id="titlecard-outer" class="titlecard-outer" style="display: block; position: relative; overflow: hidden; z-index: 50; width: auto; height: ${$item.outerHeight}px; background-color: ${bgColor};">
+<div class="titlecard-middle" style="display: block; position: absolute; width: 100%; height: 100%;">
+<div id="titlecard-inner" class="titlecard-inner" style="display: block; position: absolute; width: 98%; height: auto; text-align: ${align}; font-size: ${$item.fontSize}pt; color: ${color}; font-style: ${style}; font-weight: ${weight};">
+{{html $item.message}}
+</div>
+</div>
+{{if ('' != bgImage && '' == bgColor) || ('' != bgImage && '' != bgColor && CMS_CONF.TITLECARD_DEFAULT_IMAGE_BY_SYSTEM != bgImage)}}
+<img src="${bgImage}" style="width: 100%; height: 100%; border: none;" />
+{{/if}}
+</div>
+</script>
+
+<script id="video-info-tmpl" type="text/x-jquery-tmpl">
+<h3 class="ellipsis multiline"><span class="title">${name}</span></h3>
+<p>${$item.startH}:${$item.startM}:${$item.startS} - ${$item.endH}:${$item.endM}:${$item.endS} 
+(Original <span class="duration">${formatDuration(ytDuration)}</span>) | From <a href="${fileUrl}" target="_blank">YouTube.com</a> | 
+By <a href="http://www.youtube.com/user/${uploader}" class="uploader" target="_blank">${uploader}</a> on <span class="uploaded">${$item.uploadDateConverter(uploadDate)}</span></p>
+<p class="desc ellipsis multiline">${intro}</p>
+<div class="set-time" data-origin-duration="${ytDuration}">
+<h4>Playback time</h4>
+<div class="time-wrap">
+<div class="start-time">
+<span>Start from:</span>
+<p class="time disable" data-time="${$item.startH}"><input type="text" name="startH" id="startH" maxlength="2" value="${$item.startH}" class="time time-h" disabled="disabled" /> :</p>
+<p class="time disable" data-time="${$item.startM}"><input type="text" name="startM" id="startM" maxlength="2" value="${$item.startM}" class="time time-m" disabled="disabled" /> :</p>
+<p class="time disable" data-time="${$item.startS}"><input type="text" name="startS" id="startS" maxlength="2" value="${$item.startS}" class="time time-s" disabled="disabled" /></p>
+</div>
+<div class="end-time">
+<span>To:</span>
+<p class="time disable" data-time="${$item.endH}"><input type="text" name="endH" id="endH" maxlength="2" value="${$item.endH}" class="time time-h" disabled="disabled" /> :</p>
+<p class="time disable" data-time="${$item.endM}"><input type="text" name="endM" id="endM" maxlength="2" value="${$item.endM}" class="time time-m" disabled="disabled" /> :</p>
+<p class="time disable" data-time="${$item.endS}"><input type="text" name="endS" id="endS" maxlength="2" value="${$item.endS}" class="time time-s" disabled="disabled" /></p>
+</div>
+<div class="total-time">
+<span>Duration:</span>
+<p class="time disable"><input type="text" name="totalH" id="totalH" maxlength="2" value="${$item.totalH}" class="time time-h" disabled="disabled" /> :</p>
+<p class="time disable"><input type="text" name="totalM" id="totalM" maxlength="2" value="${$item.totalM}" class="time time-m" disabled="disabled" /> :</p>
+<p class="time disable"><input type="text" name="totalS" id="totalS" maxlength="2" value="${$item.totalS}" class="time time-s" disabled="disabled" /></p>
+</div>
+</div>
+<div class="btn-wrap">
+<p class="notice">Invalid time, please try again.</p>
+<div class="buttons">
+<p class="btns btn-edit"><span><a href="#">Edit</a></span></p>
+<p class="btns btn-cancel hide"><span><a href="#">Cancel</a></span></p>
+<p class="btns btn-done hide"><span><a href="#">Done</a></span></p>
+</div>
+</div>
+</div>
+{{if isEmbedLimited || isZoneLimited || isMobileLimited}}
+<ul class="play-notice">
+{{if isEmbedLimited}}
+<li class="outside">Not playable outside Youtube</li>
+{{else}}
+{{if isZoneLimited}}
+<li class="region">Not playable in some regions</li>
+{{/if}}
+{{if isMobileLimited}}
+<li class="device">Not playable on mobile device</li>
+{{/if}}
+{{/if}}
+</ul>
+{{/if}}
+</script>
+
+<script id="titlecard-edit-tmpl" type="text/x-jquery-tmpl">
+<div class="wrap">
+<div class="text-container">
+<h5>Text</h5>
+<p class="textarea"><span><span><textarea name="text" id="text" cols="80" class="textarea">{{if '' == message}}My video{{else}}${message}{{/if}}</textarea></span></span></p>
+</div>
+
+<div class="font-container">
+<h5>Font</h5>
+<div class="text-func clearfix">
+<div class="func-wrap clearfix">
+<ul>
+<li class="font-weight"><input type="checkbox" name="fontWeight" value="bold" id="fontWeight"{{if weight == 'bold'}} checked="checked"{{/if}} />Bold<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Bold</span></span></span></span></li>
+<li class="font-style"><input type="checkbox" name="fontStyle" value="italic" id="fontStyle"{{if style == 'italic'}} checked="checked"{{/if}} />Italics<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Italics</span></span></span></span></li>
+{{if '' == color}}
+<li><a href="#" class="font-color">Font color<span class="color c-fff"></span>
+{{else}}
+<li><a href="#" class="font-color">Font color<span{{if CMS_CONF.COLOR_MAP[color]}} class="color ${CMS_CONF.COLOR_MAP[color]}"{{/if}}></span>
+{{/if}}
+<ul class="color-list">
+<li class="c-fff" data-meta="#ffffff">#ffffff</li>
+<li class="c-eee" data-meta="#eeeeee">#eeeeee</li>
+<li class="c-bbb" data-meta="#bbbbbb">#bbbbbb</li>
+<li class="c-777" data-meta="#777777">#777777</li>
+<li class="c-333" data-meta="#333333">#333333</li>
+<li class="c-000" data-meta="#000000">#000000</li>
+<li class="c-f00" data-meta="#ff0000">#ff0000</li>
+<li class="c-f60" data-meta="#ff6600">#ff6600</li>
+<li class="c-ff0" data-meta="#ffff00">#ffff00</li>
+<li class="c-090" data-meta="#009900">#009900</li>
+<li class="c-03f" data-meta="#0033ff">#0033ff</li>
+<li class="c-60f" data-meta="#6600ff">#6600ff</li>
+</ul>
+<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Font color</span></span></span></span>
+</a>
+{{if '' == color}}
+<input type="hidden" name="fontColor" id="fontColor" value="#ffffff" />
+{{else}}
+<input type="hidden" name="fontColor" id="fontColor" value="${color}" />
+{{/if}}
+{{if '' == size}}
+<input type="hidden" name="fontSize" id="fontSize" value="20" />
+{{else}}
+<input type="hidden" name="fontSize" id="fontSize" value="${size}" />
+{{/if}}
+</li>
+<li><a href="#" class="font-l">Font size +<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Font size +</span></span></span></span></a></li>
+<li><a href="#" class="font-s">Font size -<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Font size -</span></span></span></span></a></li>
+<li class="align-left"><input type="radio" name="align" value="left" id="align_left"{{if align == 'left'}} checked="checked"{{/if}} />Align left<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Align left</span></span></span></span></li>
+<li class="align-center"><input type="radio" name="align" value="center" id="align_center"{{if align == '' || align == 'center'}} checked="checked"{{/if}} />Align center<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Align center</span></span></span></span></li>
+<li class="align-right"><input type="radio" name="align" value="right" id="align_right"{{if align == 'right'}} checked="checked"{{/if}} />Align right<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Align right</span></span></span></span></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="effect-container">
+<h5>Effect</h5>
+<p class="effect-demo"><span><em>9x9.tv</em></span></p>
+<div class="select">
+<p class="select-btn"></p>
+{{if '' == effect}}
+<div class="select-txt"><a href="#">None</a></div>
+{{else}}
+<div class="select-txt"><a href="#">${CMS_CONF.EFFECT_MAP[effect]}</a></div>
+{{/if}}
+<ul class="select-list">
+<li data-meta="none">None</li>
+<li data-meta="fade">Fade</li>
+<li data-meta="blind">Blind</li>
+<li data-meta="clip">Clip</li>
+<li data-meta="drop">Drop</li>
+</ul>
+{{if '' == effect}}
+<input type="hidden" name="effect" id="effect" value="none" />
+{{else}}
+<input type="hidden" name="effect" id="effect" value="${effect}" />
+{{/if}}
+</div>
+</div>
+</div>
+
+<div class="wrap last">
+<div class="background-container">
+<h5>Background</h5>
+<p class="radio-list">
+{{if ('' != bgImage && '' == bgColor) || ('' != bgImage && '' != bgColor && CMS_CONF.TITLECARD_DEFAULT_IMAGE_BY_SYSTEM != bgImage)}}
+<label for="bg_color" class="first"><input type="radio" name="bg" value="color" id="bg_color" />Color</label>
+<label for="bg_image"><input type="radio" name="bg" value="image" id="bg_image" checked="checked" />Image</label>
+{{else}}
+<label for="bg_color" class="first"><input type="radio" name="bg" value="color" id="bg_color" checked="checked" />Color</label>
+<label for="bg_image"><input type="radio" name="bg" value="image" id="bg_image" />Image</label>
+{{/if}}
+</p>
+{{if ('' != bgImage && '' == bgColor) || ('' != bgImage && '' != bgColor && CMS_CONF.TITLECARD_DEFAULT_IMAGE_BY_SYSTEM != bgImage)}}
+<div class="bg-color hide">
+{{else}}
+<div class="bg-color">
+{{/if}}
+{{if '' == bgColor}}
+<a href="#">Background color<span class="c-000"></span>
+{{else}}
+<a href="#">Background color<span{{if CMS_CONF.COLOR_MAP[bgColor]}} class="${CMS_CONF.COLOR_MAP[bgColor]}"{{/if}}></span>
+{{/if}}
+<ul class="color-list">
+<li class="c-fff" data-meta="#ffffff">#ffffff</li>
+<li class="c-eee" data-meta="#eeeeee">#eeeeee</li>
+<li class="c-bbb" data-meta="#bbbbbb">#bbbbbb</li>
+<li class="c-777" data-meta="#777777">#777777</li>
+<li class="c-333" data-meta="#333333">#333333</li>
+<li class="c-000" data-meta="#000000">#000000</li>
+<li class="c-f00" data-meta="#ff0000">#ff0000</li>
+<li class="c-f60" data-meta="#ff6600">#ff6600</li>
+<li class="c-ff0" data-meta="#ffff00">#ffff00</li>
+<li class="c-090" data-meta="#009900">#009900</li>
+<li class="c-03f" data-meta="#0033ff">#0033ff</li>
+<li class="c-60f" data-meta="#6600ff">#6600ff</li>
+</ul>
+</a>
+{{if '' == bgColor}}
+<input type="hidden" name="backgroundColor" id="backgroundColor" value="#000000" />
+{{else}}
+<input type="hidden" name="backgroundColor" id="backgroundColor" value="${bgColor}" />
+{{/if}}
+</div>
+{{if ('' != bgImage && '' == bgColor) || ('' != bgImage && '' != bgColor && CMS_CONF.TITLECARD_DEFAULT_IMAGE_BY_SYSTEM != bgImage)}}
+<div class="bg-img">
+{{else}}
+<div class="bg-img hide">
+{{/if}}
+<p class="img">
+{{if ('' != bgImage && '' == bgColor) || ('' != bgImage && '' != bgColor && CMS_CONF.TITLECARD_DEFAULT_IMAGE_BY_SYSTEM != bgImage)}}
+<img id="thumbnail-backgroundImage" src="${bgImage}" alt="" width="95" height="59" class="thumbnail" />
+{{else}}
+<img id="thumbnail-backgroundImage" src="images/black_box.png" alt="" width="95" height="59" class="thumbnail" />
+{{/if}}
+<img src="images/black_box_loading.gif" alt="" class="loading" />
+</p>
+<p id="uploadThumbnail">Upload</p>
+<p class="notice">Better results with 720x405 image.</p>
+<p class="notice highlight hide">Please upload jpeg, png, or gif file.</p>
+{{if ('' != bgImage && '' == bgColor) || ('' != bgImage && '' != bgColor && CMS_CONF.TITLECARD_DEFAULT_IMAGE_BY_SYSTEM != bgImage)}}
+<input type="hidden" name="backgroundImage" id="backgroundImage" value="${bgImage}" />
+<input type="hidden" name="backgroundImageOld" id="backgroundImageOld" value="${bgImage}" />
+{{else}}
+<input type="hidden" name="backgroundImage" id="backgroundImage" value="${CMS_CONF.TITLECARD_DEFAULT_IMAGE_BY_UPLOAD}" />
+<input type="hidden" name="backgroundImageOld" id="backgroundImageOld" value="${CMS_CONF.TITLECARD_DEFAULT_IMAGE_BY_UPLOAD}" />
+{{/if}}
+</div>
+</div>
+
+<div class="duration-container">
+<h5>Duration</h5>
+<div class="select">
+<p class="select-btn"></p>
+{{if '' == duration}}
+<div class="select-txt"><a href="#">7</a></div>
+{{else}}
+<div class="select-txt"><a href="#">${duration}</a></div>
+{{/if}}
+<ul class="select-list">
+<li data-meta="5">5</li>
+<li data-meta="6">6</li>
+<li data-meta="7">7</li>
+<li data-meta="8">8</li>
+<li data-meta="9">9</li>
+<li data-meta="10">10</li>
+<li data-meta="12">12</li>
+<li data-meta="14">14</li>
+<li data-meta="16">16</li>
+<li data-meta="18">18</li>
+</ul>
+{{if '' == duration}}
+<input type="hidden" name="duration" id="duration" value="7" />
+{{else}}
+<input type="hidden" name="duration" id="duration" value="${duration}" />
+{{/if}}
+</div>
+<p class="notice hide">Invalid duration, please try again.</p>
+</div>
+
+<div class="btn-container">
+{{if $item.isUpdateMode}}
+<p class="btn-del"><a href="#">Del</a></p>
+{{/if}}
+<p class="btns btn-cancel"><span><a href="#">Cancel</a></span></p>
+<p class="btns btn-done"><span><a href="#">Done</a></span></p>
+<p class="btns btn-edit"><span><a href="#">Edit Title</a></span></p>
+</div>
+</div>
+</script>
+
+<script id="storyboard-listing-tmpl-item" type="text/x-jquery-tmpl">
+<li data-ytid="${ytId}" data-ytduration="${ytDuration}" data-starttime="${startTime}" data-endtime="${endTime}"{{if ytDuration == 0}} class="invalid"{{/if}}>
+{{if isEmbedLimited || isZoneLimited || isMobileLimited}}
+{{if isEmbedLimited}}
+<a href="#!pid=${id}&ytid=${ytId}" class="error"><span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">${nn._([CMS_CONF.PAGE_ID, 'episode-storyboard', 'Not playable outside YouTube'])}</span></span></span></span></a>
+{{else}}
+{{if isZoneLimited && isMobileLimited}}
+<a href="#!pid=${id}&ytid=${ytId}" class="warning2"><span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">${nn._([CMS_CONF.PAGE_ID, 'episode-storyboard', 'Not playable in some regions & on mobile device'])}</span></span></span></span></a>
+{{else}}
+{{if isZoneLimited}}
+<a href="#!pid=${id}&ytid=${ytId}" class="warning"><span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">${nn._([CMS_CONF.PAGE_ID, 'episode-storyboard', 'Not playable in some regions'])}</span></span></span></span></a>
+{{/if}}
+{{if isMobileLimited}}
+<a href="#!pid=${id}&ytid=${ytId}" class="warning"><span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">${nn._([CMS_CONF.PAGE_ID, 'episode-storyboard', 'Not playable on mobile device'])}</span></span></span></span></a>
+{{/if}}
+{{/if}}
+{{/if}}
+{{/if}}
+<p class="img">
+{{if ytDuration > 0}}
+<img src="${imageUrl}" alt="" width="80" height="45" />
+{{else}}
+<img src="images/thumbnail_box_empty.png" alt="" width="80" height="45" />
+{{/if}}
+<span class="time"><span class="time-right"><span class="time-middle">${formatDuration(duration)}</span></span></span>
+</p>
+{{if ytDuration > 0}}
+<h4 class="ellipsis multiline">${name}</h4>
+{{else}}
+<h4>[${nn._([CMS_CONF.PAGE_ID, 'episode-storyboard', 'Invalid Video'])}]</h4>
+{{/if}}
+<p class="title">
+{{if beginTitleCard != null}}
+<a href="#!pid=${id}&ytid=${ytId}&tid=${beginTitleCard.id}" class="begin-title">Edit<span class="tip"><span class="tip-left"><span class="tip-right"><span class="tip-middle">${nn._([CMS_CONF.PAGE_ID, 'episode-storyboard', 'Edit Title'])}</span></span></span></span></a>
+{{/if}}
+{{if endTitleCard != null}}
+<a href="#!pid=${id}&ytid=${ytId}&tid=${endTitleCard.id}" class="end-title">Edit<span class="tip"><span class="tip-left"><span class="tip-right"><span class="tip-middle">${nn._([CMS_CONF.PAGE_ID, 'episode-storyboard', 'Edit Title'])}</span></span></span></span></a>
+{{/if}}
+</p>
+<p class="hover-func">
+<a href="#!pid=${id}&ytid=${ytId}" class="video-del">Video Del</a>
+{{if ytDuration > 0}}
+<a href="#!pid=${id}&ytid=${ytId}" class="video-play">Video Play</a>
+{{/if}}
+{{if beginTitleCard == null}}
+<a href="#!pid=${id}&ytid=${ytId}" class="begin-title">Edit<span class="tip"><span class="tip-left"><span class="tip-right"><span class="tip-middle">${nn._([CMS_CONF.PAGE_ID, 'episode-storyboard', 'Add Title'])}</span></span></span></span></a>
+{{/if}}
+{{if endTitleCard == null}}
+<a href="#!pid=${id}&ytid=${ytId}" class="end-title">Edit<span class="tip"><span class="tip-left"><span class="tip-right"><span class="tip-middle">${nn._([CMS_CONF.PAGE_ID, 'episode-storyboard', 'Add Title'])}</span></span></span></span></a>
+{{/if}}
+</p>
+</li>
+</script>
+
+<!--============================== footer start ==============================-->
+<p id="footer-control" class="hide"></p>
+<div id="footer" class="hide">
+  <ul id="footer-list">
+    <li>
+      <p class="select-txt"><a href="javascript:void(0);">About Us</a></p>
+      <p class="select-btn"></p>
+      <ul class="select-list">
+        <li><a href="/#!about=about">About us</a></li>
+        <li><a href="/#!about=help">Help</a></li>
+        <li><a href="/#!about=report">Feedback</a></li>
+        <li><a href="/#!about=terms">Terms & Policy</a></li>
+        <li><a href="/#!about=contact">Contact us</a></li>
+        <li><a href="/#!about=partners">Partners</a></li>
+        <li><a href="/#!about=curators">Curators</a></li>
+        <li id="footer-press"><a href="/#!about=press">Press</a></li>
+        <li id="footer-contest"><a href="/#!about=contest">Curation Contest</a></li>
+      </ul>
+    </li>
+    <li id="language-change">
+      <p class="select-txt"><a href="javascript:void(0);" id="language">Language</a></p>
+      <p class="select-btn"></p>
+      <ul class="select-list">
+        <li><a href="javascript:void(0);" id="language-en" data-meta="en">English</a></li>
+        <li><a href="javascript:void(0);" id="language-zh" data-meta="zh">中文</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<!--============================== footer close ==============================-->
+
+<div id="overlay-s">
+<p class="overlay-content"><span class="overlay-right"><span class="overlay-middle"><img src="images/icon_load_l.gif" alt="" />Saving...</span></span></p>
+</div>
+
+<div id="system-error" class="lightbox-content overlay-l">
+<div class="overlay-container">
+<div class="overlay-wrap">
+<a href="#" class="btn-close">Close</a>
+<p class="content">You are not authorized to edit this episode.</p>
+<div class="overlay-btn">
+<p class="btns btn-ok"><span><a href="#">OK</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="delete-prompt" class="lightbox-content overlay-l">
+<div class="overlay-container">
+<div class="overlay-wrap">
+<a href="#" class="btn-close">Close</a>
+<p class="content">Are you sure you want to delete this title?</p>
+<div class="overlay-btn">
+<p class="btns btn-del"><span><a href="#">Delete</a></span></p>
+<p class="btns btn-no"><span><a href="#">No</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="unsave-prompt" class="lightbox-content overlay-l">
+<div class="overlay-container">
+<div class="overlay-wrap">
+<a href="#" class="btn-close">Close</a>
+<p class="content">Unsaved changes will be lost, are you sure you want to leave?</p>
+<div class="overlay-btn">
+<p class="btns btn-leave"><span><a href="#">Leave</a></span></p>
+<p class="btns btn-no"><span><a href="#">No</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="unsave-trimtime-prompt" class="lightbox-content overlay-l">
+<div class="overlay-container">
+<div class="overlay-wrap">
+<a href="#" class="btn-close">Close</a>
+<p class="content">Unsaved changes will be lost, are you sure you want to leave?</p>
+<div class="overlay-btn">
+<p class="btns btn-leave"><span><a href="#">Leave</a></span></p>
+<p class="btns btn-no"><span><a href="#">No</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="unsave-titlecard-prompt" class="lightbox-content overlay-l">
+<div class="overlay-container">
+<div class="overlay-wrap">
+<a href="#" class="btn-close">Close</a>
+<p class="content">Unsaved changes will be lost, are you sure you want to leave?</p>
+<div class="overlay-btn">
+<p class="btns btn-leave"><span><a href="#">Leave</a></span></p>
+<p class="btns btn-no"><span><a href="#">No</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="draft-notice" class="lightbox-content overlay-l">
+<div class="overlay-container">
+<div class="overlay-wrap">
+<a href="#" class="btn-close">Close</a>
+<h4>New episode has been created as a draft!</h4>
+<p class="content"><span>Publish this episode at the next step</span> whenever you finish editing.</p>
+<div class="overlay-btn">
+<p class="btns btn-ok"><span><a href="#">OK</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="unsave-poi-prompt" class="lightbox-content overlay-l">
+<div class="overlay-container">
+<div class="overlay-wrap">
+<a href="#" class="btn-close">Close</a>
+<p class="content">Unsaved changes will be lost, are you sure you want to cancel editing?</p>
+<div class="overlay-btn">
+<p class="btns btn-yes"><span><a href="#">Yes</a></span></p>
+<p class="btns btn-no"><span><a href="#">No</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="del-poi-notice" class="lightbox-content overlay-l">
+<div class="overlay-container">
+<div class="overlay-wrap">
+<a href="#" class="btn-close">Close</a>
+<p class="content">Are you sure you want to delete this POI with interactive event?</p>
+<div class="overlay-btn">
+<p class="btns btn-del"><span><a href="#">Delete</a></span></p>
+<p class="btns btn-no"><span><a href="#">No</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="preload-image" class="hide">
+<img src="thumbnail/player.jpg" alt="" />
+<img src="http://s3.amazonaws.com/9x9ui/war/v0/images/titlecard-default.png" alt="" />
+</div>
+
+<div id="poi-zoom" class="lightbox-content">
+<div class="video-wrap">
+<img src="images/poi.jpg" alt="" />
+</div>
+<p class="btns btn-close"><span><a href="#"><img src="images/icon_zoom.png" alt="" />Close</a></span></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<link rel="stylesheet" href="stylesheets/style.css" />
+<link rel="stylesheet" href="stylesheets/lightbox.css" />
+<link rel="stylesheet" href="stylesheets/uniform.css" />
+<link rel="stylesheet" href="stylesheets/playback.css" />
+<link rel="stylesheet" href="stylesheets/epcurate.css" />
+<link rel="stylesheet" href="stylesheets/ep-curation.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
+<script src="javascripts/jquery.swfobject.min.js"></script>
+<script src="javascripts/jquery.countdown.min.js"></script>
+<script src="javascripts/jquery.corner.js"></script>
+<script src="javascripts/play.js"></script>
+<title>9x9.tv - Episode Curation - Curation</title>
+</head>
+<body>
+
+<div id="epcurate-curation" class="clearfix" style="background: none;">
+<div id="video-player">
+<div class="video"></div>
+<div id="video-control" style="display: block;">
+<p id="play-dragger"></p>
+<div id="progress-bar">
+<p id="loaded"></p>
+<p id="played"></p>
+</div>
+<ul>
+<li id="btn-prev"></li>
+<li id="btn-pause" class="hide"></li>
+<li id="btn-play"></li>
+<li id="btn-next"></li>
+<li id="volume-control">
+<p id="btn-volume" class="loudest"></p>
+<p id="volume-bar"><span class="volume"></span></p>
+<p id="volume-dragger" data-volume="100"></p>
+</li>
+<li id="play-time"><span class="played">00:00</span>/<span class="duration">00:00</span></li>
+<li id="btn-expand"></li>
+<li id="btn-shrink" class="hide"></li>
+</ul>
+</div>
+</div>
+
+<p style="font-size: 20px;">Total-Bytes：<span id="total-byte" style="color: #f00;"></span></p>
+<p style="font-size: 20px;">Load-Bytes：<span id="load-byte" style="color: #f00;"></span></p>
+<p style="font-size: 20px;">Total-Duration：<span id="total-duration" style="color: #f00;"></span></p>
+<p style="font-size: 20px;">Current-Duration：<span id="current-duration" style="color: #f00;"></span></p>
+</div>
+
+<div id="storyboard" style="padding: 0 0 20px;">
+<div id="storyboard-wrap" class="storyboard-list">
+<div id="storyboard-list" style="margin: 0;">
+<p class="notice">+ Add videos here</p>
+<ul id="storyboard-listing">
+<li>
+<p class="img">
+<img src="http://i.ytimg.com/vi/V46K7apDziA/default.jpg" alt="" width="80" height="45" />
+<span class="time"><span class="time-right"><span class="time-middle">05:40</span></span></span>
+</p>
+<p class="hover-func">
+<a href="#" class="video-play">Video Play</a>
+</p>
+<input type="hidden" name="videoID" value="V46K7apDziA" class="video-id" />
+<input type="hidden" name="videoTitle" class="video-title" value="五月天【諾亞方舟】MV官方完整版-2012世界巡迴主題曲 " />
+<input type="hidden" name="videoUploader" class="video-uploader" value="binmusictaipei" />
+<input type="hidden" name="videoUploaded" class="video-uploaded" value="2011-12-11T00:00:00.000Z" />
+<input type="hidden" name="videoDuration" class="video-duration" value="340" />
+<input type="hidden" name="videoDesc" class="video-desc" value="「請給五月天一次機會，泡杯紅茶，把第二人生從頭聽到尾。」" />
+</li>
+<li>
+<p class="img">
+<img src="http://i.ytimg.com/vi/7QcCPmXlcqY/default.jpg" alt="" width="80" height="45" />
+<span class="time"><span class="time-right"><span class="time-middle">04:44</span></span></span>
+</p>
+<p class="hover-func">
+<a href="#" class="video-play">Video Play</a>
+</p>
+<input type="hidden" name="videoID" class="video-id" value="7QcCPmXlcqY" />
+<input type="hidden" name="videoTitle" class="video-title" value="亂彈阿翔_完美落地" />
+<input type="hidden" name="videoUploader" class="video-uploader" value="KKBOX" />
+<input type="hidden" name="videoUploaded" class="video-uploaded" value="2012-03-21T00:25:55.000Z" />
+<input type="hidden" name="videoDuration" class="video-duration" value="284" />
+<input type="hidden" name="videoDesc" class="video-desc" value="你還記得這首用生命唱的歌曲嗎?讓我們跟著亂彈阿翔一起[完美落地],一起重新的喚起,埋葬在心底的血液!" />
+</li>
+<li>
+<p class="img">
+<img src="http://i.ytimg.com/vi/lcDC_0a3QPA/default.jpg" alt="" width="80" height="45" />
+<span class="time"><span class="time-right"><span class="time-middle">05:02</span></span></span>
+</p>
+<p class="hover-func">
+<a href="#" class="video-play">Video Play</a>
+</p>
+<input type="hidden" name="videoID" class="video-id" value="lcDC_0a3QPA" />
+<input type="hidden" name="videoTitle" class="video-title" value="五月天 一千個世紀" />
+<input type="hidden" name="videoUploader" class="video-uploader" value="C0caC0laZer0" />
+<input type="hidden" name="videoUploaded" class="video-uploaded" value="2008-04-03T00:25:55.000Z" />
+<input type="hidden" name="videoDuration" class="video-duration" value="302" />
+<input type="hidden" name="videoDesc" class="video-desc" value="五月天 一千個世紀" />
+</li>
+<li>
+<p class="img">
+<img src="http://i.ytimg.com/vi/MA91ChpYYz0/default.jpg" alt="" width="80" height="45" />
+<span class="time"><span class="time-right"><span class="time-middle">03:09</span></span></span>
+</p>
+<p class="hover-func">
+<a href="#" class="video-play">Video Play</a>
+</p>
+<input type="hidden" name="videoID" value="MA91ChpYYz0" class="video-id" />
+<input type="hidden" name="videoTitle" class="video-title" value="五月天 [ 放肆 ] MV官方完整版" />
+<input type="hidden" name="videoUploader" class="video-uploader" value="binmusictaipei" />
+<input type="hidden" name="videoUploaded" class="video-uploaded" value="2009-08-10T06:51:06.000Z" />
+<input type="hidden" name="videoDuration" class="video-duration" value="189" />
+<input type="hidden" name="videoDesc" class="video-desc" value="009五月天代言百事可樂「蓋世群音」百事樂隊大賽歌曲" />
+</li>
+<li>
+<p class="img">
+<img src="http://i.ytimg.com/vi/dCxKsuk81dQ/default.jpg" alt="" width="80" height="45" />
+<span class="time"><span class="time-right"><span class="time-middle">06:20</span></span></span>
+</p>
+<p class="hover-func">
+<a href="#" class="video-play">Video Play</a>
+</p>
+<input type="hidden" name="videoID" value="dCxKsuk81dQ" class="video-id" />
+<input type="hidden" name="videoTitle" class="video-title" value="Tizzy Bac - 鐵之貝克 MV" />
+<input type="hidden" name="videoUploader" class="video-uploader" value="tizzybacvideo" />
+<input type="hidden" name="videoUploaded" class="video-uploaded" value="2009-03-14T13:25:58.000Z" />
+<input type="hidden" name="videoDuration" class="video-duration" value="380" />
+<input type="hidden" name="videoDesc" class="video-desc" value="Tizzy Bac 2009年最新第三張專輯【如果看見地獄，我就不怕魔鬼】 - 【鐵之貝克】MV (HD高畫質版)" />
+</li>
+<li>
+<p class="img">
+<img src="http://i.ytimg.com/vi/iytQSf_pRys/default.jpg" alt="" width="80" height="45" />
+<span class="time"><span class="time-right"><span class="time-middle">03:27</span></span></span>
+</p>
+<p class="hover-func">
+<a href="#" class="video-play">Video Play</a>
+</p>
+<input type="hidden" name="videoID" value="iytQSf_pRys" class="video-id" />
+<input type="hidden" name="videoTitle" class="video-title" value="A-Mit 阿密特 / A-Mei 張惠妹 《裂痕》 聲動娛樂 HD官方完整版MV " />
+<input type="hidden" name="videoUploader" class="video-uploader" value="meientertainmentltd" />
+<input type="hidden" name="videoUploaded" class="video-uploaded" value="2012-10-04T19:57:33.000Z" />
+<input type="hidden" name="videoDuration" class="video-duration" value="207" />
+<input type="hidden" name="videoDesc" class="video-desc" value="阿妹的分身阿密特在前年金曲獎橫掃萬軍，勇奪六項大獎，成為史上第一個幾乎把金曲獎重要獎項全拿下的女歌手。" />
+</li>
+<li>
+<p class="img">
+<img src="http://i.ytimg.com/vi/kXYiU_JCYtU/default.jpg" alt="" width="80" height="45" />
+<span class="time"><span class="time-right"><span class="time-middle">03:07</span></span></span>
+</p>
+<p class="hover-func">
+<a href="#" class="video-play">Video Play</a>
+</p>
+<input type="hidden" name="videoID" value="kXYiU_JCYtU" class="video-id" />
+<input type="hidden" name="videoTitle" class="video-title" value="Linkin Park - Numb" />
+<input type="hidden" name="videoUploader" class="video-uploader" value="linkinparktv" />
+<input type="hidden" name="videoUploaded" class="video-uploaded" value="2007-03-04T06:42:36.000Z" />
+<input type="hidden" name="videoDuration" class="video-duration" value="187" />
+<input type="hidden" name="videoDesc" class="video-desc" value="Linkin Park Numb Warner Bros. Records Directed by Mr. Hahn" />
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+</body>
+</html>

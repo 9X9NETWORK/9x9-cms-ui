@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html class="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<link rel="stylesheet" href="stylesheets/style.css" />
+<link rel="stylesheet" href="stylesheets/lightbox.css" />
+<link rel="stylesheet" href="stylesheets/channel.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
+<script src="javascripts/nn-sdk.js"></script>
+<script src="javascripts/jquery.mousewheel.min.js"></script>
+<script src="javascripts/jquery.ellipsis.js"></script>
+<script src="javascripts/jquery.blockUI.js"></script>
+<script src="javascripts/jquery.toggleval.min.js"></script>
+<script src="javascripts/jquery.charcounter.min.js"></script>
+<script src="javascripts/jquery.tmpl.min.js"></script>
+<script src="javascripts/jquery.cookie.js"></script>
+<script src="javascripts/json2.js"></script>
+<script src="javascripts/purl.js"></script>
+<script src="javascripts/vertical.slider.js"></script>
+<script src="javascripts/config.js"></script>
+<script src="javascripts/basic.js"></script>
+<script src="javascripts/channel.js"></script>
+<title>9x9.tv - My Channels</title>
+</head>
+<body>
+<div id="fb-root"></div>
+
+<div id="lightbox-create-channel" class="lightbox-content">
+<h3><img src="images/text_collect.png" alt="" /></h3>
+<p class="desc">Studio is the management center for your 9x9.tv list-form channels!</p>
+<p class="create">
+<a href="channel-add2.html">create
+<img src="images/icon_add.png" alt="" />
+<span>Create a<br />new channel</span>
+</a>
+</p>
+<p class="btns unblock"><span><a href="./">Not right now, thanks!</a></span></p>
+</div>
+
+<!--============================== header start ==============================-->
+<div id="header">
+  <p id="logo"></p>
+  <ul id="nav">
+    <li id="home"><span><a href="/#!home">Home</a></span></li>
+    <li id="guide"><span><a href="/#!guide">Guide</a></span></li>
+    <li id="browse"><span><a href="/#!directory">Browse</a></span></li>
+    <li id="profile">
+      <p id="btn-profile"></p>
+      <p id="selected-profile">Guest</p>
+      <ul id="profile-dropdown" class="dropdown">
+        <li><a id="profile-mypage" href="/#!curator=profileUrl">My page</a></li>
+        <li><a href="./">Studio</a></li>
+        <li id="profile-settings"><a href="/#!settings">Settings</a></li>
+        <li><a id="profile-logout" href="/api/login">Log out</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<!--============================== header close ==============================-->
+
+<div id="studio-nav">
+<div class="studio-nav-wrap">
+<h3><a href="./">Studio</a></h3>
+<ul>
+<li class="on"><span><a href="./">My Channels</a></span></li>
+</ul>
+<div class="studio-setup fb-connect">
+<p class="btn-left"><span class="btn-right"><span class="btn-middle"><a href="#"><img src="images/icon_studio_setup.png" alt="" />Studio Setup</a></span></span></p>
+<div class="reconnect-notice hide">
+<img src="images/icon_notification.png" alt="" />
+<p class="notice-left"><span class="notice-right"><span class="notice-middle langkey">Connection is inactive, click to restart it.</span></span></p>
+</div>
+</div>
+</div>
+</div>
+
+<!--============================== content-wrap start ========================-->
+<div id="content-wrap" class="hidden">
+
+<div id="content-nav">
+<div id="func-nav">
+<ul>
+<li class="btns"><span><a href="channel-add.html">Create a new channel</a></span></li>
+</ul>
+</div>
+</div>
+
+<div id="main-wrap-slider" class="slider-wrap"><div class="slider-vertical"></div></div>
+
+<div id="content-main">
+<div id="title-func" class="clearfix">
+<h2>My Channels (<span id="channel-counter">3</span>)</h2>
+<p class="order btns"><span><a href="javascript:void(0);" class="reorder">Reorder channels</a></span></p>
+</div>
+
+<div id="content-main-wrap">
+<div class="constrain">
+<ul id="channel-list">
+<li class="clearfix" data-meta="1">
+<div class="container">
+<div class="container-right">
+<div class="container-bottom">
+<div class="container-left">
+<div class="wrap">
+<div class="photo-list">
+<a href="#" target="_blank">
+<img src="images/icon_playlist.png" alt="" class="watermark" />
+<img src="thumbnail/05.jpg" alt="" width="152" height="86" class="img" />
+<img src="thumbnail/06.jpg" alt="" width="70" height="40" class="img" />
+<img src="thumbnail/07.jpg" alt="" width="70" height="40" class="img" />
+</a>
+</div>
+
+<div class="info">
+<h3 data-meta="Snowball's Favorites"><a href="episode-list-favorite.html">Snowball's Favorites</a></h3>
+<p><span>1</span>Episodes</p>
+<p><span>20</span>Followers</p>
+<p><span>3456</span>Views</p>
+</div>
+
+<div class="func-wrap">
+<p class="time">Update: 2012-05-25 12:45</p>
+<div class="func-btns">
+<div class="btn-wrap disable">
+<ul>
+<li><a href="javascript:void(0);" class="add disable">Add</a></li>
+<li><a href="episode-list-favorite.html" class="detail">Detail<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Episode list</span></span></span></span></a></li>
+<li><a href="javascript:void(0);" class="setting disable">Setting</a></li>
+<li><a href="javascript:void(0);" class="del disable">Del</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p class="drag">move</p>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="clearfix" data-meta="1">
+<div class="container">
+<div class="container-right">
+<div class="container-bottom">
+<div class="container-left">
+<div class="wrap">
+<div class="photo-list">
+<a href="#" target="_blank">
+<img src="images/icon_playlist.png" alt="" class="watermark" />
+<img src="thumbnail/05.jpg" alt="" width="152" height="86" class="img" />
+<img src="thumbnail/06.jpg" alt="" width="70" height="40" class="img" />
+<img src="thumbnail/07.jpg" alt="" width="70" height="40" class="img" />
+</a>
+</div>
+
+<div class="info">
+<h3 data-meta="Snowball's Favorites"><a href="episode-list-favorite.html">Snowball's Favorites</a></h3>
+<p><span>0</span>Episodes</p>
+<p><span>20</span>Followers</p>
+<p><span>3456</span>Views</p>
+</div>
+
+<div class="func-wrap">
+<p class="time">Update: 2012-05-25 12:45</p>
+<div class="func-btns">
+<div class="btn-wrap disable">
+<ul>
+<li><a href="javascript:void(0);" class="add disable">Add</a></li>
+<li><a href="episode-list-favorite-first.html" class="detail">Detail<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Episode list</span></span></span></span></a></li>
+<li><a href="javascript:void(0);" class="setting disable">Setting</a></li>
+<li><a href="javascript:void(0);" class="del disable">Del</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p class="drag">move</p>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="clearfix" data-meta="1">
+<div class="container">
+<div class="container-right">
+<div class="container-bottom">
+<div class="container-left">
+<div class="wrap">
+<div class="photo-list">
+<a href="#" target="_blank">
+<img src="images/icon_playlist.png" alt="" class="watermark" />
+<img src="thumbnail/06.jpg" alt="" width="152" height="86" class="img" />
+<img src="thumbnail/06.jpg" alt="" width="70" height="40" class="img" />
+<img src="thumbnail/07.jpg" alt="" width="70" height="40" class="img" />
+</a>
+</div>
+
+<div class="info">
+<h3 data-meta="Loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong title"><a href="episode-list.html">Loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong title</a></h3>
+<p><span>99</span>Episodes</p>
+<p><span>20</span>Followers</p>
+<p><span>3456</span>Views</p>
+</div>
+
+<div class="func-wrap">
+<p class="time">Update: 2012-05-25 12:45</p>
+<div class="func-btns">
+<div class="btn-wrap enable">
+<ul>
+<li><a href="epcurate-curation.html" class="add">Add<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Curate a new episode</span></span></span></span></a></li>
+<li><a href="episode-list.html" class="detail">Detail<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Episode list</span></span></span></span></a></li>
+<li><a href="channel-setting.html" class="setting">Setting<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Channel settings</span></span></span></span></a></li>
+<li><a href="#" rel="#" class="del">Del<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Delete this channel</span></span></span></span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p class="drag">move</p>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="clearfix" data-meta="1">
+<div class="container">
+<div class="container-right">
+<div class="container-bottom">
+<div class="container-left">
+<div class="wrap">
+<div class="photo-list">
+<a href="#" target="_blank">
+<span>No Episodes</span>
+<img src="images/icon_playlist.png" alt="" class="watermark" />
+<img src="images/ep_default.png" alt="" width="152" height="86" class="img" />
+<img src="images/ep_default.png" alt="" width="70" height="40" class="img" />
+<img src="images/ep_default.png" alt="" width="70" height="40" class="img" />
+</a>
+</div>
+
+<div class="info">
+<h3 data-meta="Wedding Plans"><a href="episode-list.html">Wedding Plans</a></h3>
+<p><span>0</span>Episodes</p>
+<p><span>20</span>Followers</p>
+<p><span>3456</span>Views</p>
+</div>
+
+<div class="func-wrap">
+<p class="time">Update: 2012-05-25 12:45</p>
+<div class="func-btns">
+<div class="btn-wrap enable">
+<ul>
+<li><a href="epcurate-curation.html" class="add">Add<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Curate a new episode</span></span></span></span></a></li>
+<li><a href="episode-list-first.html" class="detail">Detail<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Episode list</span></span></span></span></a></li>
+<li><a href="channel-setting.html" class="setting">Setting<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Channel settings</span></span></span></span></a></li>
+<li><a href="#" rel="#" class="del">Del<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Delete this channel</span></span></span></span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p class="drag">move</p>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="clearfix" data-meta="1">
+<div class="container">
+<div class="container-right">
+<div class="container-bottom">
+<div class="container-left">
+<div class="wrap">
+<div class="photo-list">
+<a href="#" target="_blank">
+<img src="images/icon_playlist.png" alt="" class="watermark" />
+<img src="thumbnail/08.jpg" alt="" width="152" height="86" class="img" />
+<img src="thumbnail/06.jpg" alt="" width="70" height="40" class="img" />
+<img src="thumbnail/07.jpg" alt="" width="70" height="40" class="img" />
+</a>
+</div>
+
+<div class="info">
+<h3 data-meta="Wedding Plans"><a href="episode-list.html">Wedding Plans</a></h3>
+<p><span>99</span>Episodes</p>
+<p><span>20</span>Followers</p>
+<p><span>3456</span>Views</p>
+</div>
+
+<div class="func-wrap">
+<p class="time">Update: 2012-05-25 12:45</p>
+<div class="func-btns">
+<div class="btn-wrap enable">
+<ul>
+<li><a href="epcurate-curation.html" class="add">Add<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Curate a new episode</span></span></span></span></a></li>
+<li><a href="episode-list.html" class="detail">Detail<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Episode list</span></span></span></span></a></li>
+<li><a href="channel-setting.html" class="setting">Setting<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Channel settings</span></span></span></span></a></li>
+<li><a href="#" rel="#" class="del">Del<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Delete this channel</span></span></span></span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p class="drag">move</p>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="clearfix" data-meta="1">
+<div class="container">
+<div class="container-right">
+<div class="container-bottom">
+<div class="container-left">
+<div class="wrap">
+<div class="photo-list">
+<a href="#" target="_blank">
+<img src="images/icon_playlist.png" alt="" class="watermark" />
+<img src="thumbnail/09.jpg" alt="" width="152" height="86" class="img" />
+<img src="thumbnail/06.jpg" alt="" width="70" height="40" class="img" />
+<img src="thumbnail/07.jpg" alt="" width="70" height="40" class="img" />
+</a>
+</div>
+
+<div class="info">
+<h3 data-meta="Wedding Plans"><a href="episode-list.html">Wedding Plans</a></h3>
+<p><span>99</span>Episodes</p>
+<p><span>20</span>Followers</p>
+<p><span>3456</span>Views</p>
+</div>
+
+<div class="func-wrap">
+<p class="time">Update: 2012-05-25 12:45</p>
+<div class="func-btns">
+<div class="btn-wrap enable">
+<ul>
+<li><a href="epcurate-curation.html" class="add">Add<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Curate a new episode</span></span></span></span></a></li>
+<li><a href="episode-list.html" class="detail">Detail<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Episode list</span></span></span></span></a></li>
+<li><a href="channel-setting.html" class="setting">Setting<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Channel settings</span></span></span></span></a></li>
+<li><a href="#" rel="#" class="del">Del<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Delete this channel</span></span></span></span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p class="drag">move</p>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="clearfix" data-meta="1">
+<div class="container">
+<div class="container-right">
+<div class="container-bottom">
+<div class="container-left">
+<div class="wrap">
+<div class="photo-list">
+<a href="#" target="_blank">
+<img src="images/icon_playlist.png" alt="" class="watermark" />
+<img src="thumbnail/10.jpg" alt="" width="152" height="86" class="img" />
+<img src="thumbnail/06.jpg" alt="" width="70" height="40" class="img" />
+<img src="thumbnail/07.jpg" alt="" width="70" height="40" class="img" />
+</a>
+</div>
+
+<div class="info">
+<h3 data-meta="Wedding Plans"><a href="episode-list.html">Wedding Plans</a></h3>
+<p><span>99</span>Episodes</p>
+<p><span>20</span>Followers</p>
+<p><span>3456</span>Views</p>
+</div>
+
+<div class="func-wrap">
+<p class="time">Update: 2012-05-25 12:45</p>
+<div class="func-btns">
+<div class="btn-wrap enable">
+<ul>
+<li><a href="epcurate-curation.html" class="add">Add<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Curate a new episode</span></span></span></span></a></li>
+<li><a href="episode-list.html" class="detail">Detail<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Episode list</span></span></span></span></a></li>
+<li><a href="channel-setting.html" class="setting">Setting<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Channel settings</span></span></span></span></a></li>
+<li><a href="#" rel="#" class="del">Del<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Delete this channel</span></span></span></span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p class="drag">move</p>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="clearfix" data-meta="1">
+<div class="container">
+<div class="container-right">
+<div class="container-bottom">
+<div class="container-left">
+<div class="wrap">
+<div class="photo-list">
+<a href="#" target="_blank">
+<img src="images/icon_playlist.png" alt="" class="watermark" />
+<img src="thumbnail/01.jpg" alt="" width="152" height="86" class="img" />
+<img src="thumbnail/06.jpg" alt="" width="70" height="40" class="img" />
+<img src="thumbnail/07.jpg" alt="" width="70" height="40" class="img" />
+</a>
+</div>
+
+<div class="info">
+<h3 data-meta="Wedding Plans"><a href="episode-list.html">Wedding Plans</a></h3>
+<p><span>99</span>Episodes</p>
+<p><span>20</span>Followers</p>
+<p><span>3456</span>Views</p>
+</div>
+
+<div class="func-wrap">
+<p class="time">Update: 2012-05-25 12:45</p>
+<div class="func-btns">
+<div class="btn-wrap enable">
+<ul>
+<li><a href="epcurate-curation.html" class="add">Add<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Curate a new episode</span></span></span></span></a></li>
+<li><a href="episode-list.html" class="detail">Detail<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Episode list</span></span></span></span></a></li>
+<li><a href="channel-setting.html" class="setting">Setting<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Channel settings</span></span></span></span></a></li>
+<li><a href="#" rel="#" class="del">Del<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Delete this channel</span></span></span></span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p class="drag">move</p>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="clearfix" data-meta="1">
+<div class="container">
+<div class="container-right">
+<div class="container-bottom">
+<div class="container-left">
+<div class="wrap">
+<div class="photo-list">
+<a href="#" target="_blank">
+<img src="images/icon_playlist.png" alt="" class="watermark" />
+<img src="thumbnail/02.jpg" alt="" width="152" height="86" class="img" />
+<img src="thumbnail/06.jpg" alt="" width="70" height="40" class="img" />
+<img src="thumbnail/07.jpg" alt="" width="70" height="40" class="img" />
+</a>
+</div>
+
+<div class="info">
+<h3 data-meta="Wedding Plans"><a href="episode-list.html">Wedding Plans</a></h3>
+<p><span>99</span>Episodes</p>
+<p><span>20</span>Followers</p>
+<p><span>3456</span>Views</p>
+</div>
+
+<div class="func-wrap">
+<p class="time">Update: 2012-05-25 12:45</p>
+<div class="func-btns">
+<div class="btn-wrap enable">
+<ul>
+<li><a href="epcurate-curation.html" class="add">Add<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Curate a new episode</span></span></span></span></a></li>
+<li><a href="episode-list.html" class="detail">Detail<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Episode list</span></span></span></span></a></li>
+<li><a href="channel-setting.html" class="setting">Setting<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Channel settings</span></span></span></span></a></li>
+<li><a href="#" rel="#" class="del">Del<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Delete this channel</span></span></span></span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p class="drag">move</p>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="clearfix" data-meta="1">
+<div class="container">
+<div class="container-right">
+<div class="container-bottom">
+<div class="container-left">
+<div class="wrap">
+<div class="photo-list">
+<a href="#" target="_blank">
+<img src="images/icon_playlist.png" alt="" class="watermark" />
+<img src="thumbnail/03.jpg" alt="" width="152" height="86" class="img" />
+<img src="thumbnail/06.jpg" alt="" width="70" height="40" class="img" />
+<img src="thumbnail/07.jpg" alt="" width="70" height="40" class="img" />
+</a>
+</div>
+
+<div class="info">
+<h3 data-meta="Wedding Plans"><a href="episode-list.html">Wedding Plans</a></h3>
+<p><span>99</span>Episodes</p>
+<p><span>20</span>Followers</p>
+<p><span>3456</span>Views</p>
+</div>
+
+<div class="func-wrap">
+<p class="time">Update: 2012-05-25 12:45</p>
+<div class="func-btns">
+<div class="btn-wrap enable">
+<ul>
+<li><a href="epcurate-curation.html" class="add">Add<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Curate a new episode</span></span></span></span></a></li>
+<li><a href="episode-list.html" class="detail">Detail<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Episode list</span></span></span></span></a></li>
+<li><a href="channel-setting.html" class="setting">Setting<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Channel settings</span></span></span></span></a></li>
+<li><a href="#" rel="#" class="del">Del<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Delete this channel</span></span></span></span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p class="drag">move</p>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="clearfix" data-meta="1">
+<div class="container">
+<div class="container-right">
+<div class="container-bottom">
+<div class="container-left">
+<div class="wrap">
+<div class="photo-list">
+<a href="#" target="_blank">
+<img src="images/icon_playlist.png" alt="" class="watermark" />
+<img src="thumbnail/04.jpg" alt="" width="152" height="86" class="img" />
+<img src="thumbnail/06.jpg" alt="" width="70" height="40" class="img" />
+<img src="thumbnail/07.jpg" alt="" width="70" height="40" class="img" />
+</a>
+</div>
+
+<div class="info">
+<h3 data-meta="Lasttttttttttttttttttttttttttttttttt"><a href="episode-list.html">Lasttttttttttttttttttttttttttttttttt</a></h3>
+<p><span>99</span>Episodes</p>
+<p><span>20</span>Followers</p>
+<p><span>3456</span>Views</p>
+</div>
+
+<div class="func-wrap">
+<p class="time">Update: 2012-05-25 12:45</p>
+<div class="func-btns">
+<div class="btn-wrap enable">
+<ul>
+<li><a href="epcurate-curation.html" class="add">Add<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Curate a new episode</span></span></span></span></a></li>
+<li><a href="episode-list.html" class="detail">Detail<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Episode list</span></span></span></span></a></li>
+<li><a href="channel-setting.html" class="setting">Setting<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Channel settings</span></span></span></span></a></li>
+<li><a href="#" rel="#" class="del">Del<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Delete this channel</span></span></span></span></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p class="drag">move</p>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+</div>
+<!--============================== content-wrap close ========================-->
+
+<!--============================== footer start ==============================-->
+<p id="footer-control"></p>
+<div id="footer">
+  <ul id="footer-list">
+    <li>
+      <p class="select-txt"><a href="javascript:void(0);">About Us</a></p>
+      <p class="select-btn"></p>
+      <ul class="select-list">
+        <li><a href="/#!about=about">About us</a></li>
+        <li><a href="/#!about=help">Help</a></li>
+        <li><a href="/#!about=report">Feedback</a></li>
+        <li><a href="/#!about=terms">Terms & Policy</a></li>
+        <li><a href="/#!about=contact">Contact us</a></li>
+        <li><a href="/#!about=partners">Partners</a></li>
+        <li><a href="/#!about=curators">Curators</a></li>
+        <li id="footer-press"><a href="/#!about=press">Press</a></li>
+        <li id="footer-contest"><a href="/#!about=contest">Curation Contest</a></li>
+      </ul>
+    </li>
+    <li id="language-change">
+      <p class="select-txt"><a href="javascript:void(0);" id="language">Language</a></p>
+      <p class="select-btn"></p>
+      <ul class="select-list">
+        <li><a href="javascript:void(0);" id="language-en" data-meta="en">English</a></li>
+        <li><a href="javascript:void(0);" id="language-zh" data-meta="zh">中文</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<!--============================== footer close ==============================-->
+
+<div id="overlay-s">
+<p class="overlay-content"><span class="overlay-right"><span class="overlay-middle"><img src="images/icon_load_l.gif" alt="" />Saving...</span></span></p>
+</div>
+
+<div id="system-error" class="lightbox-content overlay-l">
+<div class="overlay-container">
+<div class="overlay-wrap">
+<a href="#" class="btn-close">Close</a>
+<p class="content">You are not authorized to edit this channel.</p>
+<div class="overlay-btn">
+<p class="btns btn-ok"><span><a href="#">OK</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="delete-prompt" class="lightbox-content overlay-l">
+<div class="overlay-container">
+<div class="overlay-wrap">
+<a href="#" class="btn-close">Close</a>
+<p class="content">Are you sure you want to delete this channel? All data will be removed permanently.</p>
+<div class="overlay-btn">
+<p class="btns btn-del"><span><a href="#">Delete</a></span></p>
+<p class="btns btn-no"><span><a href="#">No</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="unsave-prompt" class="lightbox-content overlay-l">
+<div class="overlay-container">
+<div class="overlay-wrap">
+<a href="#" class="btn-close">Close</a>
+<p class="content">Unsaved changes will be lost, are you sure you want to leave?</p>
+<div class="overlay-btn">
+<p class="btns btn-leave"><span><a href="#">Leave</a></span></p>
+<p class="btns btn-no"><span><a href="#">No</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="fb-connect" class="lightbox-content overlay-l setup-notice">
+<div class="overlay-container">
+<div class="overlay-wrap fb-connect">
+<a href="#" class="btn-close">Close</a>
+<h4><img src="images/text_studio_setup.png" alt="" /></h4>
+<p class="fb-connect">
+<span class="content">Connect to</span>
+<img src="images/icon_fb.png" alt="facebook" class="icon" />
+<a href="#" class="switch-on hide">ON</a>
+<a href="#" class="switch-off">OFF</a>
+</p>
+<p class="content">After connecting, you can enable Facebook auto sharing for each channel in Channel settings.</p>
+</div>
+</div>
+</div>
+
+<div id="restart-connect" class="lightbox-content overlay-l setup-notice">
+<div class="overlay-container">
+<div class="overlay-wrap restart-connect">
+<a href="#" class="btn-close">Close</a>
+<h4><img src="images/text_studio_setup.png" alt="" /></h4>
+<div class="reconnect-func">
+<span class="content">Connect to</span>
+<img src="images/icon_fb.png" alt="facebook" class="icon" />
+<p class="btns btn-reconnect"><span class="btn-right"><a href="#">Restart connection</a></span></p>
+</div>
+<p class="content">After connecting, you can enable Facebook auto sharing for each channel in Channel settings.</p>
+<p class="content notice">Auto sharing is disabled because permission to your connected account has been revoked, please click to restart the connection.</p>
+</div>
+</div>
+</div>
+
+<div id="fb-connect-failed" class="lightbox-content overlay-l setup-notice">
+<div class="overlay-container">
+<div class="overlay-wrap connect-fail">
+<a href="#" class="btn-close">Close</a>
+<h4><img src="images/text_studio_setup.png" alt="" /></h4>
+<h5>Can not connect to Facebook correctly!</h5>
+<p class="content">Please try again and make sure you agree on all permissions.</p>
+<div class="overlay-btn">
+<p class="btns btn-ok"><span><a href="#">OK</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="disconnect-notice" class="lightbox-content overlay-l setup-notice">
+<div class="overlay-container">
+<div class="overlay-wrap disconnect-notice">
+<a href="#" class="btn-close">Close</a>
+<h4><img src="images/text_studio_setup.png" alt="" /></h4>
+<h5>Account disconnected!</h5>
+<p class="content">
+If you want to enable auto sharing again, please:<br /><br />
+1. Connect account<br />
+2. Enable auto sharing for each channel in Channel settings<br />
+3. publish new episode, 9x9.tv will auto share it<br />
+</p>
+<div class="overlay-btn">
+<p class="btns btn-ok"><span><a href="#">OK</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="confirm-disconnect" class="lightbox-content overlay-l setup-notice">
+<div class="overlay-container">
+<div class="overlay-wrap disconnect">
+<a href="#" class="btn-close">Close</a>
+<h4><img src="images/text_studio_setup.png" alt="" /></h4>
+<p class="content">Disconnecting account will also disable auto sharing for every channel. Are you sure you want to disconnect?</p>
+<div class="overlay-btn">
+<p class="btns btn-disconnect"><span><a href="#">Disconnect</a></span></p>
+<p class="btns btn-no"><span><a href="#">No</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

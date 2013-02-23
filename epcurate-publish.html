@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html class="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<link rel="stylesheet" href="stylesheets/style.css" />
+<link rel="stylesheet" href="stylesheets/lightbox.css" />
+<link rel="stylesheet" href="stylesheets/uniform.css" />
+<link rel="stylesheet" href="stylesheets/jquery.datepick.css" />
+<link rel="stylesheet" href="stylesheets/epcurate.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
+<script src="javascripts/nn-sdk.js"></script>
+<script src="javascripts/jquery.mousewheel.min.js"></script>
+<script src="javascripts/jquery.ellipsis.js"></script>
+<script src="javascripts/jquery.blockUI.js"></script>
+<script src="javascripts/jquery.toggleval.min.js"></script>
+<script src="javascripts/jquery.uniform.min.js"></script>
+<script src="javascripts/jquery.cycle.all.js"></script>
+<script src="javascripts/jquery.tmpl.min.js"></script>
+<script src="javascripts/jquery.cookie.js"></script>
+<script src="javascripts/jquery.ui.datepicker-en.js"></script>
+<script src="javascripts/jquery.ui.datepicker-zh.js"></script>
+<script src="javascripts/json2.js"></script>
+<script src="javascripts/purl.js"></script>
+<script src="javascripts/swfupload/swfupload.js"></script>
+<script src="javascripts/vertical.slider.js"></script>
+<script src="javascripts/config.js"></script>
+<script src="javascripts/basic.js"></script>
+<script src="javascripts/epcurate.js"></script>
+<title>9x9.tv - Episode Curation - Publish</title>
+</head>
+<body>
+
+<!--============================== header start ==============================-->
+<div id="header" class="hide">
+  <p id="logo"></p>
+  <ul id="nav">
+    <li id="home"><span><a href="/#!home">Home</a></span></li>
+    <li id="guide"><span><a href="/#!guide">Guide</a></span></li>
+    <li id="browse"><span><a href="/#!directory">Browse</a></span></li>
+    <li id="profile">
+      <p id="btn-profile"></p>
+      <p id="selected-profile">Guest</p>
+      <ul id="profile-dropdown" class="dropdown">
+        <li><a id="profile-mypage" href="/#!curator=profileUrl">My page</a></li>
+        <li><a href="./">Studio</a></li>
+        <li id="profile-settings"><a href="/#!settings">Settings</a></li>
+        <li><a id="profile-logout" href="/api/login">Log out</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<!--============================== header close ==============================-->
+
+<div id="epcurate-nav" class="publish">
+<div class="epcurate-nav-wrap">
+<h3><a href="episode-list.html" id="epcurate-nav-back" class="btn-back">Back<span class="tip"><img src="images/bg_tip_top.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle langkey">Leave</span></span></span></span></a><a href="javascript:void(0);" class="langkey">Episode Curation</a></h3>
+<ul>
+<li class="curation off"><a href="epcurate-curation.html" id="epcurate-nav-curation"><span class="nav-right"><span class="nav-middle langkey">Curation</span></span></a></li>
+<li class="publish on"><a href="epcurate-publish.html" id="epcurate-nav-publish"><span class="nav-right"><span class="nav-middle langkey">Publish</span></span></a></li>
+</ul>
+</div>
+</div>
+
+<!--============================== content-wrap start ========================-->
+<div id="content-wrap" class="epcurate-publish hidden">
+<form name="epcurateForm" id="epcurateForm" method="get" action="" class="clearfix publish">
+<input type="hidden" name="id" id="id" value="" />
+<input type="hidden" name="channelId" id="channelId" value="" />
+
+<div id="content-nav">
+&nbsp;
+</div>
+
+<div id="main-wrap-slider" class="slider-wrap"><div class="slider-vertical"></div></div>
+
+<div id="content-main">
+<div id="content-main-wrap">
+<div class="constrain">
+<div id="epcurate-publish">
+<p class="required"><acronym title="Required field" class="mark-required">*</acronym>Required field</p>
+<div id="epcurate-info">
+<div class="fminput clearfix">
+<label for="name"><acronym title="Required field" class="mark-required">*</acronym>Episode title</label>
+<div class="fmfield">
+<p class="text"><span><input type="text" name="name" id="name" maxlength="100" value="" class="text" /></span></p>
+</div>
+</div>
+<div class="fminput clearfix">
+<label for="intro">Episode description</label>
+<div class="fmfield">
+<p class="textarea"><span><span><textarea name="intro" id="intro" cols="80" class="textarea"></textarea></span></span></p>
+</div>
+</div>
+</div>
+<div class="fminput clearfix">
+<label>Episode thumbnail</label>
+<div class="fmfield">
+<div id="thumbnail-list" class="img-list">
+<a href="#" class="img-prev">Prev</a>
+<a href="#" class="img-next">Next</a>
+<img src="images/loading.gif" alt="" class="loading" />
+<ul id="img-list">
+<li><img src="thumbnail/01.jpg" alt="" /></li>
+<li><img src="thumbnail/02.jpg" alt="" /></li>
+<li><img src="thumbnail/03.jpg" alt="" /></li>
+<li><img src="thumbnail/05.jpg" alt="" /></li>
+</ul>
+</div>
+<div class="img-upload-func">
+<p id="uploadThumbnail">Upload</p>
+<p class="notice">Better results with 720x405 or higher resolution image</p>
+<p class="upload-notice highlight hide">Please upload jpeg, png, or gif files.</p>
+<input type="hidden" name="imageUrl" id="imageUrl" value="" />
+<input type="hidden" name="imageUrlOld" id="imageUrlOld" value="" />
+</div>
+</div>
+</div>
+
+<div class="fminput clearfix">
+<label><acronym title="Required field" class="mark-required">*</acronym>Publish status</label>
+<div class="fmfield">
+<p class="radio-list draft">
+<label for="status_draft"><input type="radio" name="status" value="draft" id="status_draft" checked="checked" />Draft</label>
+<span class="box-left">
+<span class="box-right">
+<span class="box-middle">
+<span class="glow-left"><span class="glow-right"><span class="glow-middle"><label for="status_published"><input type="radio" name="status" value="published" id="status_published" />Publish Now</label></span></span></span>
+<span class="last">
+<label id="schedule-publish-label" for="status_scheduled" class="last"><input type="radio" name="status" value="scheduled" id="status_scheduled" />Scheduled to publish</label>
+<a id="schedule-publish" href="javascript:void(0);"><img src="images/icon_question.png" alt="" /><span class="tip"><img src="images/bg_tip_top.png" alt="" /><span class="tip-right"><span class="tip-middle">This episode will be published at<br />the scheduled time.</span></span></span></a>
+</span>
+</span>
+</span>
+</span>
+</p>
+<div id="date-time" class="hide">
+<div class="datepicker"></div>
+<div class="time">
+<h5>Hour</h5>
+<ul>
+<li class="disable"><a href="#"><span class="time-right"><span class="time-middle">00:00</span></span></a></li>
+<li class="disable"><a href="#"><span class="time-right"><span class="time-middle">01:00</span></span></a></li>
+<li class="disable"><a href="#"><span class="time-right"><span class="time-middle">02:00</span></span></a></li>
+<li class="disable"><a href="#"><span class="time-right"><span class="time-middle">03:00</span></span></a></li>
+<li class="disable"><a href="#"><span class="time-right"><span class="time-middle">04:00</span></span></a></li>
+<li class="disable"><a href="#"><span class="time-right"><span class="time-middle">05:00</span></span></a></li>
+<li class="disable"><a href="#"><span class="time-right"><span class="time-middle">06:00</span></span></a></li>
+<li class="disable"><a href="#"><span class="time-right"><span class="time-middle">07:00</span></span></a></li>
+<li class="disable"><a href="#"><span class="time-right"><span class="time-middle">08:00</span></span></a></li>
+<li class="disable"><a href="#"><span class="time-right"><span class="time-middle">09:00</span></span></a></li>
+<li class="disable"><a href="#"><span class="time-right"><span class="time-middle">10:00</span></span></a></li>
+<li class="disable"><a href="#"><span class="time-right"><span class="time-middle">11:00</span></span></a></li>
+<li class="disable"><a href="#"><span class="time-right"><span class="time-middle">12:00</span></span></a></li>
+<li class="enable"><a href="#"><span class="time-right"><span class="time-middle">13:00</span></span></a></li>
+<li class="enable"><a href="#"><span class="time-right"><span class="time-middle">14:00</span></span></a></li>
+<li class="enable"><a href="#"><span class="time-right"><span class="time-middle">15:00</span></span></a></li>
+<li class="enable"><a href="#"><span class="time-right"><span class="time-middle">16:00</span></span></a></li>
+<li class="enable"><a href="#"><span class="time-right"><span class="time-middle">17:00</span></span></a></li>
+<li class="enable"><a href="#"><span class="time-right"><span class="time-middle">18:00</span></span></a></li>
+<li class="enable"><a href="#"><span class="time-right"><span class="time-middle">19:00</span></span></a></li>
+<li class="enable active"><a href="#"><span class="time-right"><span class="time-middle">20:00</span></span></a></li>
+<li class="enable"><a href="#"><span class="time-right"><span class="time-middle">21:00</span></span></a></li>
+<li class="enable"><a href="#"><span class="time-right"><span class="time-middle">22:00</span></span></a></li>
+<li class="enable"><a href="#"><span class="time-right"><span class="time-middle">23:00</span></span></a></li>
+<li class="enable" style="display: none;"><a href="#"><span class="time-right"><span class="time-middle">24:00</span></span></a></li>
+</ul>
+</div>
+<input type="hidden" name="publishDate" id="publishDate" value="2013/11/13" />
+<input type="hidden" name="publishHour" id="publishHour" value="20:00" />
+<input type="hidden" name="origin_status" id="origin_status" value="Draft" />
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="form-btn">
+<div class="btn-wrap">
+<div class="wrap">
+<p class="back"><a href="epcurate-curation.html" id="form-btn-back" rel="curation" class="langkey">&lt; Back to Curation</a></p>
+<p class="btns btn-leave"><span class="btn-right"><span class="btn-middle"><input type="button" id="form-btn-leave" value="Leave" class="langkey-val" /></span></span></p>
+<p class="btns btn-save"><span class="btn-right"><span class="btn-middle"><input type="button" id="form-btn-save" value="Save" class="langkey-val" /></span></span></p>
+<p class="notice hide langkey">Please fill in all required fields.</p>
+</div>
+</div>
+</div>
+
+</form>
+</div>
+<!--============================== content-wrap close ========================-->
+
+<!--============================== footer start ==============================-->
+<p id="footer-control" class="hide"></p>
+<div id="footer" class="hide">
+  <ul id="footer-list">
+    <li>
+      <p class="select-txt"><a href="javascript:void(0);">About Us</a></p>
+      <p class="select-btn"></p>
+      <ul class="select-list">
+        <li><a href="/#!about=about">About us</a></li>
+        <li><a href="/#!about=help">Help</a></li>
+        <li><a href="/#!about=report">Feedback</a></li>
+        <li><a href="/#!about=terms">Terms & Policy</a></li>
+        <li><a href="/#!about=contact">Contact us</a></li>
+        <li><a href="/#!about=partners">Partners</a></li>
+        <li><a href="/#!about=curators">Curators</a></li>
+        <li id="footer-press"><a href="/#!about=press">Press</a></li>
+        <li id="footer-contest"><a href="/#!about=contest">Curation Contest</a></li>
+      </ul>
+    </li>
+    <li id="language-change">
+      <p class="select-txt"><a href="javascript:void(0);" id="language">Language</a></p>
+      <p class="select-btn"></p>
+      <ul class="select-list">
+        <li><a href="javascript:void(0);" id="language-en" data-meta="en">English</a></li>
+        <li><a href="javascript:void(0);" id="language-zh" data-meta="zh">中文</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<!--============================== footer close ==============================-->
+
+<div id="overlay-s">
+<p class="overlay-content"><span class="overlay-right"><span class="overlay-middle"><img src="images/icon_load_l.gif" alt="" />Saving...</span></span></p>
+</div>
+
+<div id="system-error" class="lightbox-content overlay-l">
+<div class="overlay-container">
+<div class="overlay-wrap">
+<a href="#" class="btn-close">Close</a>
+<p class="content">You are not authorized to edit this episode.</p>
+<div class="overlay-btn">
+<p class="btns btn-ok"><span><a href="#">OK</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="unsave-prompt" class="lightbox-content overlay-l">
+<div class="overlay-container">
+<div class="overlay-wrap">
+<a href="#" class="btn-close">Close</a>
+<p class="content">Unsaved changes will be lost, are you sure you want to leave?</p>
+<div class="overlay-btn">
+<p class="btns btn-leave"><span><a href="#">Leave</a></span></p>
+<p class="btns btn-no"><span><a href="#">No</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="publish-notice" class="lightbox-content overlay-l">
+<div class="overlay-container">
+<div class="overlay-wrap">
+<p class="content">This episode has been published.</p>
+<div class="overlay-btn">
+<p class="btns btn-ok"><span><a href="#">OK</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="unpublish-notice" class="lightbox-content overlay-l">
+<div class="overlay-container">
+<div class="overlay-wrap">
+<p class="content">This episode has been saved as an unpublished draft.</p>
+<div class="overlay-btn">
+<p class="btns btn-ok"><span><a href="#">OK</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

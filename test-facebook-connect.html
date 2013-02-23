@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html class="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="javascripts/nn-sdk.js?v=613"></script>
+<script src="javascripts/jquery.tmpl.min.js?v=613"></script>
+<script src="javascripts/purl.js?v=613"></script>
+<script src="javascripts/config.js?v=613"></script>
+<title>9x9.tv - Facebook Connect Test</title>
+</head>
+<body>
+
+<div id="fb-root"></div>
+<script>
+nn.initialize();
+nn.debug(CMS_CONF.IS_DEBUG);
+CMS_CONF.USER_URL = $.url();
+CMS_CONF.USER_DATA = {
+    "name": "tester0920",
+    "id": 6936,
+    "type": 4,
+    "password": null,
+    "token": "1-r8K4131N4rd3rN1d5454",
+    "salt": null,
+    "temp": false,
+    "imageUrl": "https://s3.amazonaws.com/9x9ui/war/v2/images/profile_default101.png",
+    "idStr": "1-6936",
+    "intro": null,
+    "shard": 1,
+    "sphere": "zh",
+    "lang": "zh",
+    "email": "tester0920@9x9.tv",
+    "createDate": 1348104845000,
+    "gender": 0,
+    "updateDate": 1353309000000,
+    "msoId": 1,
+    "dob": null,
+    "cntSubscribe": 0,
+    "profileUrl": "csnGUfowJe",
+    "fbUser": false,
+    "fbId": null,
+    "userEmail": "tester0920@9x9.tv",
+    "cryptedPassword": null,
+    "cntChannel": 0,
+    "cntFollower": 0,
+    "expires": 0,
+    "featured": false,
+    "userFbId": null
+};
+
+function addFbAsyncInitEvent(func) {
+    var oldFbAsyncInit = window.fbAsyncInit;
+    window.fbAsyncInit = function () {
+        if ('function' === typeof oldFbAsyncInit) {
+            oldFbAsyncInit();
+        }
+        func();
+    };
+}
+
+function testFacebookConnect() {
+    var lang = CMS_CONF.USER_DATA.lang,
+        userID = null,
+        accessToken = null,
+        loginStatus = null,
+        hasCriticalPerm = null;
+
+    (function (d, debug) {
+        var js,
+            id = 'facebook-jssdk',
+            ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement('script');
+        js.id = id;
+        js.async = true;
+        js.src = '//connect.facebook.net/' + CMS_CONF.LC_MAP[lang] + '/all' + (debug ? '/debug' : '') + '.js';
+        ref.parentNode.insertBefore(js, ref);
+    }(document, /*debug*/ CMS_CONF.IS_DEBUG));
+
+    addFbAsyncInitEvent(function () {
+        // init the FB JS SDK
+        FB.init({
+            appId      : CMS_CONF.FB_APP_ID,                                                            // App ID from the App Dashboard
+            channelUrl : '//' + CMS_CONF.USER_URL.attr('host') + '/lang/fb/' + lang + '/channel.html',  // Channel File for x-domain communication
+            status     : true,                                                                          // check the login status upon init?
+            cookie     : true,                                                                          // set sessions cookies to allow your server to access the session?
+            xfbml      : true                                                                           // parse XFBML tags on this page?
+        });
+    });
+    addFbAsyncInitEvent(function () {
+        // Additional initialization code such as adding Event Listeners goes here
+        FB.Event.subscribe('auth.statusChange', function (response) {
+            loginStatus = response.status;
+            if ('connected' === loginStatus) {
+                userID = response.authResponse.userID;
+                accessToken = response.authResponse.accessToken;
+                checkCriticalPerm(function (hasCriticalPerm, authResponse) {
+                    if (hasCriticalPerm) {
+                        $('#facebook-switch').text('Switch to Off');
+                    } else {
+                        $('#facebook-switch').text('Switch to On');
+                    }
+                }, response.authResponse);
+            } else {
+                $('#facebook-switch').text('Switch to On');
+            }
+            alertMsg(loginStatus);
+        });
+    });
+
+    $('#facebook-switch').click(function () {
+        switchFacebook();
+    });
+    $('#facebook-status').click(function () {
+        getLoginStatus();
+    });
+    $('#facebook-connect').click(function () {
+        connectFacebook();
+    });
+    $('#facebook-pagelist').click(function () {
+        listFacebookPage();
+    });
+    $('#facebook-disconnect').click(function () {
+        disconnectFacebook(accessToken);
+    });
+    $('#facebook-logout').click(function () {
+        logoutFacebook();
+    });
+
+    function switchFacebook() {
+        if ('connected' === loginStatus && true === hasCriticalPerm) {
+            disconnectFacebook(accessToken);
+        } else {
+            connectFacebook();
+        }
+    }
+    function getLoginStatus() {
+        FB.getLoginStatus(function (response) {
+            if ('connected' === response.status) {
+                // connected
+                nn.log('connected', 'debug');
+                checkCriticalPerm(handleRevokedPerm, response.authResponse);
+            } else if ('not_authorized' === response.status) {
+                // not_authorized
+                nn.log('not_authorized', 'debug');
+                alertMsg(response.status);
+                connectFacebook();
+            } else {
+                // not_logged_in
+                nn.log('not_logged_in', 'debug');
+                alertMsg(response.status);
+                connectFacebook();
+            }
+        }, true);
+    }
+    function connectFacebook() {
+        FB.login(function (response) {
+            if (response.authResponse) {
+                // connected
+                checkCriticalPerm(handleRevokedPerm, response.authResponse);
+            } else {
+                // cancelled
+                alertMsg('cancelled!');
+            }
+        }, {scope: CMS_CONF.FB_REQ_PERMS.join(',')});
+    }
+    function checkCriticalPerm(callback, authResponse) {
+        FB.api('/me/permissions', function (response) {
+            var permList = null;
+            hasCriticalPerm = false;
+            if (response.data && response.data[0]) {
+                permList = response.data[0];
+                if (permList['manage_pages'] && permList['publish_stream']) {
+                    hasCriticalPerm = true;
+                    $('#facebook-switch').text('Switch to Off');
+                }
+            }
+            if ('function' === typeof callback) {
+                callback(hasCriticalPerm, authResponse);
+            }
+        });
+    }
+    function handleRevokedPerm(hasCriticalPerm, authResponse) {
+        if (hasCriticalPerm) {
+            alertMsg('uid: ' + authResponse.userID + ', accessToken: ' + authResponse.accessToken);
+        } else {
+            alertMsg('connected but has not key permission!!');
+        }
+    }
+    function listFacebookPage() {
+        FB.api('/me/accounts?type=page', function (response) {
+            var pageList = null;
+            if (response.data) {
+                pageList = response.data;
+                $('#fb-page-list').html('').hide();
+                $('#fb-page-list').html($('#fb-page-list-tmpl-item').tmpl(pageList)).fadeIn('slow');
+                // TODO
+                nn.log({
+                    response: response,
+                    pageList: pageList
+                }, 'debug');
+            }
+        });
+    }
+    function disconnectFacebook(accessToken) {
+        FB.api('/me/permissions', 'delete', {access_token: accessToken}, function (response) {
+            if (!response || response.error) {
+                alertMsg('Error occured!!');
+            } else {
+                alertMsg('This web app was revoked!');
+                userID = null;
+                accessToken = null;
+                loginStatus = null;
+                hasCriticalPerm = null;
+                $('#facebook-switch').text('Switch to On');
+            }
+        });
+    }
+    function logoutFacebook() {
+        FB.logout(function (response) {
+            nn.log(response, 'debug');
+            alertMsg('user is now logged out!');
+        });
+    }
+    function alertMsg(msg) {
+        $('#fb-result .log-alert').text(msg);
+    }
+}
+
+function initFacebook() {
+    if (null !== CMS_CONF.USER_URL && null !== CMS_CONF.USER_DATA) {
+        testFacebookConnect();
+    } else {
+        setTimeout(initFacebook, 1000);
+    }
+}
+setTimeout(initFacebook, 1000);
+</script>
+
+<h1>9x9.tv - Facebook Connect Test</h1>
+
+<div id="fb-btn">
+<button id="facebook-switch">Switch to On</button>
+<br /><br />
+<button id="facebook-status">Facebook Login Status</button>
+<button id="facebook-connect">Facebook Connect</button>
+<button id="facebook-pagelist">Facebook Page List</button>
+<br /><br />
+<button id="facebook-disconnect">Facebook Disonnect (Revoke)</button>
+<button id="facebook-logout">Facebook Logout</button>
+</div>
+
+<div id="fb-result">
+<p>alert msg: <span class="log-alert"></span></p>
+</div>
+
+<ol id="fb-page-list">
+<!-- template = #fb-page-list-tmpl-item -->
+</ol>
+
+<script id="fb-page-list-tmpl-item" type="text/x-jquery-tmpl">
+<li>
+<dl>
+<dt>id</dt>
+<dd>${id}</dd>
+<dt>access_token</dt>
+<dd>${access_token}</dd>
+<dt>name</dt>
+<dd>${name}</dd>
+<dt>category</dt>
+<dd>${category}</dd>
+</dl>
+</li>
+</script>
+
+</body>
+</html>

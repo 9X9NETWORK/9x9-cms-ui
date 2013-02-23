@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html class="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="javascripts/nn-sdk.js?v=613"></script>
+<script src="javascripts/jquery.tmpl.min.js?v=613"></script>
+<script src="javascripts/purl.js?v=613"></script>
+<script src="javascripts/config.js?v=613"></script>
+<title>9x9.tv - Recu Serialize Param Test</title>
+</head>
+<body>
+
+<script>
+nn.initialize();
+nn.debug(CMS_CONF.IS_DEBUG);
+
+$(function () {
+    var myObject = {
+        a: {
+            one: 1,
+            two: 2,
+            three: 3
+        },
+        b: [1, 2, 3]
+    };
+    // a[one]=1&a[two]=2&a[three]=3&b[]=1&b[]=2&b[]=3
+    var recursiveEncoded = $.param(myObject);
+    var recursiveDecoded = decodeURIComponent(recursiveEncoded);
+    $('#recu-encode').text(recursiveEncoded);
+    $('#recu-decode').text(recursiveDecoded);
+});
+</script>
+
+<h1>9x9.tv - Recu Serialize Param Test</h1>
+<pre>
+    var myObject = {
+        a: {
+            one: 1,
+            two: 2,
+            three: 3
+        },
+        b: [1, 2, 3]
+    };
+</pre>
+<ul>
+<li id="recu-encode"></li>
+<li id="recu-decode"></li>
+</ul>
+
+</body>
+</html>

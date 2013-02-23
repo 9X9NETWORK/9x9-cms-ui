@@ -1,0 +1,192 @@
+/*-----------------------------------------------------------------------------
+[TABLE OF CONTENTS]
+    +datepick-div
+        =datepick-control
+        =datepick-links
+        +datepick-one-month
+            =datepick-header
+            =datepick
+-----------------------------------------------------------------------------*/
+
+img.datepick-trigger {
+    vertical-align: middle;
+}
+
+/* +datepick-div
+*----------------------------------------------------------------------------*/
+
+.ui-datepicker {
+    display: none;
+    z-index: 100000; /*must have*/
+    float: left;
+    width: 190px;
+    height: 207px;
+    margin: 0 15px 0 0;
+    padding: 0 10px 5px 10px;
+    background: url(../images/bg_calander.png) no-repeat 0 0;
+    color: #222;
+    font: 14px Arial,Helvetica,sans-serif;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.ui-datepicker a {
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+/**
+*
+* =datepick-control
+*
+**/
+
+.datepick-control {
+    display: none;
+}
+
+.datepick-links   .datepick-current a,
+.datepick-links   .datepick-current label {
+    display: block;
+    width: 45px;
+    height: 23px;
+    line-height: 23px;
+    padding: 0;
+    border: 1px solid #d3d3d3;
+    background: #e6e6e6 url(../images/datepick/bg-btn.png) repeat-x 50% 50%;
+    color: #555;
+    font-size: 12px;
+    text-align: center;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.datepick-links .datepick-current a:hover,
+.datepick-links .datepick-current label {
+    border: 1px solid #4b4b4b;
+    color: #212121;
+}
+
+.datepick-links .datepick-current label {
+    border: 1px solid #f0f0f0;
+    color: #c4c4c4;
+}
+
+/**
+*
+* =datepick-links
+*
+**/
+
+.ui-datepicker {
+    position: relative;
+}
+
+.ui-datepicker .datepick-links .datepick-current {
+    display: none;
+}
+
+.ui-datepicker .ui-datepicker-header .ui-datepicker-prev {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+	width: 7px;
+	height: 10px;
+	background: url(../images/arrow_left.png) no-repeat 0 0;
+	text-indent: -100000px;
+}
+
+.ui-datepicker .ui-datepicker-header .ui-datepicker-prev:hover {
+	background: url(../images/arrow_left_press.png) no-repeat 0 0;
+}
+
+.ui-datepicker .ui-datepicker-header .ui-datepicker-next {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+	width: 7px;
+	height: 10px;
+	background: url(../images/arrow_right.png) no-repeat 0 0;
+	text-indent: -100000px;
+}
+
+.ui-datepicker .ui-datepicker-header .ui-datepicker-next:hover {
+	background: url(../images/arrow_right_press.png) no-repeat 0 0;
+}
+
+/**
+*
+* +datepick-one-month
+*
+**/
+
+/* =datepick-header
+**************************************/
+
+.ui-datepicker-title {
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 3px;
+    color: #555;
+    font-weight: bold;
+    text-align: center;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+/* =datepick
+**************************************/
+
+table.ui-datepicker-calendar {
+    margin: 0 auto;
+    text-align: center;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+table.ui-datepicker-calendar th {
+    margin: 0;
+    padding: 0;
+    color: #555;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: center;
+}
+
+table.ui-datepicker-calendar th span {
+    display: block;
+    width: 24px;
+    height: 25px;
+    line-height: 25px;
+}
+
+table.ui-datepicker-calendar td {
+    border: none;
+}
+
+table.ui-datepicker-calendar td a {
+    display: block;
+    width: 24px;
+    height: 25px;
+    line-height: 25px;
+    padding: 0;
+    color: #555;
+    font-size: 13px;
+    text-align: center;
+    text-decoration: none;
+}
+
+table.ui-datepicker-calendar td a.ui-state-active,
+table.ui-datepicker-calendar td a:hover {
+    background: url(../images/bg_calander_highlight.png) no-repeat 3px 2px;
+	color: #fff;
+}
+
+table.ui-datepicker-calendar td.ui-state-disabled span {
+    display: block;
+    width: 20px;
+    height: 21px;
+    color: #ddd;
+}
