@@ -1,0 +1,15 @@
+Date: 2013/03/01
+Version: 9x9_CMS_1
+
+Changes:
+
+episode-list.html
+* Add "bg_list_expand.png", "bg_list_collapse_top.png", "bg_list_collapse_bottom.png" and "icon_expand_collapse.png" in images folder. 
+* Change "divider_vertical.png" in images folder.
+* Add "<p class="number">" inside "<div class="caption">" in HTML.
+* Add "<div class="number">" inside "<div class="wrap">" in HTML.
+* Add "<li class="clearfix list_expand">", "<li class="clearfix list_collapse_top on">" and "<li class="clearfix list_collapse_bottom on">" in HTML. 
+* Add CSS from "/* Episode List */" in episode.css.
+* Change "#ep-list ul li .episode, #title-func .caption  p.episode" in episode.css.
+* Change "#ep-list ul li .views" to "#title-func .caption .views, #ep-list ul li .views" and change it in episode.css.
+* Change "// episode list sorting" in episode.js.

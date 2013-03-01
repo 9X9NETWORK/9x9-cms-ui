@@ -463,6 +463,9 @@ body.mac #title-func ul li p span a {
     padding: 0 0 0 4px;
     background: url(../images/edit_box_left.png) no-repeat 0 0;
 }
+#ep-list.ui-sortable ul li .episode .btns {
+    color: #777;
+}
 
 #ep-list ul li .episode .btns .btn-wrap {
     padding: 0 3px 0 0;
@@ -492,7 +495,6 @@ body.mac #title-func ul li p span a {
     line-height: 28px;
     text-decoration: none;
 }
-
 #ep-list ul li .episode .btns .btn-wrap ul li a.disable,
 #ep-list ul li .episode .btns .btn-wrap ul li a:hover {
     color: #777;
@@ -542,13 +544,13 @@ body.mac #title-func ul li p span a {
 #ep-list ul li .publish-time,
 #ep-list ul li .views {
     float: left;
-    width: 155px;
+    width: 160px;
     color: #555;
     font: 13px Arial, Helvetica;
 }
 
-#ep-list ul li .views {
-    width: 85px;
+#title-func .caption .views, #ep-list ul li .views {
+    width: 65px;
 }
 
 #ep-list ul li .scheduled-time  p,
@@ -605,4 +607,282 @@ body.mac #title-func ul li p span a {
 #ep-list p.more {
 	width: 120px;
 	margin: 0 auto;
+}
+
+
+/* Episode List */
+#title-func .caption p.number {
+  width: 49px;
+  float: left;
+  padding-bottom: 5px;
+  font-weight: bold;
+  font-size: 13px;
+  text-align: center;
+}
+#ep-list ul li div.number {
+  float: left;
+  overflow: hidden;
+  font-size: 13px;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1;
+  padding: 24px 10px 0 10px;
+}
+
+/* Disable */
+#episode-list.ui-sortable li.list_collapse_top.on, #episode-list.ui-sortable li.list_collapse_top.on:hover {
+  height: 28px;
+  padding: 0 0 0 3px;
+  background: url(../images/bg_list_expand.png) no-repeat 0 -252px;
+  position: relative;
+  cursor: default;
+  margin-top: 0;
+  color: #777;
+}
+#episode-list.ui-sortable li.list_collapse_top .right {
+  background: url(../images/bg_list_expand.png) no-repeat right -280px;
+  padding: 0 3px 0 0;
+  display: block;
+}
+#episode-list.ui-sortable li.list_collapse_top .right .middle {
+  background: url(../images/bg_list_expand.png) repeat 0 -308px;
+  height: 28px;
+  display: block;
+}
+#episode-list.ui-sortable li.list_expand, #episode-list.ui-sortable li.list_expand:hover {
+  height: 28px;
+  padding: 0 0 0 3px;
+  background: url(../images/bg_list_expand.png) no-repeat 0 -168px;
+  position: relative;
+  cursor: default;
+  margin-top: 0;
+  color: #777;
+}
+#episode-list.ui-sortable li.list_expand .right {
+  background: url(../images/bg_list_expand.png) no-repeat right -196px;
+  padding: 0 3px 0 0;
+  display: block;
+}
+#episode-list.ui-sortable li.list_expand .right .middle {
+  background: url(../images/bg_list_expand.png) repeat 0 -224px;
+  height: 28px;
+  display: block;
+}
+#episode-list.ui-sortable li.list_collapse_bottom.on, #episode-list.ui-sortable li.list_collapse_bottom.on:hover {
+  height: 28px;
+  padding: 0 0 0 3px;
+  background: url(../images/bg_list_expand.png) no-repeat 0 -252px;
+  position: relative;
+  cursor: default;
+  margin-top: 0;
+  color: #777;
+}
+#episode-list.ui-sortable li.list_collapse_bottom.on .right {
+  background: url(../images/bg_list_expand.png) no-repeat right -280px;
+  padding: 0 3px 0 0;
+  display: block;
+}
+
+#episode-list.ui-sortable li.list_collapse_bottom.on .right .middle {
+  background: url(../images/bg_list_expand.png) repeat 0 -308px;
+  height: 28px;
+  display: block;
+}
+
+/* List */
+#episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_top {
+  height: 28px;
+  padding: 0 0 0 3px;
+  background: url(../images/bg_list_collapse_top.png) no-repeat 0 0;
+  position: relative;
+  margin-top: 0px;
+  cursor: pointer;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_top .right {
+  background: url(../images/bg_list_collapse_top.png) no-repeat right -28px;
+  padding: 0 3px 0 0;
+  display: block;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_top .right .middle {
+  background: url(../images/bg_list_collapse_top.png) repeat 0 -56px;
+  height: 28px;
+  display: block;
+}
+#episode-list li .list-number {
+  position: absolute;
+  top: 6px;
+  left: 57px;
+  font-size: 13px;
+  font-weight: bold;
+}
+#episode-list li .icon-expand-on-left {
+  width: 16px;
+  height: 16px;
+  background: url(../images/icon_expand_collapse.png) no-repeat 0 -16px;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_top:hover, #episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_top.on {
+  background: url(../images/bg_list_collapse_top.png) no-repeat 0 -84px;
+  cursor: pointer;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_top:hover ,#episode-list.ui-sortable.ui-sortable-disabled li.list_expand:hover, #episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_bottom:hover {
+  color: #777;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_top:hover .right, #episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_top.on .right {
+  background: url(../images/bg_list_collapse_top.png) no-repeat right -112px;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_top:hover .right .middle, #episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_top.on .right .middle {
+  background: url(../images/bg_list_collapse_top.png) repeat 0 -140px;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_top.disable {
+  background: url(../images/bg_list_collapse_top.png) no-repeat 0 -168px;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_top.disable .right {
+  background: url(../images/bg_list_collapse_top.png) no-repeat right -196px;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_top.disable .right .middle {
+  background: url(../images/bg_list_collapse_top.png) repeat 0 -224px;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_expand {
+  height: 28px;
+  padding: 0 0 0 3px;
+  background: url(../images/bg_list_expand.png) no-repeat 0 0;
+  position: relative;
+  margin-top: 0;
+  cursor: pointer;
+  color: #555;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_expand .right {
+  background: url(../images/bg_list_expand.png) no-repeat right -28px;
+  padding: 0 3px 0 0;
+  display: block;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_expand .right .middle {
+  background: url(../images/bg_list_expand.png) repeat 0 -56px;
+  height: 28px;
+  display: block;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_expand:hover, #episode-list.ui-sortable.ui-sortable-disabled li.list_expand.on {
+  background: url(../images/bg_list_expand.png) no-repeat 0 -84px;
+  cursor: pointer;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_expand:hover .right, #episode-list.ui-sortable.ui-sortable-disabled li.list_expand.on .right {
+  background: url(../images/bg_list_expand.png) no-repeat right -112px;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_expand:hover .right .middle, #episode-list.ui-sortable.ui-sortable-disabled li.list_expand.on .right .middle {
+  background: url(../images/bg_list_expand.png) repeat 0 -140px;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_expand.disable {
+  background: url(../images/bg_list_expand.png) no-repeat 0 -168px;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_expand.disable .right {
+  background: url(../images/bg_list_expand.png) no-repeat right -196px;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_expand.disable .right .middle {
+  background: url(../images/bg_list_expand.png) repeat 0 -224px;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_bottom {
+  height: 28px;
+  padding: 0 0 0 3px;
+  background: url(../images/bg_list_collapse_bottom.png) no-repeat 0 0;
+  position: relative;
+  margin-top: 0;
+  cursor: pointer;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_bottom .right {
+  background: url(../images/bg_list_collapse_bottom.png) no-repeat right -28px;
+  padding: 0 3px 0 0;
+  display: block;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_bottom .right .middle {
+  background: url(../images/bg_list_collapse_bottom.png) repeat 0 -56px;
+  height: 28px;
+  display: block;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_bottom:hover, #episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_bottom.on {
+  background: url(../images/bg_list_collapse_bottom.png) no-repeat 0 -84px;
+  cursor: pointer;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_bottom:hover .right, #episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_bottom.on .right {
+  background: url(../images/bg_list_collapse_bottom.png) no-repeat right -112px;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_bottom:hover .right .middle, #episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_bottom.on .right .middle {
+  background: url(../images/bg_list_collapse_bottom.png) repeat 0 -140px;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_bottom.disable {
+  background: url(../images/bg_list_collapse_bottom.png) no-repeat 0 -168px;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_bottom.disable .right {
+  background: url(../images/bg_list_collapse_bottom.png) no-repeat right -196px;
+}
+#episode-list.ui-sortable.ui-sortable-disabled li.list_collapse_bottom.disable .right .middle {
+  background: url(../images/bg_list_collapse_bottom.png) repeat 0 -224px;
+}
+
+/* Icon */
+#episode-list.ui-sortable.ui-sortable-disabled .icon-expand-left {
+  width: 16px;
+  height: 16px;
+  background: url(../images/icon_expand_collapse.png) no-repeat 0 -16px;
+  position: absolute;
+  top: 6px;
+  left: 8px;
+}
+#episode-list.ui-sortable.ui-sortable-disabled .icon-expand-right {
+  width: 16px;
+  height: 16px;
+  background: url(../images/icon_expand_collapse.png) no-repeat 0 -16px;
+  position: absolute;
+  top: 6px;
+  right: 8px;
+}
+#episode-list.ui-sortable.ui-sortable-disabled .icon-expand-left.on {
+  width: 16px;
+  height: 16px;
+  background: url(../images/icon_expand_collapse.png) no-repeat 0 0;
+  position: absolute;
+  top: 6px;
+  left: 8px;
+}
+#episode-list.ui-sortable.ui-sortable-disabled .icon-expand-right.on {
+  width: 16px;
+  height: 16px;
+  background: url(../images/icon_expand_collapse.png) no-repeat 0 0;
+  position: absolute;
+  top: 6px;
+  right: 8px;
+}
+#episode-list.ui-sortable .icon-expand-left {
+  width: 16px;
+  height: 16px;
+  background: url(../images/icon_expand_collapse.png) no-repeat 0 -48px;
+  position: absolute;
+  top: 6px;
+  left: 8px;
+}
+#episode-list.ui-sortable .icon-expand-right {
+  width: 16px;
+  height: 16px;
+  background: url(../images/icon_expand_collapse.png) no-repeat 0 -48px;
+  position: absolute;
+  top: 6px;
+  right: 8px;
+}
+#episode-list.ui-sortable .icon-expand-left.on{
+  width: 16px;
+  height: 16px;
+  background: url(../images/icon_expand_collapse.png) no-repeat 0 -32px;
+  position: absolute;
+  top: 6px;
+  left: 8px;
+}
+#episode-list.ui-sortable .icon-expand-right.on {
+  width: 16px;
+  height: 16px;
+  background: url(../images/icon_expand_collapse.png) no-repeat 0 -32px;
+  position: absolute;
+  top: 6px;
+  right: 8px;
 }

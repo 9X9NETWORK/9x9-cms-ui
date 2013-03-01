@@ -72,6 +72,7 @@ $(function () {
         $(this).text('Save order').removeClass('reorder').addClass('save');
         $('#episode-list').sortable('enable');
         $('body').removeClass('has-change');
+		$('#ep-list ul li .episode .btns .btn-wrap ul li a').addClass('disable');
         return false;
     });
     $('#title-func').on('click', 'p.order a.save', function () {
@@ -99,6 +100,7 @@ $(function () {
             $this.text('Reorder episodes').removeClass('save').addClass('reorder');
             $('#episode-list').sortable('disable');
             $('body').removeClass('has-change');
+			$('#ep-list ul li .episode .btns .btn-wrap ul li a').removeClass('disable');
         }
         return false;
     });
@@ -162,7 +164,7 @@ function setEpisodeWidth() {
         publishWidth = $('#ep-list ul li .publish-time').width(),
         viewsWidth = $('#ep-list ul li .views').width();
     $('#ep-list ul li .wrap, #title-func .caption').width(wrapWidth - 31 - 1);  // 1:border
-    $('#ep-list ul li .episode, #title-func .caption  p.episode').width(wrapWidth - 31 - scheduledWidth - publishWidth - viewsWidth - 1);   // 1:border
+    $('#ep-list ul li .episode, #title-func .caption  p.episode').width(wrapWidth - 80 - scheduledWidth - publishWidth - viewsWidth - 1);   // 1:border
     $('#ep-list ul li .episode h3').each(function (index) {
         $('a', this).text($(this).data('meta'));
     });
