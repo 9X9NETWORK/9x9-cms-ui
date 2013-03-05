@@ -639,6 +639,9 @@ body.mac #title-func ul li p span a {
   margin-top: 0;
   color: #777;
 }
+#episode-list.ui-sortable li.list_collapse_top.on {
+  color: #555;	
+}
 #episode-list.ui-sortable li.list_collapse_top .right {
   background: url(../images/bg_list_expand.png) no-repeat right -280px;
   padding: 0 3px 0 0;
