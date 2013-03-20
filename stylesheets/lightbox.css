@@ -162,12 +162,12 @@
     right: -3px;
     width: 22px;
     height: 24px;
-    background: url(../images/btn_popup_close.png) no-repeat 0 0;
+    background: url(../images/btn_close_l.png) no-repeat 0 0;
     text-indent: -100000px;
 }
 
 .lightbox-upload-video .upload-audio .upload-audio-wrap .btn-close:hover {
-    background: url(../images/btn_popup_close_on.png) no-repeat 0 0;
+    background-position: 0 -24px
 }
 
 .lightbox-upload-video .upload-audio .upload-audio-wrap p.required {
@@ -285,7 +285,7 @@
     float: left;
     height: 19px;
     padding-left: 25px;
-    background: url(../images/btn_radio_off.png) no-repeat 0 0;
+    background: url(../images/btn_radio.png) no-repeat 0 0;
     color: #555;
     line-height: 18px;
     text-decoration: none;
@@ -293,7 +293,7 @@
 
 .lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield .upload-func .radio-list .radio.on a,
 .lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield .upload-func .radio-list .radio       a:hover {
-    background: url(../images/btn_radio_on.png) no-repeat 0 0;
+    background-position: 0 -38px;
 }
 
 .lightbox-upload-video .upload-audio .upload-audio-wrap form .fminput .fmfield .upload-func .radio-list .first {
@@ -419,12 +419,12 @@
 	display: block;
 	width: 22px;
 	height: 24px;
-	background: url(../images/btn_popup_close.png) no-repeat 0 0;
+	background: url(../images/btn_close_l.png) no-repeat 0 0;
 	text-indent: -100000px;
 }
 
 .overlay-l .overlay-container .overlay-wrap .btn-close:hover {
-	background: url(../images/btn_popup_close_press.png) no-repeat 0 0;
+	background-position: 0 -24px;
 }
 
 .overlay-l .overlay-container .overlay-wrap p.content {

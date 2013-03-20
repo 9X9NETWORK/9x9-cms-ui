@@ -2,7 +2,7 @@ $(function () {
     setFormWidth();
     scrollbar('#content-main', '#content-main-wrap', '#main-wrap-slider');
     $('#header, #footer, #footer-control').fadeOut(3000);
-    $('#epcurate-nav ul li.publish').click(function() {
+    $('#epcurate-nav ul li.publish').click(function () {
         return false;
     });
 
@@ -173,7 +173,7 @@ function chkPublishData(fm, src) {
 }
 
 function setFormWidth() {
-    var windowWidth  = $(window).width();
+    var windowWidth = $(window).width();
     if (windowWidth > 1024) {
         $('input.text').width(windowWidth - 600);
         $('textarea.textarea').width(windowWidth - 605);
@@ -368,7 +368,7 @@ function updateHour() {
             }
             if (selectMonth.length < 2) {
                 selectMonth = '0' + selectMonth;
-            }            
+            }
             var date = inst.currentYear + '/' + selectMonth + '/' + selectDay;
 
             if (date == todayDate) {

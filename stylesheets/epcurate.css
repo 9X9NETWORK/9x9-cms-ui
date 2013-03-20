@@ -222,7 +222,7 @@
     display: block;
     width: 14px;
     height: 15px;
-    background: url(../images/check_box.png) no-repeat 0 0;
+    background: url(../images/bg_checkbox.png) no-repeat 0 0;
 }
 
 #content-wrap form .fminput .fmfield p.radio-list .checker input {
@@ -459,22 +459,22 @@
 #content-wrap form .fminput .fmfield p.textarea {
     overflow: hidden;
     float: left;
-    height: 64px;
+    height: 92px;
     margin: 0 10px 10px 0;
     padding-left: 3px;
-    background: url(../images/input_box_left_lg.png) no-repeat 0 0;
+    background: url(../images/bg_input_lg.png) no-repeat 0 0;
 }
 
 #content-wrap form .fminput .fmfield p.textarea span {
     display: block;
     padding-right: 3px;
-    background: url(../images/input_box_right_lg.png) no-repeat right 0;
+    background: url(../images/bg_input_lg.png) no-repeat right -92px;
 }
 
 #content-wrap form .fminput .fmfield p.textarea span span {
-    height: 64px;
+    height: 92px;
     padding: 0;
-    background: url(../images/input_box_middle_lg.png) repeat-x;
+    background: url(../images/bg_input_lg.png) repeat-x 0 -184px;
 }
 
 #content-wrap form .fminput .fmfield p.textarea span .textarea {
@@ -491,15 +491,15 @@
 }
 
 #content-wrap form .disable .fmfield p.textarea {
-    background: url(../images/input_box_left_lg_disable.png) no-repeat 0 0;
+    background-position: 0 -276px;
 }
 
 #content-wrap form .disable .fmfield p.textarea span {
-    background: url(../images/input_box_right_lg_disable.png) no-repeat right 0;
+    background-position: right -368px;
 }
 
-#content-wrap form .disable .fmfield p.textarea span .textarea {
-    background: url(../images/input_box_middle_lg_disable.png) repeat-x;
+#content-wrap form .disable .fmfield p.textarea span span {
+    background-position: 0 -460px;
 }
 
 /* =thumbnail
@@ -591,7 +591,7 @@
 #content-wrap form .fminput .fmfield .checkbox {
     float: left;
     height: 19px;
-    background: url(../images/check_box.png) no-repeat 0 center;
+    background: url(../images/bg_checkbox.png) no-repeat 0 0;
     color: #555;
     line-height: 18px;
     text-decoration: none;
@@ -625,26 +625,26 @@
     float: left;
     height: 19px;
     padding-left: 22px;
-    background: url(../images/btn_radio_off.png) no-repeat 0 0;
+    background: url(../images/btn_radio.png) no-repeat 0 0;
     color: #555;
     line-height: 18px;
     text-decoration: none;
 }
 
 #content-wrap form .fminput .fmfield .radio li.on a,
-#content-wrap form .fminput .fmfield .radio li       a:hover {
-    background: url(../images/btn_radio_on.png) no-repeat 0 0;
+#content-wrap form .fminput .fmfield .radio li    a:hover {
+    background-position: 0 -38px;
 }
 
 #content-wrap form .disable .fmfield .radio li a,
 #content-wrap form .disable .fmfield .radio li a:hover {
-    background: url(../images/btn_radio_off_disable.png) no-repeat 0 0;
+    background-position: 0 -18px;
 	color: #bbb;
 }
 
 #content-wrap form .disable .fmfield .radio li.on a,
 #content-wrap form .disable .fmfield .radio li.on a:hover {
-    background: url(../images/btn_radio_on_disable.png) no-repeat 0 0;
+    background-position: 0 -56px;
 }
 
 /* =select

@@ -1,3 +1,15 @@
+Date: 2013/03/19
+Version: 9x9_CMS_3
+
+Changes:
+index.html
+* Add images in thumbnail folder.
+* Change "<div class="photo-list">" in index.html.
+* Change "#channel-list li .photo-list", "#channel-list li .photo-list a img.watermark", "#channel-list li .func-wrap", "#channel-list li p.drag" and "#channel-list li .container-left", "#channel-list li .info" and "#channel-list li .info h3" and "#channel-list li p.drag span" in channel.css.
+* Remove "#channel-list li .photo-list a:hover img.watermark" and "#channel-list li .photo-list a:hover img.img" in channel.css.
+* Add "#channel-list li .photo-list img.ep a:hover img.ep" in channel.css.
+
+
 Date: 2013/03/05
 Version: 9x9_CMS_2
 

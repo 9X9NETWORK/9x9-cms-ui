@@ -2,7 +2,7 @@
 [TABLE OF CONTENTS]
     +common
         =btns
-
+        
 -----------------------------------------------------------------------------*/
 
 * {
@@ -512,11 +512,11 @@ height:24px;
 position:absolute;
 top:3px;
 right:-7px;
-background: url(../images/btn_popup_close.png) no-repeat;
+background: url(../images/btn_close_l.png) no-repeat 0 0;
 cursor: pointer;
 }
 #btn-signin-close:hover {
-background: url(../images/btn_popup_close_press.png) no-repeat;
+background-position: 0 -24px;
 }
 #signin-panel_signin {
 width:249px;
@@ -686,7 +686,7 @@ background: #e4e4e4;
 }
 
 #epcurate-nav .epcurate-nav-wrap h3 a.btn-back:hover {
-    background: url(../images/btn_back_on.png) no-repeat 0 0;
+    background-position: 0 -36px;
 }
 
 #studio-nav .studio-nav-wrap ul {
@@ -934,20 +934,20 @@ background: #e4e4e4;
     display: block;
     height: 28px;
     padding-left: 7px;
-    background: url(../images/bg_tip_left.png) no-repeat 0 0;
+    background: url(../images/bg_tip.png) no-repeat 0 0;
 }
 
 #epcurate-nav .epcurate-nav-wrap .tip-right {
     display: block;
     height: 28px;
     padding-right: 7px;
-    background: url(../images/bg_tip_right.png) no-repeat right 0;
+    background: url(../images/bg_tip.png) no-repeat right -28px;
 }
 
 #epcurate-nav .epcurate-nav-wrap .tip .tip-middle {
     display: block;
     height: 28px;
-    background: url(../images/bg_tip_middle.png) repeat-x;
+    background: url(../images/bg_tip.png) repeat-x 0 -56px;
     line-height: 28px;
     color: #555;
     font-weight: normal;
@@ -1056,20 +1056,20 @@ background: #e4e4e4;
     display: block;
     height: 28px;
     padding-left: 7px;
-    background: url(../images/bg_tip_left.png) no-repeat 0 0;
+    background: url(../images/bg_tip.png) no-repeat 0 0;
 }
 
 #title-func h2 a.reload .tip-right {
     display: block;
     height: 28px;
     padding-right: 7px;
-    background: url(../images/bg_tip_right.png) no-repeat right 0;
+    background: url(../images/bg_tip.png) no-repeat right -28px;
 }
 
 #title-func h2 a.reload .tip .tip-middle {
     display: block;
     height: 28px;
-    background: url(../images/bg_tip_middle.png) repeat-x;
+    background: url(../images/bg_tip.png) repeat-x 0 -56px;
     line-height: 28px;
     color: #555;
     font-style: normal;

@@ -1,13 +1,4 @@
 $(function () {
-    var fb_pages_map = {
-        "1": "台灣環球西洋流行音樂台灣環球西洋流行音樂台灣環球西洋流行音樂台灣環球西洋流行音樂台灣環球西洋流行音樂",
-        "2": "MusicDay:::音樂品牌日品牌日品牌日品牌日:::",
-        "3": "Samsung Camera Taiwan",
-        "4": "Soccer-One 足球王者",
-        "5": "跟馬叔叔一起搖滾學吉他他他他他他他他他",
-        "6": "香港新浪體育頻道",
-        "7": "地球圖輯隊 情報總部"
-    };
     $('#channel-name').data('width', $('#channel-name').width());
     if ($('#settingForm').length > 0) {
         autoHeight();
@@ -276,18 +267,30 @@ $(function () {
         $('.select-list').hide();
         $('.select-list').parents().removeClass('on').children('.on').removeClass('on');
         var formHeight = $('#content-main-wrap form').height(),
-            list = $('#fb-page-list').data('list');
+            formRealHeight = 0,
+            list = $('#fb-page-list').data('list'),
+            buttonSpace = 70,
+            footerSpace = 65,
+            expandHeight = parseInt(Math.round(list / 2) * 30, 10);
+        $('#settingForm > .fminput').each(function () {
+            formRealHeight += $(this).outerHeight();
+        });
         $(this).next('ul').slideToggle();
         $(this).parents('.page-list').toggleClass('on');
         if ($('.connected .share-item .page-list').hasClass('on') && $('#main-wrap-slider .ui-slider-handle').length > 0) {
-            $('#content-main-wrap form').height(formHeight + parseInt(Math.round(list / 2) * 30, 10));
-            $('#content-main-wrap').height($('#content-main-wrap .constrain').height() - 45 + parseInt(Math.round(list / 2) * 30, 10));
+            $('#content-main-wrap form').height(formHeight + expandHeight);
+            $('#content-main-wrap').height(formHeight + expandHeight + buttonSpace + footerSpace);
             scrollToBottom();
         } else {
             if ('none' != $('#main-wrap-slider').css('display')) {
                 $('#content-main-wrap form').height('auto');
+                $('#content-main-wrap').height(formRealHeight + 80 + buttonSpace + footerSpace);
+                $('#main-wrap-slider .slider-vertical').slider('destroy');
+                $('#content-main-wrap').css('top', '0');
+            } else {
+                $('#content-main-wrap form').height(formHeight + expandHeight);
+                $('#content-main-wrap').height(formHeight + expandHeight + buttonSpace + footerSpace);
             }
-            $('#content-main-wrap').height($('#content-main-wrap .constrain').height() + 75);
             scrollToBottom();
         }
         ellipsisPage();
@@ -480,13 +483,13 @@ function ellipsisPage() {
         $('ul#fb-page-list').width(windowWidth - 838);
         $('ul#fb-page-list li').width((windowWidth - 838) / 2);
         $('#fb-page-list li a').each(function (index) {
-            $(this).text($(this).data('meta'));
+            $(this).children('span').text($(this).data('meta'));
         }).addClass('ellipsis').ellipsis();
     } else {
         $('ul#fb-page-list').width(329);
         $('ul#fb-page-list li').width(164.5);
         $('#fb-page-list li a').each(function (index) {
-            $(this).text($(this).data('meta'));
+            $(this).children('span').text($(this).data('meta'));
         }).addClass('ellipsis').ellipsis();
     }
 }
