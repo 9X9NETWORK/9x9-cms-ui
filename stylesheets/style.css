@@ -594,6 +594,7 @@ background: #e4e4e4;
 #studio-nav .studio-nav-wrap ul li:hover span a,
 #studio-nav .studio-nav-wrap ul li.on    span a {
     background: url(../images/bg_tab_middle.png) repeat 0 0;
+	color: #999;
 }
 
 #studio-nav .studio-nav-wrap .studio-setup {
@@ -684,11 +685,14 @@ background: #e4e4e4;
     display: block;
     height: 31px;
     line-height: 31px;
-    color: #777;
+    color: #555;
     font-weight: bold;
     font-size: 15px;
     text-align: center;
     text-decoration: none;
+}
+#studio-nav .studio-nav-wrap .studio-setup .btn-middle a:hover {
+	color: #999;
 }
 
 #studio-nav .studio-nav-wrap .studio-setup .btn-middle a img {
@@ -1782,6 +1786,9 @@ padding: 4px 10px 0;
 	display: none;
 }
 
+.notice {
+	color: #555;	
+}
 
 .left {
 	width: 50%;

@@ -860,6 +860,9 @@ body.mac #title-func h2 {
 #content-main-wrap form .fminput .fmfield .connected .share-item .page-list.disable .page-list-middle a.select-page {
     background: url(../images/multi_choose_plus_disable.png) no-repeat right 8px;
 }
+#content-main-wrap form .fminput .fmfield .connected .share-item .page-list.disable .page-list-middle a.select-page span {
+	color:#999;
+}
 
 #content-main-wrap form .fminput .fmfield .connected .share-item .page-list.on .page-list-middle a.select-page {
     background: url(../images/multi_choose_minus.png) no-repeat right 8px;
@@ -874,7 +877,7 @@ body.mac #title-func h2 {
 }
 
 #content-main-wrap form .fminput .fmfield .connected .share-item .page-list.enable .page-list-middle a.select-page:hover span {
-    color: #777;
+    color: #999;
 }
 
 #content-main-wrap form .fminput .fmfield .connected .share-item .page-list ul {
@@ -913,6 +916,9 @@ body.mac #title-func h2 {
     padding: 6.5px 0;
     color: #555;
     text-decoration: none;
+}
+#content-main #content-main-wrap form .fminput .fmfield .connected .share-item .page-list ul li a:hover {
+	color: #999;
 }
 
 #content-main #content-main-wrap form .fminput .fmfield .connected .share-item .page-list ul li a span {
