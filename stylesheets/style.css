@@ -717,6 +717,9 @@ background: #e4e4e4;
 #epcurate-nav .epcurate-nav-wrap ul li.curation {
     margin-left: 3px;
 }
+#epcurate-nav .epcurate-nav-wrap ul li.on a span.nav-middle {
+	color: #999;
+}
 
 #epcurate-nav .epcurate-nav-wrap ul li.publish {
     margin-left: -3px;
@@ -765,6 +768,9 @@ background: #e4e4e4;
 #epcurate-nav .epcurate-nav-wrap ul li a span.nav-middle {
     background-repeat: repeat-x;
     background-position: 0 -54px;
+}
+#epcurate-nav .epcurate-nav-wrap ul li a:hover span.nav-middle {
+	color: #999;	
 }
 
 #epcurate-nav .epcurate-nav-wrap ul li.publish a {

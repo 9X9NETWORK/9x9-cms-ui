@@ -1122,6 +1122,9 @@ p.auto-height {
 	font-size: 15px;
 	line-height: 28px;
 }
+#epcurate-curation #cur-edit .btn-container .btns a:hover {
+    color: #999;
+}
 
 #epcurate-curation #cur-edit .edit-title                 .btn-container .btn-edit,
 #epcurate-curation #cur-edit .edit-title.disable .btn-container .btn-del,
