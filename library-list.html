@@ -59,15 +59,13 @@
 <div id="header">
   <p id="logo"></p>
   <ul id="nav">
-    <li id="home"><span><a href="/#!home">Home</a></span></li>
-    <li id="guide"><span><a href="/#!guide">Guide</a></span></li>
-    <li id="browse"><span><a href="/#!directory">Browse</a></span></li>
-    <li id="profile">
+    <li id="home"><span><a href="http://www.9x9.tv" target="_blank">9x9.tv Official Web</a></span></li>
+    <li id="tv"><span><a href="http://www.9x9.tv/tv" target="_blank">Watch 9x9.tv on the Web</a></span></li>
+    <li id="login"><span>Partner Sign-in</span></li>
+    <li id="profile" style="display:none">
       <p id="btn-profile"></p>
       <p id="selected-profile">Guest</p>
       <ul id="profile-dropdown" class="dropdown">
-        <li><a id="profile-mypage" href="/#!curator=profileUrl">My page</a></li>
-        <li><a href="./">Studio</a></li>
         <li id="profile-settings"><a href="/#!settings">Settings</a></li>
         <li><a id="profile-logout" href="/api/login">Log out</a></li>
       </ul>
@@ -1490,28 +1488,14 @@
 <!--============================== footer start ==============================-->
 <p id="footer-control"></p>
 <div id="footer">
+  <span>© 2013 9x9.tv. All rights reserved.</span>
   <ul id="footer-list">
-    <li>
-      <p class="select-txt">About Us</p>
+    <li id="language-change">
+      <p class="select-txt"><a href="javascript:void(0);" id="language">English</a></p>
       <p class="select-btn"></p>
       <ul class="select-list">
-        <li><a href="/#!about=about">About us</a></li>
-        <li><a href="/#!about=help">Help</a></li>
-        <li><a href="/#!about=report">Report</a></li>
-        <li><a href="/#!about=terms">Terms & Policy</a></li>
-        <li><a href="/#!about=contact">Contact us</a></li>
-        <li><a href="/#!about=partners">Partners</a></li>
-        <li><a href="/#!about=curators">Curators</a></li>
-        <li><a href="/#!about=press">Press</a></li>
-        <li><a href="/#!about=contest">Curation Contest</a></li>
-      </ul>
-    </li>
-    <li>
-      <p class="select-txt">Language</p>
-      <p class="select-btn"></p>
-      <ul class="select-list">
-        <li>English</li>
-        <li>中文</li>
+        <li class="on"><a href="javascript:void(0);" id="language-en" data-meta="en">English</a></li>
+        <li><a href="javascript:void(0);" id="language-zh" data-meta="zh">中文</a></li>
       </ul>
     </li>
   </ul>
