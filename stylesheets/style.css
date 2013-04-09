@@ -503,15 +503,17 @@ background: #e4e4e4;
 #studio-nav     .studio-nav-wrap     h3,
 #epcurate-nav .epcurate-nav-wrap h3 {
     float: left;
-    width: 200px;
-    background: url(../images/icon_studio.png) no-repeat 14px 0;
+    width: 180px;
+    /*background: url(../images/icon_studio.png) no-repeat 14px 0;*/
     font: bold 25px/25px Arial, Helvetica;
-    text-indent: 44px;
+    /*text-indent: 44px;*/
+    margin-right: 20px;
 }
 
 #studio-nav     .studio-nav-wrap     h3{
-    background-position: 44px 0;
-    margin-top: -2px
+   
+    margin-top: -2px;
+    text-align: center;
 }
 #epcurate-nav .epcurate-nav-wrap h3 {
     position: absolute;
@@ -534,13 +536,11 @@ background: #e4e4e4;
 }
 #studio-nav .studio-nav-wrap h3 a{
     display: block;
-    padding-left: 27px;
     padding-top: 2px;
 }
 #studio-nav .studio-nav-wrap h3 span{
     display: block;
     font-size: 11px;
-    margin-left: -28px;
     margin-top: -7px;
     white-space: nowrap;
     font-weight: normal;
@@ -1855,5 +1855,14 @@ padding: 4px 10px 0;
     font-weight: bold;
     text-align: center;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0.4);
+
+}
+.cms-icon{
+    display: inline-block;
+    background: transparent url(../images/icon_studio.png) no-repeat 0 0;
+    width: 23px;
+    height: 23px;
+    margin-right: 5px;
+    /*vertical-align: middle;*/
 
 }
