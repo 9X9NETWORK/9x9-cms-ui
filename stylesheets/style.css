@@ -17,6 +17,7 @@ body {
     font-family: Arial, Helvetica, clean, Microsoft JhengHei, Apple LiGothic, PMingLiU, sans-serif;
     font-size: 100%;
     color: #555;
+    -webkit-text-size-adjust:none; /*add*/
 }
 
 /* +common
@@ -68,7 +69,7 @@ abbr, acronym {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 174px;
+    width: 200px;
 	height: 84px;
     margin: -42px 0 0 -90px;
     padding-left: 6px;
@@ -90,17 +91,17 @@ abbr, acronym {
 }
 
 #overlay-s .overlay-content span.overlay-middle {
-    width: 168px;
+    width: 194px;
     height: 45px;
     line-height: 45px;
     padding: 19px 0 20px 0;
 	background: url(../images/bg_processing.png) repeat-x 0 -168px;
-    text-align: center;
+    
 }
 
 #overlay-s .overlay-content span.overlay-middle img {
     float: left;
-    margin: 0 0 0 15px;
+    margin: 0 5px 0 15px;
     vertical-align: middle;
 }
 
@@ -508,6 +509,10 @@ background: #e4e4e4;
     text-indent: 44px;
 }
 
+#studio-nav     .studio-nav-wrap     h3{
+    background-position: 44px 0;
+    margin-top: -2px
+}
 #epcurate-nav .epcurate-nav-wrap h3 {
     position: absolute;
     top: 0;
@@ -525,6 +530,20 @@ background: #e4e4e4;
 #epcurate-nav .epcurate-nav-wrap h3 a {
     color: #555;
     text-decoration: none;
+
+}
+#studio-nav .studio-nav-wrap h3 a{
+    display: block;
+    padding-left: 27px;
+    padding-top: 2px;
+}
+#studio-nav .studio-nav-wrap h3 span{
+    display: block;
+    font-size: 11px;
+    margin-left: -28px;
+    margin-top: -7px;
+    white-space: nowrap;
+    font-weight: normal;
 }
 
 #epcurate-nav .epcurate-nav-wrap h3 a {
@@ -559,17 +578,25 @@ background: #e4e4e4;
 
 #studio-nav .studio-nav-wrap ul {
     float: left;
+
+
 }
 
 #studio-nav .studio-nav-wrap ul li {
     float: left;
-    margin-right: 10px;
+    margin-right: 15px;
     padding: 0 0 0 3px;
+    background: url("../images/btn_gray.png") no-repeat scroll 0 0 transparent;
+    height: 32px;
+    text-align: center;
+    width: 130px;
 }
 
 #studio-nav .studio-nav-wrap ul li span {
     display: block;
     padding: 0 3px 0 0;
+    background: url("../images/btn_gray.png") no-repeat scroll right -32px transparent;
+    height: 32px;
 }
 
 #studio-nav .studio-nav-wrap ul li span a {
@@ -579,21 +606,26 @@ background: #e4e4e4;
     color: #555;
     font: bold 15px/26px Arial, Helvetica;
     text-decoration: none;
+    background: url("../images/btn_gray.png") repeat-x scroll 0 -64px transparent;
+    height: 31px;
 }
 
 #studio-nav .studio-nav-wrap ul li:hover,
 #studio-nav .studio-nav-wrap ul li.on {
-    background: url(../images/bg_tab_left.png) no-repeat 0 0;
+    /*background: url(../images/bg_tab_left.png) no-repeat 0 0;*/
+    background: url(../images/popup_btn_left_press.png) no-repeat 0 0;
+    margin-top: 2px;
 }
 
 #studio-nav .studio-nav-wrap ul li:hover span,
 #studio-nav .studio-nav-wrap ul li.on    span {
-    background: url(../images/bg_tab_right.png) no-repeat right 0;
+    background: url(../images/popup_btn_right_press.png) no-repeat right 0;
 }
 
 #studio-nav .studio-nav-wrap ul li:hover span a,
 #studio-nav .studio-nav-wrap ul li.on    span a {
-    background: url(../images/bg_tab_middle.png) repeat 0 0;
+    background: url(../images/popup_btn_middle_press.png) repeat-x;
+
 	color: #999;
 }
 
@@ -601,7 +633,7 @@ background: #e4e4e4;
     position: relative;
     float: right;
     width: 165px;
-    margin: -3px 35px 0 0;
+    margin: 0px 35px 0 0; /*change*/
 }
 
 #studio-nav .studio-nav-wrap .studio-setup .reconnect-notice {
@@ -1805,4 +1837,23 @@ padding: 4px 10px 0;
 	width: 50%;
 	float: right;
 	position: relative;
+}
+
+
+.index-collect-title{
+    color: #FFF;
+    font-size: 45px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+.cms-setup{
+    color: #c4c4c4;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0.4);
+
 }

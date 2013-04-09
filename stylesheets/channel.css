@@ -692,12 +692,12 @@ body.mac #title-func h2 {
 
 #content-main-wrap form .fminput .fmfield .select .select-list li:hover {
 	background-color: #e4e4e4;
-	color: #777;
+	color: #999;
 }
 
 #content-main-wrap form .fminput .fmfield .select .select-list li.none:hover {
 	background-color: #d2d2d2;
-	color: #555;
+	color: #999;
     cursor: default;
 }
 
@@ -1045,7 +1045,7 @@ body.mac #title-func h2 {
 
 #content-main-wrap form .fminput .fmfield .tag-list ul li:hover span a,
 #content-main-wrap form .fminput .fmfield .tag-list ul li.on    span a {
-	color: #777;
+	color: #999;
     background: url(../images/bg_tag.png) repeat-x 0 -100px;
 }
 
@@ -1102,5 +1102,5 @@ body.mac #title-func h2 {
 }
 
 #content-main-wrap form .form-btn .form-btn-wrap .btn-cancel {
-    margin-right: 10px;
+    margin-right: 15px;
 }

@@ -746,7 +746,7 @@
 
 #content-wrap form .fminput .fmfield .select .select-list li:hover {
 	background-color: #e4e4e4;
-	color: #777;
+	color: #999;
 }
 
 #content-wrap form .fminput .fmfield .select .select-list li:first-child {
@@ -828,7 +828,7 @@
 
 #content-wrap form .form-btn .wrap p.back a:hover,
 #content-wrap form .form-btn .wrap p.next a:hover {
-	color: #777;
+	color: #999;
 }
 
 #content-wrap form .form-btn .btns span input {
