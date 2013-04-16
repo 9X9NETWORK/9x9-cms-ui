@@ -1,3 +1,11 @@
+Date: 2013/04/16
+Version: 9x9_CMS_4
+
+Changes:
+* Change "style.css" in stylesheets folder.
+* Add "btn_white.png","input_gray.png" and "input_white.png" in images folder.
+
+
 Date: 2013/03/19
 Version: 9x9_CMS_3
 
