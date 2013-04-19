@@ -518,5 +518,4 @@ $(function () {
 	  $("#forgot-password-msg").show();
   	});
 	
-	
 });

@@ -1,3 +1,14 @@
+Date: 2013/04/18
+Version: 9x9_CMS_5
+
+Changes:
+* Add portal-set.html, portal-manage.html, portal.js and portal.css.
+* Add link to "portal-set.html" to all pages.
+* Change "style.css" and "episode.css" in stylesheets folder.
+* Add "overlay_bg_l_c.png", "overlay_bg_l_l.png", "overlay_bg_l_r.png", "btn_remove.png", "btn_top.png" and "icon_nav.png" in images folder.
+* Change all 70% opacity to 50%.
+ 
+
 Date: 2013/04/16
 Version: 9x9_CMS_4
 
