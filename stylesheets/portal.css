@@ -319,9 +319,6 @@
 }
 
 /* Reset Password Layer */
-#reset-password-layer {
-  display: block;
-}
 #reset-password-layer .btn-white .center {
   width: 113px;
 }
