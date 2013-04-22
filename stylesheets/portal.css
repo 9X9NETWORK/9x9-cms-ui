@@ -448,7 +448,7 @@
 /* Tip */
 .tip-white {
 	position: relative;
-	top: -63px;
+	top: -11px;
 	left: -1px;
 	display: none;
 	z-index: 5;
@@ -486,16 +486,25 @@
 	display: none;
 	background: url(../images/bg_tip_bottom.png) no-repeat center bottom;
 }
+.tip-top {
+	width: 22px;
+	height: 9px;
+	margin: -2px 0 0 1px;
+	position: relative;
+	z-index: 6;
+	display: none;
+	background: url(../images/bg_tip_top.png) no-repeat center top;
+}
 
 
-.btn-top:hover .tip-white, .btn-top:hover .tip-bottom {
+.btn-top:hover .tip-white, .btn-top:hover .tip-top {
 	display: block;	
 }
 .btn-remove:hover .tip-white {
 	display: block;	
 	left: -35PX;
 } 
-.btn-remove:hover .tip-bottom {
+.btn-remove:hover .tip-top {
 	display: block;	
 }
 
@@ -885,7 +894,7 @@
 }
 #portal-slider {
 	height: 500px;
-	top: 155px;
+	top: 160px;
 	right: 14px;
 	z-index: 2;
 }
