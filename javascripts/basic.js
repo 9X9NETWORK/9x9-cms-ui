@@ -485,37 +485,4 @@ $(function () {
         setEllipsis();
     });
 	
-	
-	/* Sign in */
-	$("#sign-up").click(function() {
-		$("#signup-layer").fadeIn(400);
-  	});
-	
-	$("#btn-signup-close, #signup-cancel").click(function() {
-		$("#signup-layer").hide();
- 	});
-	
-	$("#signup-checkbox").click(function() {
-    	$(this).toggleClass("on");
-  	});
-	
-	$("#btn-forgot-password").click(function() {
-		$("#forgot-password-layer").fadeIn(400);
-		$(".forgot-password-form").show();
-		$(".forgot-password-msg").hide();
-  	});
-	
-	$("#btn-forgot-password-close").click(function() {
-		$("#forgot-password-layer").hide();
- 	});
-  
-  	$(".back-to-sign").click(function() {
-		$("#forgot-password-layer").hide();
-  	});
-	
-	$("#btn-reset-password").click(function() {
-	  $("#forgot-password-form").hide();
-	  $("#forgot-password-msg").show();
-  	});
-	
 });

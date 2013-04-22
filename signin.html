@@ -7,7 +7,7 @@
 <meta http-equiv="expires" content="0" />
 <link rel="stylesheet" href="stylesheets/style.css" />
 <link rel="stylesheet" href="stylesheets/lightbox.css" />
-<link rel="stylesheet" href="stylesheets/channel.css" />
+<link rel="stylesheet" href="stylesheets/portal.css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
 <script src="javascripts/nn-sdk.js"></script>
@@ -23,12 +23,12 @@
 <script src="javascripts/vertical.slider.js"></script>
 <script src="javascripts/config.js"></script>
 <script src="javascripts/basic.js"></script>
-<script src="javascripts/channel.js"></script>
+<script src="javascripts/portal.js"></script>
 <title>9x9.tv - Sign-in</title>
 </head>
 <body>
 
-<!--============================== header start ==============================-->
+<!-- Header Layer Begin -->
 <div id="header">
   <a href="http://www.9x9.tv/" target="_blank" id="logo"></a>
   <ul id="nav">
@@ -45,7 +45,7 @@
     </li>
   </ul>
 </div>
-<!--============================== header close ==============================-->
+<!-- Header Layer End -->
 
 <!-- Login Layer Begin -->
 <div id="login-layer">
@@ -53,6 +53,7 @@
     <h1>Collect and Curate!</h1>
     <h3>CMS is the management center for your 9x9.tv list-form channels!</h3>
     <h2>Sign In</h2>
+    <form>
     <div class="btn-fb">
         <p class="btn-fb-left"></p>
         <p class="btn-fb-middle">Sign in with Facebook</p>
@@ -84,10 +85,11 @@
     <p class="msg-error">Email and password do not match, please try again.<br/><br/></p>
     <p>Need an account? <span id="sign-up">Sign up Now!</span></p>
     </div>
+    </form>
 </div>
 <!-- Login Layer End -->
 
-<!--============================== footer start ==============================-->
+<!-- Footer Layer Begin -->
 <p id="footer-control"></p>
 <div id="footer">
   <span>© 2013 9x9.tv. All rights reserved.</span>
@@ -102,17 +104,17 @@
     </li>
   </ul>
 </div>
-<!--============================== footer close ==============================-->
+<!-- Footer Layer End -->
 
 <!-- Sign Up Begin -->
-<div id="signup-layer">
+<div id="signup-layer" class="msg-layer">
   <div id="signup-holder">
     <p class="l"></p>
     <div class="m">
       <p id="btn-signup-close"></p>
       <div id="signin-panel-signup">
       	<h2>Sign Up</h2>
-
+		<form>
         <div class="left">
             <div class="input-gray">
               <p class="left"></p>
@@ -170,9 +172,8 @@
               <p class="center"><a href="index.html">Create My Account</a></p>
               <p class="right"></p>
             </div>
-
         </div>
-
+		</form>
       </div>
     </div>
     <p class="r"></p>
@@ -181,12 +182,13 @@
 <!-- Sign Up End -->
 
 <!-- Forgot Password Begin-->
-<div id="forgot-password-layer">
+<div id="forgot-password-layer" class="msg-layer">
   <div id="forgot-password-holder">
     <div class="l"></div>
     <div class="m">
       <p id="btn-forgot-password-close"></p>
       <h2>Forgot Password</h2>
+      <form>
       <div id="forgot-password-form">
         <div class="input-gray">
           <p class="left"></p>
@@ -204,16 +206,64 @@
           </div>
           <p class="back-to-sign">Back to Sign In</p>
         </div>
-        <div id="forgot-password-msg">
+      <div id="forgot-password-msg">
        	   <p class="msg">Success!<br /><br />
            You should receive an email shortly.<br />
            If you still need assistance, please <a href="mailto:info@9x9.tv">contact us.</a></p>
-        </div>
+       </div>
+       </form>
     </div>
     <div class="r"></div>
   </div>
 </div>
 <!-- Forgot Password End-->
+
+<!--Reset Password Begin-->
+<div id="reset-password-layer" class="msg-layer">
+  <div id="reset-password-holder">
+    <div class="l"></div>
+    <div class="m">
+      <p id="btn-reset-password-close"></p>
+      <h2>Reset Password</h2>
+      <form id="reset-password-form">
+        <div class="input-gray">
+          <p class="left"></p>
+          <p class="center"> 
+          <img src="images/icon_password.png" class="icon-set">
+            <input class="textfield" value="New Password" />
+          </p>
+          <p class="right"></p>
+         </div>
+         <br/>
+         <div class="input-gray">
+          <p class="left"></p>
+          <p class="center"> 
+          <img src="images/icon_password.png" class="icon-set">
+            <input class="textfield" value="Repeat New Password" />
+          </p>
+          <p class="right"></p>
+         </div>
+         <br/> <br/> 
+         <p class="msg-error">Two passwords don't match, please retype.</p> 
+        </form>
+        <div class="msg-btn-holder">
+              <div class="btn-white" id="reset-password-cancel">
+                <p class="left"></p>
+                <p class="center">Cancel</p>
+                <p class="right"></p>
+              </div>
+              <div class="btn-white">
+                <p class="left"></p>
+                <p class="center">Reset Password</p>
+                <p class="right"></p>
+              </div>
+         </div>
+
+        </div>
+    <div class="r"></div>
+  </div>
+</div>
+<!-- Reset Password End-->
 
 </body>
 </html>
