@@ -5,6 +5,11 @@ $(function () {
 		window.open("portal-manage.html","_top");
 	}); 
 	
+	/* Demo for first */
+	$("#portal-set li.empty").click(function() {
+		window.open("portal-first.html","_top");
+	}); 
+	
 	/* Sort List */
   	$(".sort-list li").click(function() {
 		$(".sort-list li").removeClass("on");
