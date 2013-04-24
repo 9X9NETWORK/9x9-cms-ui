@@ -1,3 +1,12 @@
+Date: 2013/04/24
+Version: 9x9_CMS_7
+
+Changes:
+* Add brand-setting.html.
+* Change channel.js, channel.css, episode.css, epcurate.css, lightbox.css, library.css, ep-curation.css, style.css, portal-set.html, portal-mange.html, portal-first.html, portal.js and portal.css.
+* Add brand_loading.gif and brand_default.png in thumbnail folder.
+
+
 Date: 2013/04/23
 Version: 9x9_CMS_6
 
@@ -7,7 +16,6 @@ Changes:
 * Add btn_gray_top, bg_loading.png, icon_add.png and icon_minus.png in images folder.
 * Move /*sign in*/ code outside of basic.js and style.css into portal.js and portal.css.
 * Change "Stuio" to "CMS" in all pages.
-* Add brand_default.png in thumbnail folder.
 
 
 Date: 2013/04/18

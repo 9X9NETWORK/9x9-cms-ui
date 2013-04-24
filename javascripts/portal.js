@@ -147,10 +147,12 @@ $(function () {
 	/* Slider */
 	setTimeout ('scrollbar("#portal-constrain", "#portal-list", "#portal-slider")', 400);
 	setTimeout ('scrollbar("#store-constrain", "#store-list", "#store-slider")', 400);
+	setTimeout ('scrollbar("#brand-constrain", "#brand-list", "#brand-slider")', 400);
 	
 	 $(window).resize(function() {
         setTimeout ('scrollbar("#portal-constrain", "#portal-list", "#portal-slider")', 400);
 		setTimeout ('scrollbar("#store-constrain", "#store-list", "#store-slider")', 400);
+		setTimeout ('scrollbar("#brand-constrain", "#brand-list", "#brand-slider")', 400);
     });
 
 });
