@@ -1,3 +1,15 @@
+Date: 2013/04/23
+Version: 9x9_CMS_6
+
+Changes:
+* Add store-mange.html, brand-manage.html.
+* Change signin.html, basic.js, style.css, portal-set.html, portal-mange.html, portal-first.html, portal.js and portal.css.
+* Add btn_gray_top, bg_loading.png, icon_add.png and icon_minus.png in images folder.
+* Move /*sign in*/ code outside of basic.js and style.css into portal.js and portal.css.
+* Change "Stuio" to "CMS" in all pages.
+* Add brand_default.png in thumbnail folder.
+
+
 Date: 2013/04/18
 Version: 9x9_CMS_5
 

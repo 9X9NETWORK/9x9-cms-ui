@@ -122,8 +122,35 @@ $(function () {
 	 $(".select-gray").click(function(event){
 		 event.stopPropagation();
 	 });
+	 
+	/* Store */
+  	$("#store-category .btn-gray").click(function() {
+		$("#store-layer").toggleClass("collapse");
+		setTimeout ('scrollbar("#store-constrain", "#store-list", "#store-slider")', 400);
+    });
+	
+	$("#store-category ul li").click(function() {
+		$("#store-category ul li").removeClass("on");
+		$(this).addClass("on");
+    });
+	
+	$("#store-layer .btn-minus").click(function() {
+		if ($(this).hasClass("on")) {
+		$(this).parents("li").removeClass("minus");
+		$(this).removeClass("on");
+	} else {
+		$(this).parents("li").addClass("minus");
+		$(this).addClass("on");
+		}
+    });
 
 	/* Slider */
 	setTimeout ('scrollbar("#portal-constrain", "#portal-list", "#portal-slider")', 400);
+	setTimeout ('scrollbar("#store-constrain", "#store-list", "#store-slider")', 400);
+	
+	 $(window).resize(function() {
+        setTimeout ('scrollbar("#portal-constrain", "#portal-list", "#portal-slider")', 400);
+		setTimeout ('scrollbar("#store-constrain", "#store-list", "#store-slider")', 400);
+    });
 
 });
