@@ -558,6 +558,7 @@ function uploadImage() {
             $('.upload-img .upload-notice').removeClass('hide');
         }
     };
+	
     var settings = {
         flash_url:                  'javascripts/swfupload/swfupload.swf',
         upload_url:                 'http://' + s3attr['bucket'] + '.s3.amazonaws.com/', // http://9x9tmp-ds.s3.amazonaws.com/

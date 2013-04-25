@@ -1,3 +1,10 @@
+Date: 2013/04/25
+Version: 9x9_CMS_8
+
+Changes:
+* Change portal.js and portal.css to add slide effect for store category and fix some UI issuses.
+
+
 Date: 2013/04/24
 Version: 9x9_CMS_7
 

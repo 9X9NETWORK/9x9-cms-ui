@@ -973,15 +973,16 @@
 }
 #portal-add-layer .channel-list li {
 	cursor: pointer;
+	display: inline-block;
 }
 #portal-add-layer .channel-list {
 	display: block;
-	margin: 0 0 0 34px;
 	height: 270px;
-	width: 1000px;
 	overflow: hidden;
-	padding: 0;
-	padding: 20px 0 50px 20px;
+	position: relative;
+	padding: 25px 0px 0px 22px;
+	width: 808px;
+	margin: 0px auto;
 }
 
 /* Minus */
@@ -1319,12 +1320,12 @@
 }
 #portal-add-layer .list-holder {
 	overflow: hidden;
-	width: 855px;
+	width: 830px;
 	height: 290px;
-	top:-45px;
-	left: -20px;
-	padding: 25px 0 0 0;
 	position: relative;
+	text-align: center;
+	top: -20px;
+	left: 10px;
 }
 #portal-add-layer h2 {
     font-size: 30px;
@@ -1521,6 +1522,7 @@
     text-indent: -100000px;
 	left: 15px;
 	cursor: pointer;
+	z-index: 9;
 }
 #portal-add-layer a.next {
     right: 15px;
@@ -1611,7 +1613,6 @@
 	overflow: auto;
 }
 #store-layer.collapse #store-category ul {
-	display: none;
 }
 #store-category ul li {
 	float: left;
@@ -1805,23 +1806,14 @@
 #portal-add-layer .msg-center {
 	width:1198px;
 }
-#portal-add-layer .channel-list {
-	display: inline-block;
-	margin: 0 0 0 17px;
-}
 #portal-add-layer .input-gray .center {
 	width: 865px;
 }
 #portal-add-layer .list-holder {
-	width: 1255px;
+	width: 1177px;
 }
 #portal-add-layer .channel-list {
-    display: inline-block;
-    margin: 0px 0px 0px 17px;
-}
-#portal-add-layer .channel-list {
-    height: 270px;
-    width: 1200px;
+    width: 1154px;
 }
 #store-category ul li {
 	width: 15.3%;
