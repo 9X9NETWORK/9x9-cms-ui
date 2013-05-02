@@ -1,5 +1,5 @@
 Date: 2013/05/02
-Version: 9x9_CMS_8
+Version: 9x9_CMS_9
 
 Changes:
 * Change "Brand Setting" to "Brand Settings" in brand-setting.html, portal-first.html, portal-manage.html, portal-set.html and store-manage.html.
