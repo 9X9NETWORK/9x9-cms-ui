@@ -39,17 +39,15 @@
 
 <!--============================== header start ==============================-->
 <div id="header" class="hide">
-  <a href="http://www.9x9.tv/" target="_blank" id="logo"></a>
+  <a href="../" target="_blank" id="logo"></a>
   <ul id="nav">
-    <li id="home"><span><a href="http://www.9x9.tv" target="_blank">9x9.tv Official Web</a></span></li>
-    <li id="tv"><span><a href="http://www.9x9.tv/tv" target="_blank">Watch 9x9.tv on the Web</a></span></li>
-    <li id="login" style="display:none"><span>Partner Sign-in</span></li>
-    <li id="profile" >
+    <li id="home"><span><a href="../" target="_blank">9x9.tv Official Web</a></span></li>
+    <li id="tv"><span><a href="../tv" target="_blank">Watch 9x9.tv on the Web</a></span></li>
+    <li id="profile">
       <p id="btn-profile"></p>
       <p id="selected-profile">Guest</p>
       <ul id="profile-dropdown" class="dropdown">
-        <li id="profile-settings"><a href="/#!settings">Settings</a></li>
-        <li><a id="profile-logout" href="/api/login">Log out</a></li>
+        <li><a id="profile-logout" href="signin.html">Log out</a></li>
       </ul>
     </li>
   </ul>
@@ -141,6 +139,7 @@
 <ul id="storyboard-listing">
 <!-- template = #storyboard-listing-tmpl-item -->
 <li data-ytid="qh5982Xa9yA" data-ytduration="20" data-starttime="0" data-endtime="20">
+<p class="order">1</p>
 <p class="img">
 <img src="http://i.ytimg.com/vi/qh5982Xa9yA/default.jpg" alt="" width="80" height="45" />
 <span class="time"><span class="time-right"><span class="time-middle">00:20</span></span></span>
@@ -155,6 +154,7 @@
 </p>
 </li>
 <li data-ytid="PH1BAcVJ3IY" data-ytduration="31" data-starttime="0" data-endtime="31">
+<p class="order">2</p>
 <p class="img">
 <img src="http://i.ytimg.com/vi/PH1BAcVJ3IY/default.jpg" alt="" width="80" height="45" />
 <span class="time"><span class="time-right"><span class="time-middle">00:31</span></span></span>
@@ -170,6 +170,7 @@
 </p>
 </li>
 <li data-ytid="" data-ytduration="0" data-starttime="0" data-endtime="0" class="invalid">
+<p class="order">3</p>
 <p class="img">
 <img src="images/thumbnail_box_empty.png" alt="" width="80" height="45" />
 <span class="time"><span class="time-right"><span class="time-middle">00:31</span></span></span>
@@ -185,6 +186,7 @@
 </li>
 <li data-ytid="nCgQDjiotG0" data-ytduration="130" data-starttime="20" data-endtime="30">
 <a href="#" class="warning2"><span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Not playable in some regions & on mobile device</span></span></span></span></a>
+<p class="order">4</p>
 <p class="img">
 <img src="http://i.ytimg.com/vi/nCgQDjiotG0/default.jpg" alt="" width="80" height="45" />
 <span class="time"><span class="time-right"><span class="time-middle">02:10</span></span></span>
@@ -200,6 +202,7 @@
 </p>
 </li>
 <li data-ytid="4G60hM1W_mk" data-ytduration="312" data-starttime="0" data-endtime="312">
+<p class="order">5</p>
 <p class="img">
 <img src="http://i.ytimg.com/vi/4G60hM1W_mk/default.jpg" alt="" width="80" height="45" />
 <span class="time"><span class="time-right"><span class="time-middle">05:12</span></span></span>
@@ -216,6 +219,7 @@
 </li>
 <li data-ytid="vJG698U2Mvo" data-ytduration="82" data-starttime="70" data-endtime="82">
 <a href="#" class="error"><span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">Not playable outside YouTube</span></span></span></span></a>
+<p class="order">6</p>
 <p class="img">
 <img src="http://i.ytimg.com/vi/vJG698U2Mvo/default.jpg" alt="" width="80" height="45" />
 <span class="time"><span class="time-right"><span class="time-middle">01:22</span></span></span>
@@ -230,6 +234,7 @@
 </p>
 </li>
 <li data-ytid="CWyrp3hu4KE" data-ytduration="116" data-starttime="30" data-endtime="40">
+<p class="order">7</p>
 <p class="img">
 <img src="http://i.ytimg.com/vi/CWyrp3hu4KE/default.jpg" alt="" width="80" height="45" />
 <span class="time"><span class="time-right"><span class="time-middle">01:56</span></span></span>
@@ -244,6 +249,7 @@
 </p>
 </li>
 <li data-ytid="0vu23EbuBVI" data-ytduration="2650" data-starttime="100" data-endtime="110">
+<p class="order">8</p>
 <p class="img">
 <img src="http://i.ytimg.com/vi/0vu23EbuBVI/default.jpg" alt="" width="80" height="45" />
 <span class="time"><span class="time-right"><span class="time-middle">44:10</span></span></span>
@@ -715,6 +721,7 @@ Duration overlaps another POI's duration:<br />
 {{/if}}
 {{/if}}
 {{/if}}
+<p class="order"><!-- dynamic rebuild video number after template render --></p>
 <p class="img">
 {{if ytDuration > 0}}
 <img src="${imageUrl}" alt="" width="80" height="45" />

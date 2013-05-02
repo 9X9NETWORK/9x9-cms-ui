@@ -393,7 +393,7 @@ $(function () {
     // header link
     $('#logo').click(function () {
         if (!$('body').hasClass('has-change')) {
-            location.href = '/';
+            location.href = '../';
             return false;
         }
     });
@@ -484,5 +484,4 @@ $(function () {
         autoHeight();
         setEllipsis();
     });
-	
 });

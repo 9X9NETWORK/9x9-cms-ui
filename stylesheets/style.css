@@ -2,7 +2,7 @@
 [TABLE OF CONTENTS]
     +common
         =btns
-
+        
 -----------------------------------------------------------------------------*/
 
 * {
@@ -45,12 +45,12 @@ abbr, acronym {
 
 #overlay-s {
     display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  width: 100%;
-  height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	width: 100%;
+	height: 100%;
     background: url(../images/bg_b70.png) repeat;
 }
 
@@ -60,8 +60,8 @@ abbr, acronym {
 
 #overlay-s .wrap {
     position: relative;
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
     border: 1px solid #0f0;
 }
 
@@ -70,24 +70,24 @@ abbr, acronym {
     top: 50%;
     left: 50%;
     width: 200px;
-  height: 84px;
+	height: 84px;
     margin: -42px 0 0 -90px;
     padding-left: 6px;
     background: url(../images/bg_processing.png) no-repeat 0 0;
     color: #999;
-  font-weight: bold;
+	font-weight: bold;
     font-size: 17px;
 }
 
 #overlay-s .overlay-content span {
-  display: block;
-  height: 84px;
-  line-height: 84px;
+	display: block;
+	height: 84px;
+	line-height: 84px;
 }
 
 #overlay-s .overlay-content span.overlay-right {
-  padding-right: 6px;
-  background: url(../images/bg_processing.png) no-repeat right -84px;
+	padding-right: 6px;
+	background: url(../images/bg_processing.png) no-repeat right -84px;
 }
 
 #overlay-s .overlay-content span.overlay-middle {
@@ -95,8 +95,8 @@ abbr, acronym {
     height: 45px;
     line-height: 45px;
     padding: 19px 0 20px 0;
-  background: url(../images/bg_processing.png) repeat-x 0 -168px;
-
+	background: url(../images/bg_processing.png) repeat-x 0 -168px;
+    
 }
 
 #overlay-s .overlay-content span.overlay-middle img {
@@ -307,25 +307,25 @@ abbr, acronym {
 }
 
 #logo:hover {
-    background-position: 0 0;
+	background-position: 0 0;
 	opacity: 0.5;
 	filter: alpha(opacity=50);
 	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
 }
 
 #nav {
-  height: 28px;
-  position: absolute;
-  top: 7px;
-  right: 7px;
+	height: 28px;
+	position: absolute;
+	top: 7px;
+	right: 7px;
 }
 
 #nav li {
-  position: relative;
-  float: left;
-  height: 28px;
-  font-size: 14px;
-  line-height: 28px;
+	position: relative;
+	float: left;
+	height: 28px;
+	font-size: 14px;
+	line-height: 28px;
 }
 
 #nav li a {
@@ -352,19 +352,19 @@ abbr, acronym {
 }
 
 #nav li#home, #nav li#tv, #nav li#login {
-  padding: 0 0.5em 0 0.5em;
-  height: 38px;
-  cursor: pointer;
-  float: left;
-  font-weight: bold;
+	padding: 0 0.5em 0 0.5em;
+	height: 38px;
+	cursor: pointer;
+	float: left;
+	font-weight: bold;
 }
 #nav li#login {
-  padding: 0 0.5em 0 0.5em;
-  height: 38px;
-  cursor: default;
-  float: left;
-  color: #999;
-  font-weight: bold;
+	padding: 0 0.5em 0 0.5em;
+	height: 38px;
+	cursor: default;
+	float: left;
+	color: #999;
+	font-weight: bold;
 }
 
 #nav li#profile {
@@ -512,7 +512,7 @@ background: #e4e4e4;
 }
 
 #studio-nav     .studio-nav-wrap     h3{
-
+   
     margin-top: -2px;
     text-align: center;
 }
@@ -620,11 +620,11 @@ background: #e4e4e4;
 #studio-nav .studio-nav-wrap ul li:hover span a,
 #studio-nav .studio-nav-wrap ul li.on    span a {
     background: url(../images/popup_btn_middle_press.png) repeat-x;
-    color: #999;
+	color: #999;
 }
 
 #studio-nav .studio-nav-wrap ul li.on    span a {
-  	cursor: default;
+   	cursor: default;
 }
 
 
@@ -723,7 +723,7 @@ background: #e4e4e4;
     text-decoration: none;
 }
 #studio-nav .studio-nav-wrap .studio-setup .btn-middle a:hover {
-  color: #999;
+	color: #999;
 }
 
 #studio-nav .studio-nav-wrap .studio-setup .btn-middle a img {
@@ -749,7 +749,7 @@ background: #e4e4e4;
     margin-left: 3px;
 }
 #epcurate-nav .epcurate-nav-wrap ul li.on a span.nav-middle {
-  color: #999;
+	color: #999;
 }
 
 #epcurate-nav .epcurate-nav-wrap ul li.publish {
@@ -801,7 +801,7 @@ background: #e4e4e4;
     background-position: 0 -54px;
 }
 #epcurate-nav .epcurate-nav-wrap ul li a:hover span.nav-middle {
-  color: #999;
+	color: #999;	
 }
 
 #epcurate-nav .epcurate-nav-wrap ul li.publish a {
@@ -833,10 +833,10 @@ background: #e4e4e4;
 }
 
 #epcurate-nav .epcurate-nav-wrap .tip img {
-  position: absolute;
-  top: -2px;
-  left: 17px;
-  border: none;
+	position: absolute;
+	top: -2px;
+	left: 17px;
+	border: none;
 }
 
 #epcurate-nav .epcurate-nav-wrap .tip-left {
@@ -955,10 +955,10 @@ background: #e4e4e4;
 }
 
 #title-func h2 a.reload .tip img {
-  position: absolute;
-  top: -2px;
-  left: 23px;
-  border: none;
+	position: absolute;
+	top: -2px;
+	left: 23px;
+	border: none;
 }
 
 #title-func h2 a.reload .tip-left {
@@ -1071,7 +1071,7 @@ background: #e4e4e4;
 }
 
 #func-nav ul li.btns {
-  width: 160px;
+	width: 160px;
 }
 
 #func-nav ul li.btns a {
@@ -1182,48 +1182,48 @@ padding: 4px 10px 0;
 *----------------------------------------------------------------------------*/
 
 #footer-control {
-  width: 26px;
-  height: 48px;
-  background: url(../images/bg_footercontrol.png) no-repeat;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  z-index: 98;
-  cursor: pointer;
+	width: 26px;
+	height: 48px;
+	background: url(../images/bg_footercontrol.png) no-repeat;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 98;
+	cursor: pointer;
 }
 
 #footer-control.on {
-  background-position: 0 -50px;
+	background-position: 0 -50px;
 }
 
 #footer {
-  width: 100%;
-  min-width: 1010px;
-  height: 48px;
-  background: url(../images/bg_footer.png) repeat-x;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 98;
+	width: 100%;
+	min-width: 1010px;
+	height: 48px;
+	background: url(../images/bg_footer.png) repeat-x;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 98;
 }
 
 #footer ul#footer-list {
-  height: 28px;
-  position: absolute;
-  top: 9px;
-  right: 7px;
+	height: 28px;
+	position: absolute;
+	top: 9px;
+   right: 7px;
 }
 
 #footer ul#footer-list li {
-  position: relative;
-  float: left;
-  width: 112px;
-  height: 28px;
-  margin: 0 0 0 5px;
-  padding: 0 0 0 8px;
-  background: url(../images/bg_header_input.png) 0 -50px no-repeat;
-  font-size: 13px;
-  line-height: 28px;
+	position: relative;
+	float: left;
+	width: 112px;
+	height: 28px;
+	margin: 0 0 0 5px;
+	padding: 0 0 0 8px;
+	background: url(../images/bg_header_input.png) 0 -50px no-repeat;
+	font-size: 13px;
+	line-height: 28px;
 }
 
 #footer ul#footer-list li a {
@@ -1233,78 +1233,78 @@ padding: 4px 10px 0;
 }
 
 #footer ul#footer-list li p.select-btn {
-  position: absolute;
-  top: 3px;
-  right: 5px;
-  z-index: 55;
-  width: 22px;
-  height: 23px;
-  background: url(../images/btns.png) 0 -400px no-repeat;
-  cursor: pointer;
+	position: absolute;
+	top: 3px;
+	right: 5px;
+	z-index: 55;
+	width: 22px;
+	height: 23px;
+	background: url(../images/btns.png) 0 -400px no-repeat;
+	cursor: pointer;
 }
 
 #footer ul#footer-list li p.select-txt {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 #footer ul#footer-list li p.select-btn.on,
 #footer ul#footer-list li p.select-btn:hover {
-  background-position: 0 -451px;
+	background-position: 0 -451px;
 }
 
 #footer ul#footer-list li ul.select-list {
-  display: none;
-  position: absolute;
-  bottom: 36px;
-  right: 0;
-  z-index: 60;
-  width: 120px;
-  border: 1px solid #b2b2b2;
-  border-bottom: none;
-  -moz-border-radius: 5px 5px 0 0;
-  -webkit-border-radius: 5px 5px 0 0;
-  border-radius: 5px 5px 0 0;
-  filter: alpha(Opacity=90);
-  opacity: 0.9;
+	display: none;
+	position: absolute;
+	bottom: 36px;
+	right: 0;
+	z-index: 60;
+	width: 120px;
+	border: 1px solid #b2b2b2;
+	border-bottom: none;
+	-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	border-radius: 5px 5px 0 0;
+	filter: alpha(Opacity=90);
+	opacity: 0.9;
 }
 
 #footer ul#footer-list li ul.select-list li {
-  width: 102px;
-  margin: 0;
-  padding: 0 9px;
-  border-top: 1px solid #f5f5f5;
-  border-bottom: 1px solid #c9c9c9;
-  background: none;
-  background-color: #d2d2d2;
-  cursor: pointer;
+	width: 102px;
+	margin: 0;
+	padding: 0 9px;
+	border-top: 1px solid #f5f5f5;
+	border-bottom: 1px solid #c9c9c9;
+	background: none;
+	background-color: #d2d2d2;
+	cursor: pointer;
 }
 
 #footer ul#footer-list li ul.select-list li:hover {
-  background-color: #e4e4e4;
-  color: #999;
+	background-color: #e4e4e4;
+	color: #999;
 }
 #footer ul#footer-list li ul.select-list li a:hover {
-  color: #999;
+	color: #999;
 }
 #footer ul#footer-list li ul.select-list li.on  {
-  background-color: #e4e4e4;
+	background-color: #e4e4e4;
 }
 #footer ul#footer-list li ul.select-list li.on a {
-  cursor: default;
-  color: #999;
+	cursor: default; 
+	color: #999;
 }
 #footer ul#footer-list li ul.select-list li:first-child {
-  border-top: none;
-  -moz-border-radius: 5px 5px 0 0;
-  -webkit-border-radius: 5px 5px 0 0;
-  border-radius: 5px 5px 0 0;
+	border-top: none;
+	-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	border-radius: 5px 5px 0 0;
 }
 #footer span {
-  font-size: 13px;
-  color: #555;
-  line-height: 48px;
-  float: right;
-  margin: 0 133px 0 0;
+	font-size: 13px;
+	color: #555;
+	line-height: 48px;
+	float: right;
+	margin: 0 133px 0 0;
 }
 
 /* Title */

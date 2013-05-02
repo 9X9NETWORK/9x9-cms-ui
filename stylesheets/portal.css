@@ -910,6 +910,7 @@
 	top: 10px;
 	position: relative;
 	text-align: left;
+	line-height: 17px;
 }
 .channel-list li .ch-title {
 	width: 90px;
@@ -1367,6 +1368,9 @@
 	text-align: right;
 	margin: 0 0 0 -15px;
 	bottom: 48px;
+}
+#portal-add-layer .msg-error {
+	float: right;
 }
 
 /* Form */

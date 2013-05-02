@@ -549,10 +549,7 @@ $(function () {
                     nextstep = $(src.target).parents('a').attr('href');
                 }
             }
-            // ON PURPOSE to wait api (async)
-            setTimeout(function () {
-                location.href = nextstep;
-            }, 3000);
+            location.href = nextstep;
         }
     }
     $('body').keyup(function (e) {
@@ -827,6 +824,7 @@ $(function () {
                 ytItem = {},
                 ytList = [],
                 committedCnt = 0,
+                videoNumberBase = $('#storyboard-list li').length,
                 isPrivateVideo = null,
                 isZoneLimited = null,
                 isMobileLimited = null,
@@ -841,14 +839,12 @@ $(function () {
                     $('#cur-add .notice').text('Invalid URL, please try again!').removeClass('hide').show();
                     if (committedCnt === matchList.length) {
                         committedCnt = -1;   // reset to avoid collision
-                        // ON PURPOSE to wait api (async)
                         animateStoryboard(ytList.length);
-                        setTimeout(function () {
-                            $('#storyboard-listing-tmpl-item').tmpl(ytList).hide().appendTo('#storyboard-listing').fadeIn(2000);
-                            sumStoryboardInfo();
-                            $('.ellipsis').ellipsis();
-                            $('#overlay-s').fadeOut();
-                        }, 1000);
+                        $('#storyboard-listing-tmpl-item').tmpl(ytList).hide().appendTo('#storyboard-listing').fadeIn(2000);
+                        sumStoryboardInfo();
+                        rebuildVideoNumber(videoNumberBase);
+                        $('.ellipsis').ellipsis();
+                        $('#overlay-s').fadeOut();
                     }
                 });
                 nn.api('GET', 'http://gdata.youtube.com/feeds/api/videos/' + key + '?alt=jsonc&v=2&callback=?', null, function (youtubes) {
@@ -912,14 +908,12 @@ $(function () {
                     }
                     if (committedCnt === matchList.length) {
                         committedCnt = -1;   // reset to avoid collision
-                        // ON PURPOSE to wait api (async)
                         animateStoryboard(ytList.length);
-                        setTimeout(function () {
-                            $('#storyboard-listing-tmpl-item').tmpl(ytList).hide().appendTo('#storyboard-listing').fadeIn(2000);
-                            sumStoryboardInfo();
-                            $('.ellipsis').ellipsis();
-                            $('#overlay-s').fadeOut();
-                        }, 1000);
+                        $('#storyboard-listing-tmpl-item').tmpl(ytList).hide().appendTo('#storyboard-listing').fadeIn(2000);
+                        sumStoryboardInfo();
+                        rebuildVideoNumber(videoNumberBase);
+                        $('.ellipsis').ellipsis();
+                        $('#overlay-s').fadeOut();
                     }
                 }, 'jsonp');
             });
@@ -1902,10 +1896,11 @@ $(function () {
         // Episode Curation - Curation
         if ($(e.target).hasClass('curation') && chkCurationData(this, src)) {
             showSavingOverlay();
-            $('#overlay-s').fadeOut(1000, function () {
+            $('#overlay-s').fadeOut('fast', function () {
                 // redirect
                 videoDeleteIdList = []; // clear video delete id list
                 removeTotalChangeHook();
+                rebuildVideoNumber();
                 if (!src                                                                                        // from nature action
                         || (src && 'form-btn-save' === $(src.target).attr('id'))) {                             // from btn-save
                     $('#epcurate-curation ul.tabs li a.cur-add').trigger('click');
@@ -2846,6 +2841,15 @@ function sumStoryboardInfo() {
     $('#storyboard-listing li').eq(49).addClass('last');
 }
 
+function rebuildVideoNumber(base) {
+    base = ('undefined' === typeof base) ? 0 : base;
+    $('#storyboard-list li').each(function (i) {
+        if ((i + 1) > base) {
+            $(this).children('p.order').text(i + 1);
+        }
+    });
+}
+
 function resizeTitleCard() {
     var videoHeight = ($('#video-player').width() / 16) * 9,
         videoPlayerHeight = videoHeight + 44;   // 44: $('#video-control')
@@ -3101,7 +3105,7 @@ function uploadImage(isDisableEdit) {
         button_width:               '129',
         button_height:              '29',
         button_text:                '<span class="uploadstyle">Upload</span>',
-        button_text_style:          '.uploadstyle { color: #777777; font-family: Arial, Helvetica; font-size: 15px; text-align: center; } .uploadstyle:hover { color: #999999; }',
+        button_text_style:          '.uploadstyle { color: #555555; font-family: Arial, Helvetica; font-size: 15px; text-align: center; } .uploadstyle:hover { color: #999999; }',
         button_text_top_padding:    1,
         button_action:              SWFUpload.BUTTON_ACTION.SELECT_FILE,
         button_cursor:              SWFUpload.CURSOR.HAND,

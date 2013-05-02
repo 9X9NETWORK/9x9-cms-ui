@@ -22,57 +22,10 @@
 <script src="javascripts/vertical.slider.js"></script>
 <script src="javascripts/config.js"></script>
 <script src="javascripts/basic.js"></script>
-<script src="javascripts/uploads.js"></script>
-<title>9x9.tv - My Uploads</title>
+<script src="javascripts/library.js"></script>
+<title>9x9.tv - My Library</title>
 </head>
 <body>
-
-<div id="lightbox-upload-video" class="lightbox-content lightbox-upload-video">
-<div class="upload-audio">
-<div class="upload-audio-wrap">
-<a href="#" class="btn-close">Close</a>
-<h3><img src="images/text_audio_file.png" alt="Upload Audio File" title="Upload Audio File" /></h3>
-<p class="required"><acronym title="Required field" class="mark-required">*</acronym>Required field</p>
-<form name="lightboxUploadForm" id="lightboxUploadForm" method="get" action="uploads-list.html">
-<div class="fminput">
-<label><acronym title="Required field" class="mark-required">*</acronym>Upload file</label>
-<div class="fmfield">
-<p class="btns btn-upload-file"><span><input type="button" name="fileName" value="Select file from your computer" /></span></p>
-<p class="notice clear">Support mp3 file.</p>
-</div>
-</div>
-<div class="fminput">
-<label><acronym title="Required field" class="mark-required">*</acronym>File title</label>
-<div class="fmfield">
-<p class="text"><span><input type="text" name="title" id="title" maxlength="100" value="" class="text" /></span></p>
-</div>
-</div>
-<div class="fminput">
-<label>Playback image</label>
-<div class="fmfield">
-<p class="img"><img src="images/thumbnail_box_up.png" alt="" /></p>
-<div class="upload-func">
-<p class="radio-list">
-<span class="radio first on"><a href="#" class="radio-upload">Upload file</a></span>
-<span class="radio"><a href="#" class="radio-url">From URL</a></span>
-</p>
-<p class="btns upload"><span><a href="#">Upload</a></span></p>
-<p class="img-url text"><span><input type="text" name="imgUrl" id="imgUrl" maxlength="100" value="Copy and paste image URL here" class="text" /></span></p>
-</div>
-<span class="notice clear">Better results with 720x480 or higher resolution image.</span>
-<span class="notice clear hide">Support jpeg, png, gif file, ex. http://9x9.tv/1234.jpeg</span>
-</div>
-</div>
-<div class="form-btn">
-<div class="form-btn-wrap">
-<p class="btns btn-cancel"><span><input type="reset" value="Cancel" /></span></p>
-<p class="btns btn-save"><span><input type="submit" value="Save" /></span></p>
-</div>
-</div>
-</form>
-</div>
-</div>
-</div>
 
 <!--============================== header start ==============================-->
 <div id="header">
@@ -96,14 +49,13 @@
 <h3><a href="./"><span class="cms-icon">CMS</span><p class="sub-title">Content Management System</p></a></h3>
 <ul>
 <li><span><a href="./">My Channels</a></span></li>
-<li><span><a href="library-first.html">My Library</a></span></li>
-<li class="on"><span><a href="uploads-first.html">My Uploads</a></span></li>
+<li class="on"><span><a href="library-first.html">My Library</a></span></li>
 </ul>
 </div>
 </div>
 
 <!--============================== content-wrap start ========================-->
-<div id="content-wrap">
+<div id="content-wrap" class="library-first">
 
 <div id="content-nav">
 &nbsp;
@@ -113,14 +65,17 @@
 
 <div id="content-main">
 <div id="title-func" class="clearfix">
-<h2>My Uploads</h2>
+<h2>My Library</h2>
+<form name="addVideoForm" id="addVideoForm" method="get" action="" class="library-add-video">
+<p class="text"><span><input type="text" name="url" id="url" maxlength="100" value="Paste Youtube video URL to add" class="text" /></span></p>
+<p class="add-video btns"><span><a href="library-list.html">Add</a></span></p>
+</form>
 </div>
 
 <div id="content-main-wrap">
 <div class="constrain">
-<div id="uploads-video-list" class="video-list">
-<p class="no-video"><img src="images/text_noupload.png" alt="You have no videos in your library." title="You have no videos in your library." /></p>
-<p class="btn-upload-audio btns"><span><a href="#">Upload audio file</a></span></p>
+<div id="library-video-list" class="video-list">
+<p class="no-video"><img src="images/text_novideo.png" alt="You have no videos in your library." title="You have no videos in your library." /></p>
 </div>
 </div>
 </div>
