@@ -105,7 +105,7 @@
         	<h2>My Portal &gt; <span>Displaying a very long set title to show ellipsis effect in our streaming portal here<span> </h2>
             <ul>
                 <li><p class="btns"><span><a href="#">Preview</a></span></p></li>
-                <li class="last"><p class="btns"><span><a href="#">Save</a></span></p></li>
+                <li class="last" id="btn-portal-save"><p class="btns"><span><a href="#">Save</a></span></p></li>
             </ul>
     	</div>
             
@@ -113,6 +113,7 @@
             <div id="portal-layer">
             	<form id="portal-manage">
                 	<div class="clearfix">
+                    	<span class="required-field">*</span>
                         <span class="form-title">Set Name:</span>
                         <div class="input-white" id="set-title">
                             <p class="left"></p>
@@ -120,6 +121,7 @@
                             <p class="right"></p>
                         </div>
                         <span class="notice"><span id="name-charcounter">20</span>Best within 20 characters</span>
+                        <span class="msg-error">Please fill in your set name.</span>
                     </div>
                     <div class="clearfix sort">
                     	<span class="form-title">Channel List: </span> <p class="number">(<span>27</span> / 27 Channels)</p>
@@ -127,7 +129,7 @@
                           <li class="head">Sorted by: </li>
                           <li class="on">Updated time</li>
                           <li>Customized Order</li>
-    					</ul> 
+    					</ul>
                     </div>  
                 </form>
                 
@@ -253,11 +255,11 @@
                     </li>
                     <li>
                     	<div class="thumb">
-                            <div class="btn-top">
+                            <div class="btn-top on">
                             	<div class="icon-holder"></div>
                             	<div class="tip-white">
                                     <p class="left"></p>
-                                    <p class="center">Set on top</p>
+                                    <p class="center">Remove channel</p>
                                     <p class="right"></p>    
                             	</div>
                                 <div class="tip-top"></div>
@@ -979,14 +981,16 @@
         
         <div class="btn-white">
             <p class="left"></p>
-            <p class="center">Search</p>
+            <p class="center" id="btn-portal-search">Search</p>
             <p class="right"></p>
         </div> 
         
         <br/>
         <p>
-        	<b>Results:</b> Find <span>10</span> channels, you can choose <span>18</span> channels.
-        	<span class="msg-error">Please input data.</span>
+        	<b>Results:</b> Find <span>10</span> channels, you can choose <span>18</span> channels. 
+        	<span class="msg-error">Please fill in the channel url to search.</span> 
+            <!-- <span class="msg-error">Please fill in the correct url.</span> 
+            <span class="msg-error">Please fill in keywords. </span> --> 
         </p>
         <br/>
         </form>
@@ -1055,18 +1059,6 @@
 							</div>
                         </div>
                         <p class="ch-title">Gna</p>
-                    </li>
-                    <li>
-                    	<div class="thumb">
-                            <div class="checkbox"></div>
-                            <img src="images/icon_playlist.png" alt="" class="watermark">
-                            <div class="ch">
-	                            <div class="img">
-	                            <img src="thumbnail/ch5.png" />
-                                </div>
-							</div>
-                        </div>
-                        <p class="ch-title">BBC Earth</p>
                     </li>
                     <li>
                     	<div class="thumb">
@@ -1211,17 +1203,6 @@
 							</div>
                         </div>
                         <p class="ch-title">Gna</p>
-                    </li>
-                    <li>
-                    	<div class="thumb">
-                            <div class="checkbox"></div>
-                            <img src="images/icon_playlist.png" alt="" class="watermark">
-                            <div class="ch">
-	                            <div class="img">
-	                            <img src="thumbnail/ch5.png" />
-							</div>
-                        </div>
-                        <p class="ch-title">BBC Earth</p>
                     </li>
                     <li>
                     	<div class="thumb">
@@ -1315,6 +1296,7 @@
                 <p class="center">Add</p>
                 <p class="right"></p>
             </div> 
+            <span class="msg-error">Please select the channel to add.</span>
         </div>
     </div>
     <div class="msg-right"></div>
@@ -1329,23 +1311,23 @@
 <!-- Loading Layer End -->
 
 <!-- Message Layer Begin -->
-<div class="msg-layer">
+<div class="msg-layer" id="msg-portal">
   <div class="msg-holder">
   	<div class="msg-left"></div>
 	<div class="msg-center">
     	<p class="btn-msg-close"></p> 
-		[Message]
+		<p class="msg-content">If you save cutomized channels, the top channels will be cancelled.</p>
         <div class="msg-btn-holder">
-            <div class="btn-white">
+            <div class="btn-white first">
                 <p class="left"></p>
-                <p class="center">[Button]</p>
+                <p class="center">Cancel</p>
                 <p class="right"></p>
             </div>
-            <div class="btn-white">
+            <div class="btn-white last">
                 <p class="left"></p>
-                <p class="center">[Button]</p>
+                <p class="center">Save</p>
                 <p class="right"></p>
-            </div> 
+            </div>
         </div>
     </div>
     <div class="msg-right"></div>

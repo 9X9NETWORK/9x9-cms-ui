@@ -69,6 +69,36 @@ $(function () {
 		}
   	});
 	
+	$("#btn-portal-save").click(function() {
+		var input = $("#set-title input").val();
+    	if(input == ""){
+		$("#portal-slider").css("top", "182px");
+		$("#portal-layer .msg-error").show();
+		} else {
+		$("#portal-slider").css("top", "160px");
+		$("#msg-portal").fadeIn(400);
+		$("#msg-portal .msg-center").removeClass("center");
+		$("#msg-portal .msg-content").text("If you save cutomized channels, the top channels will be cancelled.");
+		$("#msg-portal .btn-white.first").show();
+		$("#msg-portal .btn-white.last .center").text("Save");
+		} 
+    });  	
+	
+	$("#msg-portal .btn-white").click(function() {
+		$("#msg-portal").hide();
+    });  
+	
+	$("#portal-list .channel-list .btn-top").click(function() {
+		if ($(this).hasClass("on")) {
+	} else {
+		$("#msg-portal").fadeIn(400);
+		$("#msg-portal .msg-center").removeClass("center");
+		$("#msg-portal .msg-content").text("You cannot set more than 4 top channels.");
+		$("#msg-portal .btn-white.first").hide();
+		$("#msg-portal .btn-white.last .center").text("OK");
+		}
+    }); 
+		
 	/* Add */
 	$("#portal-layer .channel-list li.empty").click(function() {
 		if ($(this).hasClass("disable")) {
@@ -77,11 +107,26 @@ $(function () {
 		}
     }); 
 	 
-	
 	$("#portal-add-layer a.prev").click(function() {
 		$("#portal-add-layer .channel-list").animate({"left":"0"}, 400);
     }); 
 	
+	$("#portal-add-layer .msg-btn-holder .btn-white").click(function() {
+		$("#portal-add-layer").hide();
+		$("#msg-portal").fadeIn(400);
+		$("#msg-portal .msg-center").addClass("center");
+		$("#msg-portal .msg-content").text("Added successfully!");
+		$("#msg-portal .btn-white.first").hide();
+		$("#msg-portal .btn-white.last .center").text("OK");
+    }); 
+	
+	$("#btn-portal-search").click(function() {
+		var input = $("#input-portal-ch").val();
+    	if(input == ""){
+		$("#portal-add-layer form .msg-error").show();
+		} else {
+		} 
+    });  
 	
 	/* Checkbox */
 	$(".checkbox").click(function() {
@@ -160,6 +205,15 @@ $(function () {
 		$(this).addClass("on");
 		}
     });
+	
+	/* Brand */
+	$("#btn-brand-save").click(function() {
+		var input = $("#brand-title input").val();
+    	if(input == ""){
+		$("#brand-layer .msg-error").show();
+		} else {
+		} 
+    });  	
 
 	/* Slider */
 	setTimeout ('scrollbar("#portal-constrain", "#portal-list", "#portal-slider")', 400);

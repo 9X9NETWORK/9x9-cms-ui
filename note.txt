@@ -1,3 +1,10 @@
+Date: 2013/05/06
+Version: 9x9_CMS_12
+
+Changes:
+* Change portal.css, portal.js, brand-mange.html, portal-first.html, portal-manage.html and store-manage.html.
+
+
 Date: 2013/05/03
 Version: 9x9_CMS_11
 

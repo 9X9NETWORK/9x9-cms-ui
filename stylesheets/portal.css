@@ -465,6 +465,7 @@
   background: url(../images/btn_white.png) repeat-x 0 -64px;
   padding: 5px 0 0;
   text-align: center;
+  min-width: 64px;
 }
 .btn-white:hover .left {
   background: url(../images/btn_white.png) no-repeat 0 -96px;
@@ -570,6 +571,12 @@
   color:#ed1a1b;
   display: none;
 }
+.required-field {
+  color:#ed1a1b;
+  left: 0;
+  position: absolute;
+  line-height: 50px;
+}
 .notice {
   color: #555;
 }
@@ -603,7 +610,7 @@
 }
 #portal-set li {
 	display: block;
-	width: 247px;
+	width: 239px;
 	height: 327px;
 	text-align: center;
 	float: left;
@@ -661,8 +668,8 @@
 	-o-text-overflow: ellipsis;
 	-ms-text-overflow: ellipsis;
 	-moz-binding: url('ellipsis.xml#ellipsis');
-	width: 227px;
-	left: 10px;
+	width: 224px;
+	display: inline-block;
 }
 
 /* Thumbnail */
@@ -1305,15 +1312,18 @@
 }
 .msg-center {
 	background: url(../images/bg_popup_box_s_middle.png) repeat-x;
-	min-width:250px;
+	min-width:243px;
 	height: 172px;
-	display:block;
+	display:table;
 	position:relative;
 	float:left;
 	text-align:center;
 }
 .msg-content {
-	padding: 36px 20px 0 20px;
+	padding: 0 8px 36px 8px;
+	display: table-cell;
+	vertical-align: middle;
+	line-height: 17px;
 }
 .btn-msg-close {
 	position: absolute;
@@ -1343,15 +1353,25 @@
 	margin: 0 5px 0 5px;
 	display: inline-block;
 }
-.btn-white .center {
-	min-width: 90px;
-}
 .msg-right {
 	display:block;
 	background: url(../images/bg_popup_box_s_right.png) no-repeat;
 	float:left;
 	width: 10px;
 	height: 172px;
+}
+
+#msg-unsave .msg-center {
+	width:243px;
+	text-align:justify;
+	text-justify:inter-word;
+}
+#msg-portal .msg-center {
+	text-align:justify;
+	text-justify:inter-word;
+}
+#msg-portal .msg-center.center {
+	text-align:center;
 }
 
 /* Portal Add Layer */
@@ -1422,8 +1442,16 @@
 	margin: 0 0 0 -15px;
 	bottom: 48px;
 }
+#portal-add-layer .msg-btn-holder .btn-white {
+	float: right;
+}
 #portal-add-layer .msg-error {
 	float: right;
+}
+#portal-add-layer .msg-btn-holder .msg-error {
+	height: 31px;
+	line-height: 31px;
+	margin-right: 0 10px 0 0;
 }
 
 /* Form */
@@ -1432,6 +1460,7 @@
 }
 #portal-add-layer .input-gray .center .textfield {
 	left: 6px;
+	width: 98.5%;
 }
 #portal-add-layer form .btn-white {
 	float: right;
@@ -1857,6 +1886,16 @@
 	display: block;
 	left: 17px;
 }
+#brand-layer .msg-error, #portal-layer .msg-error {
+	float: left;
+	text-align: left;
+	line-height: 17px;
+	padding: 0 0 5px 110px;
+}
+#brand-layer .upload-img .msg-error {
+	padding: 17px 0 0 0;
+}
+
 
 /* 1358 */
 @media only screen and (min-width: 1358px) {
