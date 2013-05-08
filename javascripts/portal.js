@@ -58,6 +58,10 @@ $(function () {
 		$(this).parents(".thumb").parents("li").hide();
     });  
 	
+	/*$(".btn-top.on").mouseover(function() {
+		$(this).css("z-index","3");
+	});*/
+	
 	/* Message */
   	$(".btn-msg-close").click(function() {
 		$(".msg-layer").hide();

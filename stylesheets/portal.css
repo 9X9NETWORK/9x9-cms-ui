@@ -859,7 +859,7 @@
 	position: relative;
 	display: block;
 	top: 55px;	
-	z-index: 5;
+	z-index: 2;
 }
 #portal-manage #name-charcounter, #brand-setting #name-charcounter {
 	margin: 0 13px 0 0;
@@ -936,6 +936,8 @@
 	float: left;
 	width: 115px;
 	margin: 0 0 30px 0;
+	z-index: 3;
+	position: relative;
 }
 #store-layer .channel-list li {
 	cursor: pointer;
@@ -1131,7 +1133,7 @@
 	left: -1px;
 	top: -1px;
 	height: 22px;
-	z-index: 4;
+	z-index: 6;
 	text-align: center;
 	background-position: 0 0;
 	cursor: pointer;
@@ -1144,10 +1146,12 @@
 .btn-top.on:hover {
 	display: block;
 	background-position: 0 0;	
+	z-index: 3;
 }
 .btn-top:hover {
 	display: block;
-	background-position: 0 -22px;	
+	background-position: 0 -22px;
+	z-index: 3;	
 }
 .btn-remove {
 	display: none;
@@ -1164,9 +1168,10 @@
 	background-position: right -22px;	
 }
 .icon-holder {
-	width: 22px;
-	height: 22px;
+	width: 44px;
+	height: 44px;
 	display: block;	
+	cursor: pointer;
 }
 .btn-minus {
 	display: none;
@@ -1203,7 +1208,7 @@
 	left: -1px;
 	display: none;
 	z-index: 9;
-	min-width: 100px;
+	min-width: 60px;
 }
 .tip-white .left {
 	position: relative;
@@ -1247,13 +1252,19 @@
 	background: url(../images/bg_tip_top.png) no-repeat center top;
 }
 
-.btn-top:hover .tip-white, .btn-top:hover .tip-top, .btn-minus:hover .tip-white, .btn-minus:hover .tip-top, .btn-minus:hover .tip-top, .btn-minus:hover .tip-white, .btn-remove:hover .tip-white {
+.btn-top:hover .tip-white, .btn-minus:hover .tip-white, .btn-remove:hover .tip-white {
 	display: block;	
+	top: -33px;
+}
+.btn-top:hover .tip-top, .btn-minus:hover .tip-top, .btn-minus:hover .tip-top {
+	display: block;	
+	margin: -24px 0 0 1px;
 }
 .btn-remove:hover .tip-top, .btn-minus:hover .tip-top {
 	display: block;	
 	position: absolute;
 	right: 0;
+	margin: -24px 0 0 1px;
 } 
 .btn-minus:hover .tip-white .left, .btn-remove:hover .tip-white .left {
 	float: right;
@@ -1635,7 +1646,7 @@
 	overflow: hidden;
 	height: 90%;
 	position: relative;
-	top: 35px;
+	top: 5px;
 	left: -20px;
 	padding: 0 10px 0 0;
 }
@@ -1643,7 +1654,6 @@
 	width: 100%;
 	height: auto;
 	position: relative;
-	margin: -30px 0 0 0;
 }
 #portal-slider {
 	height: 500px;
