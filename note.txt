@@ -1,5 +1,12 @@
+Date: 2013/05/09
+Version: 9x9_CMS_13
+
+Changes:
+* Change portal.js, portal-first.html and portal-manage.html.
+
+
 Date: 2013/05/08
-Version: 9x9_CMS_11
+Version: 9x9_CMS_12
 
 Changes:
 * Change portal.css.

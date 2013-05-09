@@ -49,18 +49,39 @@ $(function () {
 	
 	/* Sort List */
   	$(".sort-list li").click(function() {
+		if($(".sort-list li:last-child").hasClass("on")){
+		$("#msg-portal").fadeIn(400);
+		$("#msg-portal .msg-center").removeClass("center").css("width", "370px");
+		$("#msg-portal .msg-content").text("You will change the order of channel list to update time, it will sort by update time of channels automatically so you can't change the order manually except set on top channels.");
+		$("#msg-portal .btn-white.last .center").text("Yes");
+		$("#msg-portal .btn-white.first .center").text("No");
 		$(".sort-list li").removeClass("on");
-		$(this).addClass("on");
+		$(this).addClass("on"); 
+		$(".channel-list li").css("cursor", "pointer");
+		$(".btn-top.on").parents("li").css("cursor", "move");	
+		$(".btn-top").css("visibility", "visible");
+		}
+		else {
+		$(".sort-list li").removeClass("on");
+		$(this).addClass("on"); 
+		$(".channel-list li").css("cursor", "move");
+		$(".btn-top").css("visibility", "hidden");
+		}
     });
+	
+	if($(".sort-list li:last-child").hasClass("on")){
+		$(".channel-list li").css("cursor", "move");
+		$(".btn-top").css("visibility", "hidden");
+		}
+	else {
+		$(".channel-list li").css("cursor", "pointer");
+		$(".btn-top.on").parents("li").css("cursor", "move");
+		}
 	
 	/* Manage */
   	$("#portal-layer .channel-list li  .btn-remove").click(function() {
 		$(this).parents(".thumb").parents("li").hide();
     });  
-	
-	/*$(".btn-top.on").mouseover(function() {
-		$(this).css("z-index","3");
-	});*/
 	
 	/* Message */
   	$(".btn-msg-close").click(function() {
@@ -136,14 +157,6 @@ $(function () {
 	$(".checkbox").click(function() {
     	$(this).toggleClass("on");
   	});
-	
-	/* Form */
-	$("input").click(function() {
-		$(this).val("");
-    });  
-	$("form").each(function() { 
-		this.reset() 
-	});
 	
 	/* Dropdown */
 	$("#btn-portal-ch").click(function() {
