@@ -37,6 +37,20 @@ abbr, acronym {
     display: none !important;
 }
 
+.poi-mask {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 1050;
+    width: 839px;
+    height: 594px;
+    margin: -300px 0 0 -424px;
+    border-radius: 10px;
+    background-color: #000;
+    opacity: 0.6;
+}
+
 /**
 *
 * =overlay
@@ -111,14 +125,14 @@ abbr, acronym {
 *
 **/
 
-#content-wrap         .btns,
+#content-wrap     .btns,
 .lightbox-content .btns {
     height: 32px;
     padding: 0 0 0 3px;
     background: url(../images/btn_gray.png) no-repeat 0 0;
 }
 
-#content-wrap         .btns span,
+#content-wrap     .btns span,
 .lightbox-content .btns span {
     display: block;
     height: 32px;
@@ -126,8 +140,8 @@ abbr, acronym {
     background: url(../images/btn_gray.png) no-repeat right -32px;
 }
 
-#content-wrap         .btns span a,
-#content-wrap         .btns span input,
+#content-wrap     .btns span a,
+#content-wrap     .btns span input,
 .lightbox-content .btns span a,
 .lightbox-content .btns span input {
     display: block;
@@ -184,11 +198,11 @@ abbr, acronym {
     background: url(../images/popup_btn_middle_press.png) repeat-x !important;
 }
 
-#content-wrap         .btns                 span input,
-#content-wrap         .btns:hover     span input,
-#content-wrap         .btns.disable span input,
-.lightbox-content .btns                 span input,
-.lightbox-content .btns:hover     span input {
+#content-wrap     .btns         span input,
+#content-wrap     .btns:hover   span input,
+#content-wrap     .btns.disable span input,
+.lightbox-content .btns         span input,
+.lightbox-content .btns:hover   span input {
     background: none;
 }
 /*
