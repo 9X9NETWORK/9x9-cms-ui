@@ -102,6 +102,7 @@ $(function () {
 		} else {
 		$("#portal-slider").css("top", "160px");
 		$("#msg-portal").fadeIn(400);
+		$("#msg-portal .msg-center").removeClass("center").css("width", "223px");
 		$("#msg-portal .msg-center").removeClass("center");
 		$("#msg-portal .msg-content").text("If you save cutomized channels, the top channels will be cancelled.");
 		$("#msg-portal .btn-white.first").show();
@@ -118,6 +119,7 @@ $(function () {
 	} else {
 		$("#msg-portal").fadeIn(400);
 		$("#msg-portal .msg-center").removeClass("center");
+		$("#msg-portal .msg-center").removeClass("center").css("width", "223px");
 		$("#msg-portal .msg-content").text("You cannot set more than 4 top channels.");
 		$("#msg-portal .btn-white.first").hide();
 		$("#msg-portal .btn-white.last .center").text("OK");
@@ -139,6 +141,7 @@ $(function () {
 	$("#portal-add-layer .msg-btn-holder .btn-white").click(function() {
 		$("#portal-add-layer").hide();
 		$("#msg-portal").fadeIn(400);
+		$("#msg-portal .msg-center").removeClass("center").css("width", "223px");
 		$("#msg-portal .msg-center").addClass("center");
 		$("#msg-portal .msg-content").text("Added successfully!");
 		$("#msg-portal .btn-white.first").hide();

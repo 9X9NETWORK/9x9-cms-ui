@@ -1323,7 +1323,7 @@
 }
 .msg-center {
 	background: url(../images/bg_popup_box_s_middle.png) repeat-x;
-	min-width:243px;
+	min-width:223px;
 	height: 172px;
 	display:table;
 	position:relative;
@@ -1373,7 +1373,7 @@
 }
 
 #msg-unsave .msg-center {
-	width:243px;
+	width:223px;
 	text-align:justify;
 	text-justify:inter-word;
 }
