@@ -1184,13 +1184,13 @@
 	cursor: pointer;
 }
 .btn-minus.on {
-	display: block;
-	background-position: right -22px;
+	display: none;
+	background: url(../images/btn-add.png) right 0 no-repeat;
 	cursor: pointer;
 }
 .btn-minus.on:hover {
 	display: block;
-	background: url(../images/btn-add.png) right 0 no-repeat;		
+	background: url(../images/btn-add.png) right -22px no-repeat;		
 }
 .btn-minus:hover {
 	display: block;
