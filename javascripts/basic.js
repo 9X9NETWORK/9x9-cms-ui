@@ -112,6 +112,13 @@ function showUnsavePoiOverlay(e) {
     });
 }
 
+function showUnsavePoiMask(e) {
+    $('body').data('origin', e);
+    $('#unsave-poi-mask-prompt .content').text('Unsaved changes will be lost, are you sure you want to cancel editing?');
+    $('#poi-event-overlay').hide();
+    $('#unsave-poi-mask-prompt').show().css('z-index', '1100');
+}
+
 function showDeletePromptOverlay(msg) {
     $('#delete-prompt .content').text(msg);
     $.blockUI.defaults.overlayCSS.opacity = '0.9';
