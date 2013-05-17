@@ -1,8 +1,8 @@
-Date: 2013/05/18
+Date: 2013/05/17
 Version: 9x9_CMS_15
 
 Changes:
-* Integration with CCS.
+* Change portal.css and signin.html.
 
 
 Date: 2013/05/15

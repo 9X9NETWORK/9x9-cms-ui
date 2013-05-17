@@ -192,6 +192,13 @@
   display: block;
   float: right;
 }
+#signup-agree a {
+  color: #555;
+  font-weight: bold;
+}
+#signup-agree a:hover {
+  color: #999;
+}
 #signin-panel-signup .input-gray .left, #signin-panel-signup .input-gray .right {
   left: auto;
   height: 30px;
@@ -1646,7 +1653,7 @@
 	overflow: hidden;
 	height: 90%;
 	position: relative;
-	top: 5px;
+	top: 35px;
 	left: -20px;
 	padding: 0 10px 0 0;
 }
@@ -1654,10 +1661,11 @@
 	width: 100%;
 	height: auto;
 	position: relative;
+	margin: -35px 0 0 0;
 }
 #portal-slider {
 	height: 500px;
-	top: 160px;
+	top: 155px;
 	right: 14px;
 	z-index: 2;
 }
@@ -1680,19 +1688,22 @@
 	width: 100%;
 	height: auto;
 	position: relative;
-	margin: -30px 0 0 0;
+	margin: -35px 0 0 0;
 }
 #store-slider {
 	height: 500px;
-	top: 245px;
+	top: 240px;
 	right: -21px;
 	z-index: 2;
 }
 #store-layer.collapse #store-slider {
-	top: 165px;
+	top: 160px;
 }
 #store-category {
 	margin: 0 0 10px 0;
+}
+#store-layer.collapse #store-category {
+	margin: 0 0 0 0;
 }
 #store-category ul {
 	margin: 9px 0 0 10px;
