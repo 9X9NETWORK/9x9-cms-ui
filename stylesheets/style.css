@@ -296,6 +296,7 @@ abbr, acronym {
 }
 .ellipsis.multiline {
     white-space: normal;
+    word-wrap: break-word;
 }
 
 /* +header

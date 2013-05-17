@@ -5,6 +5,9 @@ $(function () {
     $('#poi-list .add').on('click', '.enable', function () {
         $('#channel-poi .edit-block').addClass('hide');
         $('#poi-create').removeClass('hide');
+        $('#content-main').removeAttr('class');
+        $('#content-main').addClass('poi-create');
+        setFormHeight();
         return false;
     });
 
@@ -12,6 +15,9 @@ $(function () {
     $('#poi-list .poi-info .edit').click(function () {
         $('#channel-poi .edit-block').addClass('hide');
         $('#poi-edit').removeClass('hide');
+        $('#content-main').removeAttr('class');
+        $('#content-main').addClass('poi-edit');
+        setFormHeight();
         return false;
     });
 
@@ -30,31 +36,43 @@ $(function () {
     });
     
     $('#channel-poi .btn-cancel').click(function () {
-        $('#unsave-poi-prompt .overlay-btn-yes').addClass('hide');
-        $('#unsave-poi-prompt .overlay-btn-leave').removeClass('hide');
+        $('#unsave-poi-prompt .overlay-btn-back').addClass('hide');
+        $('#unsave-poi-prompt .overlay-btn-no').removeClass('hide');
         $.blockUI({
             message: $('#unsave-poi-prompt')
         });
     });
 
     // unsave poi overlay
-    $('#unsave-poi-prompt .overlay-btn-no, #unsave-poi-prompt .overlay-btn-close').click(function () {
+    $('#unsave-poi-prompt .overlay-btn-yes').click(function () {
+        if (0 < $('.blockMsg #poi-event-overlay').length) {
+            $.unblockUI();
+            $('#unsave-poi-prompt').hide();
+        } else {
+            $.unblockUI();
+            $('#channel-poi .edit-block').addClass('hide');
+            $('#poi-list').removeClass('hide');
+            $('#content-main').removeAttr('class');
+            $('#content-main').addClass('poi-list');
+            setFormHeight();
+        }
+        return false;
+    });
+    $('#unsave-poi-prompt .overlay-btn-close').click(function () {
         if (0 < $('.blockMsg #poi-event-overlay').length) {
             $('#poi-event-overlay').show();
             $('#unsave-poi-prompt').hide();
-            return false;
         } else {
             $.unblockUI();
         }
-    });
-    $('#unsave-poi-prompt .overlay-btn-leave').click(function () {
-        $.unblockUI();
-        $('#channel-poi .edit-block').addClass('hide');
-        $('#poi-list').removeClass('hide');
         return false;
     });
-    $('#unsave-poi-prompt .overlay-btn-yes').click(function () {
+    $('#unsave-poi-prompt .overlay-btn-no').click(function () {
         $.unblockUI();
+        return false;
+    });
+    $('#unsave-poi-prompt .overlay-btn-back').click(function () {
+        $('#poi-event-overlay').show();
         $('#unsave-poi-prompt').hide();
         return false;
     });
@@ -88,13 +106,13 @@ $(function () {
     });
 
     // poi overlay button
-    $('#poi-event-overlay .btn-cancel').click(function () {
-        $('#unsave-poi-prompt .overlay-btn-leave').addClass('hide');
-        $('#unsave-poi-prompt .overlay-btn-yes').removeClass('hide');
+    $('#poi-event-overlay .btn-cancel, #poi-event-overlay .overlay-btn-close').click(function () {
+        $('#unsave-poi-prompt .overlay-btn-no').addClass('hide');
+        $('#unsave-poi-prompt .overlay-btn-back').removeClass('hide');
         $('#poi-event-overlay').hide();
         $('#unsave-poi-prompt').show().css('z-index', '1100');
     });
-    $('#schedule-notify .btn-next').click(function() {
+    $('#schedule-notify .btn-next, #schedule-notify .crumb.edit .crumb-next').click(function() {
         if (chkPoiEventData(document.eventScheduledForm)) {
             var dates = $('#datepicker_selected').val().split(',');
             $('#poi-event-overlay .datepicker').datepick('setDate', dates); 
@@ -109,8 +127,12 @@ $(function () {
     });
     $('#event-scheduled .btn-save').click(function () {
         $.unblockUI();
+        $('#poi-event-overlay').hide();
         $('#channel-poi .edit-block').addClass('hide');
         $('#channel-poi #poi-list').removeClass('hide');
+        $('#content-main').removeAttr('class');
+        $('#content-main').addClass('poi-list');
+        setFormHeight();
         $('#poi-list .has-poi').removeClass('hide');
         $('#poi-list .btn-create-poi').removeClass('enable').addClass('disable');
         $('#poi-list .poi-info').removeClass('hide');
@@ -127,7 +149,7 @@ $(function () {
     });
 
     //overlay crumb
-    $('#poi-event-overlay .unblock, #poi-event-overlay .btn-close').click(function () {
+    $('#poi-event-overlay .unblock').click(function () {
         $.unblockUI();
     });
     $('#poi-event-overlay .event .crumb a.crumb-event').click(function() {
@@ -154,7 +176,7 @@ $(function () {
         $("#poi-event-overlay .event .video-wrap .poi-display").poi("buttonText", $("#schedule_button_text").val(), 0);
     });
 
-    $('#schedule-mobile ul li a').click(function() {
+    $('#schedule-mobile .mobile ul li a').click(function() {
         var block = $(this).attr('class');
         $('#schedule-mobile ul li').removeClass('on');
         $(this).parents('li').addClass('on');
@@ -167,6 +189,8 @@ $(function () {
     $("#schedule_msg").change(function(){
         var val = $('#schedule_msg').val();
         $("#schedule-mobile .mobile-block p.msg").text(val);
+        $('#schedule-ios p.msg').ellipsis();
+        //ellipsisPage();
     });
 
     $('#poi-event-overlay .datepicker').datepick({
@@ -215,22 +239,24 @@ $(function () {
 function setFormHeight() {
     var windowHeight = $(window).height(),
         windowWidth  = $(window).width(),
-        //channelNameWidth = $('#channel-name').width(),
         titleFuncWidth = $('#title-func').width(),
-        titlePoiEventWidth = $('#title-func h2 span').width(),
         titleFuncHeight = $('#title-func').height(),
         contentHeight = windowHeight - titleFuncHeight - 94 - 48 - 38 - 10;    // 94:header+studio-nav 48:footer 38:title-func-padding
     if (windowWidth > 1220) {
         $('#channel-poi input.text').width(windowWidth - 734);
         $('#title-func h2').width(windowWidth - 584).data('width', $(this).width());
-        $('#channel-name').data('width', $('#title-func h2').width());
     } else {
         $('#channel-poi input.text').width(433);
         $('#title-func h2').width(583).data('width', '583');
-        $('#channel-name').data('width', $('#title-func h2').width());
     }
-    $('#channel-name').width($('#channel-name').data('width') - titlePoiEventWidth);
+    $('#title-func').data('width', $('#title-func h2').width());
+    $('#title-func h2.poi-list em').width($('#title-func').data('width') - $('#title-func h2.poi-list span').width());
+    $('#title-func h2.poi-create em').width($('#title-func').data('width') - $('#title-func h2.poi-create span').width());
+    $('#title-func h2.poi-edit em').width($('#title-func').data('width') - $('#title-func h2.poi-edit span').width());
     $('#channel-poi .edit-block').height(contentHeight);
+    //alert($('#title-func h2.poi-create em').width());
+    //alert($('#title-func').data('width'));
+    //alert($('#title-func h2.poi-create span').width());
 }
 
 function chkData(fm) {

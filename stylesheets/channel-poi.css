@@ -8,7 +8,17 @@
     margin-top: 69px !important;
 }
 
-#title-func h2 #channel-name {
+#content-main #title-func h2 {
+    display: none;
+}
+
+#content-main.poi-list #title-func h2.poi-list,
+#content-main.poi-edit #title-func h2.poi-edit,
+#content-main.poi-create #title-func h2.poi-create {
+    display: block;
+}
+
+#title-func h2 em {
     overflow:hidden;
     float: left;
     width: 300px;
@@ -23,7 +33,7 @@
 }
 
 #title-func h2 span {
-    
+    float: left;
 }
 
 /**
@@ -114,7 +124,7 @@
 
 #poi-list .add .create-notice .tip .tip-middle {
     display: block;
-    width: 243px;
+    width: 247px;
     height: 40px;
     padding: 5px 5px 0;
     background: url(../images/bg_bubble_middle_m.png) repeat-x;

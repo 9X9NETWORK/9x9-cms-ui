@@ -733,7 +733,7 @@
     background: url(../images/bg_popup_box_l.png) repeat-x 0 -1198px;
 }
 
-#poi-event-overlay .wrap .content .btn-close {
+#poi-event-overlay .wrap .content .overlay-btn-close {
     display: block;
     position: absolute;
     top: 7px;
@@ -744,7 +744,7 @@
     text-indent: -100000px;
 }
 
-#poi-event-overlay .wrap .content .btn-close:hover {
+#poi-event-overlay .wrap .content .overlay-btn-close:hover {
     background-position: 0 -24px
 }
 
@@ -885,9 +885,9 @@
 }
 
 #poi-event-overlay .wrap .content ul.list li .block .img.instant {
-    box-shadow: 0 1px 10px rgba(237, 23, 8, 0.75) inset, 0 0 10px rgba(255, 211, 214, 0.9) inset, 0 0 2px rgba(255, 255, 255, 0.9) inset, 0 0 20px rgba(237, 28, 36, 0.5);
-    border: 1px solid #9e292c;
-    background-color: #debab9;
+    box-shadow: 0 1px 10px rgba(238, 126, 125, 0.1) inset, 0 0 10px rgba(255, 255, 255, 0.9) inset, 0 0 2px rgba(255, 143, 149, 0.9) inset, 0 0 20px rgba(237, 28, 36, 0.1);
+    border: 1px solid #bb3d3c;
+    background-color: #ddbaba;
     background-position: 0 -231px;
     behavior: url(PIE.htc);
 }
@@ -1179,6 +1179,7 @@ body.from-poi-edit-mode #poi-event-overlay .wrap .content .func ul li.notice {
     height: 325px;
     padding: 29px 0 0;
     border-bottom: 1px solid #fff;
+    background: #e2e2e2;
     background: -webkit-gradient(linear, 0 0, 0 bottom, from(#e2e2e2), to(#e1e1e1));
     background: -webkit-linear-gradient(#e2e2e2, #e1e1e1);
     background: -moz-linear-gradient(#e2e2e2, #e1e1e1);
@@ -1218,18 +1219,14 @@ body.from-poi-edit-mode #poi-event-overlay .wrap .content .func ul li.notice {
 }
 
 #poi-event-overlay .wrap .content .event .mobile-edit .mobile .mobile-block .wrap p {
-    overflow: hidden;
-    width: 186px;
-    height: 36px;
-    margin: 0 auto 5px;
+    width: 180px;
+    height: 32px;
+    margin: 0 auto 9px;
     padding: 0 10px;
     color: #fff;
     font-size: 12px;
     text-align: center;
-    text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
-    -ms-text-overflow: ellipsis;
-    -moz-binding: url('ellipsis.xml#ellipsis');
+    line-height: 16px;
 }
 
 #poi-event-overlay .wrap .content .event .mobile-edit .mobile .mobile-block .wrap p.button {
@@ -1394,13 +1391,13 @@ body.from-poi-edit-mode #poi-event-overlay .wrap .content .func ul li.notice {
 
 #poi-event-overlay .wrap .content .event .mobile-edit .notification h4 a .tip .tip-middle {
     display: block;
-    width: 165px;
+    width: 171px;
     height: 42px;
     padding: 3px 5px 0;
     background: url(../images/bg_bubble_middle_m.png) repeat-x;
     color: #555;
     font: 13px/17px Arial, Helvetica;
-    text-align: justify;
+    text-align: left;
 }
 
 #poi-event-overlay .wrap .content .event .mobile-edit .notification h4 a:hover .tip {
