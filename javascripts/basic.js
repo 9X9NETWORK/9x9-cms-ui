@@ -74,12 +74,12 @@ function showSystemErrorOverlayAndHookError(msg) {
 
 function showProcessingOverlay() {
     $('#overlay-s .overlay-middle').html('<img src="images/icon_load_l.gif" alt="" />Processing...');
-    $('#overlay-s').fadeIn();
+    $('#overlay-s').fadeIn().css('z-index', '1200');
 }
 
 function showSavingOverlay() {
     $('#overlay-s .overlay-middle').html('<img src="images/icon_load_l.gif" alt="" />Saving...');
-    $('#overlay-s').fadeIn();
+    $('#overlay-s').fadeIn().css('z-index', '1200');
 }
 
 function buildUnsaveOverlay(hook) {
@@ -332,7 +332,7 @@ $(function () {
     } else {
         setTimeout(function () {
             $('#content-wrap').removeClass('hidden');
-        }, 3000);    
+        }, 3000);
     }
     //------------------------------------------------------------------------------------------
 
@@ -348,47 +348,6 @@ $(function () {
     });
 
     // studio setup
-    $('#studio-nav .studio-setup .btn-left').click(function () {
-        // studio setup
-        // ON PURPOSE to skip unsave check
-        $.blockUI({
-            message: $('#fb-connect')
-        });
-        return false;
-    });
-    $('#fb-connect .switch-off, #restart-connect .btn-reconnect').click(function () {
-        // connected but has not critical permission!!
-        $.blockUI({
-            message: $('#fb-connect-failed')
-        });
-        return false;
-    });
-    $('#fb-connect-failed .btn-failed-ok').click(function () {
-        // continue to show studio setup
-        $.blockUI({
-            message: $('#fb-connect')
-        });
-        return false;
-    });
-    $('#fb-connect .switch-on').click(function () {
-        // disconnect facebook
-        $.blockUI({
-            message: $('#confirm-disconnect')
-        });
-        return false;
-    });
-    $('#confirm-disconnect .btn-disconnect').click(function () {
-        $.blockUI({
-            message: $('#disconnect-notice')
-        });
-        return false;
-    });
-    $('#studio-nav .reconnect .btn-left').click(function () {
-        $.blockUI({
-            message: $('#restart-connect')
-        });
-        return false;
-    });
     $('#studio-nav .reconnect-notice .notice-left').stop(true).delay(2000).slideDown(100).delay(10000).fadeOut(1500);
 
     // common unblock

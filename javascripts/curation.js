@@ -1384,7 +1384,7 @@ $(function () {
         $('body').addClass('has-change');
         $('body').removeClass('has-titlecard-change');
         sumStoryboardInfo();
-        // TODO implement Done == Save?
+        // implement Done == Save?
         //$('#form-btn-save').trigger('click');
         return false;
     });
@@ -1573,36 +1573,35 @@ $(function () {
 
     // Delete POI
     $('#cur-poi').on('click', '#poi-list-page .btn-del', function () {
-        $(this).parent().parent('li').addClass('deleting').data('deleteId', $(this).data('poiId'));
+        $(this).parent().parent('li').addClass('deleting').data('deleteId', $(this).data('poiPointId'));
         showDeletePoiPromptOverlay('Are you sure you want to delete this POI with interactive event?');
         return false;
     });
     $('#del-poi-notice .btn-del').click(function () {
         $.unblockUI();
-        var poiId = $('#poi-list-page ol li.deleting').data('deleteId'),
+        var poiPointId = $('#poi-list-page ol li.deleting').data('deleteId'),
             tmplItem = $('#storyboard-listing li.playing').tmplItem(),
             tmplItemData = tmplItem.data,
             poiList = tmplItemData.poiList,
             poiTemp = [];
-        if ($('#poi-list-page ol li.deleting').length > 0 && '' != poiId) {
+        if ($('#poi-list-page ol li.deleting').length > 0 && '' != poiPointId) {
             showSavingOverlay();
-            if (poiId > 0 && !isNaN(poiId)) {
-                //nn.api('DELETE', CMS_CONF.API('/api/poi_points/{poiPointId}', {poiPointId: poiId}), null, function (data) {
+            if (poiPointId > 0 && !isNaN(poiPointId)) {
+                //nn.api('DELETE', CMS_CONF.API('/api/poi_points/{poiPointId}', {poiPointId: poiPointId}), null, function (data) {
                     $('#overlay-s').fadeOut(0);
                 //});
             } else {
                 $('#overlay-s').fadeOut(0);
             }
-            $.each(poiList, function (i, poi) {
-                if (poi.id == poiId) {
+            $.each(poiList, function (i, poiItem) {
+                if (poiItem.id == poiPointId) {
                     // NOTE: Returning non-false is the same as a continue statement in a for loop
                     return true;
                 }
-                poiTemp.push(poi);
+                poiTemp.push(poiItem);
             });
             tmplItemData.poiList = poiTemp;
-            buildPoiEventInfoTmpl($('#storyboard-listing li.playing'));
-            $('body').removeClass('has-poi-change');
+            buildPoiInfoTmpl($('#storyboard-listing li.playing'));
             $('#epcurate-curation ul.tabs li a.cur-poi').trigger('click');
         }
         return false;
@@ -1630,20 +1629,20 @@ $(function () {
     });
     $('#cur-poi').on('click', '.btn-add-poi a', function () {
         // Add button
-        buildPoiEventEditTmpl();
+        buildPoiPointEditTmpl();
         $('#cur-poi-edit').removeClass('edit');
         return false;
     });
     $('#cur-poi').on('click', '.poi-list a.edit', function () {
         // Edit button
-        var poiId = $(this).data('poiId'),
+        var poiPointId = $(this).data('poiPointId'),
             tmplItem = $('#storyboard-listing li.playing').tmplItem(),
             tmplItemData = tmplItem.data,
             poiList = tmplItemData.poiList;
-        if ('' != poiId) {
-            if (poiId > 0 && !isNaN(poiId)) {
-                //nn.api('GET', CMS_CONF.API('/api/poi_points/{poiPointId}', {poiPointId: poiId}), null, function (poi) {
-                    buildPoiEventEditTmpl({
+        if ('' != poiPointId) {
+            if (poiPointId > 0 && !isNaN(poiPointId)) {
+                //nn.api('GET', CMS_CONF.API('/api/poi_points/{poiPointId}', {poiPointId: poiPointId}), null, function (poi_point) {
+                    buildPoiPointEditTmpl({
                         "id": 2,
                         "targetId": 98231,
                         "type": 5,
@@ -1654,9 +1653,9 @@ $(function () {
                     });
                 //});
             } else {
-                $.each(poiList, function (i, poi) {
-                    if (poi.id == poiId) {
-                        buildPoiEventEditTmpl(poi);
+                $.each(poiList, function (i, poiItem) {
+                    if (poiItem.id == poiPointId) {
+                        buildPoiPointEditTmpl(poiItem);
                         // NOTE: return false here is break the $.each() loop
                         return false;
                     }
@@ -1671,6 +1670,10 @@ $(function () {
     // POI click notice reset
     $('#cur-poi-edit').on('click', '.edit-form input, .btn-reset', function () {
         $('#cur-poi-edit .edit-form .notice').addClass('hide');
+    });
+    $('#poi-event-overlay').on('click', 'input[type=text], textarea', function () {
+        $('#poi-event-overlay .event .event-input .fminput .notice').hide();
+        $('#poi-event-overlay .event .func ul li.notice').hide();
     });
     // POI hook has change
     $('#cur-poi-edit').on('change', '.edit-form input', function () {
@@ -1719,7 +1722,7 @@ $(function () {
         return false;
     });
     // POI overlay - cancel and close
-    $('#poi-event-overlay').on('click', '.btn-cancel, .btn-close', function (e) {
+    $('#poi-event-overlay').on('click', '.btn-cancel, .overlay-btn-close', function (e) {
         if ($('body').hasClass('has-poi-change')) {
             showUnsavePoiMask(e);
             return false;
@@ -1728,115 +1731,291 @@ $(function () {
         $('#epcurate-curation ul.tabs li a.cur-poi').trigger('click');
         return false;
     });
-    // POI overlay - crumb root close
-    $('#poi-event-overlay').on('click', '.unblock', function () {
-        $.unblockUI();
-        return false;
-    });
 
-    // Save POI point
+    // POI point Next
     $('#cur-poi-edit').on('click', '#poi-edit .btn-next', function () {
-        if (chkPoiData(document.epcurateForm)) {
+        if (chkPoiPointData(document.epcurateForm)) {
+            var poiPointId = 0,
+                poiEventId = 0,
+                hasPointEventCache = false;
+                tmplItem = $('#storyboard-listing li.playing').tmplItem(),
+                tmplItemData = tmplItem.data,
+                poiList = tmplItemData.poiList,
+                poiTemp = [],
+                poiPointEventData = {},
+                poiEventContext = '',
+                poiEventData = {},
+                poiPointData = {
+                    name: $('#poiName').val(),
+                    startTime: $('#poiStartTime').val(),
+                    endTime: $('#poiEndTime').val(),
+                    tag: $('#poiTag').val()
+                };
             if ($('#cur-poi-edit').hasClass('edit')) {
                 // update mode
-                var poiId = $('#poi-event-edit-wrap').data('poiId'),
-                    tmplItem = $('#storyboard-listing li.playing').tmplItem(),
-                    tmplItemData = tmplItem.data,
-                    poiList = tmplItemData.poiList,
-                    poiTemp = [],
-                    parameter = {
-                        name: $('#poiName').val(),
-                        startTime: $('#poiStartTime').val(),
-                        endTime: $('#poiEndTime').val(),
-                        tag: $('#poiTag').val()
-                    };
-                if ('' != poiId) {
-                    showSavingOverlay();
-                    if (poiId > 0 && !isNaN(poiId)) {
-                        //nn.api('PUT', CMS_CONF.API('/api/poi_points/{poiPointId}', {poiPointId: poiId}), parameter, function (data) {
-                            $('#overlay-s').fadeOut(0);
-                        //});
-                    } else {
-                        $('#overlay-s').fadeOut(0);
-                    }
-                    $.each(poiList, function (i, poi) {
-                        if (poi.id == poiId) {
-                            $.extend(poi, parameter);
+                poiPointId = $('#poi-point-edit-wrap').data('poiPointId');
+                if ('' != poiPointId) {
+                    showProcessingOverlay();
+                    if (poiPointId > 0 && !isNaN(poiPointId)) {
+                        // real API access phase
+                        $.each(poiList, function (i, poiItem) {
+                            if (poiItem.id == poiPointId) {
+                                if (poiItem.eventId && !isNaN(poiItem.eventId)) {
+                                    hasPointEventCache = true;
+                                }
+                                $.extend(poiItem, poiPointData);
+                                poiPointEventData = poiItem;
+                            }
+                            poiTemp.push(poiItem);
+                        });
+                        if (hasPointEventCache) {
+                            //nn.api('PUT', CMS_CONF.API('/api/poi_points/{poiPointId}', {poiPointId: poiPointId}), poiPointData, function (poi_point) {
+                                $('#overlay-s').fadeOut(0, function () {
+                                    tmplItemData.poiList = poiTemp;
+                                    buildPoiInfoTmpl($('#storyboard-listing li.playing'));
+                                    buildPoiEventOverlayTmpl(poiPointEventData);
+                                });
+                            //});
+                        } else {
+                            poiTemp = [];
+                            poiPointEventData = {};
+                            //nn.api('PUT', CMS_CONF.API('/api/poi_points/{poiPointId}', {poiPointId: poiPointId}), poiPointData, function (poi_point) {
+                                //nn.api('GET', CMS_CONF.API('/api/poi_campaigns/{poiCampaignId}/pois', {poiCampaignId: CMS_CONF.CAMPAIGN_ID}), {poiPointId: poiPointId}, function (pois) {
+                                    //if (pois && pois.length > 0 && pois[0] && pois[0].eventId && !isNaN(pois[0].eventId)) {
+                                        //poiEventId = pois[0].eventId;
+                                        //nn.api('GET', CMS_CONF.API('/api/poi_events/{poiEventId}', {poiEventId: poiEventId}), null, function (poi_event) {
+                                            var poi_event = {
+                                                "id": 1,
+                                                "name": "1 TheVoice01-01 hello world test test hello world test test hello world test test 1234567890abcdefghijklmnopqrstuvwxyz",
+                                                "type": 1,
+                                                "context": "{\"message\": \"Hyper to related channel to watch more and more!!!\", \"button\": [{ \"text\": \"Watch now\", \"actionUrl\": \"http://www.9x9.tv/view?ch=8758\" }]}",
+                                                "notifyMsg": "",
+                                                "notifyScheduler": "",
+                                            };
+                                            poiEventContext = $.parseJSON(poi_event.context);
+                                            poiEventData = {
+                                                eventId: poi_event.id,
+                                                eventType: poi_event.type,
+                                                message: poiEventContext.message,
+                                                button: poiEventContext.button[0].text,
+                                                link: poiEventContext.button[0].actionUrl,
+                                                notifyMsg: poi_event.notifyMsg,
+                                                notifyScheduler: poi_event.notifyScheduler
+                                            };
+                                            $('#overlay-s').fadeOut(0, function () {
+                                                $.each(poiList, function (i, poiItem) {
+                                                    if (poiItem.id == poiPointId) {
+                                                        $.extend(poiItem, poiPointData, poiEventData);
+                                                        poiPointEventData = poiItem;
+                                                    }
+                                                    poiTemp.push(poiItem);
+                                                });
+                                                tmplItemData.poiList = poiTemp;
+                                                buildPoiInfoTmpl($('#storyboard-listing li.playing'));
+                                                buildPoiEventOverlayTmpl(poiPointEventData);
+                                            });
+                                        //});
+                                    //} else {
+                                    //    $('#overlay-s').fadeOut(0);
+                                    //    nn.log('Can not fetch POI Event ID!', 'error');
+                                    //}
+                                //});
+                            //});
                         }
-                        poiTemp.push(poi);
-                    });
-                    tmplItemData.poiList = poiTemp;
-                    buildPoiEventInfoTmpl($('#storyboard-listing li.playing'));
-                    buildPoiEventOverlayTmpl();
+                    } else {
+                        // fake DOM access phase
+                        $('#overlay-s').fadeOut(0, function () {
+                            $.each(poiList, function (i, poiItem) {
+                                if (poiItem.id == poiPointId) {
+                                    $.extend(poiItem, poiPointData);
+                                    poiPointEventData = poiItem;
+                                }
+                                poiTemp.push(poiItem);
+                            });
+                            tmplItemData.poiList = poiTemp;
+                            buildPoiInfoTmpl($('#storyboard-listing li.playing'));
+                            buildPoiEventOverlayTmpl(poiPointEventData);
+                        });
+                    }
+                } else {
+                    nn.log('Can not fetch POI Point ID!', 'error');
                 }
             } else {
                 // insert mode
-                buildPoiEventOverlayTmpl();
+                buildPoiEventOverlayTmpl(poiPointData);
             }
         }
         return false;
     });
 
    // POI overlay - crumb switch
+    $('#poi-event-overlay').on('click', '.event .crumb a', function () {
+        $('#poi-event-overlay .event .func ul li.notice').hide();
+    });
+    $('#poi-event-overlay').on('click', '.unblock', function (e) {
+        if ($('#cur-poi-edit').hasClass('edit')) {
+            // edit mode back must check and if pass then unblock poi overlay
+            var poiEventTypeKey = $('#poi-event-overlay-wrap').data('poiEventTypeKey'),
+                formId = CMS_CONF.POI_TYPE_MAP[poiEventTypeKey].formId;
+            chkPoiEventData(document.forms[formId], function (result) {
+                if (!result) {
+                    e.stopImmediatePropagation();
+                    return false;
+                } else {
+                    $.unblockUI();
+                    return false;
+                }
+            });
+        } else {
+            // insert mode back no check and unblock poi overlay
+            $.unblockUI();
+            return false;
+        }
+    });
     $('#poi-event-overlay').on('click', '.event .crumb a.crumb-event', function () {
+        // insert mode back no check and go to event-select (event type)
         var blockClass = $(this).attr('class'),
             block = blockClass.split(' ');
         $('#poi-event-overlay .event, #schedule-mobile, #instant-mobile').addClass('hide');
         $('#' + block[1] + ', #schedule-notify, #instant-notify').removeClass('hide');
         return false;
     });
-    $('#poi-event-overlay').on('click', '#schedule-mobile .crumb .crumb-mobile', function () {
-        $('#event-scheduled .schedule').addClass('hide');
-        $('#schedule-notify').removeClass('hide');
-        return false;
+    $('#poi-event-overlay').on('click', '#schedule-mobile .crumb .crumb-mobile', function (e) {
+        if ($('#cur-poi-edit').hasClass('edit')) {
+            // edit mode back must check and if pass then go to preivew video and POI plugin
+            chkPoiEventData(document.eventScheduledForm, function (result) {
+                if (!result) {
+                    e.stopImmediatePropagation();
+                    return false;
+                } else {
+                    $('#event-scheduled .schedule').addClass('hide');
+                    $('#schedule-notify').removeClass('hide');
+                    return false;
+                }
+            });
+        } else {
+            // insert mode back no check and go to preivew video and POI plugin
+            $('#event-scheduled .schedule').addClass('hide');
+            $('#schedule-notify').removeClass('hide');
+            return false;
+        }
     });
-    $('#poi-event-overlay').on('click', '#instant-mobile .crumb .crumb-mobile', function () {
-        $('#event-instant .instant').addClass('hide');
-        $('#instant-notify').removeClass('hide');
-        return false;
+    $('#poi-event-overlay').on('click', '#instant-mobile .crumb .crumb-mobile', function (e) {
+        if ($('#cur-poi-edit').hasClass('edit')) {
+            // edit mode back must check and if pass then go to preivew video and POI plugin
+            chkPoiEventData(document.eventInstantForm, function (result) {
+                if (!result) {
+                    e.stopImmediatePropagation();
+                    return false;
+                } else {
+                    $('#event-instant .instant').addClass('hide');
+                    $('#instant-notify').removeClass('hide');
+                    return false;
+                }
+            });
+        } else {
+            // insert mode back no check and go to preivew video and POI plugin
+            $('#event-instant .instant').addClass('hide');
+            $('#instant-notify').removeClass('hide');
+            return false;
+        }
     });
 
     // POI overlay - Choose a type
     $('#poi-event-overlay').on('click', '#event-select ul.list li', function () {
         $('body').addClass('has-poi-change');
         $('body').addClass('has-change');
-        var block = $(this).attr('class');
+        var type = $(this).attr('class');
         $('#poi-event-overlay .event').addClass('hide');
-        $('#' + block).removeClass('hide');
-        playPoiAndVideo(block);
+        $('#' + type).removeClass('hide');
+        playPoiEventAndVideo(type);
     });
     $('#poi-event-overlay').on('change keyup keydown', 'input[name=displayText]', function () {
         var val = strip_tags($(this).val().replace(/\n/g, ''));
-        $(this).val(val);
         $('#poi-event-overlay .event .video-wrap .poi-display').poi('displayText', val);
     });
     $('#poi-event-overlay').on('change keyup keydown', 'input[name=btnText]', function () {
         var val = strip_tags($(this).val().replace(/\n/g, ''));
-        $(this).val(val);
         $('#poi-event-overlay .event .video-wrap .poi-display').poi('buttonText', val);
     });
+    $('#poi-event-overlay').on('blur', 'input[name=displayText]', function () {
+        var val = strip_tags($(this).val().replace(/\n/g, ''));
+        $(this).val(val);
+    });
+    $('#poi-event-overlay').on('blur', 'input[name=btnText]', function () {
+        var val = strip_tags($(this).val().replace(/\n/g, ''));
+        $(this).val(val);
+    });
 
-    // POI overlay - Notification Next
-    $('#poi-event-overlay').on('click', '#schedule-notify .btn-next', function () {
-        var dates = $('#datepicker_selected').val().split(',');
-        $('#poi-event-overlay .datepicker').datepick('setDate', dates);
-        $('#event-scheduled .schedule').addClass('hide');
-        $('#schedule-mobile').removeClass('hide');
-        // prevent layout broken
-        $('#schedule-mobile .mobile-edit .mobile ul li:first-child').attr('class', 'ios on');
-        $('#schedule-mobile .mobile-edit .mobile ul li:last-child').attr('class', 'android');
-        $('#schedule-ios').attr('class', 'mobile-block mobile-active');
-        $('#schedule-android').attr('class', 'mobile-block hide');
+    // POI overlay - Preview Video and POI Plugin Next
+    $('#poi-event-overlay').on('click', '#schedule-notify .btn-next, #schedule-notify .crumb.edit .crumb-next', function () {
+        chkPoiEventData(document.eventScheduledForm, function (result) {
+            if (result) {
+                // parse timestamp
+                if ('' !== $.trim($('#timestamp_selected').val())) {
+                    var stampList = [],
+                        formatTemp = '',
+                        dateTimeList = [],
+                        dateList = [];
+                    stampList = $('#timestamp_selected').val().split(',');
+                    $.each(stampList, function (i, stampItem) {
+                        formatTemp = formatTimestamp((stampItem - 0), '/', ':');
+                        dateTimeList.push(formatTemp);
+                        formatTemp = formatTemp.split(' ');
+                        dateList.push(formatTemp[0]);
+                    });
+                    if (formatTemp.length > 0 && formatTemp[1]) {
+                        formatTemp = formatTemp[1].split(':');
+                        if (formatTemp[0]) {
+                            $('#time_hour').text(formatTemp[0]);
+                        }
+                        if (formatTemp[1]) {
+                            $('#time_min').text(formatTemp[1]);
+                        }
+                    }
+                    $('#datepicker_selected').val(dateList.join(','));
+                    $('#schedule_selected').val(dateTimeList.join(','));
+                    $('#poi-event-overlay .datepicker').datepick('setDate', dateList);
+                } else {
+                    // default date time
+                    var today = new Date((new Date()).getTime()),
+                        tomorrow = new Date((new Date()).getTime() + (24 * 60 * 60 * 1000)),
+                        hour = 19,
+                        min = '00',
+                        selected = (today.getHours() > hour) ? tomorrow : today,
+                        selectedDate = selected.getFullYear() + '/' + (selected.getMonth() + 1) + '/' + selected.getDate(),
+                        selectedTime = hour + ':' + min + ':00',
+                        selectedDateTime = selectedDate + ' ' + selectedTime;
+                    $('#time_hour').text(hour);
+                    $('#time_min').text(min);
+                    $('#datepicker_selected').val(selectedDate);
+                    $('#schedule_selected').val(selectedDateTime);
+                    $('#timestamp_selected').val(Date.parse(selectedDateTime));
+                    $('#poi-event-overlay .datepicker').datepick('setDate', selectedDate);
+                }
+                $('#event-scheduled .schedule').addClass('hide');
+                $('#schedule-mobile').removeClass('hide');
+                // prevent layout broken
+                $('#schedule-mobile .mobile-edit .mobile ul li:first-child').attr('class', 'ios on');
+                $('#schedule-mobile .mobile-edit .mobile ul li:last-child').attr('class', 'android');
+                $('#schedule-ios').attr('class', 'mobile-block mobile-active');
+                $('#schedule-android').attr('class', 'mobile-block hide');
+            }
+        });
         return false;
     });
-    $('#poi-event-overlay').on('click', '#instant-notify .btn-next', function () {
-        $('#event-instant .instant').addClass('hide');
-        $('#instant-mobile').removeClass('hide');
-        // prevent layout broken
-        $('#instant-mobile .mobile-edit .mobile ul li:first-child').attr('class', 'ios on');
-        $('#instant-mobile .mobile-edit .mobile ul li:last-child').attr('class', 'android');
-        $('#instant-ios').attr('class', 'mobile-block mobile-active');
-        $('#instant-android').attr('class', 'mobile-block hide');
+    $('#poi-event-overlay').on('click', '#instant-notify .btn-next, #instant-notify .crumb.edit .crumb-next', function () {
+        chkPoiEventData(document.eventInstantForm, function (result) {
+            if (result) {
+                $('#event-instant .instant').addClass('hide');
+                $('#instant-mobile').removeClass('hide');
+                // prevent layout broken
+                $('#instant-mobile .mobile-edit .mobile ul li:first-child').attr('class', 'ios on');
+                $('#instant-mobile .mobile-edit .mobile ul li:last-child').attr('class', 'android');
+                $('#instant-ios').attr('class', 'mobile-block mobile-active');
+                $('#instant-android').attr('class', 'mobile-block hide');
+            }
+        });
         return false;
     });
 
@@ -1875,6 +2054,7 @@ $(function () {
 
     // POI overlay - Scheduled Hour and Minute
     $('#poi-event-overlay').on('click', '.time .select .select-txt, .time .select .select-btn', function () {
+        $('#poi-event-overlay .event .func ul li.notice').hide();
         $('#poi-event-overlay .select-list').hide();
         $(this).parent().children('.select-btn').toggleClass('on');
         if ($(this).parent().children('.select-btn').hasClass('on')) {
@@ -1891,109 +2071,156 @@ $(function () {
         $(this).parent().parent().parent().children('.select-btn').removeClass('on');
         $(this).parent().parent().parent().children('.select-txt').children().text(selectOption);
         $(this).parents('.select-list').hide();
-        return false;
-    });
-
-    // POI overlay - save
-    $('#poi-event-overlay').on('click', '#event-hyper .btn-save', function (e) {
-        chkPoiEventData(document.eventHyperForm, function (result) {
-            if (!result) {
-                e.stopImmediatePropagation();
-                return false;
-            }
-        });
-    });
-    $('#poi-event-overlay').on('click', '#event-scheduled .btn-save, #event-instant .btn-save', function () {
-        $.unblockUI();
-        $('#epcurate-curation .tab-content').addClass('hide');
-        $('#cur-poi').removeClass('hide');
-        $('#epcurate-curation ul.tabs li.edit-poi').addClass('hide');
-        $('#epcurate-curation ul.tabs li.poi').addClass('last on');
-        $('#epcurate-curation ul.tabs li.poi').removeClass('hide');
+        // recount timestamp
+        if ('' !== $.trim($('#datepicker_selected').val())) {
+            var selectedList = [],
+                scheduleDate = '',
+                scheduleList = [],
+                timestampList = [];
+            selectedList = $('#datepicker_selected').val().split(',');
+            $.each(selectedList, function (i, selectedItem) {
+                scheduleDate = selectedItem + ' ' + $('#time_hour').text() + ':' + $('#time_min').text() + ':00'
+                scheduleList.push(scheduleDate);
+                timestampList.push(Date.parse(scheduleDate));
+            });
+            $('#schedule_selected').val(scheduleList.join(','));
+            $('#timestamp_selected').val(timestampList.join(','));
+        }
         return false;
     });
 
     // Save POI event
-    $('#cur-poi-edit').on('click', '#event-edit .btn-add, #event-edit .btn-save', function () {
-        chkPoiEventData(document.epcurateForm, function (result) {
+    $('#poi-event-overlay').on('click', '#poi-event-overlay-wrap .btn-save', function () {
+        var poiEventTypeKey = $('#poi-event-overlay-wrap').data('poiEventTypeKey'),
+            formId = CMS_CONF.POI_TYPE_MAP[poiEventTypeKey].formId,
+            fm = document.forms[formId];
+        chkPoiEventData(fm, function (result) {
             if (result) {
-                var poiId = $('#poi-event-edit-wrap').data('poiId'),
-                    programId = $('#poi-event-edit-wrap').data('programId'),
+                var displayText = $.trim(fm.displayText.value),
+                    btnText = $.trim(fm.btnText.value),
+                    channelUrl = $.trim(fm.channelUrl.value),
+                    notifyMsg = $.trim(fm.notifyMsg.value),
+                    notifyScheduler = $.trim(fm.notifyScheduler.value),
+                    programId = $('#poi-event-overlay-wrap').data('programId'),
+                    poiPointId = $('#poi-event-overlay-wrap').data('poiPointId'),
+                    poiEventId = $('#poi-event-overlay-wrap').data('poiEventId'),
+                    poiEventType = $('#poi-event-overlay-wrap').data('poiEventType'),
                     tmplItem = $('#storyboard-listing li.playing').tmplItem(),
                     tmplItemData = tmplItem.data,
                     poiList = tmplItemData.poiList,
                     poiTemp = [],
                     hasPush = false,
-                    parameter = {
+                    poiData = {},
+                    poiPointData = {
+                        eventType: poiEventType,        // ready for fake api to change new point id
                         name: $('#poiName').val(),
                         startTime: $('#poiStartTime').val(),
                         endTime: $('#poiEndTime').val(),
-                        tag: $('#poiTag').val(),
-                        message: $('#displayText').val(),
-                        button: $('#btnText').val(),
-                        link: $('#channelUrl').val()
+                        tag: $('#poiTag').val()
+                    },
+                    poiEventContext = {
+                        "message": displayText,
+                        "button": [{
+                            "text": btnText,
+                            "actionUrl": channelUrl
+                        }]
+                    },
+                    poiEventData = {
+                        pointType: 5,                   // ready for fake api to change new event id
+                        name: $('#poiName').val(),
+                        type: poiEventType,
+                        context: JSON.stringify(poiEventContext),
+                        notifyMsg: notifyMsg,
+                        notifyScheduler: notifyScheduler
+                    },
+                    poiEventDataExtend = {
+                        eventId: poiEventId,
+                        eventType: poiEventType,
+                        message: displayText,
+                        button: btnText,
+                        link: channelUrl,
+                        notifyMsg: notifyMsg,
+                        notifyScheduler: notifyScheduler
                     };
-                if ($('#cur-poi-edit').hasClass('edit')) {
+                if ($('#cur-poi-edit').hasClass('edit') && '' != poiPointId) {
                     // update mode
-                    if ('' != poiId) {
-                        showSavingOverlay();
-                        if (poiId > 0 && !isNaN(poiId)) {
-                            //nn.api('PUT', CMS_CONF.API('/api/pois/{poiId}', {poiId: poiId}), parameter, function (data) {
-                                $('#overlay-s').fadeOut(0);
-                            //});
-                        } else {
+                    showSavingOverlay();
+                    if (poiPointId > 0 && !isNaN(poiPointId)) {
+                        //nn.api('PUT', CMS_CONF.API('/api/poi_events/{poiEventId}', {poiEventId: poiEventId}), poiEventData, function (poi_event) {
                             $('#overlay-s').fadeOut(0);
-                        }
-                        $.each(poiList, function (i, poi) {
-                            if (poi.id == poiId) {
-                                $.extend(poi, parameter);
-                            }
-                            poiTemp.push(poi);
-                        });
-                        tmplItemData.poiList = poiTemp;
-                        buildPoiEventInfoTmpl($('#storyboard-listing li.playing'));
-                        $('body').removeClass('has-poi-change');
-                        $('#epcurate-curation ul.tabs li a.cur-poi').trigger('click');
+                        //});
+                    } else {
+                        $('#overlay-s').fadeOut(0);
                     }
+                    $.each(poiList, function (i, poiItem) {
+                        if (poiItem.id == poiPointId) {
+                            $.extend(poiItem, poiPointData, poiEventDataExtend);
+                        }
+                        poiTemp.push(poiItem);
+                    });
+                    tmplItemData.poiList = poiTemp;
+                    buildPoiInfoTmpl($('#storyboard-listing li.playing'));
+                    $('body').removeClass('has-poi-change');
+                    $('#epcurate-curation ul.tabs li a.cur-poi').trigger('click');
                 } else {
                     // insert mode
                     showSavingOverlay();
                     if (programId > 0 && !isNaN(programId)) {
-                        parameter.programId = programId;
-                        //nn.api('POST', CMS_CONF.API('/api/programs/{programId}/pois', {programId: programId}), parameter, function (data) {
-                            // update id
-                            parameter.id = 999999;
-                            $.each(poiList, function (i, poi) {
-                                if (!hasPush && parseInt(poi.startTime, 10) > parseInt(parameter.startTime, 10)) {
-                                    poiTemp.push(parameter);
-                                    hasPush = true;
-                                }
-                                poiTemp.push(poi);
-                            });
-                            if (!hasPush) {
-                                poiTemp.push(parameter);
-                            }
-                            tmplItemData.poiList = poiTemp;
-                            buildPoiEventInfoTmpl($('#storyboard-listing li.playing'));
-                            $('body').removeClass('has-poi-change');
-                            $('#epcurate-curation ul.tabs li a.cur-poi').trigger('click');
-                            $('#overlay-s').fadeOut(0);
+                        //nn.api('POST', CMS_CONF.API('/api/programs/{programId}/poi_points', {programId: programId}), poiPointData, function (poi_point) {
+                            //nn.api('POST', CMS_CONF.API('/api/users/{userId}/poi_events', {userId: CMS_CONF.USER_DATA.id}), poiEventData, function (poi_event) {
+                                //poiData = {
+                                //    pointId: poi_point.id,
+                                //    eventId: poi_event.id
+                                //};
+                                //nn.api('POST', CMS_CONF.API('/api/poi_campaigns/{poiCampaignId}/pois', {poiCampaignId: CMS_CONF.CAMPAIGN_ID}), poiData, function (poi) {
+                                    //if (-1 !== $.inArray(CMS_CONF.POI_TYPE_MAP[poi_event.type], ['event-scheduled', 'event-instant'])) {
+                                    //    poiEventContext.button[0].actionUrl = CMS_CONF.POI_ACTION_URL + poi.id;
+                                    //    poiEventData.context = JSON.stringify(poiEventContext);
+                                    //    poiEventDataExtend.link = CMS_CONF.POI_ACTION_URL + poi.id;
+                                    //}
+                                    //nn.api('PUT', CMS_CONF.API('/api/poi_events/{poiEventId}', {poiEventId: poi_event.id}), poiEventData, function (poi_event) {
+                                        // update id
+                                        poiPointData.id = 999999;
+                                        poiPointData.targetId = 98231;
+                                        poiPointData.type = 5;
+                                        poiEventDataExtend.eventId = 999999;
+                                        poiPointData = $.extend(poiPointData, poiEventDataExtend);
+                                        $.each(poiList, function (i, poiItem) {
+                                            if (!hasPush && parseInt(poiItem.startTime, 10) > parseInt(poiPointData.startTime, 10)) {
+                                                poiTemp.push(poiPointData);
+                                                hasPush = true;
+                                            }
+                                            poiTemp.push(poiItem);
+                                        });
+                                        if (!hasPush) {
+                                            poiTemp.push(poiPointData);
+                                        }
+                                        tmplItemData.poiList = poiTemp;
+                                        buildPoiInfoTmpl($('#storyboard-listing li.playing'));
+                                        $('body').removeClass('has-poi-change');
+                                        $('#epcurate-curation ul.tabs li a.cur-poi').trigger('click');
+                                        $('#overlay-s').fadeOut(0);
+                                    //});
+                                //});
+                            //});
                         //});
                     } else {
                         // build timestamp id
-                        parameter.id = 'temp-poi-id-' + $.now();
-                        $.each(poiList, function (i, poi) {
-                            if (!hasPush && parseInt(poi.startTime, 10) > parseInt(parameter.startTime, 10)) {
-                                poiTemp.push(parameter);
+                        poiPointData.id = 'temp-poi-point-id-' + $.now();
+                        poiEventDataExtend.eventId = 'temp-poi-event-id-' + $.now();
+                        poiPointData = $.extend(poiPointData, poiEventDataExtend);
+                        $.each(poiList, function (i, poiItem) {
+                            if (!hasPush && parseInt(poiItem.startTime, 10) > parseInt(poiPointData.startTime, 10)) {
+                                poiTemp.push(poiPointData);
                                 hasPush = true;
                             }
-                            poiTemp.push(poi);
+                            poiTemp.push(poiItem);
                         });
                         if (!hasPush) {
-                            poiTemp.push(parameter);
+                            poiTemp.push(poiPointData);
                         }
                         tmplItemData.poiList = poiTemp;
-                        buildPoiEventInfoTmpl($('#storyboard-listing li.playing'));
+                        buildPoiInfoTmpl($('#storyboard-listing li.playing'));
                         $('body').removeClass('has-poi-change');
                         $('#epcurate-curation ul.tabs li a.cur-poi').trigger('click');
                         $('#overlay-s').fadeOut(0);
@@ -2040,8 +2267,8 @@ $(function () {
     $(window).resize(function () {
         setVideoMeasure();
         setSpace();
-        if ($('#poi-list-page').length > 0) {
-            buildPoiEventInfoTmpl($('#storyboard-list li.playing'));
+        if ($('#poi-list-page').length > 0 && $('#storyboard-list li.playing').length > 0) {
+            buildPoiInfoTmpl($('#storyboard-list li.playing'));
         }
         resizeTitleCard();
         resizeFromFontRadix();
@@ -2077,11 +2304,11 @@ function chkCurationData(fm, src) {
     return true;
 }
 
-function chkPoiData(fm) {
+function chkPoiPointData(fm) {
     fm.poiName.value = $.trim(fm.poiName.value);
     fm.poiTag.value = $.trim(fm.poiTag.value);
     var poiList = $('#storyboard-list li.playing').tmplItem().data.poiList,
-        poiId = $('#poi-event-edit-wrap').data('poiId'),
+        poiPointId = $('#poi-point-edit-wrap').data('poiPointId'),
         duration = $('.set-time').data('originDuration'),
         videoStart = $('#storyboard-listing li.playing').data('starttime'),
         videoEnd = $('#storyboard-listing li.playing').data('endtime'),
@@ -2154,14 +2381,14 @@ function chkPoiData(fm) {
         $('#poi-edit .playback-notice').removeClass('hide');
         return false;
     }
-    $.each(poiList, function (i, poi) {
-        if ($('#cur-poi-edit').hasClass('edit') && poi.id == poiId) {
+    $.each(poiList, function (i, poiItem) {
+        if ($('#cur-poi-edit').hasClass('edit') && poiItem.id == poiPointId) {
             // NOTE: Returning non-false is the same as a continue statement in a for loop
             return true;
         }
-        if (!(startTime > poi.endTime || poi.startTime > endTime)) {
-            $('#poi-edit .overlap-notice #poi-name').text(poi.name);
-            $('#poi-edit .overlap-notice .time').text('(' + formatDuration(poi.startTime, true) + ' to ' + formatDuration(poi.endTime, true) + ')');
+        if (!(startTime > poiItem.endTime || poiItem.startTime > endTime)) {
+            $('#poi-edit .overlap-notice #poi-name').text(poiItem.name);
+            $('#poi-edit .overlap-notice .time').text('(' + formatDuration(poiItem.startTime, true) + ' to ' + formatDuration(poiItem.endTime, true) + ')');
             $('#poi-edit .overlap-notice').removeClass('hide');
             // NOTE: return false here is break the $.each() loop, not form return
             return false;
@@ -2172,7 +2399,7 @@ function chkPoiData(fm) {
     }
     $('#poiStartTime').val(startTime);
     $('#poiEndTime').val(endTime);
-    $('#poi-event-edit-wrap').data('starttime', startTime);
+    $('#poi-point-edit-wrap').data('starttime', startTime);
     if ('undefined' !== typeof youTubePlayerObj
             && 'object' === $.type(youTubePlayerObj)
             && 'function' === $.type(youTubePlayerObj.loadVideoById)) {
@@ -2185,40 +2412,56 @@ function chkPoiData(fm) {
 }
 
 function chkPoiEventData(fm, callback) {
+    var poiEventTypeKey = $('#poi-event-overlay-wrap').data('poiEventTypeKey');
     fm.displayText.value = $.trim(fm.displayText.value);
     fm.btnText.value = $.trim(fm.btnText.value);
     fm.channelUrl.value = $.trim(fm.channelUrl.value);
-    if ('' === fm.displayText.value
-            || '' === fm.btnText.value
-            || '' === fm.channelUrl.value) {
-        //$('#cur-poi-edit .btn-container').children('.notice').removeClass('hide');
+    fm.notifyMsg.value = $.trim(fm.notifyMsg.value);
+    fm.notifyScheduler.value = $.trim(fm.notifyScheduler.value);
+    if ('' === fm.displayText.value || '' === fm.btnText.value) {
         $('#poi-event-overlay .event .func ul li.notice').show();
-        //callback(false);
+        callback(false);
         return false;
     }
-    if (nn._([CMS_CONF.PAGE_ID, 'poi-event', 'Input 9x9 channel or episode URL']) === fm.channelUrl.value) {
-        //$('#event-edit .invalid-url-notice').removeClass('hide');
-        $('#event-hyper .event-input .fminput .notice').show();
-        //callback(false);
-        return false;
-    }
-    $.unblockUI();
-    $('#epcurate-curation .tab-content').addClass('hide');
-    $('#cur-poi').removeClass('hide');
-    $('#epcurate-curation ul.tabs li.edit-poi').addClass('hide');
-    $('#epcurate-curation ul.tabs li.poi').addClass('last on');
-    $('#epcurate-curation ul.tabs li.poi').removeClass('hide');
-/*
-    if ('' != fm.channelUrl.value) {
+    if (-1 !== $.inArray(poiEventTypeKey, ['event-scheduled', 'event-instant'])) {
+        if (!$('#schedule-mobile').hasClass('hide') || !$('#instant-mobile').hasClass('hide')) {
+            if ('' === fm.notifyMsg.value) {
+                $('#poi-event-overlay .event .func ul li.notice').show();
+                callback(false);
+                return false;
+            }
+            if ('event-scheduled' === poiEventTypeKey && '' === fm.notifyScheduler.value) {
+                $('#poi-event-overlay .event .func ul li.notice').show();
+                callback(false);
+                return false;
+            }
+        }
+        // notice and url reset
+        $('#poi-event-overlay .event .func ul li.notice').hide();
+        callback(true);
+        return true;
+    } else {
+        if ('' === fm.channelUrl.value) {
+            $('#poi-event-overlay .event .func ul li.notice').show();
+            callback(false);
+            return false;
+        }
+        if (nn._([CMS_CONF.PAGE_ID, 'poi-event', 'Input 9x9 channel or episode URL']) === fm.channelUrl.value) {
+            $('#poi-event-overlay .event .event-input .fminput .notice').show();
+            callback(false);
+            return false;
+        }
         var url = $.url(fm.channelUrl.value),
             hash = '',
             param = '',
             cid = '',
             eid = '',
-            pathAllow = ['/view', '/'],
+            normalUrl = 'http://www.9x9.tv/view?';
+            pathAllow = ['/', '/view', '/playback'],
             hostAllow = [
                 'www.9x9.tv',
                 'beagle.9x9.tv',
+                'v3alpha.9x9.tv',
                 'dev.teltel.com',
                 'demo.doubleservice.com',
                 'localhost'
@@ -2227,22 +2470,27 @@ function chkPoiEventData(fm, callback) {
             hostAllow.push(CMS_CONF.USER_URL.attr('host'));
         }
         if (-1 === $.inArray(url.attr('host'), hostAllow)) {
-            $('#event-edit .invalid-url-notice').removeClass('hide');
+            $('#poi-event-overlay .event .event-input .fminput .notice').show();
             callback(false);
             return false;
         }
         if (-1 === $.inArray(url.attr('path'), pathAllow)) {
-            $('#event-edit .invalid-url-notice').removeClass('hide');
+            $('#poi-event-overlay .event .event-input .fminput .notice').show();
             callback(false);
             return false;
         }
         if ('/' == url.attr('path') && '' == url.attr('fragment')) {
-            $('#event-edit .invalid-url-notice').removeClass('hide');
+            $('#poi-event-overlay .event .event-input .fminput .notice').show();
             callback(false);
             return false;
         }
         if ('/view' == url.attr('path') && '' == url.attr('query')) {
-            $('#event-edit .invalid-url-notice').removeClass('hide');
+            $('#poi-event-overlay .event .event-input .fminput .notice').show();
+            callback(false);
+            return false;
+        }
+        if ('/playback' == url.attr('path') && '' == url.attr('query')) {
+            $('#poi-event-overlay .event .event-input .fminput .notice').show();
             callback(false);
             return false;
         }
@@ -2267,13 +2515,13 @@ function chkPoiEventData(fm, callback) {
             }
         }
         if ('' == cid) {
-            $('#event-edit .invalid-url-notice').removeClass('hide');
+            $('#poi-event-overlay .event .event-input .fminput .notice').show();
             callback(false);
             return false;
         }
         nn.on([400, 401, 403, 404], function (jqXHR, textStatus) {
             nn.log(textStatus + ': ' + jqXHR.responseText, 'warning');
-            $('#event-edit .invalid-url-notice').removeClass('hide');
+            $('#poi-event-overlay .event .event-input .fminput .notice').show();
             callback(false);
             return false;
         });
@@ -2282,31 +2530,32 @@ function chkPoiEventData(fm, callback) {
             if (11 == eid.length) {
                 nn.api('GET', 'http://gdata.youtube.com/feeds/api/videos/' + eid + '?alt=jsonc&v=2&callback=?', null, function (youtubes) {
                     if (youtubes.data) {
-                        // notice reset
-                        $('#cur-poi-edit .edit-form .notice').addClass('hide');
+                        // notice and url reset
+                        $('#poi-event-overlay .event .func ul li.notice').hide();
+                        normalUrl = normalUrl + 'ch=' + cid + '&ep=' + eid;
+                        fm.channelUrl.value = normalUrl;
                         callback(true);
                         return true;
                     } else {
-                        $('#event-edit .invalid-url-notice').removeClass('hide');
+                        $('#poi-event-overlay .event .event-input .fminput .notice').show();
                         callback(false);
                         return false;
                     }
                 }, 'jsonp');
             } else {
-                // notice reset
-                $('#cur-poi-edit .edit-form .notice').addClass('hide');
+                // notice and url reset
+                $('#poi-event-overlay .event .func ul li.notice').hide();
+                normalUrl = normalUrl + 'ch=' + cid;
+                fm.channelUrl.value = normalUrl;
                 callback(true);
                 return true;
             }
         } else {
-            $('#event-edit .invalid-url-notice').removeClass('hide');
+            $('#poi-event-overlay .event .event-input .fminput .notice').show();
             callback(false);
             return false;
         }
-    } else {
-        callback(false);
-        return false;
-    }*/
+    }
 }
 
 function setVideoMeasure() {
@@ -2513,7 +2762,7 @@ function onYouTubePlayerStateChange(newState) {
         $('body').removeClass('from-poi-edit-mode');
         $('body').removeClass('from-poi-overlay-edit-mode');
         if ($('#cur-poi-edit').length > 0 && !$('#cur-poi-edit').hasClass('hide')) {
-            starttime = $('#poi-event-edit-wrap').data('starttime');
+            starttime = $('#poi-point-edit-wrap').data('starttime');
         }
         youTubePlayerObj.seekTo(starttime, true);
         youTubePlayerObj.pauseVideo();
@@ -2589,12 +2838,12 @@ function buildVideoInfoTmpl(element) {
         $('.set-time input.time').autotab({
             format: 'numeric'
         });
-        buildPoiEventInfoTmpl(element);
+        buildPoiInfoTmpl(element);
     }
 }
 
-function buildPoiEventInfoTmpl(element) {
-    // poi-event-info-tmpl
+function buildPoiInfoTmpl(element) {
+    // poi-info-tmpl
     if (element && element.tmplItem() && element.tmplItem().data && element.tmplItem().data.poiList) {
         var videoInfoData = element.tmplItem().data,
             startTimeInt = videoInfoData.startTime,
@@ -2625,7 +2874,7 @@ function buildPoiEventInfoTmpl(element) {
             poiPage = [],
             poiItem = [];
         $('#cur-poi').html('');
-        $('#poi-event-info-tmpl').tmpl(videoInfoData, options).prependTo('#cur-poi');
+        $('#poi-info-tmpl').tmpl(videoInfoData, options).prependTo('#cur-poi');
         $('.ellipsis').ellipsis();
         if (poiList && poiList.length > 0) {
             $.each(poiList, function (i, item) {
@@ -2668,30 +2917,27 @@ function buildPoiEventInfoTmpl(element) {
     }
 }
 
-function buildPoiEventEditTmpl(poi) {
+function buildPoiPointEditTmpl(poi_point) {
     var videoData = $('#storyboard-list li.playing').tmplItem().data,
         optionData = {},
-        poiData = poi || {},
+        poiPointEventData = poi_point || {},
         videoStartTime = videoData.startTime,
         videoEndTime = (videoData.endTime > 0) ? videoData.endTime : videoData.duration,
         poiStartTime = videoStartTime,
         poiEndTime = videoEndTime;
-    poiData = $.extend({
+    poiPointEventData = $.extend({
         id: 0,
         targetId: (videoData.id) ? videoData.id : 0,
         type: 5,
         name: '',
         startTime: poiStartTime,
         endTime: poiEndTime,
-        tag: '',
-        message: nn._([CMS_CONF.PAGE_ID, 'poi-event', 'Hyper to related channel to watch more!']),
-        button: nn._([CMS_CONF.PAGE_ID, 'poi-event', 'Watch now']),
-        link: nn._([CMS_CONF.PAGE_ID, 'poi-event', 'Input 9x9 channel or episode URL'])
-    }, poiData);
+        tag: ''
+    }, poiPointEventData);
     videoStartTime = formatDuration(videoStartTime, true).split(':');
     videoEndTime = formatDuration(videoEndTime, true).split(':');
-    poiStartTime = formatDuration(poiData.startTime, true).split(':');
-    poiEndTime = formatDuration(poiData.endTime, true).split(':');
+    poiStartTime = formatDuration(poiPointEventData.startTime, true).split(':');
+    poiEndTime = formatDuration(poiPointEventData.endTime, true).split(':');
     optionData = {
         poiStartH: poiStartTime[0],
         poiStartM: poiStartTime[1],
@@ -2708,65 +2954,109 @@ function buildPoiEventEditTmpl(poi) {
         endS: videoEndTime[2]
     };
     $('#cur-poi-edit').html('');
-    $('#poi-event-edit-tmpl').tmpl(poiData, optionData).prependTo('#cur-poi-edit');
+    $('#poi-point-edit-tmpl').tmpl(poiPointEventData, optionData).prependTo('#cur-poi-edit');
     $('#poi-edit').html('');
-    $('#poi-edit-tmpl').tmpl(poiData, optionData).prependTo('#poi-edit');
+    $('#poi-point-tmpl').tmpl(poiPointEventData, optionData).prependTo('#poi-edit');
     $('#poi-edit input.time').autotab({
         format: 'numeric'
     });
 }
 
-function playPoiAndVideo(block) {
-    $('body').addClass('from-poi-overlay-edit-mode');
-    $('#poi-event-overlay .wrap .content .video-wrap .video').empty();
-    loadYouTubeChrome($('#storyboard-listing li.playing').data('ytid'), '#' + block + '-video');
-    $('#poi-event-overlay .event .video-wrap .poi-display').empty();
-    var displayText = strip_tags($.trim($('#poi-event-overlay #' + block + ' input[name=displayText]').val())),
-        buttonsText = strip_tags($.trim($('#poi-event-overlay #' + block + ' input[name=btnText]').val()));
-    if ('' == displayText) {
-        displayText = 'Input display text';
-    }
-    if ('' == buttonsText) {
-        buttonsText = 'Input button text';
-    }
-    $('#poi-event-overlay #' + block + ' .video-wrap .poi-display').poi({
-        type: CMS_CONF.POI_TYPE_MAP[block],
-        displayText: displayText,
-        buttons: [buttonsText],
-        duration: -1
-    });
-}
-
-function buildPoiEventOverlayTmpl(event) {
-    var eventData = event || {};
+function buildPoiEventOverlayTmpl(poi_event) {
+    var videoData = $('#storyboard-list li.playing').tmplItem().data,
+        poiPointEventData = poi_event || {},
+        poiEventTypeKey = '';
+    poiPointEventData = $.extend({
+        id: 0,
+        targetId: (videoData.id) ? videoData.id : 0,
+        type: 5,
+        eventId: 0,
+        eventType: 0,
+        message: '',
+        button: '',
+        link: '',
+        notifyMsg: '',
+        notifyScheduler: ''
+    }, poiPointEventData);
     $('#poi-event-overlay .wrap').html('');
-    $('#poi-event-overlay-tmpl').tmpl(eventData).prependTo('#poi-event-overlay .wrap');
+    $('#poi-event-overlay-tmpl').tmpl(poiPointEventData).prependTo('#poi-event-overlay .wrap');
     $.blockUI({
         message: $('#poi-event-overlay'),
         onBlock: function () {
             $('#poi-event-overlay .event').addClass('hide');
             if ($('#cur-poi-edit').hasClass('edit')) {
                 $('#poi-event-overlay').addClass('edit');
-                $('#event-hyper').removeClass('hide');
-                playPoiAndVideo('event-hyper');
+                poiEventTypeKey = $('#poi-event-overlay-wrap').data('poiEventTypeKey');
+                $('#' + poiEventTypeKey).removeClass('hide');
+                playPoiEventAndVideo(poiEventTypeKey);
             } else {
                 $('#poi-event-overlay').removeClass('edit');
                 $('#event-select').removeClass('hide');
             }
+            $('#poi-event-overlay input[name=btnText]').charCounter(20, {
+                container: '<span class="hide"><\/span>',
+                format: '%1 characters to go!',
+                delay: 0,
+                multibyte: true
+            });
             $('#poi-event-overlay .datepicker').datepick({
                 changeMonth: false,
+                dateFormat: 'yyyy/mm/dd',
                 monthNames: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                 dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
                 minDate: +0,
                 multiSelect: 999,
-                onSelect: function (dateText, inst) {
+                onSelect: function (dates) {
                     $('body').addClass('has-poi-change');
                     $('body').addClass('has-change');
+                    $('#poi-event-overlay .event .func ul li.notice').hide();
+                    var selectedDate = '',
+                        selectedList = [],
+                        scheduleDate = '',
+                        scheduleList = [],
+                        timestampList = [];
+                    $.each(dates, function (i, dateItem) {
+                        selectedDate = $.datepick.formatDate('yyyy/mm/dd', dateItem);
+                        selectedList.push(selectedDate);
+                        scheduleDate = selectedDate + ' ' + $('#time_hour').text() + ':' + $('#time_min').text() + ':00';
+                        scheduleList.push(scheduleDate);
+                        timestampList.push(Date.parse(scheduleDate));
+                    });
+                    $('#datepicker_selected').val(selectedList.join(','));
+                    $('#schedule_selected').val(scheduleList.join(','));
+                    $('#timestamp_selected').val(timestampList.join(','));
                 }
             });
             $('#schedule-mobile .notification .time .hour').perfectScrollbar();
         }
     });
+}
+
+function playPoiEventAndVideo(type) {
+    if ('' != type && isNaN(type) && CMS_CONF.POI_TYPE_MAP[type]) {
+        $('#poi-event-overlay-wrap').data('poiEventType', CMS_CONF.POI_TYPE_MAP[type]['code']);
+        $('#poi-event-overlay-wrap').data('poiEventTypeKey', type);
+        $('body').addClass('from-poi-overlay-edit-mode');
+        $('#poi-event-overlay .wrap .content .video-wrap .video').empty();
+        loadYouTubeChrome($('#storyboard-listing li.playing').data('ytid'), '#' + type + '-video');
+        $('#poi-event-overlay .event .video-wrap .poi-display').empty();
+        var displayText = strip_tags($.trim($('#poi-event-overlay #' + type + ' input[name=displayText]').val())),
+            buttonsText = strip_tags($.trim($('#poi-event-overlay #' + type + ' input[name=btnText]').val()));
+        if ('' == displayText) {
+            displayText = nn._([CMS_CONF.PAGE_ID, 'poi-event', 'Input display text']);
+        }
+        if ('' == buttonsText) {
+            buttonsText = nn._([CMS_CONF.PAGE_ID, 'poi-event', 'Input button text']);
+        }
+        $('#poi-event-overlay #' + type + ' .video-wrap .poi-display').poi({
+            type: CMS_CONF.POI_TYPE_MAP[type]['plugin'],
+            displayText: displayText,
+            buttons: [buttonsText],
+            duration: -1
+        });
+    } else {
+        nn.log('POI type error!', 'error');
+    }
 }
 
 function playTitleCardAndVideo(element) {
@@ -3196,6 +3486,7 @@ function countPoiItem() {
 }
 
 function unblockPoiUI() {
+    $.unblockUI();  // ready for unblock POI event overlay
     $('body').removeClass('enter-poi-edit-mode');
     $('#storyboard, #content-main-wrap .form-btn, #epcurate-nav ul li.publish').unblock();
     $('#epcurate-nav ul li.publish').removeClass('mask');

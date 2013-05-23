@@ -138,6 +138,32 @@ $(function () {
         $('#poi-list .poi-info').removeClass('hide');
     });
 
+    $('#instant-notify .btn-next, #instant-notify .crumb.edit .crumb-next').click(function() {
+        if (chkPoiEventData(document.eventInstantForm)) {
+            var dates = $('#datepicker_selected').val().split(',');
+            $('#poi-event-overlay .datepicker').datepick('setDate', dates); 
+            $('#event-instant .instant').addClass('hide');
+            $('#instant-mobile').removeClass('hide');
+            // prevent layout broken
+            $('#instant-mobile .mobile-edit .mobile ul li:first-child').attr('class', 'ios on');
+            $('#instant-mobile .mobile-edit .mobile ul li:last-child').attr('class', 'android');
+            $('#instant-ios').attr('class', 'mobile-block mobile-active');
+            $('#instant-android').attr('class', 'mobile-block hide');            
+        }
+    });
+    $('#event-instant .btn-save').click(function () {
+        $.unblockUI();
+        $('#poi-event-overlay').hide();
+        $('#channel-poi .edit-block').addClass('hide');
+        $('#channel-poi #poi-list').removeClass('hide');
+        $('#content-main').removeAttr('class');
+        $('#content-main').addClass('poi-list');
+        setFormHeight();
+        $('#poi-list .has-poi').removeClass('hide');
+        $('#poi-list .btn-create-poi').removeClass('enable').addClass('disable');
+        $('#poi-list .poi-info').removeClass('hide');
+    });
+
     $('#poi-event-overlay #event-select ul.list li').not('.event-coming-soon').click(function() {
         var block = $(this).attr('class');
         $('#poi-event-overlay .event').not('a.event').addClass('hide');
@@ -162,6 +188,10 @@ $(function () {
         $('#event-scheduled .schedule').addClass('hide');
         $('#schedule-notify').removeClass('hide');
     });
+    $('#instant-mobile .crumb .crumb-mobile').click(function() {
+        $('#event-instant .instant').addClass('hide');
+        $('#instant-notify').removeClass('hide');
+    });
 
     $("#poi-event-overlay #event-scheduled .video-wrap .poi-display").poi({
         "type" : POI.TV_SHOW_NOTICE,
@@ -184,13 +214,25 @@ $(function () {
         $('#schedule-' + block +'').removeClass('hide').addClass('mobile-active');
         $('#schedule_msg').val($("#schedule-mobile .mobile-active p.msg").text());
     });
+    $('#instant-mobile .mobile ul li a').click(function() {
+        var block = $(this).attr('class');
+        $('#instant-mobile ul li').removeClass('on');
+        $(this).parents('li').addClass('on');
+        $('#instant-mobile .mobile .mobile-block').addClass('hide').removeClass('mobile-active');
+        $('#instant-' + block +'').removeClass('hide').addClass('mobile-active');
+        $('#instant_msg').val($("#instant-mobile .mobile-active p.msg").text());
+    });
 
-    $('#schedule_msg').toggleVal();
+    $('#schedule_msg, #instant_msg').toggleVal();
     $("#schedule_msg").change(function(){
         var val = $('#schedule_msg').val();
         $("#schedule-mobile .mobile-block p.msg").text(val);
         $('#schedule-ios p.msg').ellipsis();
-        //ellipsisPage();
+    });
+    $("#instant_msg").change(function(){
+        var val = $('#instant_msg').val();
+        $("#instant-mobile .mobile-block p.msg").text(val);
+        $('#instant-ios p.msg').ellipsis();
     });
 
     $('#poi-event-overlay .datepicker').datepick({

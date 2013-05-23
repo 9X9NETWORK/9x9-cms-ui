@@ -170,10 +170,34 @@ var CMS_CONF = {
     EPISODES_PAGING: [],
     EPISODES_PAGING_INFO: [],
     SLIDER_MAX: 100,
+    MSO: 0,
+    POI_ACTION_URL: 'http://www.9x9.tv/poiAction?poiId=',
     POI_TYPE_MAP: {
-        'event-hyper': 'hyperChannel',
-        'event-scheduled': 'tvShowNotice',
-        'event-instant': 'shoppingInfo'
+        0: '',
+        1: 'event-hyper',
+        2: 'event-instant',
+        3: 'event-scheduled',
+        4: 'event-poll',
+        'event-hyper': {
+            code: 1,
+            plugin: 'hyperChannel',
+            formId: 'eventHyperForm'
+        },
+        'event-instant': {
+            code: 2,
+            plugin: 'shoppingInfo',
+            formId: 'eventInstantForm'
+        },
+        'event-scheduled': {
+            code: 3,
+            plugin: 'tvShowNotice',
+            formId: 'eventScheduledForm'
+        },
+        'event-poll': {
+            code: 4,
+            plugin: 'poll',
+            formId: 'eventPollForm'
+        }
     }
 };
 

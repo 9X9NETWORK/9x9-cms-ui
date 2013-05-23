@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="stylesheets/style.css" />
 <link rel="stylesheet" href="stylesheets/lightbox.css" />
 <link rel="stylesheet" href="stylesheets/uniform.css" />
-<link rel="stylesheet" href="stylesheets/channel.css" />
+<link rel="stylesheet" href="stylesheets/cms-settings.css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
 <script src="javascripts/nn-sdk.js"></script>
@@ -26,8 +26,8 @@
 <script src="javascripts/vertical.slider.js"></script>
 <script src="javascripts/config.js"></script>
 <script src="javascripts/basic.js"></script>
-<script src="javascripts/channel.js"></script>
-<title>9x9.tv - Channel settings</title>
+<script src="javascripts/cms-settings.js"></script>
+<title>9x9.tv - Create a new channel</title>
 </head>
 <body>
 <div id="fb-root"></div>
@@ -53,183 +53,76 @@
 <div class="studio-nav-wrap">
 <h3><a href="./"><span class="cms-icon">CMS</span><p class="sub-title">Content Management System</p></a></h3>
 <ul>
-<li class="on"><span><a href="./">My Channels</a></span></li>
+<li><span><a href="./">My Channels</a></span></li>
 <li id="my-portal"><span><a href="portal-set.html">My Portal</a></span></li>
 </ul>
-<div class="studio-setup fb-connect">
+<div class="studio-setup click">
 <p class="btn-left"><span class="btn-right"><span class="btn-middle"><a href="cms-settings.html"><img src="images/icon_studio_setup.png" alt="" />CMS Settings</a></span></span></p>
-<div class="reconnect-notice hide">
-<img src="images/icon_notification.png" alt="" />
-<p class="notice-left"><span class="notice-right"><span class="notice-middle langkey">Connection is inactive, click to restart it.</span></span></p>
-</div>
 </div>
 </div>
 </div>
 
 <!--============================== content-wrap start ========================-->
-<div id="content-wrap" class="channel-setting hidden">
+<div id="content-wrap">
 
 <div id="content-nav">
-<div id="func-nav">
-<ul>
-<li><a href="episode-list.html" class="episode">Episode list</a></li>
-<li><a href="channel-poi.html" class="poi">Channel POI</a></li>
-<li class="active"><a href="channel-setting.html" class="setting">Settings</a></li>
-</ul>
-</div>
+&nbsp;
 </div>
 
 <div id="main-wrap-slider" class="slider-wrap"><div class="slider-vertical"></div></div>
 
 <div id="content-main">
 <div id="title-func" class="clearfix">
-<h2><span id="channel-name" data-width="" data-meta="CH test en xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxaaaaaaaaaaaa">CH test en xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxaaaaaaaaaaaa</span><span class="title-crumb">&gt; Settings</span></h2>
-<p class="required"><acronym title="Required field" class="mark-required">*</acronym>Required field</p>
+<h2>CMS Settings</h2>
 </div>
 
 <div id="content-main-wrap">
 <div class="constrain">
-<form name="settingForm" id="settingForm" method="get" action="" data-height="400">
+<div id="cms-setting">
+<form name="settingForm" id="settingForm" method="get" action="" data-height="361">
+<input type="hidden" name="isPublic" id="isPublic" value="true" />
+<p class="login-notice">If you signed in with Facebook, you can't change your name and password.</p>
 <div class="fminput clearfix">
-<label for="name"><acronym title="Required field" class="mark-required">*</acronym>Title</label>
+<label>Email</label>
 <div class="fmfield">
-<p class="text"><span><input type="text" name="name" id="name" maxlength="100" value="" class="text" /></span></p>
-<span class="notice"><span id="name-charcounter">20</span>　Best within 20 characters</span>
+<p class="email">XXXXX@XXX.com.tw</p>
 </div>
 </div>
 <div class="fminput clearfix">
-<label>Thumbnail</label>
-<div class="fmfield upload-img">
-<p class="img"><img id="thumbnail-imageUrl" src="images/ch_default.png" alt="" width="62" height="62" class="thumbnail" /><img src="images/loading.gif" alt="" class="loading" /></p>
-<p id="uploadThumbnail">Upload</p>
-<p class="notice img-upload">Better results with 300x300 or higher resolution image</p>
-<p class="notice upload-notice">Please upload jpeg, png, or gif files.</p>
-<input type="hidden" name="imageUrl" id="imageUrl" value="" />
-<input type="hidden" name="imageUrlOld" id="imageUrlOld" value="" />
-</div>
-</div>
-<div class="fminput clearfix">
-<label>Description</label>
+<label>Username</label>
 <div class="fmfield">
-<p class="textarea"><span><span><textarea name="intro" id="intro" cols="80" class="textarea"></textarea></span></span></p>
-<span class="notice"><span id="intro-charcounter">70</span>　Best within 70 characters</span>
+<p class="text disable"><span><input type="text" name="username" id="username" maxlength="100" value="xxxxxx" readonly="readonly" class="text" /></span></p>
+<p class="username-notice">Username in 9x9 which composed of 6-16 English letters, numbers or low line.</p>
+<p class="notice letter-notice hide">Only letters, numbers or low line are allowed.</p>
+<p class="notice count-notice hide">Please input 6 to 16 characters in username.</p>
 </div>
 </div>
 <div class="fminput clearfix">
-<label><acronym title="Required field" class="mark-required">*</acronym>Channel language</label>
+<label>Password</label>
 <div class="fmfield">
-<div class="select enable">
-<p class="select-btn"></p>
-<p class="select-txt"><a id="lang-select-txt" href="#">Select a language</a></p>
-<ul id="lang-select-list" class="select-list">
-<li data-meta="en">English</li>
-<li data-meta="zh">Chinese</li>
-<li data-meta="other">Others</li>
-</ul>
-<input type="hidden" name="lang" id="lang" value="en" class="select-meta" />
-</div>
+<p class="btns btn-change-pwd disable"><span class="btn-right"><a href="#">Change password</a></span></p>
 </div>
 </div>
 <div class="fminput clearfix">
-<label><acronym title="Required field" class="mark-required">*</acronym>Audience region</label>
+<label>Facebook</label>
 <div class="fmfield">
-<div class="select enable">
-<p class="select-btn"></p>
-<p class="select-txt"><a id="sphere-select-txt" href="#">Select a region</a></p>
-<ul id="sphere-select-list" class="select-list">
-<li data-meta="en">US</li>
-<li data-meta="zh">Taiwan</li>
-<li data-meta="other">Worldwide</li>
-</ul>
-<input type="hidden" name="sphere" id="sphere" value="en" class="select-meta" />
-</div>
-</div>
-</div>
-<div class="fminput clearfix">
-<label><acronym title="Required field" class="mark-required">*</acronym>Category</label>
-<div class="fmfield">
-<div class="select enable category">
-<p class="select-btn"></p>
-<p class="select-txt"><a id="categoryId-select-txt" href="#">Select a category</a></p>
-<ul id="browse-category" class="select-list" data-real-cate-cnt="18">
-<li class="first-row">Animals & Pets</li>
-<li class="first-row">Art & Design</li>
-<li class="first-row">Autos & Vehicles</li>
-<li>Cartoons & Animation</li>
-<li>Comedy</li>
-<li>Fashion, Food & Living</li>
-<li>Gaming</li>
-<li>How-To</li>
-<li>Education & Lectures</li>
-<li>Music</li>
-<li>News</li>
-<li>Nonprofits & Faith</li>
-<li>People, Blogs & Shorts</li>
-<li>Science</li>
-<li>Sports & Health</li>
-<li>Tech & Apps</li>
-<li>TV & Film</li>
-<li>Others</li>
-</ul>
-<input type="hidden" name="categoryId" id="categoryId" value="1" class="select-meta" />
-</div>
-</div>
-</div>
-<div class="fminput clearfix">
-<label>Tags</label>
-<div class="fmfield">
-<p class="text"><span><input type="text" name="tag" id="tag" maxlength="100" value="Celebrites," class="text" /></span></p>
-<span class="notice">Separate with commas</span>
-<div class="tag-list clear">
-<h4>Suggested Tags:</h4>
-<ul id="tag-list">
-<li class="on"><span><a href="#">Celebrites</a></span></li>
-<li><span><a href="#">World Journal</a></span></li>
-<li><span><a href="#">San Francisco</a></span></li>
-<li><span><a href="#">Celebrites</a></span></li>
-<li><span><a href="#">Jeremy Lin</a></span></li>
-<li><span><a href="#">Enternment</a></span></li>
-<li><span><a href="#">Happy Birthday</a></span></li>
-<li><span><a href="#">Best Restaurant</a></span></li>
-<li><span><a href="#">Lovely Kids</a></span></li>
-<li><span><a href="#">Somewhere</a></span></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="fminput clearfix">
-<label>Auto share new published episode</label>
-<div class="fmfield">
-<div class="connect-switch hide">
-<img src="images/icon_fb.png" alt="facebook" class="icon" />
-<a href="#" class="switch-off">OFF</a>
-</div>
-<div class="connected">
-<div class="share-item">
+<div class="connect">
 <img src="images/icon_fb.png" alt="facebook" />
-<label id="fbTimeline-label" for="fbTimeline"><input type="checkbox" name="fbTimeline" id="fbTimeline" value="y" />Timeline</label>
-</div>
-<div class="share-item">
-<img src="images/icon_fb.png" alt="facebook" />
-<label id="fbPage-label" for="fbPage"><input type="checkbox" name="fbPage" id="fbPage" value="y" disabled="disabled" />Page</label>
-<div class="page-list disable">
-<div class="page-list-right">
-<div class="page-list-middle">
-<input type="hidden" name="pageId" id="pageId" value="" />
-<a href="#" class="select-page"><span id="page-selected">Select facebook pages</span></a>
+<p class="btns btn-reconnect"><img src="images/icon_notification.png" alt="" class="notify" /><span class="btn-right"><span class="btn-middle"><a href="#">Connect to Facebook</a></span></span></p>
+<p class="notice">Connection is inactive, click to restart it.</p>
 </div>
 </div>
 </div>
-<a id="fb-reconnect" href="javascript:void(0);"><img src="images/icon_question.png" alt="" /><span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-right"><span class="tip-middle">If fail to auto share to Facebook, please go to CMS Settings to re-connect to Facebook and try again.</span></span></span></a>
+<div class="fminput clearfix">
+<label>Youtube</label>
+<div class="fmfield">
+<div class="connect">
+<img src="images/icon_youtube_sm.png" alt="facebook" />
+<p class="btns btn-connect-yt"><span class="btn-right"><span class="btn-middle"><a href="#">Connect to Youtube</a></span></span></p>
 </div>
 </div>
-<div class="reconnected hide">
-<img src="images/icon_fb.png" alt="facebook" />
-<p class="btns btn-reconnected"><span class="btn-right"><span class="btn-middle"><a href="#">Restart connection</a></span></span></p>
-<p class="reconnect-notice clear">Auto sharing is disabled because permission to your connected account has been revoked, please click to restart the connection.</p>
 </div>
-</div>
-</div>
+
 <div class="form-btn">
 <div class="form-btn-wrap">
 <p class="notice hide">Please fill in all required fields.</p>
@@ -237,6 +130,7 @@
 </div>
 </div>
 </form>
+</div>
 </div>
 </div>
 </div>
@@ -284,7 +178,7 @@
 <p class="content">Unsaved changes will be lost, are you sure you want to leave?</p>
 <div class="overlay-btn">
 <p class="btns btn-no"><span><a href="#">No</a></span></p>
-<p class="btns btn-leave"><span><a href="#">Yes</a></span></p>
+<p class="btns btn-leave"><span><a href="#">Leave</a></span></p>
 </div>
 </div>
 </div>
@@ -377,6 +271,27 @@ If you want to enable auto sharing again, please:<br /><br />
 <p class="content">Please try again and make sure you agree on all permissions.</p>
 <div class="overlay-btn">
 <p class="btns btn-ok"><span><a href="#">OK</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="change-pwd-overlay" class="lightbox-content overlay-l setup-notice">
+<div class="overlay-container">
+<div class="overlay-wrap">
+<a href="#" class="btn-close">Close</a>
+<h4 class="cms-setup">Change Password</h4>
+<div class="change-pwd">
+<form name="changePwdForm" id="changePwdForm" method="get" action="">
+<p class="text"><span class="input-right"><span class="input-middle"><input type="text" name="pwd_old" id="pwd" maxlength="100" value="" placeholder="Old Password" class="text" /></span></span></p>
+<p class="text"><span class="input-right"><span class="input-middle"><input type="text" name="pwd_new" id="newPwd" maxlength="100" value="" placeholder="New Password" class="text" /></span></span></p>
+<p class="text last"><span class="input-right"><span class="input-middle"><input type="text" name="pwd_confirm" id="confirm_newPwd" maxlength="100" value="" placeholder="Repeat New Password" class="text" /></span></span></p>
+<p class="notice hide">Please input your old password.</p>
+</form>
+</div>
+<div class="overlay-btn">
+<p class="btns btn-cancel"><span><a href="#">Cancel</a></span></p>
+<p class="btns btn-chg-pwd"><span><a href="#">Change password</a></span></p>
 </div>
 </div>
 </div>

@@ -460,10 +460,11 @@
 .overlay-l .overlay-container .overlay-wrap .overlay-btn .btns {
 	display: inline-block;
 	width: 67px;
+    margin-right: 13px;
 }
 
-.overlay-l .overlay-container .overlay-wrap .overlay-btn .btns:first-child {
-	margin-right: 13px;
+.overlay-l .overlay-container .overlay-wrap .overlay-btn .btns:last-child {
+	margin-right: 0;
 }
 
 /**
@@ -665,6 +666,99 @@
 .zh .setup-notice .overlay-container .disconnect-notice p.content {
     padding-left: 66px;
     text-align: left;
+}
+
+/**
+*
+* =change-pwd-overlay
+*
+**/
+
+#change-pwd-overlay {
+    width: 427px;
+    height: 316px;
+    margin: -158px 0 0 -219px;
+    background: url(../images/overlay_bg_m_l.png) no-repeat 0 0;
+}
+
+#change-pwd-overlay .overlay-container {
+    height: 316px;
+    background: url(../images/overlay_bg_m_r.png) no-repeat right 0;
+}
+
+#change-pwd-overlay .overlay-container .overlay-wrap {
+    height: 297px;
+    padding: 19px 0 0;
+    background: url(../images/overlay_bg_m_c.png) repeat-x;
+}
+
+#change-pwd-overlay h4 {
+    margin-bottom: 23px;
+}
+
+#change-pwd-overlay .overlay-btn {
+    width: 246px;
+    margin: 0 auto;
+}
+
+#change-pwd-overlay .change-pwd p.text {
+    width: 243px;
+    height: 31px;
+    margin: 0 auto 10px;
+    padding-left: 3px;
+    background: url(../images/input_box_left_g.png) no-repeat 0 0;
+}
+
+#change-pwd-overlay .change-pwd p.text.last {
+    margin-bottom: 12px;
+}
+
+#change-pwd-overlay .change-pwd p.text span {
+    display: block;
+}
+
+#change-pwd-overlay .change-pwd p.text span.input-right {
+    padding-right: 3px;
+    background: url(../images/input_box_right_g.png) no-repeat right 0;
+}
+
+#change-pwd-overlay .change-pwd p.text span.input-middle {
+    background: url(../images/input_box_middle_g.png) repeat-x;
+}
+
+#change-pwd-overlay .change-pwd span .text {
+    width: 216px;
+    height: 31px;
+    padding-left: 24px;
+    border: none;
+    background: url(../images/icon_password.png) no-repeat 3px 8px;
+    color: #555;
+    font: 13px/30px Arial, Helvetica;
+}
+
+#change-pwd-overlay .change-pwd .notice {
+    padding-left: 92px;
+    color: #f00;
+    font-size: 13px;
+    text-align: left;
+}
+
+#change-pwd-overlay .overlay-btn {
+    left: 50%;
+    margin-left: -123px;
+}
+
+#change-pwd-overlay .overlay-btn .btn-cancel {
+    float: left;
+}
+
+#change-pwd-overlay .overlay-btn .btn-chg-pwd {
+    float: right;
+    width: 135px;
+}
+
+#change-pwd-overlay .overlay-btn .btn-chg-pwd a {
+    width: 132px;
 }
 
 /**
@@ -894,7 +988,7 @@
 
 #poi-event-overlay .wrap .content ul.list li .block .img.coming-soon {
     box-shadow: 0 1px 10px rgba(255, 255, 255, 0.75) inset, 0 0 10px rgba(255, 255, 255, 0.9) inset, 0 0 2px rgba(255, 255, 255, 0.9) inset, 0 0 20px rgba(255, 255, 255, 0.8);
-    border: 1px solid #555;
+    border: 1px solid #a0a0a0;
     background: #d8d8d8;
     background-image: none;
     behavior: url(PIE.htc);
@@ -1004,6 +1098,7 @@ body.from-poi-edit-mode #poi-event-overlay .wrap .content .func ul li.notice {
     width: 590px;
     height: 332px;
     margin: 0 auto 14px;
+    background-color: #a0a0a0;
 }
 
 #poi-event-overlay .wrap .content .video-wrap .video {
@@ -1205,7 +1300,7 @@ body.from-poi-edit-mode #poi-event-overlay .wrap .content .func ul li.notice {
 }
 
 #poi-event-overlay .wrap .content .event .mobile-edit .mobile .mobile-block .wrap h4 {
-    margin-bottom: 42px;
+    margin-bottom: 38px;
     color: #fff;
     font-size: 25px;
     text-align: center;
@@ -1216,6 +1311,11 @@ body.from-poi-edit-mode #poi-event-overlay .wrap .content .func ul li.notice {
     color: #fff;
     font-weight: bold;
     font-size: 13px;
+}
+
+#poi-event-overlay .wrap .content .event .mobile-edit .mobile #schedule-android .wrap h5,
+#poi-event-overlay .wrap .content .event .mobile-edit .mobile #instant-android .wrap h5 {
+    margin-bottom: 0;
 }
 
 #poi-event-overlay .wrap .content .event .mobile-edit .mobile .mobile-block .wrap p {
@@ -1360,7 +1460,7 @@ body.from-poi-edit-mode #poi-event-overlay .wrap .content .func ul li.notice {
 #poi-event-overlay .wrap .content .event .mobile-edit .notification h4 a .tip {
     display: none;
     position: absolute;
-    top: 20px;
+    top: -51px;
     left: 159px;
     z-index: 100001;
     height: 45px;
@@ -1379,7 +1479,7 @@ body.from-poi-edit-mode #poi-event-overlay .wrap .content .func ul li.notice {
 
 #poi-event-overlay .wrap .content .event .mobile-edit .notification h4 a .tip img {
     position: absolute;
-    top: -7px;
+    top: 41px;
     left: 7px;
 }
 
