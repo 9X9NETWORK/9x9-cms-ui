@@ -1,3 +1,14 @@
+Date: 2013/05/29
+Version: 9x9_CMS_16
+
+Changes:
+* Change portal-set.html, portal-first.html, portal-manage.html, store-manage.html and brand-setting.html.
+* Change index.html, episode-list-first.html, episode-list-favorite-first.html, episode-list-favorite.html, episode-list.html, cms-settings2.html, cms-settings.html, channel-setting.html, channel-poi2.html, channel-poi.html, channel-add2.html and channel-add.html.
+* Change portal.css, style.css, channel.css and episode.css.
+* Add btn_func.png and bg_tip_l.png in images folder.
+* Change basic.js.
+
+
 Date: 2013/05/17
 Version: 9x9_CMS_15
 

@@ -278,7 +278,7 @@ $(function () {
         });
         $(this).next('ul').slideToggle();
         $(this).parents('.page-list').toggleClass('on');
-        if ($('.connected .share-item .page-list').hasClass('on') && $('#main-wrap-slider .ui-slider-handle').length > 0) {
+       if ($('.connected .share-item .page-list').hasClass('on') && $('#main-wrap-slider .ui-slider-handle').length > 0) {
             $('#content-main-wrap form').height(formHeight + expandHeight);
             $('#content-main-wrap').height(formHeight + expandHeight + buttonSpace + footerSpace);
             scrollToBottom();

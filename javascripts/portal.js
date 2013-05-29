@@ -161,41 +161,16 @@ $(function () {
     	$(this).toggleClass("on");
   	});
 	
-	/* Dropdown */
-	$("#btn-portal-ch").click(function() {
-		$("#dropdown-portal-ch").toggleClass("on");
-    }); 
-	
-	$("#btn-portal-ch").click(function() {
-		$(this).toggleClass("on");
-    }); 
-	
-	$("#dropdown-portal-ch li").click(function() {
-		$("#dropdown-portal-ch li").removeClass("on");
-		$(this).toggleClass("on");
-		$("#dropdown-portal-ch").removeClass("on");
-    });  
-
+	/* Dropdown */		
 	$("#dropdown-url").click(function() {
 		$("#txt-portal-ch").text("Channel URL");
 		$("#input-portal-ch").val("Please input channel URL");
-		$("#btn-portal-ch").removeClass("on");
     });
 	
 	$("#dropdown-keywords").click(function() {
 		$("#txt-portal-ch").text("Keywords");
 		$("#input-portal-ch").val("Please input channel name or curator name");
-		$("#btn-portal-ch").removeClass("on");
     }); 
-
-	$("html").click(function() {
-		$(".select-gray").find(".select-dropdown").removeClass("on");
-	 	$(".select-gray").find(".select-btn").removeClass("on");
-	 });
-	
-	 $(".select-gray").click(function(event){
-		 event.stopPropagation();
-	 });
 	 
 	/* Store */
   	$("#store-category .btn-gray").click(function() {
