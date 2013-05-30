@@ -1,3 +1,11 @@
+Date: 2013/05/30
+Version: 9x9_CMS_17
+
+Changes:
+* Change signin.html, portal-set.html, portal-first.html, portal-manage.html, store-manage.html and brand-setting.html.
+* Change portal.css and portal.js.
+
+
 Date: 2013/05/29
 Version: 9x9_CMS_16
 
