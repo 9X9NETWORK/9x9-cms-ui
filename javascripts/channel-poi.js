@@ -283,6 +283,12 @@ function setFormHeight() {
         windowWidth  = $(window).width(),
         titleFuncWidth = $('#title-func').width(),
         titleFuncHeight = $('#title-func').height(),
+        listEmWidth= $('#title-func h2.poi-list em').width(),
+        listSpanWidth= $('#title-func h2.poi-list span').width(),
+        createEmWidth = $('#title-func h2.poi-create em').width(),
+        createSpanWidth = $('#title-func h2.poi-create span').width(),
+        editEmWidth = $('#title-func h2.poi-edit em').width(),
+        editSpanWidth = $('#title-func h2.poi-edit span').width(),
         contentHeight = windowHeight - titleFuncHeight - 94 - 48 - 38 - 10;    // 94:header+studio-nav 48:footer 38:title-func-padding
     if (windowWidth > 1220) {
         $('#channel-poi input.text').width(windowWidth - 734);
@@ -292,13 +298,22 @@ function setFormHeight() {
         $('#title-func h2').width(583).data('width', '583');
     }
     $('#title-func').data('width', $('#title-func h2').width());
-    $('#title-func h2.poi-list em').width($('#title-func').data('width') - $('#title-func h2.poi-list span').width());
-    $('#title-func h2.poi-create em').width($('#title-func').data('width') - $('#title-func h2.poi-create span').width());
-    $('#title-func h2.poi-edit em').width($('#title-func').data('width') - $('#title-func h2.poi-edit span').width());
+    if (listEmWidth > $('#title-func').data('width') - listSpanWidth) {
+        $('#title-func h2.poi-list em').width($('#title-func').data('width') - $('#title-func h2.poi-list span').width());
+    } else {
+        $('#title-func h2.poi-list em').width('auto');
+    }
+    if (createEmWidth > $('#title-func').data('width') - createSpanWidth) {
+        $('#title-func h2.poi-create em').width($('#title-func').data('width') - $('#title-func h2.poi-create span').width());
+    } else {
+        $('#title-func h2.poi-create em').width('auto');
+    }
+    if (editEmWidth > $('#title-func').data('width') - editSpanWidth) {
+        $('#title-func h2.poi-edit em').width($('#title-func').data('width') - $('#title-func h2.poi-edit span').width());
+    } else {
+        $('#title-func h2.poi-edit em').width('auto');
+    }
     $('#channel-poi .edit-block').height(contentHeight);
-    //alert($('#title-func h2.poi-create em').width());
-    //alert($('#title-func').data('width'));
-    //alert($('#title-func h2.poi-create span').width());
 }
 
 function chkData(fm) {

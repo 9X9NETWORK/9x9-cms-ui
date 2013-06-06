@@ -450,40 +450,39 @@ $(function () {
         autoHeight();
         setEllipsis();
     });
-	
-	/* Get URL */
-	$('.url').click(function() {
-		$('.get-url').hide();
-		$(this).parents('li').find('.get-url').fadeIn(400);
-		$(this).parents('li').find('.tip').hide();
-  	});
-	
-	$('html').click(function() {
-	 $('.get-url').hide();
-	 });
-	
-	 $('.get-url, .url').click(function(event){
-		 event.stopPropagation();
-	 });
-	 
- 	/* Dropdown Gray */
-	 $('.select-gray').click(function(event){
-		 event.stopPropagation();
-	 });
-	 
-	 $('.select-gray .select-btn').click(function() {
-		$(this).parents('div').find('.select-dropdown').toggleClass('on');
-		$(this).toggleClass("on");
-    }); 
-		
-	$('.select-gray .select-dropdown li').click(function() {
-		$(this).parents('div').find('.select-txt-gray').text($(this).data('meta'));
-		$(this).toggleClass("on");
-		$('.select-gray .select-dropdown, .select-gray .select-btn, .select-gray .select-dropdown li').removeClass("on");
+
+    /* Get URL */
+    $('.url').click(function () {
+        $('.get-url').hide();
+        $(this).parents('li').find('.get-url').fadeIn(400);
+        $(this).parents('li').find('.tip').hide();
     });
-	
-	$('html, .get-url').click(function() {
-		$('.select-gray .select-dropdown, .select-gray .select-btn').removeClass("on");
-	 });
-	 	
+
+    $('html').click(function () {
+        $('.get-url').hide();
+    });
+
+    $('.get-url, .url').click(function (event) {
+        event.stopPropagation();
+    });
+
+    /* Dropdown Gray */
+    $('.select-gray').click(function (event) {
+        event.stopPropagation();
+    });
+
+    $('.select-gray .select-btn').click(function () {
+        $(this).parents('div').find('.select-dropdown').toggleClass('on');
+        $(this).toggleClass('on');
+    });
+
+    $('.select-gray .select-dropdown li').click(function () {
+        $(this).parents('div').find('.select-txt-gray').text($(this).data('meta'));
+        $(this).toggleClass('on');
+        $('.select-gray .select-dropdown, .select-gray .select-btn, .select-gray .select-dropdown li').removeClass('on');
+    });
+
+    $('html, .get-url').click(function () {
+        $('.select-gray .select-dropdown, .select-gray .select-btn').removeClass('on');
+    });
 });

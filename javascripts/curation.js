@@ -561,10 +561,12 @@ $(function () {
                 }
             }
             if ('block' === $('#unsave-poi-mask-prompt').css('display')) {
+                $('body').addClass('from-poi-overlay-edit-mode');
                 $('#unsave-poi-mask-prompt').hide();
                 $('#poi-event-overlay').show();
             } else {
                 $.unblockUI();
+                $('#poi-event-overlay .wrap').html('');
             }
             $('#poi-list-page ol li').removeClass('deleting').removeData('deleteId');
             if ($(this).hasClass('has-error')) {
@@ -676,10 +678,12 @@ $(function () {
         $('body').removeClass('has-poi-change');
         $.unblockUI();
         $('#unsave-poi-mask-prompt').hide();
+        $('#poi-event-overlay .wrap').html('');
         $('#epcurate-curation ul.tabs li a.cur-poi').trigger('click');
         return false;
     });
     $('#unsave-poi-mask-prompt .overlay-btn-no, #unsave-poi-mask-prompt .overlay-btn-close').click(function () {
+        $('body').addClass('from-poi-overlay-edit-mode');
         $('#unsave-poi-mask-prompt').hide();
         $('#poi-event-overlay').show();
         return false;
@@ -1627,40 +1631,26 @@ $(function () {
         $('#cur-poi-edit .edit-form .notice').addClass('hide');
         return false;
     });
+    // POI Add button
     $('#cur-poi').on('click', '.btn-add-poi a', function () {
-        // Add button
         buildPoiPointEditTmpl();
         $('#cur-poi-edit').removeClass('edit');
         return false;
     });
+    // POI Edit button
     $('#cur-poi').on('click', '.poi-list a.edit', function () {
-        // Edit button
         var poiPointId = $(this).data('poiPointId'),
             tmplItem = $('#storyboard-listing li.playing').tmplItem(),
             tmplItemData = tmplItem.data,
             poiList = tmplItemData.poiList;
         if ('' != poiPointId) {
-            if (poiPointId > 0 && !isNaN(poiPointId)) {
-                //nn.api('GET', CMS_CONF.API('/api/poi_points/{poiPointId}', {poiPointId: poiPointId}), null, function (poi_point) {
-                    buildPoiPointEditTmpl({
-                        "id": 2,
-                        "targetId": 98231,
-                        "type": 5,
-                        "name": "2 TheVoice01-02 hello world test test test test test test test test test test test test test test",
-                        "startTime": 21,
-                        "endTime": 30,
-                        "tag": "test2,hello2"
-                    });
-                //});
-            } else {
-                $.each(poiList, function (i, poiItem) {
-                    if (poiItem.id == poiPointId) {
-                        buildPoiPointEditTmpl(poiItem);
-                        // NOTE: return false here is break the $.each() loop
-                        return false;
-                    }
-                });
-            }
+            $.each(poiList, function (i, poiItem) {
+                if (poiItem.id == poiPointId) {
+                    buildPoiPointEditTmpl(poiItem);
+                    // NOTE: return false here is break the $.each() loop
+                    return false;
+                }
+            });
             // enter edit mode
             $('#cur-poi-edit').addClass('edit');
         }
@@ -1671,6 +1661,7 @@ $(function () {
     $('#cur-poi-edit').on('click', '.edit-form input, .btn-reset', function () {
         $('#cur-poi-edit .edit-form .notice').addClass('hide');
     });
+    // POI overlay notice reset
     $('#poi-event-overlay').on('click', 'input[type=text], textarea', function () {
         $('#poi-event-overlay .event .event-input .fminput .notice').hide();
         $('#poi-event-overlay .event .func ul li.notice').hide();
@@ -1679,6 +1670,7 @@ $(function () {
     $('#cur-poi-edit').on('change', '.edit-form input', function () {
         $('body').addClass('has-poi-change');
     });
+    // POI overlay hook has change
     $('#poi-event-overlay').on('change', 'input[type=text], textarea', function () {
         $('body').addClass('has-poi-change');
         $('body').addClass('has-change');
@@ -1728,6 +1720,7 @@ $(function () {
             return false;
         }
         $.unblockUI();
+        $('#poi-event-overlay .wrap').html('');
         $('#epcurate-curation ul.tabs li a.cur-poi').trigger('click');
         return false;
     });
@@ -1850,8 +1843,11 @@ $(function () {
 
    // POI overlay - crumb switch
     $('#poi-event-overlay').on('click', '.event .crumb a', function () {
+        // POI overlay notice reset
+        $('#poi-event-overlay .event .event-input .fminput .notice').hide();
         $('#poi-event-overlay .event .func ul li.notice').hide();
     });
+    // POI overlay - first crumb (close POI overlay)
     $('#poi-event-overlay').on('click', '.unblock', function (e) {
         if ($('#cur-poi-edit').hasClass('edit')) {
             // edit mode back must check and if pass then unblock poi overlay
@@ -1866,12 +1862,14 @@ $(function () {
                     return false;
                 }
             });
+            return false;
         } else {
             // insert mode back no check and unblock poi overlay
             $.unblockUI();
             return false;
         }
     });
+    // POI overlay - crumb into event type
     $('#poi-event-overlay').on('click', '.event .crumb a.crumb-event', function () {
         // insert mode back no check and go to event-select (event type)
         var blockClass = $(this).attr('class'),
@@ -1880,6 +1878,7 @@ $(function () {
         $('#' + block[1] + ', #schedule-notify, #instant-notify').removeClass('hide');
         return false;
     });
+    // POI overlay - crumb into preivew video and POI plugin
     $('#poi-event-overlay').on('click', '#schedule-mobile .crumb .crumb-mobile', function (e) {
         if ($('#cur-poi-edit').hasClass('edit')) {
             // edit mode back must check and if pass then go to preivew video and POI plugin
@@ -1888,13 +1887,16 @@ $(function () {
                     e.stopImmediatePropagation();
                     return false;
                 } else {
+                    $('body').addClass('from-poi-overlay-edit-mode');
                     $('#event-scheduled .schedule').addClass('hide');
                     $('#schedule-notify').removeClass('hide');
                     return false;
                 }
             });
+            return false;
         } else {
             // insert mode back no check and go to preivew video and POI plugin
+            $('body').addClass('from-poi-overlay-edit-mode');
             $('#event-scheduled .schedule').addClass('hide');
             $('#schedule-notify').removeClass('hide');
             return false;
@@ -1908,13 +1910,16 @@ $(function () {
                     e.stopImmediatePropagation();
                     return false;
                 } else {
+                    $('body').addClass('from-poi-overlay-edit-mode');
                     $('#event-instant .instant').addClass('hide');
                     $('#instant-notify').removeClass('hide');
                     return false;
                 }
             });
+            return false;
         } else {
             // insert mode back no check and go to preivew video and POI plugin
+            $('body').addClass('from-poi-overlay-edit-mode');
             $('#event-instant .instant').addClass('hide');
             $('#instant-notify').removeClass('hide');
             return false;
@@ -1930,6 +1935,8 @@ $(function () {
         $('#' + type).removeClass('hide');
         playPoiEventAndVideo(type);
     });
+
+    // POI overlay - POI plugin realtime edit preview
     $('#poi-event-overlay').on('change keyup keydown', 'input[name=displayText]', function () {
         var val = strip_tags($(this).val().replace(/\n/g, ''));
         $('#poi-event-overlay .event .video-wrap .poi-display').poi('displayText', val);
@@ -1947,11 +1954,11 @@ $(function () {
         $(this).val(val);
     });
 
-    // POI overlay - Preview Video and POI Plugin Next
+    // POI overlay - Scheduled Preview Video and POI Plugin Next
     $('#poi-event-overlay').on('click', '#schedule-notify .btn-next, #schedule-notify .crumb.edit .crumb-next', function () {
         chkPoiEventData(document.eventScheduledForm, function (result) {
             if (result) {
-                // parse timestamp
+                // parse multi schedule timestamp (ready for next step)
                 if ('' !== $.trim($('#timestamp_selected').val())) {
                     var stampList = [],
                         formatTemp = '',
@@ -1977,8 +1984,8 @@ $(function () {
                     $('#schedule_selected').val(dateTimeList.join(','));
                     $('#poi-event-overlay .datepicker').datepick('setDate', dateList);
                 } else {
-                    // default date time
-                    var today = new Date((new Date()).getTime()),
+                    // default schedule datetime
+                    var today = new Date(),
                         tomorrow = new Date((new Date()).getTime() + (24 * 60 * 60 * 1000)),
                         hour = 19,
                         min = '00',
@@ -2004,6 +2011,7 @@ $(function () {
         });
         return false;
     });
+    // POI overlay - Instant Preview Video and POI Plugin Next
     $('#poi-event-overlay').on('click', '#instant-notify .btn-next, #instant-notify .crumb.edit .crumb-next', function () {
         chkPoiEventData(document.eventInstantForm, function (result) {
             if (result) {
@@ -2040,7 +2048,7 @@ $(function () {
         return false;
     });
 
-    // POI overlay - Mobile notification message
+    // POI overlay - Mobile notification message realtime edit preview
     $('#poi-event-overlay').on('change keyup keydown', '#schedule_msg', function () {
         var val = strip_tags($(this).val().replace(/\n/g, ''));
         $(this).val(val);
@@ -2071,7 +2079,7 @@ $(function () {
         $(this).parent().parent().parent().children('.select-btn').removeClass('on');
         $(this).parent().parent().parent().children('.select-txt').children().text(selectOption);
         $(this).parents('.select-list').hide();
-        // recount timestamp
+        // rebuild multi schedule timestamp
         if ('' !== $.trim($('#datepicker_selected').val())) {
             var selectedList = [],
                 scheduleDate = '',
@@ -2161,6 +2169,7 @@ $(function () {
                     tmplItemData.poiList = poiTemp;
                     buildPoiInfoTmpl($('#storyboard-listing li.playing'));
                     $('body').removeClass('has-poi-change');
+                    $('#poi-event-overlay .wrap').html('');
                     $('#epcurate-curation ul.tabs li a.cur-poi').trigger('click');
                 } else {
                     // insert mode
@@ -2198,6 +2207,7 @@ $(function () {
                                         tmplItemData.poiList = poiTemp;
                                         buildPoiInfoTmpl($('#storyboard-listing li.playing'));
                                         $('body').removeClass('has-poi-change');
+                                        $('#poi-event-overlay .wrap').html('');
                                         $('#epcurate-curation ul.tabs li a.cur-poi').trigger('click');
                                         $('#overlay-s').fadeOut(0);
                                     //});
@@ -2222,6 +2232,7 @@ $(function () {
                         tmplItemData.poiList = poiTemp;
                         buildPoiInfoTmpl($('#storyboard-listing li.playing'));
                         $('body').removeClass('has-poi-change');
+                        $('#poi-event-overlay .wrap').html('');
                         $('#epcurate-curation ul.tabs li a.cur-poi').trigger('click');
                         $('#overlay-s').fadeOut(0);
                     }
@@ -2965,7 +2976,8 @@ function buildPoiPointEditTmpl(poi_point) {
 function buildPoiEventOverlayTmpl(poi_event) {
     var videoData = $('#storyboard-list li.playing').tmplItem().data,
         poiPointEventData = poi_event || {},
-        poiEventTypeKey = '';
+        poiEventTypeKey = '',
+        hasPointEventCache = false;
     poiPointEventData = $.extend({
         id: 0,
         targetId: (videoData.id) ? videoData.id : 0,
@@ -2978,20 +2990,33 @@ function buildPoiEventOverlayTmpl(poi_event) {
         notifyMsg: '',
         notifyScheduler: ''
     }, poiPointEventData);
-    $('#poi-event-overlay .wrap').html('');
-    $('#poi-event-overlay-tmpl').tmpl(poiPointEventData).prependTo('#poi-event-overlay .wrap');
+    if ($('#poi-event-overlay-wrap').length === 0) {
+        hasPointEventCache = false;
+        $('#poi-event-overlay .wrap').html('');
+        $('#poi-event-overlay-tmpl').tmpl(poiPointEventData).prependTo('#poi-event-overlay .wrap');
+    } else {
+        hasPointEventCache = true;
+        $('#poi-event-overlay-wrap').tmplItem().data = poiPointEventData;
+    }
+    poiEventTypeKey = $('#poi-event-overlay-wrap').data('poiEventTypeKey');
     $.blockUI({
         message: $('#poi-event-overlay'),
         onBlock: function () {
+            $('body').addClass('from-poi-overlay-edit-mode');
             $('#poi-event-overlay .event').addClass('hide');
             if ($('#cur-poi-edit').hasClass('edit')) {
                 $('#poi-event-overlay').addClass('edit');
-                poiEventTypeKey = $('#poi-event-overlay-wrap').data('poiEventTypeKey');
                 $('#' + poiEventTypeKey).removeClass('hide');
-                playPoiEventAndVideo(poiEventTypeKey);
+                if (false === hasPointEventCache) {
+                    playPoiEventAndVideo(poiEventTypeKey);
+                }
             } else {
                 $('#poi-event-overlay').removeClass('edit');
-                $('#event-select').removeClass('hide');
+                if (poiEventTypeKey && CMS_CONF.POI_TYPE_MAP[poiEventTypeKey]) {
+                    $('#' + poiEventTypeKey).removeClass('hide');
+                } else {
+                    $('#event-select').removeClass('hide');
+                }
             }
             $('#poi-event-overlay input[name=btnText]').charCounter(20, {
                 container: '<span class="hide"><\/span>',
@@ -3488,6 +3513,8 @@ function countPoiItem() {
 function unblockPoiUI() {
     $.unblockUI();  // ready for unblock POI event overlay
     $('body').removeClass('enter-poi-edit-mode');
+    $('body').removeClass('from-poi-edit-mode');
+    $('body').removeClass('from-poi-overlay-edit-mode');
     $('#storyboard, #content-main-wrap .form-btn, #epcurate-nav ul li.publish').unblock();
     $('#epcurate-nav ul li.publish').removeClass('mask');
     $('#video-player .video').removeClass('transparent');

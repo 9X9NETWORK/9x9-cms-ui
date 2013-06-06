@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="en">
+<html class="en" lang="en">
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="cache-control" content="no-cache" />
@@ -22,15 +22,13 @@
 <script src="javascripts/jquery.charcounter.min.js"></script>
 <script src="javascripts/jquery.uniform.min.js"></script>
 <script src="javascripts/jquery.swfobject.min.js"></script>
+<script src="http://9x9ui.s3.amazonaws.com/poi/jquery.poi.js"></script>
 <script src="javascripts/jquery.tmpl.min.js"></script>
 <script src="javascripts/jquery.cookie.js"></script>
-<script src="http://9x9ui.s3.amazonaws.com/poi/jquery.poi.js"></script>
 <script src="javascripts/jquery.datepick.js"></script>
-<!--<script src="javascripts/jquery.datepick-zh-TW.js"></script>-->
 <script src="javascripts/perfect-scrollbar.js"></script>
 <script src="javascripts/json2.js"></script>
 <script src="javascripts/purl.js"></script>
-<script src="javascripts/swfupload/swfupload.js"></script>
 <script src="javascripts/vertical.slider.js"></script>
 <script src="javascripts/config.js"></script>
 <script src="javascripts/basic.js"></script>
@@ -61,7 +59,7 @@
 <div class="studio-nav-wrap">
 <h3><a href="index.html"><span class="cms-icon">CMS</span><p class="sub-title">Content Management System</p></a></h3>
 <ul>
-<li class="on"><span><a href="./">My Channels</a></span></li>
+<li class="on"><span><a href="index.html">My Channels</a></span></li>
 <li id="my-portal"><span><a href="portal-set.html">My Portal</a></span></li>
 </ul>
 <div class="studio-setup fb-connect">
@@ -90,16 +88,19 @@
 <div id="main-wrap-slider" class="slider-wrap"><div class="slider-vertical"></div></div>
 
 <div id="content-main" class="poi-list">
+<div id="channel-poi-wrap">
+
 <div id="title-func" data-width="" class="clearfix">
-<h2 class="poi-list"><em data-meta="CHannel Name">Channel Name很長的時候要出現點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點</em><span>&gt; Channel POI &amp; interactive event list</span></h2>
-<h2 class="poi-create"><em data-meta="CHannel Name">Channel Name很長的時候要出現點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點</em><span>&gt; Create Channel POI &amp; interactive event list</span></h2>
-<h2 class="poi-edit"><em data-meta="CHannel Name">Channel Name很長的時候要出現點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點</em><span>&gt; Edit Channel POI &amp; interactive event list</span></h2>
+<h2 class="poi-list"><em data-meta="CHannel Name">Channel Name很長的時候要出現點點點點點點點點點點點點點點點</em><span>&gt; Channel POI &amp; interactive event list</span></h2>
+<h2 class="poi-create"><em data-meta="CHannel Name">Channel Name很長的時候要出現點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點</em><span>&gt; Create Channel POI &amp; interactive event</span></h2>
+<h2 class="poi-edit"><em data-meta="CHannel Name">Channel Name很長的時候要出現點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點點</em><span>&gt; Edit Channel POI &amp; interactive event</span></h2>
 <p class="required"><acronym title="Required field" class="mark-required">*</acronym>Required field</p>
 </div>
 
 <div id="content-main-wrap">
 <div class="constrain">
 <div id="channel-poi" data-ytid="xYgF1VwEjmM" data-starttime="3">
+
 <div id="poi-list" class="edit-block">
 <div class="add clearfix">
 <p class="btns btn-create-poi enable"><span><a href="#">+ Create Channel POI &amp; interactive event</a></span></p>
@@ -108,12 +109,20 @@
 <p class="no-episode hide">Please create an episode at least in the channel.</p>
 <p class="has-poi hide">You cannot have more than one Channel POI &amp; interactive event.</p>
 <div class="poi-info hide">
-<h3>POI &amp; interactive event list</h3>
+<h3>Channel POI &amp; interactive event list</h3>
+<ul id="poi-list-page">
+<li>
+<ol>
+<li>
 <p class="poi-title">Hyper GossipTW</p>
 <p class="func">
 <a href="#" class="edit">Edit</a>
 <a href="#" class="btn-del">Delete</a>
 </p>
+</li>
+</ol>
+</li>
+</ul>
 </div>
 </div>
 
@@ -123,17 +132,16 @@
 <div class="fminput clearfix">
 <label for="name_create"><acronym title="Required field" class="mark-required">*</acronym>Name</label>
 <div class="fmfield">
-<p class="text"><span><input type="text" name="name" id="name_create" maxlength="100" value="" class="text" /></span></p>
+<p class="text"><span><input type="text" name="poiName" id="name_create" maxlength="500" value="" class="text" /></span></p>
 </div>
 </div>
 <div class="fminput clearfix">
 <label for="tag_create">Tags</label>
 <div class="fmfield">
-<p class="text"><span><input type="text" name="tag" id="tag_create" maxlength="100" value="" class="text" /></span></p>
+<p class="text"><span><input type="text" name="poiTag" id="tag_create" maxlength="500" value="" class="text" /></span></p>
 <span class="notice">Separate with commas</span>
 </div>
 </div>
-
 <div class="form-btn">
 <div class="form-btn-wrap">
 <p class="notice hide">Please fill in all required fields.</p>
@@ -150,17 +158,16 @@
 <div class="fminput clearfix">
 <label for="name_edit"><acronym title="Required field" class="mark-required">*</acronym>Name</label>
 <div class="fmfield">
-<p class="text"><span><input type="text" name="name" id="name_edit" maxlength="100" value="節目訂閱" class="text" /></span></p>
+<p class="text"><span><input type="text" name="poiName" id="name_edit" maxlength="500" value="節目訂閱" class="text" /></span></p>
 </div>
 </div>
 <div class="fminput clearfix">
 <label for="tag_edit">Tags</label>
 <div class="fmfield">
-<p class="text"><span><input type="text" name="tag" id="tag_edit" maxlength="100" value="" class="text" /></span></p>
+<p class="text"><span><input type="text" name="poiTag" id="tag_edit" maxlength="500" value="" class="text" /></span></p>
 <span class="notice">Separate with commas</span>
 </div>
 </div>
-
 <div class="form-btn">
 <div class="form-btn-wrap">
 <p class="notice hide">Please fill in all required fields.</p>
@@ -170,8 +177,11 @@
 </div>
 </form>
 </div>
+
 </div>
 </div>
+</div>
+<div id="preload-channel-video" class="hide"></div>
 </div>
 </div>
 
@@ -256,15 +266,15 @@
 </div>
 </div>
 
-<div id="confirm-disconnect" class="lightbox-content overlay-l setup-notice">
+<div id="fb-connect-failed" class="lightbox-content overlay-l setup-notice">
 <div class="overlay-container">
-<div class="overlay-wrap disconnect">
+<div class="overlay-wrap connect-fail">
 <a href="#" class="btn-close">Close</a>
 <h4 class="cms-setup">Connect to Facebook</h4>
-<p class="content">Disconnecting account will also disable auto sharing for every channel. Are you sure you want to disconnect?</p>
+<h5>Can not connect to Facebook correctly!</h5>
+<p class="content">Please try again and make sure you agree on all permissions.</p>
 <div class="overlay-btn">
-<p class="btns btn-no"><span><a href="#">No</a></span></p>
-<p class="btns btn-disconnect"><span><a href="#">Disconnect</a></span></p>
+<p class="btns btn-failed-ok"><span><a href="#">OK</a></span></p>
 </div>
 </div>
 </div>
@@ -289,15 +299,15 @@ If you want to enable auto sharing again, please:<br /><br />
 </div>
 </div>
 
-<div id="fb-connect-failed" class="lightbox-content overlay-l setup-notice">
+<div id="confirm-disconnect" class="lightbox-content overlay-l setup-notice">
 <div class="overlay-container">
-<div class="overlay-wrap connect-fail">
+<div class="overlay-wrap disconnect">
 <a href="#" class="btn-close">Close</a>
 <h4 class="cms-setup">Connect to Facebook</h4>
-<h5>Can not connect to Facebook correctly!</h5>
-<p class="content">Please try again and make sure you agree on all permissions.</p>
+<p class="content">Disconnecting account will also disable auto sharing for every channel. Are you sure you want to disconnect?</p>
 <div class="overlay-btn">
-<p class="btns btn-failed-ok"><span><a href="#">OK</a></span></p>
+<p class="btns btn-no"><span><a href="#">No</a></span></p>
+<p class="btns btn-disconnect"><span><a href="#">Disconnect</a></span></p>
 </div>
 </div>
 </div>
@@ -320,7 +330,7 @@ If you want to enable auto sharing again, please:<br /><br />
 <div class="overlay-container">
 <div class="overlay-wrap">
 <a href="#" class="overlay-btn-close">Close</a>
-<p class="content">Unsaved changes will be lost, are you sure you want to leave?</p>
+<p class="content">Unsaved changes will be lost, are you sure you want to cancel editing?</p>
 <div class="overlay-btn">
 <p class="btns overlay-btn-no hide"><span><a href="#">No</a></span></p>
 <p class="btns overlay-btn-back hide"><span><a href="#">Back</a></span></p>
@@ -334,7 +344,7 @@ If you want to enable auto sharing again, please:<br /><br />
 <div class="overlay-container">
 <div class="overlay-wrap">
 <a href="#" class="btn-close">Close</a>
-<p class="content">Are you sure you want to delete this POI &amp; interactive event?</p>
+<p class="content">Are you sure you want to delete this POI with interactive event?</p>
 <div class="overlay-btn">
 <p class="btns btn-no"><span><a href="#">No</a></span></p>
 <p class="btns btn-del"><span><a href="#">Yes</a></span></p>
@@ -345,9 +355,10 @@ If you want to enable auto sharing again, please:<br /><br />
 
 <div id="poi-event-overlay" class="lightbox-content">
 <div class="wrap">
-<div class="content">
+
+<div id="poi-event-overlay-wrap" class="content">
 <a href="#" class="overlay-btn-close">Close</a>
-<h3 class="create">Create Channel POI &amp; Interactive event</h3>
+<h3 class="create">Create Channel POI &amp; interactive event</h3>
 <h3 class="edit">Edit Channel POI &amp; interactive event</h3>
 <div id="event-select" class="event">
 <p class="crumb"><a href="#" class="unblock">Create POI</a> &gt; Add interactive event</p>
@@ -378,6 +389,7 @@ If you want to enable auto sharing again, please:<br /><br />
 
 <div id="event-scheduled" class="event hide">
 <form name="eventScheduledForm" id="eventScheduledForm" method="get" action="">
+<input type="hidden" name="channelUrl" value="" />
 <div id="schedule-notify" class="schedule">
 <p class="crumb create"><a href="#" class="unblock">Create POI</a> &gt; <a href="#" class="crumb-event event-select">Add interactive event</a> &gt; Scheduled Notification &gt; <span>Mobile Notification and Time</span></p>
 <p class="crumb edit"><a href="#" class="unblock">POI</a> &gt; Interactive event : Scheduled Notification &gt; <a href="#" class="crumb-next">Mobile Notification and Time</a></p>
@@ -441,7 +453,7 @@ If you want to enable auto sharing again, please:<br /><br />
 <div class="notification">
 <div class="msg">
 <h4><acronym title="Required field" class="mark-required">*</acronym>Mobile notification message</h4>
-<p class="textarea"><span><span><textarea name="notifyMsg" id="schedule_msg" cols="80" class="textarea">Input Mobile notification message</textarea></span></span></p>
+<p class="textarea"><span><span><textarea name="notifyMsg" id="schedule_msg" cols="80" class="textarea" placeholder="Input Mobile notification message"></textarea></span></span></p>
 <p>Recommend: less 34 bytes</p>
 </div>
 
@@ -513,6 +525,7 @@ If you want to enable auto sharing again, please:<br /><br />
 </form>
 </div>
 </div>
+
 </div>
 </div>
 
