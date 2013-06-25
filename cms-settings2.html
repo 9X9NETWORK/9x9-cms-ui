@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="en">
+<html class="en" lang="en">
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="cache-control" content="no-cache" />
@@ -22,12 +22,11 @@
 <script src="javascripts/jquery.cookie.js"></script>
 <script src="javascripts/json2.js"></script>
 <script src="javascripts/purl.js"></script>
-<script src="javascripts/swfupload/swfupload.js"></script>
 <script src="javascripts/vertical.slider.js"></script>
 <script src="javascripts/config.js"></script>
 <script src="javascripts/basic.js"></script>
 <script src="javascripts/cms-settings.js"></script>
-<title>9x9.tv - Create a new channel</title>
+<title>9x9.tv - CMS Settings</title>
 </head>
 <body>
 <div id="fb-root"></div>
@@ -51,7 +50,7 @@
 
 <div id="studio-nav">
 <div class="studio-nav-wrap">
-<h3><a href="index.html"><span class="cms-icon">CMS</span><p class="sub-title">Content Management System</p></a></h3>
+<h3><a href="index.html"><span class="cms-icon">CMS</span><span class="sub-title">Content Management System</span></a></h3>
 <ul>
 <li><span><a href="index.html">My Channels</a></span></li>
 <li id="my-portal"><span><a href="portal-set.html">My Portal</a></span></li>
@@ -79,8 +78,7 @@
 <div id="content-main-wrap">
 <div class="constrain">
 <div id="cms-setting">
-<form name="settingForm" id="settingForm" method="get" action="" data-height="361">
-<input type="hidden" name="isPublic" id="isPublic" value="true" />
+<form name="cmsSettingForm" id="cmsSettingForm" method="post" action="" data-height="361">
 <p class="login-notice">If you signed in with Facebook, you can't change your name and password.</p>
 <div class="fminput clearfix">
 <label>Email</label>
@@ -178,7 +176,28 @@
 <p class="content">Unsaved changes will be lost, are you sure you want to leave?</p>
 <div class="overlay-btn">
 <p class="btns btn-no"><span><a href="#">No</a></span></p>
-<p class="btns btn-leave"><span><a href="#">Leave</a></span></p>
+<p class="btns btn-leave"><span><a href="#">Yes</a></span></p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="change-pwd-overlay" class="lightbox-content overlay-l setup-notice">
+<div class="overlay-container">
+<div id="change-pwd-overlay-wrap" class="overlay-wrap">
+<a href="#" class="btn-close">Close</a>
+<h4 class="cms-setup">Change Password</h4>
+<div class="change-pwd">
+<form name="changePwdForm" id="changePwdForm" method="post" action="">
+<p class="text"><span class="input-right"><span class="input-middle"><input type="password" name="pwd_old" id="pwd_old" value="" placeholder="Old Password" class="text" /></span></span></p>
+<p class="text"><span class="input-right"><span class="input-middle"><input type="password" name="pwd_new" id="pwd_new" value="" placeholder="New Password" class="text" /></span></span></p>
+<p class="text last"><span class="input-right"><span class="input-middle"><input type="password" name="pwd_confirm" id="pwd_confirm" value="" placeholder="Repeat New Password" class="text" /></span></span></p>
+<p class="notice hide">Please input your old password.</p>
+</form>
+</div>
+<div class="overlay-btn">
+<p class="btns btn-cancel"><span><a href="#">Cancel</a></span></p>
+<p class="btns btn-chg-pwd"><span><a href="#">Change password</a></span></p>
 </div>
 </div>
 </div>
@@ -258,40 +277,6 @@ If you want to enable auto sharing again, please:<br /><br />
 <p class="content">Please try again and make sure you agree on all permissions.</p>
 <div class="overlay-btn">
 <p class="btns btn-failed-ok"><span><a href="#">OK</a></span></p>
-</div>
-</div>
-</div>
-</div>
-
-<div id="fb-connect-failed2" class="lightbox-content overlay-l setup-notice">
-<div class="overlay-container">
-<div class="overlay-wrap channel-connect-fail">
-<a href="#" class="btn-close">Close</a>
-<h5>Can not connect to Facebook correctly!</h5>
-<p class="content">Please try again and make sure you agree on all permissions.</p>
-<div class="overlay-btn">
-<p class="btns btn-ok"><span><a href="#">OK</a></span></p>
-</div>
-</div>
-</div>
-</div>
-
-<div id="change-pwd-overlay" class="lightbox-content overlay-l setup-notice">
-<div class="overlay-container">
-<div class="overlay-wrap">
-<a href="#" class="btn-close">Close</a>
-<h4 class="cms-setup">Change Password</h4>
-<div class="change-pwd">
-<form name="changePwdForm" id="changePwdForm" method="get" action="">
-<p class="text"><span class="input-right"><span class="input-middle"><input type="text" name="pwd_old" id="pwd" maxlength="100" value="" placeholder="Old Password" class="text" /></span></span></p>
-<p class="text"><span class="input-right"><span class="input-middle"><input type="text" name="pwd_new" id="newPwd" maxlength="100" value="" placeholder="New Password" class="text" /></span></span></p>
-<p class="text last"><span class="input-right"><span class="input-middle"><input type="text" name="pwd_confirm" id="confirm_newPwd" maxlength="100" value="" placeholder="Repeat New Password" class="text" /></span></span></p>
-<p class="notice hide">Please input your old password.</p>
-</form>
-</div>
-<div class="overlay-btn">
-<p class="btns btn-cancel"><span><a href="#">Cancel</a></span></p>
-<p class="btns btn-chg-pwd"><span><a href="#">Change password</a></span></p>
 </div>
 </div>
 </div>

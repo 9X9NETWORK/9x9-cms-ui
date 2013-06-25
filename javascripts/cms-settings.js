@@ -2,7 +2,7 @@ $(function () {
     setFormHeight();
     
     $('#cms-setting .form-btn .btn-save').click(function () {
-        chkData(document.settingForm);
+        chkData(document.cmsSettingForm);
         return false;
     });
 
@@ -79,7 +79,9 @@ $(function () {
 function setFormHeight() {
     var windowHeight = $(window).height(),
         titleFuncHeight = $('#title-func').height(),
-        contentHeight = windowHeight - titleFuncHeight - 94 - 48 - 38 - 10;    // 94:header+studio-nav 48:footer 38:title-func-padding
+        headerHeight = $('#header').height(),
+        navHeight = $('#studio-nav').height(),
+        contentHeight = windowHeight - titleFuncHeight - headerHeight - navHeight - 48 - 38 - 10 + 5;    // 5:header and studio-nav overlap 48:footer 38:title-func-padding
     $('#cms-setting form').height(contentHeight - 56); // 56: form padding-bottom
 }
 
@@ -106,22 +108,22 @@ function chkPwdData(fm) {
     fm.pwd_old.value = $.trim(fm.pwd_old.value);
     fm.pwd_new.value = $.trim(fm.pwd_new.value);
     fm.pwd_confirm.value = $.trim(fm.pwd_confirm.value);
-    if ('' === fm.pwd.value) {
+    if ('' === fm.pwd_old.value) {
         $('#change-pwd-overlay .change-pwd .notice').removeClass('hide');
         fm.pwd_old.focus();
         return false;
     }
-    if ('' === fm.newPwd.value) {
+    if ('' === fm.pwd_new.value) {
         $('#change-pwd-overlay .change-pwd .notice').removeClass('hide').text('Please input your new password.');
         fm.pwd_new.focus();
         return false;
     }
-    if ('' === fm.confirm_newPwd.value) {
+    if ('' === fm.pwd_confirm.value) {
         $('#change-pwd-overlay .change-pwd .notice').removeClass('hide').text('Please repeat your new password.');
         fm.pwd_confirm.focus();
         return false;
     }
-    if (fm.pwd_new.value != fm.pwd_confirm.value) {
+    if (fm.pwd_new.value !== fm.pwd_confirm.value) {
         $('#change-pwd-overlay .change-pwd .notice').removeClass('hide').text("Two passwords don't match, please retype.");
         fm.pwd_confirm.focus();
         return false;

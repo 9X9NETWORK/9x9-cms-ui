@@ -387,19 +387,12 @@ function setEpisodeWidth() {
     $('#ep-list ul li .wrap, #title-func .caption').width(wrapWidth - 31 - 1);  // 1:border
     $('#ep-list ul li .episode, #title-func .caption  p.episode').width(wrapWidth - 31 - numberWidth - scheduledWidth - publishWidth - viewsWidth - 1);   // 1:border
     $('#ep-list ul li .number').width(numberWidth - 20);    // 20 is padding
-    $('#ep-list ul li .episode h3').each(function (index) {
-        $('a', this).text($(this).data('meta'));
-    });
-    // ON PURPOSE to mark ellipsis feature temporarily for performance issue
-    //$('#ep-list ul li .episode h3').addClass('ellipsis').ellipsis();
     if ($('#ep-list ul li .episode').length > 0 && $('#channel-name').data('width') + crumbWidth + 10 > contentmainWidth - titleBtnsWidth) {  // 10: title-func padding
         $('#title-func h2').width(contentmainWidth - titleBtnsWidth - 10 - 15);  // 10: title-func padding, 15: channel name and btns space
         $('#channel-name').width($('#title-func h2').width() - crumbWidth - 6);  // 6: channel name margin
-        //$('#channel-name').text($('#channel-name').data('meta')).addClass('ellipsis').ellipsis();
     } else {
         $('#title-func h2').width('auto');
         $('#channel-name').width('auto');
-        //$('#channel-name').text($('#channel-name').data('meta')).addClass('ellipsis').ellipsis();
     }
 }
 

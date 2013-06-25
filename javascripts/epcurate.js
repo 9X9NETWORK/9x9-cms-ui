@@ -227,7 +227,7 @@ function uploadImage() {
         this.setButtonDisabled(false); // enable upload button again
         var url = 'http://' + s3attr['bucket'] + '.s3.amazonaws.com/' + parameter['prefix'] + '-thumbnail-' + timestamp + '-' + file.size + file.type.toLowerCase();
         $('#thumbnail-list ul li.new').remove();
-        $('#thumbnail-list ul').prepend('<li class="new"><img src="thumbnail/04.jpg" alt="" /></li>');
+        $('#thumbnail-list ul').prepend('<li class="new"><div class="img"><img src="thumbnail/04.jpg" alt="" /></div></li>');
         $('#thumbnail-list ul').cycle('destroy');
         $('#thumbnail-list ul').cycle({
             fx: 'scrollHorz',

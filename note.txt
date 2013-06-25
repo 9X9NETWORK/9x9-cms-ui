@@ -1,3 +1,11 @@
+Date: 2013/06/25
+Version: 9x9_CMS_20
+
+Changes:
+* Change portal.css, brand-setting.html.
+* Change icon_checkbox.png in images folder.
+
+
 Date: 2013/06/21
 Version: 9x9_CMS_19
 

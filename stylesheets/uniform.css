@@ -1,9 +1,4 @@
-/*-----------------------------------------------------------------------------
-[TABLE OF CONTENTS]
-    +content-main
-        =channel-list
------------------------------------------------------------------------------*/
-
+/* uniform */
 .selector,
 .radio,
 .checker,
@@ -13,12 +8,7 @@
     margin-right: 8px;
 }
 
-/**
-*
-* =radio
-*
-**/
-
+/* radio */
 div.radio {
     width: 17px;
     height: 19px;
@@ -34,6 +24,10 @@ div.radio span {
 div.radio span input {
     width: 17px;
     height: 19px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 }
 
 div.radio.focus span, 
@@ -50,12 +44,7 @@ div.radio.disabled span.checked {
     background-position: 0 -56px;
 }
 
-/**
-*
-* =checkbox
-*
-**/
-
+/* checker */
 div.checker {
     width: 22px;
     height: 29px;
@@ -70,4 +59,8 @@ div.checker span {
 div.checker input {
     width: 22px;
     height: 29px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 }

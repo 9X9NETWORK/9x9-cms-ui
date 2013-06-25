@@ -1,4 +1,9 @@
 $(function () {
+    $('#title-func h2.poi-list em').data('width', $('#title-func h2.poi-list em').width());
+    $('#title-func h2.poi-create em').data('width', $('#title-func h2.poi-create em').width());
+    $('#title-func h2.poi-edit em').data('width', $('#title-func h2.poi-edit em').width());
+    $('#title-func h2').hide();
+    $('#title-func h2.poi-list').show();
     setFormHeight();
 
     // create poi
@@ -6,6 +11,7 @@ $(function () {
         $('#channel-poi .edit-block').addClass('hide');
         $('#poi-create').removeClass('hide');
         $('#content-main').removeAttr('class');
+        $('#title-func h2').hide();
         $('#content-main').addClass('poi-create');
         setFormHeight();
         return false;
@@ -16,6 +22,7 @@ $(function () {
         $('#channel-poi .edit-block').addClass('hide');
         $('#poi-edit').removeClass('hide');
         $('#content-main').removeAttr('class');
+        $('#title-func h2').hide();
         $('#content-main').addClass('poi-edit');
         setFormHeight();
         return false;
@@ -53,6 +60,7 @@ $(function () {
             $('#channel-poi .edit-block').addClass('hide');
             $('#poi-list').removeClass('hide');
             $('#content-main').removeAttr('class');
+            $('#title-func h2').hide();
             $('#content-main').addClass('poi-list');
             setFormHeight();
         }
@@ -289,27 +297,28 @@ function setFormHeight() {
         createSpanWidth = $('#title-func h2.poi-create span').width(),
         editEmWidth = $('#title-func h2.poi-edit em').width(),
         editSpanWidth = $('#title-func h2.poi-edit span').width(),
-        contentHeight = windowHeight - titleFuncHeight - 94 - 48 - 38 - 10;    // 94:header+studio-nav 48:footer 38:title-func-padding
+        headerHeight = $('#header').height(),
+        navHeight = $('#studio-nav').height(),
+        contentHeight = windowHeight - titleFuncHeight - headerHeight - navHeight + 5 - 48 - 38 - 10;    // 5:header and studio-nav overlap 48:footer 38:title-func-padding
     if (windowWidth > 1220) {
         $('#channel-poi input.text').width(windowWidth - 734);
-        $('#title-func h2').width(windowWidth - 584).data('width', $(this).width());
+        $('#title-func h2').width(windowWidth - 584);
     } else {
         $('#channel-poi input.text').width(433);
-        $('#title-func h2').width(583).data('width', '583');
+        $('#title-func h2').width(583);
     }
-    $('#title-func').data('width', $('#title-func h2').width());
-    if (listEmWidth > $('#title-func').data('width') - listSpanWidth) {
-        $('#title-func h2.poi-list em').width($('#title-func').data('width') - $('#title-func h2.poi-list span').width());
+    if ($('#title-func h2.poi-list em').data('width') > $('#title-func h2.poi-list').width() - listSpanWidth) {
+        $('#title-func h2.poi-list em').width($('#title-func h2.poi-list').width() - listSpanWidth - 1);
     } else {
         $('#title-func h2.poi-list em').width('auto');
     }
-    if (createEmWidth > $('#title-func').data('width') - createSpanWidth) {
-        $('#title-func h2.poi-create em').width($('#title-func').data('width') - $('#title-func h2.poi-create span').width());
+    if ($('#title-func h2.poi-create em').data('width') > $('#title-func h2.poi-create').width() - createSpanWidth) {
+        $('#title-func h2.poi-create em').width($('#title-func h2.poi-create').width() - createSpanWidth - 1);
     } else {
         $('#title-func h2.poi-create em').width('auto');
     }
-    if (editEmWidth > $('#title-func').data('width') - editSpanWidth) {
-        $('#title-func h2.poi-edit em').width($('#title-func').data('width') - $('#title-func h2.poi-edit span').width());
+    if ($('#title-func h2.poi-edit em').data('width') > $('#title-func h2.poi-edit').width() - editSpanWidth) {
+        $('#title-func h2.poi-edit em').width($('#title-func h2.poi-edit').width() - editSpanWidth - 1);
     } else {
         $('#title-func h2.poi-edit em').width('auto');
     }

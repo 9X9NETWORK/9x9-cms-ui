@@ -14,9 +14,11 @@ function autoHeight() {
         titleFuncPaddingTop = parseInt($('#title-func').css('padding-top'), 10),
         titleFuncPaddingBottom = parseInt($('#title-func').css('padding-bottom'), 10),
         titleFuncHeight = parseInt(titleFuncContentHeight + titleFuncPaddingTop + titleFuncPaddingBottom, 10),
-        sliderHeight = windowHeight - titleFuncHeight - 157;            // 157: (header45 + studio-nav49)94 + footer48 + space15
-    $('#content-wrap').height($(window).height() - 94);  // 94: header45(50-5) + studio-nav49(36+13);
-    $('#content-main').height($(window).height() - footerHeight - 94);  // 94: header45(50-5) + studio-nav49(36+13);
+        headerHeight = $('#header').height(),
+        navHeight = $('#studio-nav').height(),
+        sliderHeight = windowHeight - titleFuncHeight - headerHeight - navHeight - 58;            // 58: footer48 + space15 - (header and studio-nav overlap)5
+    $('#content-wrap').height($(window).height() - headerHeight - navHeight + 5);  // 5: header and studio-nav overlap;
+    $('#content-main').height($(window).height() - footerHeight - headerHeight - navHeight + 5);  // 5: header and studio-nav overlap;
     $('.epcurate-curation#content-wrap, .epcurate-publish#content-wrap').height($(window).height() - 46);     // $('#epcurate-nav .epcurate-nav-wrap')
     $('.epcurate-curation #content-main, .epcurate-publish #content-main').height($(window).height() - 94); // 94: epcurate-nav46 + form-btn48  
     $('#content-main-wrap').height($('#content-main-wrap').children('.constrain').height() + titleFuncHeight + 15); // 15: space between footer and content
@@ -47,8 +49,8 @@ function hideFbPageList() {
             hasHideFbPageList = true;
         }
         if ('none' != $('#main-wrap-slider').css('display')) {
-            $('#content-main-wrap form').height('auto');
-            $('#content-main-wrap').height($('#content-main-wrap form').height() + 70 + 65);
+            $('#content-main-wrap form').height($('#content-main-wrap form').data('height'));
+            $('#content-main-wrap').height($('#content-main-wrap form').height() + 70 + 61);
             $('#main-wrap-slider .slider-vertical').slider('destroy');
             if (hasHideFbPageList) {
                 $('#content-main-wrap').css('top', '0');
