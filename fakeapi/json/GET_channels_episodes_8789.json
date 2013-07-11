@@ -1,0 +1,53 @@
+[
+    {
+        "name": "aa",
+        "id": 16420,
+        "public": true,
+        "duration": 0,
+        "imageUrl": "http://i.ytimg.com/vi/cLlndV2SwX0/mqdefault.jpg",
+        "publishDate": 1349022264000,
+        "cntView": 0,
+        "channelId": 8789,
+        "intro": "aa",
+        "seq": 1,
+        "updateDate": 1349254613000,
+        "isPublic": true,
+        "adId": 0,
+        "playbackUrl": "http://dev.teltel.com:8080/view?ch=8789&ep=e16420",
+        "scheduleDate": null
+    },
+    {
+        "name": "aaa",
+        "id": 16419,
+        "public": true,
+        "duration": 1579,
+        "imageUrl": "http://i.ytimg.com/vi/NzIhhiO6tlQ/mqdefault.jpg",
+        "publishDate": 1349006716000,
+        "cntView": 0,
+        "channelId": 8789,
+        "intro": "",
+        "seq": 2,
+        "updateDate": 1349006972000,
+        "isPublic": true,
+        "adId": 0,
+        "playbackUrl": "http://dev.teltel.com:8080/view?ch=8789&ep=e16419",
+        "scheduleDate": null
+    },
+    {
+        "name": "test",
+        "id": 16417,
+        "public": true,
+        "duration": 0,
+        "imageUrl": "http://i.ytimg.com/vi/8Zhps3icaPc/mqdefault.jpg",
+        "publishDate": 1348740313000,
+        "cntView": 0,
+        "channelId": 8789,
+        "intro": "test",
+        "seq": 3,
+        "updateDate": 1349254638000,
+        "isPublic": true,
+        "adId": 0,
+        "playbackUrl": "http://dev.teltel.com:8080/view?ch=8789&ep=e16417",
+        "scheduleDate": null
+    }
+]

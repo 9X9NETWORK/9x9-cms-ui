@@ -1,0 +1,19 @@
+[
+    {
+        "name": "aaa",
+        "id": 16418,
+        "public": true,
+        "duration": 1991,
+        "imageUrl": "http://i.ytimg.com/vi/8Zhps3icaPc/mqdefault.jpg",
+        "publishDate": 1349004690000,
+        "cntView": 0,
+        "channelId": 8794,
+        "intro": "",
+        "seq": 1,
+        "updateDate": 1349006785000,
+        "isPublic": true,
+        "adId": 0,
+        "playbackUrl": "http://dev.teltel.com:8080/view?ch=8794&ep=e16418",
+        "scheduleDate": null
+    }
+]

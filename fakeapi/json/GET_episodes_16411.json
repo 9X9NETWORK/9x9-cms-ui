@@ -1,0 +1,17 @@
+{
+    "name": "hello world",
+    "id": 16411,
+    "public": true,
+    "duration": 1579,
+    "imageUrl": "http://i.ytimg.com/vi/cLlndV2SwX0/mqdefault.jpg",
+    "publishDate": 1348677027000,
+    "cntView": 0,
+    "channelId": 8769,
+    "intro": "hello world",
+    "seq": 1,
+    "updateDate": 1348678056000,
+    "isPublic": true,
+    "adId": 0,
+    "playbackUrl": "http://dev.teltel.com:8080/view?ch=8769&ep=e16411",
+    "scheduleDate": null
+}

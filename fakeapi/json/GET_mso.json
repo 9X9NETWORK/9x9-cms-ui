@@ -1,0 +1,14 @@
+{
+    "name": "cts",
+    "id": 3,
+    "type": 2,
+    "intro": "cts",
+    "createDate": 1364527871000,
+    "updateDate": 1369213894000,
+    "lang": "zh",
+    "title": "CTS",
+    "logoUrl": "http://9x9tmp-dev2.s3.amazonaws.com/pcs-logo-1369027875148-9914.png",
+    "jingleUrl": null,
+    "contactEmail": "cts@9x9.tv",
+    "supportedRegion": null
+}

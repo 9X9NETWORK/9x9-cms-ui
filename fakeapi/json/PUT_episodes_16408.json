@@ -1,0 +1,17 @@
+{
+    "name": "test episode add",
+    "id": 16408,
+    "public": false,
+    "duration": 1579,
+    "imageUrl": "http://i.ytimg.com/vi/8Zhps3icaPc/mqdefault.jpg",
+    "publishDate": 1348673982000,
+    "cntView": 0,
+    "channelId": 8769,
+    "intro": "test episode add",
+    "seq": 4,
+    "updateDate": 1348673997000,
+    "isPublic": false,
+    "adId": 0,
+    "playbackUrl": "http://dev.teltel.com:8080/view?ch=8769&ep=e16408",
+    "scheduleDate": null
+}

@@ -1,0 +1,154 @@
+[
+    {
+        "name": "All",
+        "id": 1,
+        "cntView": 0,
+        "lang": "en",
+        "msoId": 1,
+        "seq": 1
+    },
+    {
+        "name": "Animals & Pets",
+        "id": 2,
+        "cntView": 0,
+        "lang": "en",
+        "msoId": 1,
+        "seq": 2
+    },
+    {
+        "name": "Art & Design",
+        "id": 3,
+        "cntView": 0,
+        "lang": "en",
+        "msoId": 1,
+        "seq": 3
+    },
+    {
+        "name": "Autos & Vehicles",
+        "id": 4,
+        "cntView": 0,
+        "lang": "en",
+        "msoId": 1,
+        "seq": 4
+    },
+    {
+        "name": "Cartoons & Animation",
+        "id": 5,
+        "cntView": 0,
+        "lang": "en",
+        "msoId": 1,
+        "seq": 5
+    },
+    {
+        "name": "Comedy",
+        "id": 6,
+        "cntView": 0,
+        "lang": "en",
+        "msoId": 1,
+        "seq": 6
+    },
+    {
+        "name": "Fashion, Food & Living",
+        "id": 7,
+        "cntView": 0,
+        "lang": "en",
+        "msoId": 1,
+        "seq": 7
+    },
+    {
+        "name": "Gaming",
+        "id": 8,
+        "cntView": 0,
+        "lang": "en",
+        "msoId": 1,
+        "seq": 8
+    },
+    {
+        "name": "How-To",
+        "id": 9,
+        "cntView": 0,
+        "lang": "en",
+        "msoId": 1,
+        "seq": 9
+    },
+    {
+        "name": "Education & Lectures",
+        "id": 10,
+        "cntView": 0,
+        "lang": "en",
+        "msoId": 1,
+        "seq": 10
+    },
+    {
+        "name": "Music",
+        "id": 11,
+        "cntView": 0,
+        "lang": "en",
+        "msoId": 1,
+        "seq": 11
+    },
+    {
+        "name": "News",
+        "id": 12,
+        "cntView": 0,
+        "lang": "en",
+        "msoId": 1,
+        "seq": 12
+    },
+    {
+        "name": "Nonprofits & Faith",
+        "id": 13,
+        "cntView": 0,
+        "lang": "en",
+        "msoId": 1,
+        "seq": 13
+    },
+    {
+        "name": "People, Blogs & Shorts",
+        "id": 14,
+        "cntView": 0,
+        "lang": "en",
+        "msoId": 1,
+        "seq": 14
+    },
+    {
+        "name": "Science",
+        "id": 15,
+        "cntView": 0,
+        "lang": "en",
+        "msoId": 1,
+        "seq": 15
+    },
+    {
+        "name": "Sports & Health",
+        "id": 16,
+        "cntView": 0,
+        "lang": "en",
+        "msoId": 1,
+        "seq": 16
+    },
+    {
+        "name": "Tech & Apps",
+        "id": 17,
+        "cntView": 0,
+        "lang": "en",
+        "msoId": 1,
+        "seq": 17
+    },
+    {
+        "name": "TV & Film",
+        "id": 18,
+        "cntView": 0,
+        "lang": "en",
+        "msoId": 1,
+        "seq": 18
+    },
+    {
+        "name": "Others",
+        "id": 19,
+        "cntView": 0,
+        "lang": "en",
+        "msoId": 1,
+        "seq": 19
+    }
+]

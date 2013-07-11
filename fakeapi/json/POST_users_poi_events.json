@@ -1,0 +1,8 @@
+{
+    "id": 999999,
+    "name": "1 TheVoice01-01 hello world test test hello world test test hello world test test 1234567890abcdefghijklmnopqrstuvwxyz",
+    "type": 1,
+    "context": "{\"message\": \"Hyper to related channel to watch more and more!!!\", \"button\": [{ \"text\": \"Watch now\", \"actionUrl\": \"http://www.9x9.tv/view?ch=8758\" }]}",
+    "notifyMsg": "",
+    "notifyScheduler": ""
+}

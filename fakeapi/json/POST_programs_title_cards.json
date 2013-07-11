@@ -1,0 +1,19 @@
+{
+    "message": "TheVoice01-01{BR}hello world{BR}test test",
+    "id": 999999,
+    "type": 0,
+    "size": "21",
+    "duration": "10",
+    "channelId": 8758,
+    "durationInt": 10,
+    "programId": 98231,
+    "updateDate": 1350880276000,
+    "style": "italic",
+    "color": "#ffff00",
+    "bgColor": "#333333",
+    "playerSyntax": "message: TheVoice01-01{BR}hello world{BR}test test%0Atype: begin%0Aduration: 10%0Astyle: italic%0Asize: 21%0Acolor: #ffff00%0Aeffect: drop%0Aalign: center%0Abgcolor: #333333%0Abgimage: http://9x9ui.s3.amazonaws.com/war/v0/images/titlecard-default.png%0Aweight: bold%0A",
+    "effect": "drop",
+    "align": "center",
+    "bgImage": "http://9x9ui.s3.amazonaws.com/war/v0/images/titlecard-default.png",
+    "weight": "bold"
+}

@@ -1,0 +1,17 @@
+{
+    "name": "test",
+    "id": 16407,
+    "public": false,
+    "duration": 1579,
+    "imageUrl": "http://i.ytimg.com/vi/cLlndV2SwX0/mqdefault.jpg",
+    "publishDate": 1348673470000,
+    "cntView": 0,
+    "channelId": 8769,
+    "intro": "test",
+    "seq": 5,
+    "updateDate": 1348673482000,
+    "isPublic": false,
+    "adId": 0,
+    "playbackUrl": "http://dev.teltel.com:8080/view?ch=8769&ep=e16407",
+    "scheduleDate": null
+}

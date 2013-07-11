@@ -1,0 +1,90 @@
+[
+    {
+        "name": "中文",
+        "id": 33,
+        "tag": null,
+        "lang": "zh",
+        "msoId": 3,
+        "seq": 1,
+        "channelCnt": 26,
+        "sortingType": 2,
+        "displayId": 51
+    },
+    {
+        "name": "專題報導專題報導專題報導",
+        "id": 34,
+        "tag": null,
+        "lang": "zh",
+        "msoId": 3,
+        "seq": 2,
+        "channelCnt": 0,
+        "sortingType": 2,
+        "displayId": 52
+    },
+    {
+        "name": "語言學院",
+        "id": 35,
+        "tag": null,
+        "lang": "zh",
+        "msoId": 3,
+        "seq": 3,
+        "channelCnt": 5,
+        "sortingType": 2,
+        "displayId": 53
+    },
+    {
+        "name": "通識中心",
+        "id": 36,
+        "tag": null,
+        "lang": "zh",
+        "msoId": 3,
+        "seq": 4,
+        "channelCnt": 8,
+        "sortingType": 1,
+        "displayId": 54
+    },
+    {
+        "name": "經典愛情",
+        "id": 37,
+        "tag": null,
+        "lang": "zh",
+        "msoId": 3,
+        "seq": 5,
+        "channelCnt": 6,
+        "sortingType": 1,
+        "displayId": 55
+    },
+    {
+        "name": "倫理劇情",
+        "id": 38,
+        "tag": null,
+        "lang": "zh",
+        "msoId": 3,
+        "seq": 6,
+        "channelCnt": 5,
+        "sortingType": 1,
+        "displayId": 56
+    },
+    {
+        "name": "偶像戲劇",
+        "id": 39,
+        "tag": null,
+        "lang": "zh",
+        "msoId": 3,
+        "seq": 7,
+        "channelCnt": 1,
+        "sortingType": 1,
+        "displayId": 57
+    },
+    {
+        "name": "分類新聞",
+        "id": 40,
+        "tag": null,
+        "lang": "zh",
+        "msoId": 3,
+        "seq": 8,
+        "channelCnt": 9,
+        "sortingType": 1,
+        "displayId": 58
+    }
+]

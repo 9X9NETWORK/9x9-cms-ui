@@ -1,0 +1,17 @@
+{
+    "name": "test1",
+    "id": 16439,
+    "public": true,
+    "duration": 280,
+    "imageUrl": "http://i.ytimg.com/vi/ys1mSuuoHGI/mqdefault.jpg",
+    "publishDate": 1349681556000,
+    "cntView": 0,
+    "channelId": 8810,
+    "intro": "",
+    "seq": 3,
+    "updateDate": 1349681559000,
+    "isPublic": true,
+    "adId": 0,
+    "playbackUrl": "http://dev.teltel.com:8080/view?ch=8810&ep=e16439",
+    "scheduleDate": null
+}
