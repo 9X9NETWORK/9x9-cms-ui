@@ -10,8 +10,8 @@ $(function () {
         videoDeleteIdList = [];
 
     $page.setVideoMeasure();
-    $page.setSpace();
-    $common.scrollbarX('#storyboard-wrap', '#storyboard-list', '#storyboard-slider');
+    // $page.setSpace();
+    // $common.scrollbarX('#storyboard-wrap', '#storyboard-list', '#storyboard-slider');
     $('#epcurate-nav ul li.curation').click(function () {
         return false;
     });
@@ -463,7 +463,7 @@ $(function () {
         $page.removeTitleCardEditHook();
 
         // switch tab and content
-        if ($('#epcurate-curation > ul.tabs > li.poi').hasClass('hide')) {
+        if ($('#epcurate-curation > .curation-content > ul.tabs > li.poi').hasClass('hide')) {
             $('#epcurate-curation ul.tabs li').removeClass('on');
             $('#epcurate-curation ul.tabs li a.cur-add').parent().parent().removeClass('last');
             $('#epcurate-curation ul.tabs li a.cur-edit').parent().parent().removeClass('hide last').addClass('on');
@@ -1719,6 +1719,15 @@ $(function () {
         return false;
     });
 
+    // Scroll storyboard horizontal video list with mouse wheel.
+    $("#storyboard-wrap").mousewheel(function(event, delta) {
+
+        this.scrollLeft -= (delta * 60);
+
+        event.preventDefault();
+
+    });
+
     // Save
     // NOTE: save titlecard always handle (insert and update) POST /api/programs/{programId}/title_cards
     // NOTE: improve api async order issue
@@ -2199,13 +2208,14 @@ $(function () {
     // NOTE: Keep Window Resize Event at the bottom of this file
     $(window).resize(function () {
         $page.setVideoMeasure();
-        $page.setSpace();
+        // $page.setSpace();
         if ($('#poi-list-page').length > 0 && $('#storyboard-list li.playing').length > 0) {
             $page.buildPoiInfoTmpl($('#storyboard-list li.playing'));
         }
-        $page.resizeTitleCard();
-        $page.resizeFromFontRadix();
-        $page.verticalAlignTitleCard();
-        $common.scrollbarX('#storyboard-wrap', '#storyboard-list', '#storyboard-slider');
+        // $page.resizeTitleCard();
+        // $page.resizeFromFontRadix();
+        // $page.verticalAlignTitleCard();
+        // $common.scrollbarX('#storyboard-wrap', '#storyboard-list', '#storyboard-slider');
+        $('#storyboard-wrap').perfectScrollbar('update');
     });
 });
