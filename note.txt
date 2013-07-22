@@ -1,3 +1,14 @@
+Date: 2013/07/22
+Version: 9x9_CMS_22
+
+Changes:
+* Delete portal-set.html, episode-list-favorite-first.html and episode-list-favorite.html.
+* Change btn_func.png and icon_check.png in images folder.
+* Add episode.css in stylesheetsv3 folder.
+* Add func.episode.js and domready.get-url.js in javascripts/v3 folder.
+* Change domready.get-url.js, episode-list.html, portal.css, portal-manage.html ,ep-curation.css and style.css.
+
+
 Date: 2013/06/25
 Version: 9x9_CMS_20
 
