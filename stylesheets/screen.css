@@ -701,10 +701,8 @@ div.constrain { margin-right: 35px; }
 /* line 17, ../sass/lib/_studio.sass */
 #epcurate-nav .epcurate-nav-wrap {
     background: url(../images/bg_pattern.png) repeat;
-    height: 45px;
     height: 46px;
     padding: 0;
-    padding: 13px 0 0 0;
     position: relative;
 }
 

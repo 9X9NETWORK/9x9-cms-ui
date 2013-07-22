@@ -1042,6 +1042,7 @@
 /* Empty */
 #portal-layer .channel-list li.empty {
     cursor: pointer;
+    height: 112px;
 }
 #portal-layer .channel-list li.empty p {
     line-height: 17px;
