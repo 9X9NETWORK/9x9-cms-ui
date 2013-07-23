@@ -905,6 +905,7 @@ abbr, acronym {
     top: 70px;
     bottom: 0;
     overflow: hidden;
+    padding-bottom: 48px;
 }
 
 #content-main-wrap.footer-on {

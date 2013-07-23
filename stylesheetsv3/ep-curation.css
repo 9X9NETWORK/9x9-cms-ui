@@ -456,7 +456,7 @@ p.auto-height {
     /* max-width: 550px; */
 }
 
-#epcurate-curation #cur-add p {
+#epcurate-curation #cur-add > p {
     margin-bottom: 10px;
     color: #555;
     font-size: 13px;
@@ -541,6 +541,11 @@ p.auto-height {
 #epcurate-curation #cur-add .func .btns {
     width: 70px;
     margin: 0;
+}
+
+#epcurate-curation #cur-add .func .btn-gray a {
+    padding: 3px 14px;
+    font-family: Arial, Helvetica;
 }
 
 /* Curation edit */

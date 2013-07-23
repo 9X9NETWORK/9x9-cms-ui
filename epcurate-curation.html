@@ -103,7 +103,12 @@
                     </div>
                     <p class="notice hide">You have reached the maximum amount of 50 videos.</p>
                     <div class="func">
-                        <p class="btns btn-add"><span><a href="#" id="btn-add-videourl" class="langkey">Add</a></span></p>
+                        <div class="btn-gray">
+                            <p class="left"></p>
+                            <p class="center"><a href="#" id="btn-add-videourl" class="langkey">Add</a></p>
+                            <p class="right"></p>
+                        </div>
+                        <!-- <p class="btns btn-add"><span><a href="#" id="btn-add-videourl" class="langkey">Add</a></span></p> -->
                     </div>
                 </div>
                 <div id="cur-edit" class="tab-content clearfix hide">
@@ -160,11 +165,6 @@
         </div>
         <div class="form-btn">
             <div class="wrap">
-                <!-- <div class="btn-gray">
-                    <p class="left"></p>
-                    <p class="center"><a href="portal-manage.html?id=${id}">${nn._([cms.global.PAGE_ID, 'sets-list', 'Edit'])}</a></p>
-                    <p class="right"></p>
-                </div> -->
                 <p class="btns btn-leave"><span class="btn-right"><span class="btn-middle"><input type="button" id="form-btn-leave" value="Leave" class="langkey-val" /></span></span></p>
                 <p class="btns btn-save"><span class="btn-right"><span class="btn-middle"><input type="button" id="form-btn-save" value="Save" class="langkey-val" /></span></span></p>
                 <p class="next"><a href="epcurate-publish.html" id="form-btn-next" rel="publish" class="langkey">Next to Publish &gt;</a></p>
@@ -575,6 +575,7 @@
                     <p>${nn._([cms.global.PAGE_ID, 'poi-event', 'User can go to watch another 9x9.tv channel or episode.'])}</p>
                 </div>
             </li>
+            {{if !cms.global.IS_REMARK}}
             <li class="event-scheduled">
                 <div class="block">
                     <div class="img schedule">
@@ -591,6 +592,16 @@
                     <p>${nn._([cms.global.PAGE_ID, 'poi-event', 'Send an instant notification to user to get more information.'])}</p>
                 </div>
             </li>
+            {{else}}
+            <li class="event-coming-soon">
+                <div class="block">
+                    <div class="img coming-soon">
+                        <h4>${nn._([cms.global.PAGE_ID, 'poi-event', 'Coming Soon'])}</h4>
+                    </div>
+                    <p>&nbsp;</p>
+                </div>
+            </li>
+            {{/if}}
         </ul>
         <div class="func">
             <ul>

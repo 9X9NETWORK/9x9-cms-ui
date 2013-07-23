@@ -441,6 +441,7 @@ $(function () {
         }
         return false;
     });
+
     $('#cur-add .checkbox a').click(function () {
         $(this).toggleClass('on');
     });

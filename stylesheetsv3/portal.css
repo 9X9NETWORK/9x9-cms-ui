@@ -1474,10 +1474,14 @@
 #portal-list {
     position: absolute;
     top: 0;
-    bottom: 48px;
+    bottom: 0;
     width: 100%;
     overflow: hidden;
+    padding-bottom: 48px;
 }
+/*#portal-list.footer-off {
+    bottom: 0;
+}*/
 #portal-slider {
     height: 500px;
     top: 155px;
@@ -1508,9 +1512,11 @@
     width: 100%;
     position: absolute;
     top: 0;
-    bottom: 48px;
+    bottom: 0;
     overflow: hidden;
+    padding-bottom: 48px;
 }
+
 #store-slider {
     height: 500px;
     top: 240px;
