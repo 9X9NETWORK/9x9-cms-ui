@@ -115,29 +115,6 @@
                     $('#func-nav ul').html('');
                     $('#func-nav-tmpl').tmpl(channel).appendTo('#func-nav ul');
                     if (channel.contentType === cms.config.YOUR_FAVORITE) {
-                        nn.api('GET', cms.reapi('/api/users/{userId}/my_favorites', {
-                            userId: cms.global.USER_DATA.id
-                        }), null, function (favorites) {
-                            var cntEpisode = favorites.length;
-                            channel.name = cms.global.USER_DATA.name + nn._([pageId, 'title-func', "'s Favorite"]);
-                            $('#title-func').html('');
-                            $('#title-func-tmpl').tmpl(channel, {
-                                cntEpisode: cntEpisode
-                            }).appendTo('#title-func');
-                            $('#channel-name').data('width', $('#channel-name').width());
-                            $('#content-main-wrap .constrain').html('');
-                            if (cntEpisode > 0) {
-                                $('#episode-favorite-list-tmpl').tmpl().appendTo('#content-main-wrap .constrain');
-                                $('#episode-favorite-list-tmpl-item').tmpl(favorites).appendTo('#episode-list');
-                            } else {
-                                $('#episode-favorite-first-tmpl').tmpl().appendTo('#content-main-wrap .constrain');
-                            }
-                            // $page.setEpisodeWidth();
-                            $('#content-main-wrap').perfectScrollbar({marginTop: 50, marginBottom: 60});
-							//$common.autoHeight();
-                            //$common.scrollbar('#content-main', '#content-main-wrap', '#main-wrap-slider');
-                            $('#overlay-s').fadeOut();
-                        });
                     } else {
                         nn.api('GET', cms.reapi('/api/channels/{channelId}/episodes', {
                             channelId: id
@@ -269,38 +246,6 @@
                 });
             });
         } else if ('' !== id && parseInt(id, 10) === 0 && cms.global.USER_DATA.id) {
-            // for fake favorite channel
-            if (options && options.init) {
-                $common.showProcessingOverlay();
-            }
-            nn.api('GET', cms.reapi('/api/users/{userId}/my_favorites/fake', {
-                userId: cms.global.USER_DATA.id
-            }), null, function (favorites) {
-                var cntEpisode = favorites.length,
-                    channel = {
-                        contentType: cms.config.YOUR_FAVORITE,
-                        name: cms.global.USER_DATA.name + nn._([pageId, 'title-func', "'s Favorite"])
-                    };
-                $('#func-nav ul').html('');
-                $('#func-nav-tmpl').tmpl(channel).appendTo('#func-nav ul');
-                $('#title-func').html('');
-                $('#title-func-tmpl').tmpl(channel, {
-                    cntEpisode: cntEpisode
-                }).appendTo('#title-func');
-                $('#channel-name').data('width', $('#channel-name').width());
-                $('#content-main-wrap .constrain').html('');
-                if (cntEpisode > 0) {
-                    $('#episode-favorite-list-tmpl').tmpl().appendTo('#content-main-wrap .constrain');
-                    $('#episode-favorite-list-tmpl-item').tmpl(favorites).appendTo('#episode-list');
-                } else {
-                    $('#episode-favorite-first-tmpl').tmpl().appendTo('#content-main-wrap .constrain');
-                }
-                // $page.setEpisodeWidth();
-                $('#content-main-wrap').perfectScrollbar({marginTop: 50, marginBottom: 60});
-				//$common.autoHeight();
-                //$common.scrollbar('#content-main', '#content-main-wrap', '#main-wrap-slider');
-                $('#overlay-s').fadeOut();
-            });
         } else {
             $common.showSystemErrorOverlayAndHookError('Invalid channel ID, please try again.');
             return;
