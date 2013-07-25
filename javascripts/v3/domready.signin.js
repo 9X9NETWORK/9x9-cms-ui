@@ -283,5 +283,8 @@ $(function () {
             $(actID).show();
         }
     });
-
+	
+	$(window).resize(function() {	
+        $('#login-layer').perfectScrollbar('update');
+	});
 });

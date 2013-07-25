@@ -1,3 +1,12 @@
+Date: 2013/07/26
+
+Changes:
+* Change banner_01.png and banner_02.png in images folder.
+* Change signin.html, style.css and portal.css.
+* Add signin.css in stylesheetsv3 folder.
+* Add func.signin.js in javascripts/v3 folder.
+
+
 Date: 2013/07/25
 
 Changes:
@@ -15,6 +24,7 @@ Changes:
 * Reversed epcurate-curation.html init logic.
 * Added 15px bottom margin for scrollbar in channel-add, store-manage and portal-manage.
 
+
 Date: 2013/07/24
 
 Changes:
@@ -23,6 +33,7 @@ Changes:
 * Revised portal-manage and store-manage scrollbar display.
 * Revised vertical perfect scrollbar top and height calculation for top and bottom margins.
 * Synced perfect scrollbar mouse wheel and mouse handle behavior.
+
 
 Date: 2013/07/22
 Version: 9x9_CMS_22
