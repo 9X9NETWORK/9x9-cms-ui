@@ -1,6 +1,15 @@
 Date: 2013/07/25
 
 Changes:
+* Removed "My Favorite" relative codes in index.html.
+* Removed "My Favorite" relative codes in episode-list.html.
+* Changed invalid video style in epcurate-curation.html.
+* Revised channel-add.html style.
+* Removed redundant html and javascript files.
+
+Date: 2013/07/25
+
+Changes:
 * Revised brand-setting.html css and links.
 * Revised scrollbar and decoupled css & js in episode-list.html.
 * Reversed epcurate-curation.html init logic.

@@ -257,16 +257,6 @@
             <p class="time">${nn._([cms.global.PAGE_ID, 'channel-list', 'Update:'])} ${cms.common.formatTimestamp(updateDate)}</p>
             <div class="func-btns">
                 {{if contentType == cms.config.YOUR_FAVORITE}}
-                <div class="btn-wrap disable">
-                    <ul>
-                        <li><a href="javascript:void(0);" class="add disable">Add</a></li>
-                        <li><a href="javascript:void(0);" class="channel-poi disable">Channel POI</a></li>
-                        <li><a href="episode-list.html?id=${id}" class="detail">Detail<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">${nn._([cms.global.PAGE_ID, 'channel-list', 'Episode list'])}</span></span></span></span></a></li>
-                        <li><a href="javascript:void(0);" class="setting disable">Setting</a></li>
-                        <li><a href="javascript:void(0);" class="del disable">Del</a></li>
-                        <li><a href="javascript:void(0);" class="url disable">${nn._([cms.global.PAGE_ID, 'channel-list', 'Get URL'])}</a></li>
-                    </ul>
-                </div>
                 {{else}}
                 <div class="btn-wrap enable">
                     <ul>
@@ -305,9 +295,9 @@
 <script src="javascripts/v2/config.js?v=1278"></script>
 <script src="javascripts/v2/func.common.js?v=1278"></script>
 <script src="javascripts/v2/func.get-url.js?v=1278"></script>
-<script src="javascripts/v2/func.index.js?v=1278"></script>
+<script src="javascripts/v3/func.index.js?v=1278"></script>
 <script src="javascripts/v2/domready.common.js?v=1278"></script>
 <script src="javascripts/v2/domready.get-url.js?v=1278"></script>
-<script src="javascripts/v2/domready.index.js?v=1278"></script>
+<script src="javascripts/v3/domready.index.js?v=1278"></script>
 </body>
 </html>

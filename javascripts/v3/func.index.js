@@ -7,16 +7,16 @@
     var $common = cms.common;
 
     $page.setFormHeight = function () {
-        // $('#content-main-wrap').height('auto');
+        $('#content-main-wrap').height('auto');
 
-        // var channelListWidth = $('#channel-list').width(),
-        //     imgsWidth = $('#channel-list li .wrap .photo-list').width(),
-        //     funcWidth = $('#channel-list li .wrap .func-wrap').width(),
-        //     titleFuncHeight = $('#title-func').height();
+        var channelListWidth = $('#channel-list').width(),
+            imgsWidth = $('#channel-list li .wrap .photo-list').width(),
+            funcWidth = $('#channel-list li .wrap .func-wrap').width(),
+            titleFuncHeight = $('#title-func').height();
 
-        // $('#content-main-wrap').height($('#content-main-wrap').children('.constrain').height() + titleFuncHeight + 38); // 38: title-func padding
-        // $('#channel-list li .wrap').width(channelListWidth - 36);
-        // $('#channel-list li .wrap .info').width(channelListWidth - imgsWidth - funcWidth - 58 - 15);
+        $('#content-main-wrap').height($('#content-main-wrap').children('.constrain').height() + titleFuncHeight + 38); // 38: title-func padding
+        $('#channel-list li .wrap').width(channelListWidth - 36);
+        $('#channel-list li .wrap .info').width(channelListWidth - imgsWidth - funcWidth - 58 - 15);
     };
 
     $page.showCreateChannelTutorial = function () {
@@ -58,15 +58,6 @@
                         channel.moreImageUrl_2 = cms.config.CHANNEL_DEFAULT_IMAGE2;
                         channel.moreImageUrl_3 = cms.config.CHANNEL_DEFAULT_IMAGE2;
                         if (channel.contentType === cms.config.YOUR_FAVORITE) {
-                            hasFavoriteChannel = true;
-                            channel.moreImageUrl_1 = 'images/favorite_ch.png';
-                            if (channel.moreImageUrl && '' !== $.trim(channel.moreImageUrl)) {
-                                temp = channel.moreImageUrl.split('|');
-                                if (temp[0] && temp[0] !== cms.config.EPISODE_DEFAULT_IMAGE) {
-                                    channel.moreImageUrl_2 = temp[0];
-                                }
-                            }
-                            channel.name = cms.global.USER_DATA.name + nn._([pageId, 'channel-list', "'s Favorite"]);
                         } else {
                             if (channel.imageUrl && '' !== $.trim(channel.imageUrl) && channel.imageUrl !== cms.config.EPISODE_DEFAULT_IMAGE) {
                                 channel.moreImageUrl_1 = channel.imageUrl;
@@ -80,8 +71,8 @@
                                     channel.moreImageUrl_2 = temp[0];
                                 }
                             }
+                            items.push(channel);
                         }
-                        items.push(channel);
                     });
                     $('#channel-list').html('');
                     $('#channel-list-tmpl-item').tmpl(items, {
