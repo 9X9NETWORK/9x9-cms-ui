@@ -1746,7 +1746,8 @@
     text-align: left;
     position: relative;
     display: block;
-    left: 17px;
+    /*left: 17px;*/
+    margin: 0;
 }
 #brand-layer .msg-error, #portal-layer .msg-error {
     float: left;

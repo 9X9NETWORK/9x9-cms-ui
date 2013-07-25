@@ -1,3 +1,11 @@
+Date: 2013/07/25
+
+Changes:
+* Revised brand-setting.html css and links.
+* Revised scrollbar and decoupled css & js in episode-list.html.
+* Reversed epcurate-curation.html init logic.
+* Added 15px bottom margin for scrollbar in channel-add, store-manage and portal-manage.
+
 Date: 2013/07/24
 
 Changes:
