@@ -1,3 +1,9 @@
+Date: 2013/07/29 09:49 Mars
+
+Changes:
+* fix stylesheetsv3/channel.css line 610 for channel-setting Description textarea height
+
+
 Date: 2013/07/29 Mars
 
 Changes:
