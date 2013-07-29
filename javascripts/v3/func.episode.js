@@ -6,69 +6,11 @@
 
     var $common = cms.common;
 
-    $page.setEpisodeWidth = function () {
-        //var wrapWidth = $('#content-main-wrap').width(),
-        //    contentmainWidth = $('#content-main').width(),
-        //    crumbWidth = $('#title-func .title-crumb').width(),
-        //    titleBtnsWidth = $('#title-func ul').width(),
-        //    scheduledWidth = $('#ep-list ul li .scheduled-time').width(),
-        //    publishWidth = $('#ep-list ul li .publish-time').width(),
-        //    viewsWidth = $('#ep-list ul li .views').width(),
-        //    numberWidth = $('#ep-list ul li .number').width() + 20; // 20 ix padding
-
-        // set min size
-        //if (numberWidth < 50) {
-        //    numberWidth = 50;
-        //}
-        //$('#ep-list ul li .wrap, #title-func .caption').width(wrapWidth - 31 - 1);  // 1:border
-        //$('#ep-list ul li .episode, #title-func .caption  p.episode').width(wrapWidth - 31 - numberWidth - scheduledWidth - publishWidth - viewsWidth - 1);   // 1:border
-        //$('#ep-list ul li .number').width(numberWidth - 20);    // 20 is padding
-        //if ($('#ep-list ul li .episode').length > 0 && $('#channel-name').data('width') + crumbWidth + 10 > contentmainWidth - titleBtnsWidth) {  // 10: title-func padding
-        //    $('#title-func h2').width(contentmainWidth - titleBtnsWidth - 10 - 15);  // 10: title-func padding, 15: channel name and btns space
-        //    $('#channel-name').width($('#title-func h2').width() - crumbWidth - 6);  // 6: channel name margin
-        //} else {
-        //    $('#title-func h2').width('auto');
-        //    $('#channel-name').width('auto');
-        //}
-    };
+    // $page.setEpisodeWidth = function () {
+    // };
 
     $page.setPageScroll = function (isDown) {
-        // var eplHeightBefore = $('#content-main-wrap').height(),
-        //     sliderValue = $('#main-wrap-slider' + ' .slider-vertical').slider('value'),
-        //     iPos = 0,
-        //     eplHeightAfter = 0,
-        //     newPos = 0,
-        //     tmpPos = 0;
-
-        // // if haven't scroll bar need it to init sliderValue
-        // if (typeof sliderValue === 'object') {
-        //     sliderValue = 100;
-        // }
-        // iPos = eplHeightBefore * (sliderValue / cms.global.SLIDER_MAX);
-        // $common.autoHeight();   // after this run the height will be update
-        // eplHeightAfter = $('#content-main-wrap').height();
         $('#content-main-wrap').perfectScrollbar('update');
-		// $common.scrollbar('#content-main', '#content-main-wrap', '#main-wrap-slider');
-        // if ('none' === $('#main-wrap-slider').css('display')) {
-        //     $('#main-wrap-slider .slider-vertical').slider('destroy');
-        //     $('#main-wrap-slider .slider-vertical').slider();
-        //     $('#main-wrap-slider').hide();
-        //     $('#content-main-wrap').css('top', '0');
-        // }
-        // newPos = cms.global.SLIDER_MAX;
-        // // translate new postion
-        // if (eplHeightAfter > eplHeightBefore) {
-        //     tmpPos = eplHeightAfter - eplHeightBefore;
-        //     newPos = parseInt(((iPos + tmpPos) / eplHeightAfter) * cms.global.SLIDER_MAX, 10);
-        // } else {
-        //     // remove episode list
-        //     tmpPos = eplHeightAfter - eplHeightBefore;
-        //     if (isDown !== 'down') {
-        //         iPos = iPos + tmpPos;
-        //     }
-        //     newPos = parseInt((iPos / eplHeightAfter) * cms.global.SLIDER_MAX, 10);
-        // }
-        // $('#main-wrap-slider .slider-vertical').slider('value', newPos);
     };
 
     $page.afterDelete = function (inID) {
@@ -198,6 +140,9 @@
                                     }
                                 });
                                 $('#episode-list').sortable('disable');
+
+                                $('#content-main-wrap').perfectScrollbar({marginTop: 50, marginBottom: 60});
+
                             } else {
                                 $('#episode-first-tmpl').tmpl({
                                     id: id
@@ -215,11 +160,10 @@
                                     pause: 1,
                                     cleartypeNoBg: true
                                 });
+
+                                $('#content-main-wrap').perfectScrollbar({marginTop: 20, marginBottom: 60});
                             }
-                            // $page.setEpisodeWidth();
-                            $('#content-main-wrap').perfectScrollbar({marginTop: 50, marginBottom: 60});
-							//$common.autoHeight();
-                            //$common.scrollbar('#content-main', '#content-main-wrap', '#main-wrap-slider');
+
                             $('#overlay-s').fadeOut();
 
                             // sharing url
