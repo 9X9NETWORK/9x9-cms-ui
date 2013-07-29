@@ -1,3 +1,8 @@
+Date: 2013/07/29 Mars
+
+Changes:
+* change stylesheetsv3/style.css line 1016 padding-top: 17px; to padding-top: 15px;
+
 Date: 2013/07/26
 
 Changes:
