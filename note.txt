@@ -1,3 +1,18 @@
+Date: 2013/07/29
+
+Changes:
+* Revised html template for invalid video.
+* Revised invalid video checking module comments and logic.
+* Refactored video adding validity check with cms.youtube-utility.js module.
+* Implemented horizontal scrollbar adding video behavior using perfect scrollbar plugin.
+* Added multi-lang text.
+* Refactored epcurate-curation with cms.youtube-utility.js.
+* Added cms.youtube-utility.js.
+* Refactored $page.init of fund.curation.js.
+* Removed class 'ps-container' in signin.html div.
+* Decoupled and revised channel-setting.html and channel-add.html css & js.
+* Revised empty episode-list.html layout.
+
 Date: 2013/07/29 09:49 Mars
 
 Changes:
