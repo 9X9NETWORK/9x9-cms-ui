@@ -439,8 +439,8 @@ body.mac #title-func ul li p span a {
 #ep-list ul li .episode p.no-img span.duration {
     display: block;
     position: absolute;
-    bottom: 7px;
-    right: 7px;
+    bottom: 0px;
+    right: 0px;
     float: right;
     height: 14px;
     padding: 0 0 0 2px;
