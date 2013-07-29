@@ -391,14 +391,14 @@
         },
         "setting-form": {
             "Title": "名稱",
-            "Best within 20 characters": "建議20字以內",
-            "Thumbnail": "圖示",
+            "Best within 10 characters": "建議10字以內",
+            "Channel logo": "頻道商標",
             "Upload": "上傳",
             "Uploading...": "上傳中...",
             "Better results with 300x300 or higher resolution image": "建議圖片解析度為300x300或以上",
             "Please upload jpeg, png, or gif files.": "請上傳jpeg, png或gif檔。",
             "Description": "介紹",
-            "Best within 70 characters": "建議70字以內",
+            "Best within 52 characters": "建議52字以內",
             "Channel language": "頻道語言",
             "Select a language": "選擇語言",
             "English": "English",
@@ -524,7 +524,11 @@
             "<strong>Curate online videos</strong> into each single episode.": "在一集節目中<strong>輕鬆策展多個影片</strong>。",
             "Tell your story by <strong>arranging the video sequence.</strong>": "<strong>編排影片播放順序</strong>，說一個獨一無二的故事。",
             "<strong>Trim the videos and add titles</strong> to make your episodes more intriguing.": "<strong>剪輯影片與加入字卡</strong>，讓您的節目更引人入勝。",
-            "<strong>Schedule your episodes,</strong> and 9x9 will publish the episodes automatically.": "<strong>設定節目自動排程發佈</strong>，讓粉絲定時享受最新節目。"
+            "<strong>Schedule your episodes,</strong> and 9x9 will publish the episodes automatically.": "<strong>設定節目自動排程發佈</strong>，讓粉絲定時享受最新節目。",
+            "Video check": "失效影片檢查",
+            "No video has problem": "無問題影片",
+            "Find ? video has problem.": "找到 {0} 個問題影片",
+            "Find ? videos have problem.": "找到 {0} 個問題影片"
         }
     },
     "epcurate-publish": {
@@ -590,7 +594,8 @@
             "Invalid URL, please try again!": "連結有誤，請重新嘗試！",
             "Fail to add this video, please try another one.<br />[This video is not playable outside Youtube]": "無法加入此影片，請嘗試其他影片。<br />[此影片無法在YouTube以外的網站播放]",
             "Fail to add this video, please try another one.<br />[This video is not playable on mobile device]": "無法加入此影片，請嘗試其他影片。<br />[此影片無法於行動裝置播放]",
-            "Fail to add this video, please try another one.<br />[This is a private video]": "無法加入此影片，請嘗試其他影片。<br />[此影片為私人影片]"
+            "Fail to add this video, please try another one.<br />[This is a private video]": "無法加入此影片，請嘗試其他影片。<br />[此影片為私人影片]",
+            "Unplayable video, please try again!": "無法播放的影片，請重新嘗試。"
         },
         "video-info": {
             "Original": "原長度",
@@ -718,7 +723,8 @@
             "Add Title": "新增字卡",
             "Invalid video": "失效的影片",
             "Non-embeddable video": "外站禁播的影片",
-            "Private video": "私人的影片"
+            "Private video": "私人的影片",
+            "Unplayable video": "無法播放的影片"
         }
     }
 }
