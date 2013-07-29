@@ -1672,14 +1672,7 @@
                 ytItem = {},
                 ytList = [],
                 beginTitleCard = null,
-                endTitleCard = null,
-                isPrivateVideo = null,
-                isZoneLimited = null,
-                hasSyndicateDenied = null,
-                hasLimitedSyndication = null,
-                isSyndicateLimited = null,
-                isEmbedLimited = null,
-                isUnplayableVideo = null;
+                endTitleCard = null;
 
             $.each(programs, function (idx, programItem) {
                 if (normalPattern.test(programItem.fileUrl)) {
@@ -1717,6 +1710,7 @@
                     committedCnt += 1;
                     beginTitleCard = null;
                     endTitleCard = null;
+
                     if (title_card.length > 0) {
                         if (title_card[1]) {
                             if (1 === title_card[1].type) {
@@ -1756,24 +1750,11 @@
                     } else {
                         endTitleCard = null;
                     }
-                    if (youtubes.data) {
+
+                    var checkResult = cms.youtubeUtility.checkVideoValidity(youtubes);
+
+                    if (youtubes.data && false === checkResult.isEmbedLimited) {
                         ytData = youtubes.data;
-                        isPrivateVideo = false;
-                        isZoneLimited = (ytData.restrictions) ? true : false;
-                        hasSyndicateDenied = (ytData.accessControl && ytData.accessControl.syndicate && 'denied' === ytData.accessControl.syndicate) ? true : false;
-                        hasLimitedSyndication = (ytData.status && ytData.status.reason && 'limitedSyndication' === ytData.status.reason) ? true : false;
-                        isSyndicateLimited = (hasSyndicateDenied || hasLimitedSyndication) ? true : false;
-                        isEmbedLimited = (ytData.accessControl && ytData.accessControl.embed && 'denied' === ytData.accessControl.embed) ? true : false;
-                        isUnplayableVideo = (isEmbedLimited || hasSyndicateDenied || (ytData.status && !hasLimitedSyndication)) ? true : false;
-                    } else {
-                        ytData = null;
-                        isPrivateVideo = (youtubes.error && youtubes.error.code && 403 === youtubes.error.code) ? true : false;
-                        isZoneLimited = null;
-                        isSyndicateLimited = null;
-                        isEmbedLimited = null;
-                        isUnplayableVideo = null;
-                    }
-                    if (ytData && false === isEmbedLimited) {
                         ytItem = {
                             poiList: poi_points,
                             beginTitleCard: beginTitleCard,
@@ -1787,11 +1768,6 @@
                             intro: ytData.description,
                             uploader: ytData.uploader,
                             uploadDate: ytData.uploaded,
-                            isPrivateVideo: isPrivateVideo,
-                            isZoneLimited: isZoneLimited,
-                            isSyndicateLimited: isSyndicateLimited,
-                            isEmbedLimited: isEmbedLimited,
-                            isUnplayableVideo: isUnplayableVideo
                         };
                     } else {
                         ytItem = {
@@ -1802,13 +1778,11 @@
                             ytDuration: 0,                                                                      // fake origin duration (invalid video)
                             uploader: ((youtubes.error) ? youtubes.error.message : 'Unplayable-Video'),         // fake uploader (error message)
                             uploadDate: ((youtubes.error) ? (youtubes.error.code + 'T') : 'Unplayable-VideoT'), // fake uploadDate (error code)
-                            isPrivateVideo: isPrivateVideo,
-                            isZoneLimited: isZoneLimited,
-                            isSyndicateLimited: isSyndicateLimited,
-                            isEmbedLimited: isEmbedLimited,
-                            isUnplayableVideo: isUnplayableVideo
                         };
                     }
+
+                    ytItem = $.extend(ytItem, checkResult);
+
                     ytItem = $.extend(programItem, ytItem);
                     ytList[idx] = ytItem;
                     if (committedCnt === programList.length) {
