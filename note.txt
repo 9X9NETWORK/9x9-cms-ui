@@ -1,3 +1,9 @@
+Date: 2013/07/30 14:38 Mars
+
+Changes:
+* episode-list Get Url click add class selected
+
+
 Date: 2013/07/29 16:58 Mars
 
 Changes:
