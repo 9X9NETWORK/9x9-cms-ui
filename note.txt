@@ -1,3 +1,9 @@
+Date: 2013/07/31 10:29 Mars
+1. ep-curation Storyboard mouse over all area with cursor: move
+----
+異動 : \stylesheetsv3\ep-curation.css
+
+
 Date: 2013/07/30 14:38 Mars
 
 Changes:
