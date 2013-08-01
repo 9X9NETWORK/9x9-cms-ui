@@ -914,16 +914,16 @@
 }
 
 #poi-event-overlay .wrap .content ul.list li .block .img {
-    width: 237px;
-    height: 113px;
-    margin: 9px 0 14px 10px;
-    border-radius: 3px;
+    width: 205px;
+    height: 104px;
+    margin: 15px auto 14px auto;
+    border-radius: 6px;
     background: url(../images/poi_type.png) no-repeat 0 0;
     cursor: pointer;
 }
 
 #poi-event-overlay .wrap .content ul.list li:hover .block .img {
-    margin: 8px 0 14px 9px;
+    margin: 14px auto 14px auto;
 }
 
 #poi-event-overlay .wrap .content ul.list li .block .img.hyper {
@@ -938,7 +938,7 @@
     box-shadow: 0 1px 10px rgba(231, 244, 196, 0.75) inset, 0 0 10px rgba(255, 255, 227, 0.9) inset, 0 0 2px rgba(255, 255, 255, 0.9) inset, 0 0 20px rgba(163, 207, 80, 0.5);
     border: 1px solid #6cc042;
     background-color: #c1dca7;
-    background-position: 0 -116px;
+    background-position: 0 -106px;
     behavior: url(PIE.htc);
 }
 
@@ -946,7 +946,18 @@
     box-shadow: 0 1px 10px rgba(238, 126, 125, 0.1) inset, 0 0 10px rgba(255, 255, 255, 0.9) inset, 0 0 2px rgba(255, 143, 149, 0.9) inset, 0 0 20px rgba(237, 28, 36, 0.1);
     border: 1px solid #bb3d3c;
     background-color: #ddbaba;
-    background-position: 0 -231px;
+    background-position: 0 -212px;
+    behavior: url(PIE.htc);
+}
+
+#poi-event-overlay .wrap .content ul.list li .block .img.poll {
+    /*box-shadow: 0 1px 10px rgba(231, 244, 196, 0.75) inset, 0 0 10px rgba(255, 255, 227, 0.9) inset, 0 0 2px rgba(255, 255, 255, 0.9) inset, 0 0 20px rgba(163, 207, 80, 0.5);
+    border: 1px solid #ffc13e;
+    background-color: #fff3b1;*/
+    box-shadow: 0 1px 10px rgba(246, 215, 68, 0.75) inset, 0 0 10px rgba(255, 255, 118, 0.9) inset, 0 0 2px rgba(252, 208, 0, 0.9) inset, 0 0 20px rgba(246, 215, 68, 0.5);
+    border: 1px solid #a96c1e;
+    background-color: #e6d7ab;
+    background-position: 0 -318px;
     behavior: url(PIE.htc);
 }
 
@@ -1117,12 +1128,17 @@ body.from-poi-edit-mode #poi-event-overlay .wrap .content .func ul li.notice {
     color: #555;
     font-weight: bold;
     font-size: 13px;
+    text-align: left;
 }
 
 #poi-event-overlay .wrap .content .event-input .fminput p.text {
     float: left;
     height: 30px;
     padding: 0 0 0 3px;
+}
+
+#poi-event-overlay .wrap .content .event-input .fminput p.text.poll {
+    margin-right: 8px;
 }
 
 #poi-event-overlay .wrap .content .event-input .fminput p.text span {
@@ -1141,6 +1157,18 @@ body.from-poi-edit-mode #poi-event-overlay .wrap .content .func ul li.notice {
     background-position: 0 -60px;
     color: #555;
     font: 13px/30px Arial, Helvetica;
+}
+
+#poi-event-overlay .wrap .content .event-input .fminput p.text span .text.poll-text {
+    width: 580px;
+}
+
+#poi-event-overlay .wrap .content .event-input .fminput p.text span .text.poll-button {
+    width: 105px;
+}
+
+#poi-event-overlay .wrap .content .event-input .fminput .btn-gray .center a {
+    padding: 2px 5px;
 }
 
 #poi-event-overlay .wrap .content .event-input .fminput .notice {

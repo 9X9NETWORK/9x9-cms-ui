@@ -7,7 +7,7 @@
 <meta http-equiv="expires" content="0" />
 <link rel="stylesheet" href="http://9x9ui.s3.amazonaws.com/poi/jquery.poi.css?v=1278" />
 <link rel="stylesheet" href="stylesheetsv3/style.css?v=1278" />
-<link rel="stylesheet" href="stylesheets/lightbox.css?v=1278" />
+<link rel="stylesheet" href="stylesheetsv3/lightbox.css?v=1278" />
 <link rel="stylesheet" href="stylesheets/uniform.css?v=1278" />
 <link rel="stylesheet" href="stylesheets/playback.css?v=1278" />
 <link rel="stylesheet" href="stylesheets/jquery.datepick.css?v=1278" />
@@ -585,6 +585,14 @@
                     <p>${nn._([cms.global.PAGE_ID, 'poi-event', 'Send a scheduled notification to user to get more information.'])}</p>
                 </div>
             </li>
+            <li class="event-poll">
+                <div class="block">
+                    <div class="img poll">
+                        <h4>${nn._([cms.global.PAGE_ID, 'poi-event', 'Poll'])}</h4>
+                    </div>
+                    <p>${nn._([cms.global.PAGE_ID, 'poi-event', 'Establish a multiple choice event, eg. a campaign, a poll, a survey, etc.'])}</p>
+                </div>
+            </li>
             <li class="event-instant">
                 <div class="block">
                     <div class="img instant">
@@ -787,6 +795,66 @@
                         <li class="btns"><span><a href="#" class="btn-save">${nn._([cms.global.PAGE_ID, 'poi-event', 'Save'])}</a></span></li>
                     </ul>
                 </div>
+            </div>
+        </form>
+    </div>
+    <div id="event-poll" class="event hide">
+        <form name="eventPollForm" id="eventPollForm" method="get" action="">
+            <input type="hidden" name="notifyMsg" value="" />
+            <input type="hidden" name="notifyScheduler" value="" />
+            <p class="crumb create"><a href="#" class="unblock">${nn._([cms.global.PAGE_ID, 'poi-event', 'Create POI'])}</a> &gt; <a href="#" class="crumb-event event-select">${nn._([cms.global.PAGE_ID, 'poi-event', 'Add interactive event'])}</a> &gt; ${nn._([cms.global.PAGE_ID, 'poi-event', 'Poll'])}</p>
+            <p class="crumb edit"><a href="#" class="unblock">${nn._([cms.global.PAGE_ID, 'poi-event', 'POI'])}</a> &gt; ${nn._([cms.global.PAGE_ID, 'poi-event', 'Interactive event : Poll'])}</p>
+            <p class="required"><acronym title="Required field" class="mark-required">*</acronym>${nn._([cms.global.PAGE_ID, 'poi-event', 'Required field'])}</p>
+            <div class="video-wrap">
+                <div id="event-poll-video" class="video"></div>
+                <div class="poi-display"></div>
+                <div class="mask">
+                    <p>${nn._([cms.global.PAGE_ID, 'poi-event', 'PREVIEW'])}</p>
+                    <p class="no-video hide">${nn._([cms.global.PAGE_ID, 'poi-event', 'There is no valid video to preview.'])}</p>
+                </div>
+            </div>
+            <div class="event-input">
+                <div class="fminput">
+                    <label for="poll_display_text"><acronym title="Required field" class="mark-required">*</acronym>${nn._([cms.global.PAGE_ID, 'poi-event', 'Display text'])}:</label>
+                    <p class="text"><span><input type="text" name="displayText" id="poll_display_text" value="${message}" placeholder="${nn._([cms.global.PAGE_ID, 'poi-event', 'Input display text'])}" class="text poll-text" /></span></p>
+                </div>
+                <div class="fminput">
+                    <label for="poll_button_text"><acronym title="Required field" class="mark-required">*</acronym>${nn._([cms.global.PAGE_ID, 'poi-event', 'Button text'])}:</label>
+                    <p class="text poll">
+                        <span>
+                            <input type="text" name="btnText" id="poll_button_text" maxlength="20" value="${button}" placeholder="${nn._([cms.global.PAGE_ID, 'poi-event', 'Input display text'])}" class="text poll-button" />                    
+                        </span>
+                    </p>
+                    <p class="text poll">
+                        <span>
+                            <input type="text" name="btnText" id="poll_button_text" maxlength="20" value="${button}" placeholder="${nn._([cms.global.PAGE_ID, 'poi-event', 'Input display text'])}" class="text poll-button" />                    
+                        </span>
+                    </p>
+                    <p class="text poll">
+                        <span>
+                            <input type="text" name="btnText" id="poll_button_text" maxlength="20" value="${button}" placeholder="${nn._([cms.global.PAGE_ID, 'poi-event', 'Input display text'])}" class="text poll-button" />                    
+                        </span>
+                    </p>
+                    <p class="text poll">
+                        <span>
+                            <input type="text" name="btnText" id="poll_button_text" maxlength="20" value="${button}" placeholder="${nn._([cms.global.PAGE_ID, 'poi-event', 'Input display text'])}" class="text poll-button" />                    
+                        </span>
+                    </p>
+                    <div class="btn-gray">
+                        <p class="left"></p>
+                        <p class="center">
+                            <a href="#" class="langkey">Add Button</a>
+                        </p>
+                        <p class="right"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="func">
+                <ul>
+                    <li class="notice">${nn._([cms.global.PAGE_ID, 'poi-event', 'Please fill in all required fields.'])}</li>
+                    <li class="btns"><span><a href="#" class="btn-cancel">${nn._([cms.global.PAGE_ID, 'poi-event', 'Cancel'])}</a></span></li>
+                    <li class="btns"><span><a href="#" class="btn-save">${nn._([cms.global.PAGE_ID, 'poi-event', 'Save'])}</a></span></li>
+                </ul>
             </div>
         </form>
     </div>
