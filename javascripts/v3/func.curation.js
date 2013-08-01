@@ -1702,98 +1702,98 @@
                 .then(getTitleCard)
                 .then(getPoiPoints)
                 .then(function(programItem, youtubes, title_card, poi_points){
-                    committedCnt += 1;
-                    beginTitleCard = null;
-                    endTitleCard = null;
+                        committedCnt += 1;
+                        beginTitleCard = null;
+                        endTitleCard = null;
 
-                    if (title_card.length > 0) {
-                        if (title_card[1]) {
-                            if (1 === title_card[1].type) {
-                                beginTitleCard = title_card[0];
-                                endTitleCard = title_card[1];
-                            } else {
-                                beginTitleCard = title_card[1];
-                                endTitleCard = title_card[0];
-                            }
-                        } else {
-                            if (title_card[0]) {
-                                if (0 === title_card[0].type) {
+                        if (title_card.length > 0) {
+                            if (title_card[1]) {
+                                if (1 === title_card[1].type) {
                                     beginTitleCard = title_card[0];
+                                    endTitleCard = title_card[1];
                                 } else {
+                                    beginTitleCard = title_card[1];
                                     endTitleCard = title_card[0];
+                                }
+                            } else {
+                                if (title_card[0]) {
+                                    if (0 === title_card[0].type) {
+                                        beginTitleCard = title_card[0];
+                                    } else {
+                                        endTitleCard = title_card[0];
+                                    }
                                 }
                             }
                         }
-                    }
-                    if (beginTitleCard && beginTitleCard.message && '' !== $.trim(beginTitleCard.message)) {
-                        beginTitleCard.message = $.trim(beginTitleCard.message).replace(/\{BR\}/g, '\n');
-                        if (beginTitleCard.bgImage && '' !== $.trim(beginTitleCard.bgImage)) {
-                            preloadImage.push({
-                                image: beginTitleCard.bgImage
-                            });
+                        if (beginTitleCard && beginTitleCard.message && '' !== $.trim(beginTitleCard.message)) {
+                            beginTitleCard.message = $.trim(beginTitleCard.message).replace(/\{BR\}/g, '\n');
+                            if (beginTitleCard.bgImage && '' !== $.trim(beginTitleCard.bgImage)) {
+                                preloadImage.push({
+                                    image: beginTitleCard.bgImage
+                                });
+                            }
+                        } else {
+                            beginTitleCard = null;
                         }
-                    } else {
-                        beginTitleCard = null;
-                    }
-                    if (endTitleCard && endTitleCard.message && '' !== $.trim(endTitleCard.message)) {
-                        endTitleCard.message = $.trim(endTitleCard.message).replace(/\{BR\}/g, '\n');
-                        if (endTitleCard.bgImage && '' !== $.trim(endTitleCard.bgImage)) {
-                            preloadImage.push({
-                                image: endTitleCard.bgImage
-                            });
+                        if (endTitleCard && endTitleCard.message && '' !== $.trim(endTitleCard.message)) {
+                            endTitleCard.message = $.trim(endTitleCard.message).replace(/\{BR\}/g, '\n');
+                            if (endTitleCard.bgImage && '' !== $.trim(endTitleCard.bgImage)) {
+                                preloadImage.push({
+                                    image: endTitleCard.bgImage
+                                });
+                            }
+                        } else {
+                            endTitleCard = null;
                         }
-                    } else {
-                        endTitleCard = null;
-                    }
 
-                    var checkResult = cms.youtubeUtility.checkVideoValidity(youtubes);
+                        var checkResult = cms.youtubeUtility.checkVideoValidity(youtubes);
 
-                    if (youtubes.data && false === checkResult.isEmbedLimited) {
-                        ytData = youtubes.data;
-                        ytItem = {
-                            poiList: poi_points,
-                            beginTitleCard: beginTitleCard,
-                            endTitleCard: endTitleCard,
-                            ytId: ytData.id,
-                            fileUrl: programItem.fileUrl,
-                            imageUrl: 'http://i.ytimg.com/vi/' + ytData.id + '/mqdefault.jpg',
-                            //duration: ytData.duration,      // ON PURPOSE to mark this line to keep trimmed duration from 9x9 API
-                            ytDuration: ytData.duration,    // keep original duration from YouTube
-                            name: ytData.title,
-                            intro: ytData.description,
-                            uploader: ytData.uploader,
-                            uploadDate: ytData.uploaded,
-                        };
-                    } else {
-                        ytItem = {
-                            poiList: poi_points,
-                            beginTitleCard: beginTitleCard,
-                            endTitleCard: endTitleCard,
-                            ytId: programItem.fileUrl.slice(-11),
-                            ytDuration: 0,                                                                      // fake origin duration (invalid video)
-                            uploader: ((youtubes.error) ? youtubes.error.message : 'Unplayable-Video'),         // fake uploader (error message)
-                            uploadDate: ((youtubes.error) ? (youtubes.error.code + 'T') : 'Unplayable-VideoT'), // fake uploadDate (error code)
-                        };
-                    }
-
-                    ytItem = $.extend(ytItem, checkResult);
-
-                    ytItem = $.extend(programItem, ytItem);
-                    ytList[idx] = ytItem;
-                    if (committedCnt === programList.length) {
-                        committedCnt = -1;   // reset to avoid collision
-                        if (preloadImage.length > 0) {
-                            $('#preload-image').html('');
-                            $('#preload-image-tmpl-item').tmpl(preloadImage).prependTo('#preload-image');
+                        if (youtubes.data && false === checkResult.isEmbedLimited) {
+                            ytData = youtubes.data;
+                            ytItem = {
+                                poiList: poi_points,
+                                beginTitleCard: beginTitleCard,
+                                endTitleCard: endTitleCard,
+                                ytId: ytData.id,
+                                fileUrl: programItem.fileUrl,
+                                imageUrl: 'http://i.ytimg.com/vi/' + ytData.id + '/mqdefault.jpg',
+                                //duration: ytData.duration,      // ON PURPOSE to mark this line to keep trimmed duration from 9x9 API
+                                ytDuration: ytData.duration,    // keep original duration from YouTube
+                                name: ytData.title,
+                                intro: ytData.description,
+                                uploader: ytData.uploader,
+                                uploadDate: ytData.uploaded,
+                            };
+                        } else {
+                            ytItem = {
+                                poiList: poi_points,
+                                beginTitleCard: beginTitleCard,
+                                endTitleCard: endTitleCard,
+                                ytId: programItem.fileUrl.slice(-11),
+                                ytDuration: 0,                                                                      // fake origin duration (invalid video)
+                                uploader: ((youtubes.error) ? youtubes.error.message : 'Unplayable-Video'),         // fake uploader (error message)
+                                uploadDate: ((youtubes.error) ? (youtubes.error.code + 'T') : 'Unplayable-VideoT'), // fake uploadDate (error code)
+                            };
                         }
-                        $('#storyboard-listing').html('');
-                        $('#storyboard-listing-tmpl-item').tmpl(ytList).prependTo('#storyboard-listing');
-                        $page.sumStoryboardInfo();
-                        $page.rebuildVideoNumber();
-                        $('.ellipsis').ellipsis();
-                        $('#overlay-s').fadeOut();
-                    }
-                });
+
+                        ytItem = $.extend(ytItem, checkResult);
+
+                        ytItem = $.extend(programItem, ytItem);
+                        ytList[idx] = ytItem;
+                        if (committedCnt === programList.length) {
+                            committedCnt = -1;   // reset to avoid collision
+                            if (preloadImage.length > 0) {
+                                $('#preload-image').html('');
+                                $('#preload-image-tmpl-item').tmpl(preloadImage).prependTo('#preload-image');
+                            }
+                            $('#storyboard-listing').html('');
+                            $('#storyboard-listing-tmpl-item').tmpl(ytList).prependTo('#storyboard-listing');
+                            $page.sumStoryboardInfo();
+                            $page.rebuildVideoNumber();
+                            $('.ellipsis').ellipsis();
+                            $('#overlay-s').fadeOut();
+                        }
+                    });
 
             });
         }
