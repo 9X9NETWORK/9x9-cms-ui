@@ -1,3 +1,15 @@
+Date: 2013/08/01
+Changes:
+* Added poi poll lang text.
+* Added poi poll template.
+* Updated poi type style and added poi_type image.
+* Update youtube-utility from webapp repository.
+* Fixed channel-add and channel-settings layout fail bug.
+* Fixed epcurate-curation.html loading with empty video bug.
+* Fixed Facebook logo and drop down menu spacing bug.
+* Recovered min-height of epcurate-curation.html.
+* Cloned lightbox.css to stylesheetsv3.
+
 Date: 2013/07/31 10:29 Mars
 1. ep-curation Storyboard mouse over all area with cursor: move
 ----
