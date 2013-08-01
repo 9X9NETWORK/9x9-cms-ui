@@ -459,6 +459,8 @@
             "Coming Soon": "即將推出",
             "Scheduled Notification": "排程通知",
             "Send a scheduled notification to user to get more information.": "設定排程通知，使用者可於特定時間獲得更多資訊。",
+            "Poll": "投票",
+            "Establish a multiple choice event, eg. a campaign, a poll, a survey, etc.": "建立一個多選一的事件，例如活動, 票選, 調查等等。",
             "Instant Notification": "即時通知",
             "Send an instant notification to user to get more information.": "設定即時通知，使用者可即時獲得更多資訊。",
             "POI": "互動時間點",

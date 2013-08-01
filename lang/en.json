@@ -459,6 +459,8 @@
             "Coming Soon": "Coming Soon",
             "Scheduled Notification": "Scheduled Notification",
             "Send a scheduled notification to user to get more information.": "Send a scheduled notification to user to get more information.",
+            "Poll": "Poll",
+            "Establish a multiple choice event, eg. a campaign, a poll, a survey, etc.": "Establish a multiple choice event, eg. a campaign, a poll, a survey, etc.",
             "Instant Notification": "Instant Notification",
             "Send an instant notification to user to get more information.": "Send an instant notification to user to get more information.",
             "POI": "POI",
