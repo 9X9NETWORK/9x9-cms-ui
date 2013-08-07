@@ -181,6 +181,7 @@ body.mac #title-func h2 {
     left: 5px;
     width: 32px;
     height: 32px;
+	overflow: hidden;
 }
 
 #channel-list li .photo-list .ch .img {
