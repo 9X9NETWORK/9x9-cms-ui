@@ -1253,17 +1253,6 @@ body.mac #title-func h2 {
 }
 
 /* Channel settingForm form button */
-#content-main-wrap form .form-btn {
-    overflow: hidden;
-    position: absolute;
-    bottom: 15px;
-    right: 0;
-}
-
-#content-main-wrap form .form-btn .form-btn-wrap {
-    float: right;
-}
-
 #content-main-wrap form .form-btn .form-btn-wrap .notice,
 #content-main-wrap form .form-btn .form-btn-wrap .btns {
     float: left;
@@ -1292,28 +1281,6 @@ body.mac #title-func h2 {
     margin-right: 15px;
 }
 
-/* */
-#content-main-wrap.fixed {
-    /*height: 100%;*/
-}
-
-#content-main-wrap.fixed .constrain {
-    /*height: 100%;*/
-}
-
-#content-main-wrap.fixed form {
-    /*height: 100%;*/
-}
-
-#content-main-wrap.fixed form .form-btn {
-    bottom: 15px;
-    right: 35px;
-    position: fixed;
-}
-
-#content-main-wrap.fixed.footer-on form .form-btn {
-    bottom: 63px;
-}
 
 /* Get URL */
 #channel-list .get-url {

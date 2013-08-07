@@ -125,11 +125,11 @@
     width: 152px;
     height: 22px;
     padding: 5px 0 0;
-	margin: 0 0 7px 0;
 }
 
 #content-main-wrap form .fminput .fmfield .connect .btns {
     position: relative;
+	margin: 0 0 7px 0;
 }
 
 #content-main-wrap form .fminput .fmfield .connect img {
@@ -169,17 +169,6 @@
 
 #content-main-wrap form .fminput .fmfield .notice {
     line-height: 20px;
-}
-
-#content-main-wrap form .form-btn {
-    overflow: hidden;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
-#content-main-wrap form .form-btn .form-btn-wrap {
-    float: right;
 }
 
 #content-main-wrap form .form-btn .form-btn-wrap .notice,

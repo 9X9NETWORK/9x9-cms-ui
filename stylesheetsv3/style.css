@@ -40,7 +40,7 @@ abbr, acronym {
     margin: -300px 0 0 -424px;
     border-radius: 10px;
     background-color: #000;
-    opacity: 0.6;
+    opacity: 0.9;
 }
 
 /* loading overlay */
@@ -704,7 +704,7 @@ abbr, acronym {
     display: block;
     height: 31px;
     line-height: 31px;
-    color: #555;
+    color: #999;
     font-weight: bold;
     font-size: 15px;
     text-align: center;
@@ -912,6 +912,38 @@ abbr, acronym {
 #content-main-wrap.footer-on {
     /*bottom: 48px;*/
 }
+
+#content-main-wrap form .form-btn {
+    overflow: hidden;
+    position: absolute;
+    bottom: 15px;
+    right: 0;
+}
+
+#content-main-wrap form .form-btn .form-btn-wrap {
+    float: right;
+}
+
+/* Fixed Position for form-btn */
+#content-main-wrap.fixed {
+}
+
+#content-main-wrap.fixed .constrain {
+}
+
+#content-main-wrap.fixed form {
+}
+
+#content-main-wrap.fixed form .form-btn {
+    bottom: 15px;
+    right: 35px;
+    position: fixed;
+}
+
+#content-main-wrap.fixed form .form-btn {
+    bottom: 63px;
+}
+
 
 div.constrain {
     margin-right: 35px;
@@ -1311,7 +1343,7 @@ div.constrain {
 }
 
 .cms-setup {
-    color: #c4c4c4;
+    color: #b4b4b4;
     font-size: 32px;
     font-weight: bold;
     text-align: center;

@@ -24,7 +24,7 @@
                 location.href = 'signin.html';
             }
         }
-        $('#login-layer').perfectScrollbar({marginTop: 65, marginBottom: 60});
+        $('#login-layer').perfectScrollbar({marginTop: 63, marginBottom: 63});
     };
 
     // NOTE: remember to change page-key to match file-name

@@ -1,3 +1,11 @@
+﻿Date: 2013/08/07 Cunnie
+Changes:
+* Change func.signin.js, signin.html, cms-settings.html, lightbox.css, channel.css and signin.css.
+* Change cms-settings.html and style.css.
+* Add cms-settings.css in stylesheetsv3 folder.
+* Add domready.cms-settings.js and func.cms-settings.js in v3 folder.
+
+
 Date: 2013/08/01
 Changes:
 * Added poi poll lang text.
