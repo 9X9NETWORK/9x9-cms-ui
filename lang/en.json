@@ -332,7 +332,11 @@
             "Channel settings": "Channel settings",
             "Delete this channel": "Delete this channel",
             "No Episodes": "No Episodes",
-            "'s Favorite": "'s Favorite"
+            "'s Favorite": "'s Favorite",
+            "You don't have any channels yet": "You don't have any channels yet",
+            "Create a new channel": "Create a new channel",
+            "Create your own <strong>personal and unique</strong> channel.": "Create your own <strong>personal and unique</strong> channel.",
+            "And online videos into episode and start to <strong>curate your own channel.</strong>": "And online videos into episode and start to <strong>curate your own channel.</strong>"
         }
     },
     "cms-settings": {
@@ -459,8 +463,6 @@
             "Coming Soon": "Coming Soon",
             "Scheduled Notification": "Scheduled Notification",
             "Send a scheduled notification to user to get more information.": "Send a scheduled notification to user to get more information.",
-            "Poll": "Poll",
-            "Establish a multiple choice event, eg. a campaign, a poll, a survey, etc.": "Establish a multiple choice event, eg. a campaign, a poll, a survey, etc.",
             "Instant Notification": "Instant Notification",
             "Send an instant notification to user to get more information.": "Send an instant notification to user to get more information.",
             "POI": "POI",
@@ -489,7 +491,7 @@
             "Hour": "Hour",
             "Minute": "Minute",
             "Mobile Notification Message": "Mobile Notification Message",
-            "The mobile notification will instant send, when user pressed OK or Enter.": "The mobile notification will instant send, when user pressed OK or Enter."
+            "If users press OK or Enter, the mobile notification will be send immediately.": "If users press OK or Enter, the mobile notification will be send immediately."
         }
     },
     "episode-list": {
@@ -563,7 +565,9 @@
             "< Back to Curation": "< Back to Curation",
             "Leave": "Leave",
             "Save": "Save",
-            "Please fill in all required fields.": "Please fill in all required fields."
+            "Please fill in all required fields.": "Please fill in all required fields.",
+            "Best within 20 characters.": "Best within 20 characters.",
+            "Best within 52 characters.": "Best within 52 characters."
         }
     },
     "epcurate-curation": {
@@ -678,7 +682,7 @@
             "Hour": "Hour",
             "Minute": "Minute",
             "Mobile Notification Message": "Mobile Notification Message",
-            "The mobile notification will instant send, when user pressed OK or Enter.": "The mobile notification will instant send, when user pressed OK or Enter."
+            "If users press OK or Enter, the mobile notification will be send immediately.": "If users press OK or Enter, the mobile notification will be send immediately."
         },
         "title-card": {
             "Text": "Text",

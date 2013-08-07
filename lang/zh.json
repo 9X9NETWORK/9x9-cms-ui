@@ -332,7 +332,11 @@
             "Channel settings": "頻道設定",
             "Delete this channel": "刪除頻道",
             "No Episodes": "無節目",
-            "'s Favorite": "的最愛"
+            "'s Favorite": "的最愛",
+            "You don't have any channels yet": "你尚無任何頻道",
+            "Create a new channel": "創建頻道",
+            "Create your own <strong>personal and unique</strong> channel.": "創建屬於你<strong>個人且獨特</strong>的頻道。",
+            "And online videos into episode and start to <strong>curate your own channel.</strong>": "在一集節目中策展多個影片，開始<strong>策展你的專屬頻道</strong>"
         }
     },
     "cms-settings": {
@@ -459,8 +463,6 @@
             "Coming Soon": "即將推出",
             "Scheduled Notification": "排程通知",
             "Send a scheduled notification to user to get more information.": "設定排程通知，使用者可於特定時間獲得更多資訊。",
-            "Poll": "投票",
-            "Establish a multiple choice event, eg. a campaign, a poll, a survey, etc.": "建立一個多選一的事件，例如活動, 票選, 調查等等。",
             "Instant Notification": "即時通知",
             "Send an instant notification to user to get more information.": "設定即時通知，使用者可即時獲得更多資訊。",
             "POI": "互動時間點",
@@ -489,7 +491,7 @@
             "Hour": "時",
             "Minute": "分",
             "Mobile Notification Message": "行動裝置通知內容",
-            "The mobile notification will instant send, when user pressed OK or Enter.": "當使用者按下OK或Enter時，通知會即時送出。"
+            "If users press OK or Enter, the mobile notification will be send immediately.": "當使用者按下OK或Enter時，通知會即時送出。"
         }
     },
     "episode-list": {
@@ -564,7 +566,9 @@
             "< Back to Curation": "< 回策展編輯",
             "Leave": "離開",
             "Save": "儲存",
-            "Please fill in all required fields.": "請輸入必填項目。"
+            "Please fill in all required fields.": "請輸入必填項目。",
+            "Best within 20 characters.": "建議長度不超過20個字元",
+            "Best within 52 characters.": "建議長度不超過52個字元"
         }
     },
     "epcurate-curation": {
@@ -679,7 +683,7 @@
             "Hour": "時",
             "Minute": "分",
             "Mobile Notification Message": "行動裝置通知內容",
-            "The mobile notification will instant send, when user pressed OK or Enter.": "當使用者按下OK或Enter時，通知會即時送出。"
+            "If users press OK or Enter, the mobile notification will be send immediately.": "當使用者按下OK或Enter時，通知會即時送出。"
         },
         "title-card": {
             "Text": "字卡內文",
