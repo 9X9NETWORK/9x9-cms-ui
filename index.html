@@ -5,9 +5,11 @@
 <meta http-equiv="cache-control" content="no-cache" />
 <meta http-equiv="pragma" content="no-cache" />
 <meta http-equiv="expires" content="0" />
+<link rel="stylesheet" href="stylesheets/perfect-scrollbar.css" />
 <link rel="stylesheet" href="stylesheets/style.css?v=1278" />
 <link rel="stylesheet" href="stylesheets/lightbox.css?v=1278" />
 <link rel="stylesheet" href="stylesheets/channel.css?v=1278" />
+<link rel="stylesheet" href="stylesheetsv3/com-9x9-cycle.css?v=1278" />
 <title>9x9.tv - My Channels</title>
 </head>
 <body>
@@ -200,6 +202,34 @@
 </script>
 <!-- get-url-tmpl End -->
 
+<!-- channel-list-empty-tmpl Begin -->
+<script id="channel-list-empty-tmpl" type="text/x-jquery-tmpl">
+<div id="com-9x9-cycle-list">
+    <h3>{{html nn._([cms.global.PAGE_ID, 'channel-list', "You don't have any channels yet"])}}</h3>
+    <p class="btns"><span><a href="channel-add.html">${nn._([cms.global.PAGE_ID, 'channel-list', 'Create a new channel'])}</a></span></p>
+    <div id="com-9x9-cycle">
+        <p class="cycle-pager">
+            <a href="javascript:void(0);" class="active">。</a>
+            <a href="javascript:void(0);">。</a>
+        </p>
+        <div class="wrapper">
+            <ul class="content">
+                <li>
+                    <div class="img"><a href="epcurate-curation.html?cid=${id}"><img src="images/banner_ch_01.png" alt="" width="781" height="274" /></a></div>
+                    <div class="desc"><p><span>{{html nn._([cms.global.PAGE_ID, 'channel-list', 'Create your own <strong>personal and unique</strong> channel.'])}}</span></p></div>
+                </li>
+                <li>
+                    <div class="img"><a href="epcurate-curation.html?cid=${id}"><img src="images/banner_ch_02.png" alt="" width="781" height="274" /></a></div>
+                    <div class="desc"><p><span>{{html nn._([cms.global.PAGE_ID, 'channel-list', 'And online videos into episode and start to <strong>curate your own channel.</strong>'])}}</span></p></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</script>
+<!-- channel-list-empty-tmpl End -->
+
+
 <!-- channel-list-tmpl-item Begin -->
 <script id="channel-list-tmpl-item" type="text/x-jquery-tmpl">
 <li class="clearfix" data-meta="${id}">
@@ -256,19 +286,18 @@
             </div>
             <p class="time">${nn._([cms.global.PAGE_ID, 'channel-list', 'Update:'])} ${cms.common.formatTimestamp(updateDate)}</p>
             <div class="func-btns">
-                {{if contentType == cms.config.YOUR_FAVORITE}}
-                {{else}}
                 <div class="btn-wrap enable">
                     <ul>
                         <li><a href="epcurate-curation.html?cid=${id}" class="add">Add<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">${nn._([cms.global.PAGE_ID, 'channel-list', 'Curate a new episode'])}</span></span></span></span></a></li>
+                        {{if !cms.global.IS_REMARK}}
                         <li><a href="channel-poi.html?id=${id}" class="channel-poi">Channel POI<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">${nn._([cms.global.PAGE_ID, 'channel-list', 'Channel POI'])}</span></span></span></span></a></li>
+                        {{/if}}
                         <li><a href="episode-list.html?id=${id}" class="detail">Detail<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">${nn._([cms.global.PAGE_ID, 'channel-list', 'Episode list'])}</span></span></span></span></a></li>
                         <li><a href="channel-setting.html?id=${id}" class="setting">Setting<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">${nn._([cms.global.PAGE_ID, 'channel-list', 'Channel settings'])}</span></span></span></span></a></li>
                         <li><a href="/api/users/${$item.userId}/channels/${id}" rel="${id}" class="del">Del<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">${nn._([cms.global.PAGE_ID, 'channel-list', 'Delete this channel'])}</span></span></span></span></a></li>
                         <li><a href="javascript:void(0);" class="url{{if 1 > cntEpisode}} disable{{/if}}">${nn._([cms.global.PAGE_ID, 'channel-list', 'Get URL'])}<span class="tip"><img src="images/bg_tip_bottom.png" alt="" /><span class="tip-left"><span class="tip-right"><span class="tip-middle">${nn._([cms.global.PAGE_ID, 'channel-list', 'Get URL'])}</span></span></span></span></a></li>
                     </ul>
                 </div>
-                {{/if}}
             </div>
         </div>
     </div>
@@ -284,9 +313,11 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script src="javascripts/libs/nn-sdk.prototype.js?v=1278"></script>
+<script src="javascripts/libs/perfect-scrollbar.js"></script>
 <script src="javascripts/libs/jquery.mousewheel.min.js?v=1278"></script>
 <script src="javascripts/libs/jquery.ellipsis.min.js?v=1278"></script>
 <script src="javascripts/libs/jquery.blockUI.min.js?v=1278"></script>
+<script src="javascripts/libs/jquery.cycle.all.min.js?v=1278"></script>
 <script src="javascripts/libs/jquery.charcounter.min.js?v=1278"></script>
 <script src="javascripts/libs/jquery.tmpl.min.js?v=1278"></script>
 <script src="javascripts/libs/jquery.cookie.min.js?v=1278"></script>
