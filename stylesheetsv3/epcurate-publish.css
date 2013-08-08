@@ -72,13 +72,7 @@
 }
 
 #content-wrap form .fminput {
-    margin: 0 auto 3px auto;
-	max-width: 1600px;
-}
-
-#epcurate-info {
-    margin: 0 auto 0 auto;
-	max-width: 1600px;
+    margin: 0 0 3px 0;
 }
 
 #content-wrap form .fminput label {
