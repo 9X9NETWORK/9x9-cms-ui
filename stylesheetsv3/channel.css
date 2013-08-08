@@ -7,10 +7,12 @@
     position: relative;
 }
 
-#title-func h2,
-#channel-name {
-    height: 27px;
-    line-height: 27px;
+#title-func h2 {
+    position: absolute;
+	height: 27px;
+	line-height: 27px;
+	left: 0px;
+	right: 100px;
 }
 
 #channel-name {
@@ -21,6 +23,9 @@
     -o-text-overflow: ellipsis;
     -ms-text-overflow: ellipsis;
     -moz-binding: url('ellipsis.xml#ellipsis');
+	max-width: 85%;
+	float: left;
+	margin-right: 5px;
 }
 
 body.mac #title-func h2 {
@@ -28,13 +33,7 @@ body.mac #title-func h2 {
 }
 
 #title-func h2 .title-crumb {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 77px;
-    height: 27px;
-    line-height: 27px;
-    text-align: right;
+    float: left;
 }
 
 .zh #title-func h2 .title-crumb {
@@ -512,11 +511,6 @@ body.mac #title-func h2 {
 }
 
 /* Channel settingForm */
-#content-main-wrap form {
-    position: relative;
-    padding: 0 0 56px 0;
-}
-
 #content-main-wrap form .fminput {
     margin-bottom: 10px;
 }
@@ -1238,6 +1232,7 @@ body.mac #title-func h2 {
     line-height: 25px;
 	white-space: nowrap;
 	position: absolute;
+	line-height: 29px;
 }
 
 #content-main-wrap form .fminput .fmfield .notice.img-upload {

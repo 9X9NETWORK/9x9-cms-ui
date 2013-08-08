@@ -252,9 +252,19 @@ $(function () {
         return false;
     });
 
+    $page.handleButtonPosition = function() {
+        // Handle save button position according to scollbar displayed or not.
+        if ($('#content-main-wrap').height()>=$('div.constrain').outerHeight()) {
+            $('#content-main-wrap').addClass('fixed');
+        } else {
+            $('#content-main-wrap').removeClass('fixed');
+        }
+    };	
+
     // NOTE: Keep Window Resize Event at the bottom of this file
     $(window).resize(function () {
 		$('#content-main-wrap').perfectScrollbar('update');
+		$page.handleButtonPosition();
        // $page.setFormHeight();
     });
 });

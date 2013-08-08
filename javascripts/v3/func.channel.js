@@ -42,14 +42,14 @@
     };
 
     $page.truncateFormTitle = function () {
-        var crumbWidth = $('#title-func .title-crumb').width();
-        if ($('#channel-name').data('width') + crumbWidth > $('input.text').width() + 140) {
-            $('#title-func h2').width($('input.text').width() + 140 - crumbWidth);
-            $('#title-func h2').css('padding-right', parseInt(crumbWidth + 5, 10) + 'px');
-        } else {
-            $('#title-func h2').width('auto');
-            $('#title-func h2').css('padding-right', parseInt(crumbWidth + 5, 10) + 'px');
-        }
+       // var crumbWidth = $('#title-func .title-crumb').width();
+       // if ($('#channel-name').data('width') + crumbWidth > $('input.text').width() + 140) {
+           // $('#title-func h2').width($('input.text').width() + 140 - crumbWidth);
+           // $('#title-func h2').css('padding-right', parseInt(crumbWidth + 5, 10) + 'px');
+       // } else {
+           // $('#title-func h2').width('auto');
+           // $('#title-func h2').css('padding-right', parseInt(crumbWidth + 5, 10) + 'px');
+       // }
     };
 
     $page.scrollToBottom = function () {
