@@ -8,7 +8,7 @@ $(function () {
     var $page = cms['epcurate-publish'],
         $common = cms.common;
 
-    $('#content-main-wrap').perfectScrollbar({marginTop: 0, marginBottom: 60});
+    $('#content-main-wrap').perfectScrollbar({marginTop: 0, marginBottom: 45});
     $('#epcurate-nav ul li.publish').click(function () {
         return false;
     });
