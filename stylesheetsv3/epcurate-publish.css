@@ -73,12 +73,12 @@
 
 #content-wrap form .fminput {
     margin: 0 auto 3px auto;
-	max-width: 1500px;
+	max-width: 1600px;
 }
 
 #epcurate-info {
     margin: 0 auto 0 auto;
-	max-width: 1500px;
+	max-width: 1600px;
 }
 
 #content-wrap form .fminput label {
@@ -455,7 +455,7 @@
 }
 
 #content-wrap form .fminput .fmfield p.text span .text {
-    width: 99.8%;
+    width: 99.85%;
     height: 30px;
     padding-left: 2px;
     border: none;
