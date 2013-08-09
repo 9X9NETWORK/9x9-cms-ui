@@ -1,4 +1,8 @@
-﻿作者: mars
+﻿Date: 2013/8/9 Yifan
+Changes:
+* Added delete button style for POI poll button.
+
+作者: mars
 日期: 2013/8/9 11:11
 訊息:
 bug fix
