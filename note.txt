@@ -1,4 +1,14 @@
 ﻿作者: mars
+日期: 2013/8/9 11:11
+訊息:
+bug fix
+1. Episode description項目，在文字欄輸入大量文字與多次換行時，版面會異常。（請看附件）
+2. Publish status的"Draft", "Published", "Scheduled to return"三個文字的位置有點跑掉。（請看附件）
+----
+異動 : /stylesheetsv3/style.css
+異動 : /stylesheetsv3/epcurate-publish.css
+
+作者: mars
 日期: 2013/8/8 17:52
 訊息:
 1. update index.html empty channel
