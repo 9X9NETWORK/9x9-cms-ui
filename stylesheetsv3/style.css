@@ -1816,7 +1816,7 @@ div.constrain {
 }
 
 /* POI List */
-#epcurate-curation #cur-poi .poi-list ul li, #poi-list .poi-info ul li ol li {
+#epcurate-curation #cur-poi .poi-list ul li ol li, #poi-list .poi-info ul li ol li {
 	height: 33px;
     background: url(../images/bg_divider.png) repeat-x bottom;
 }

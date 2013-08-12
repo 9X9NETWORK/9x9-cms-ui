@@ -1,10 +1,5 @@
 ﻿Date: 2013/08/12 Cunnie
 Changes:
-* Change lightbox.css.
-
-
-Date: 2013/08/12 Cunnie
-Changes:
 * Change style.css, lightbox.css, channel.css, channel-poi.css, ep-curation.css and epcurate-publish.css.
 * Change channel-poi.html and epcurate-curation.html.
 * Change domready.channel-poi.js, domready.channel-poi.js and func.curation.js.

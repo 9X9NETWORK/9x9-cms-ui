@@ -1779,6 +1779,13 @@ p.auto-height {
 
 #epcurate-curation #cur-poi .poi-list ul {
     height: 165px;
+	overflow: hidden;
+	padding: 20px 0 0 0;
+	top: -20px;
+}
+
+#epcurate-curation #cur-poi .poi-list ul li ol {
+	padding: 20px 0 0 0;
 }
 
 #epcurate-curation #cur-poi .poi-list ul li .icon span a {
