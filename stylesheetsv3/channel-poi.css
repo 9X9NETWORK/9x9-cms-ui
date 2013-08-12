@@ -162,55 +162,19 @@
     font-size: 13px;
 }
 
-#poi-list .poi-info ul li ol li {
-    overflow: hidden;
-    background: url(../images/bg_divider.png) repeat-x bottom;
-	height: 33px;
-}
-
-#poi-list .poi-info p.poi-title {
+#poi-list .poi-info ul li ol li .icon span a {
     position: absolute;
-    left: 10px;
-	right: 80px;
-    height: 33px;
-    line-height: 33px;
-    margin: 0;
-    color: #555;
-    font-size: 13px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
-    -ms-text-overflow: ellipsis;
-    -moz-binding: url('ellipsis.xml#ellipsis');
+    left: 35px;
+	right: 37px;
 }
 
-#poi-list .poi-info p.func {
-    float: right;
-    width: auto;
-    padding: 0;
+#poi-list .poi-info ul li ol li .icon:hover .tip-white {
+	top: -27px;
+	left: -25px;
 }
 
-#poi-list .poi-info p.func .edit,
-#poi-list .poi-info p.func .btn-del {
-    float: left;
-    width: 22px;
-    height: 25px;
-    margin: 3px 7px 0 0;
-    background: url(../images/btns.png) no-repeat 0 -1060px;
-    text-indent: -100000px;
-}
-
-#poi-list .poi-info p.func .btn-del {
-    background-position: 0 -856px;
-}
-
-#poi-list .poi-info p.func .edit:hover {
-    background-position: -23px -1060px;
-}
-
-#poi-list .poi-info p.func .btn-del:hover {
-    background-position: -23px -856px;
+#poi-list .poi-info ul li ol li .icon:hover .tip-bottom {
+	margin: -5px 0px 0px -25px;
 }
 
 /* poi edit */
@@ -258,7 +222,7 @@
 
 #channel-poi .edit-block .fminput .fmfield p.text {
     float: left;
-	width: 60%;
+	width: 62.1%;
     height: 30px;
     margin-right: 10px;
     padding-left: 3px;

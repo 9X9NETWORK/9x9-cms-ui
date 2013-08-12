@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="http://9x9ui.s3.amazonaws.com/poi/jquery.poi.css?v=1278" />
 <link rel="stylesheet" href="stylesheetsv3/perfect-scrollbar.css" />
 <link rel="stylesheet" href="stylesheetsv3/style.css?v=1278" />
-<link rel="stylesheet" href="stylesheets/lightbox.css?v=1278" />
+<link rel="stylesheet" href="stylesheetsv3/lightbox.css?v=1278" />
 <link rel="stylesheet" href="stylesheets/uniform.css?v=1278" />
 <link rel="stylesheet" href="stylesheets/jquery.datepick.css?v=1278" />
 <link rel="stylesheet" href="stylesheetsv3/channel-poi.css?v=1278" />
@@ -226,9 +226,16 @@
 <ol>
 {{each poiItem}}
     <li>
-        <p class="poi-title">${name}</p>
+		<div class="icon hyper">
+			<span><a href="#!cid=${targetId}&id=${id}" data-channel-id="${targetId}" data-poi-point-id="${id}" class="edit">${name}</a></span>
+			<div class="tip-white">
+				<p class="left"></p>
+				<p class="center">Hyper Link</p>
+				<p class="right"></p>
+			</div>
+			<div class="tip-bottom"></div>
+		</div>
         <p class="func">
-            <a href="#!cid=${targetId}&id=${id}" data-channel-id="${targetId}" data-poi-point-id="${id}" class="edit">Edit</a>
             <a href="#!cid=${targetId}&id=${id}" data-channel-id="${targetId}" data-poi-point-id="${id}" class="btn-del">Delete</a>
         </p>
     </li>

@@ -579,7 +579,6 @@
 }
 
 .setup-notice .overlay-container .overlay-wrap p.content {
-    padding-left: 16px;
     line-height: 17px;
 }
 
@@ -646,38 +645,40 @@
 
 /* change password overlay */
 #change-pwd-overlay {
-    width: 427px;
-    height: 316px;
-    margin: -158px 0 0 -219px;
-    background: url(../images/overlay_bg_m_l.png) no-repeat 0 0;
+    height: 303px;
+	width: 348px;
+    margin: -151px 0 0 -178px;
+    background: url(../images/overlay_bg_l.png) no-repeat 0 0;
 }
 
 #change-pwd-overlay .overlay-container {
-    height: 316px;
-    background: url(../images/overlay_bg_m_r.png) no-repeat right 0;
+    height: 303px;
+    background: url(../images/overlay_bg_r.png) no-repeat right 0;
 }
 
 #change-pwd-overlay .overlay-container .overlay-wrap {
-    height: 297px;
-    padding: 19px 0 0;
-    background: url(../images/overlay_bg_m_c.png) repeat-x;
+    height: 274px;
+    padding: 24px 0 0 0;
+    background: url(../images/overlay_bg_c.png) repeat-x;
 }
 
 #change-pwd-overlay h4 {
-    margin-bottom: 23px;
+    margin-bottom: 20px;
 }
 
 #change-pwd-overlay .overlay-btn {
-    width: 246px;
-    margin: 0 auto;
+    bottom: 15px;
+	left: 47px;
+	position: absolute;
+	width: 243px;
 }
 
 #change-pwd-overlay .change-pwd p.text {
     width: 243px;
-    height: 31px;
-    margin: 0 auto 10px;
+    height: 30px;
+    margin: 0 auto 16px auto;
     padding-left: 3px;
-    background: url(../images/input_box_left_g.png) no-repeat 0 0;
+    background: url(../images/input_gray.png) no-repeat 0 0;
 }
 
 #change-pwd-overlay .change-pwd p.text.last {
@@ -690,46 +691,42 @@
 
 #change-pwd-overlay .change-pwd p.text span.input-right {
     padding-right: 3px;
-    background: url(../images/input_box_right_g.png) no-repeat right 0;
+    background: url(../images/input_gray.png) no-repeat right -30px;
 }
 
 #change-pwd-overlay .change-pwd p.text span.input-middle {
-    background: url(../images/input_box_middle_g.png) repeat-x;
+    background: url(../images/input_gray.png) repeat-x 0 -60px;
 }
 
 #change-pwd-overlay .change-pwd span .text {
     width: 216px;
-    height: 31px;
-    padding-left: 24px;
+    height: 30px;
+    padding-left: 30px;
     border: none;
-    background: url(../images/icon_password.png) no-repeat 3px 8px;
-    color: #555;
+    background: url(../images/icon_password.png) no-repeat 7px 8px;
     font: 13px/30px Arial, Helvetica;
+	color: #555;
 }
 
 #change-pwd-overlay .change-pwd .notice {
-    padding-left: 92px;
+    padding-left: 47px;
     color: #f00;
     font-size: 13px;
     text-align: left;
 }
 
-#change-pwd-overlay .overlay-btn {
-    left: 50%;
-    margin-left: -123px;
-}
-
 #change-pwd-overlay .overlay-btn .btn-cancel {
     float: left;
+	width: 75px;
 }
 
 #change-pwd-overlay .overlay-btn .btn-chg-pwd {
     float: right;
-    width: 135px;
+    width: 130px;
 }
 
 #change-pwd-overlay .overlay-btn .btn-chg-pwd a {
-    width: 132px;
+    width: 127px;
 }
 
 /* poi zoom overlay */
@@ -887,7 +884,7 @@
 }
 
 #poi-event-overlay .wrap .content ul.list li .block {
-    width: 259px;
+    width: 239px;
     height: 173px;
     padding-bottom: 16px;
     cursor: pointer;
@@ -899,7 +896,7 @@
 }
 
 #poi-event-overlay .wrap .content ul.list li:hover .block {
-    width: 257px;
+    width: 237px;
     height: 171px;
     border: 1px solid #b2b2b2;
     background: -webkit-gradient(linear, 0 0, 0 bottom, from(#dbdbdb), to(#fbfbfb));
@@ -911,6 +908,7 @@
     -pie-background: linear-gradient(#dbdbdb, #fbfbfb);
     box-shadow: 0 0 3px rgba(100, 100, 100, 0.5) inset;
     behavior: url(PIE.htc);
+	border-radius: 3px;
 }
 
 #poi-event-overlay .wrap .content ul.list li .block .img {
@@ -974,7 +972,7 @@
     position: absolute;
     top: 23px;
     left: 0;
-    width: 257px;
+    width: 237px;
     color: #555;
     font-weight: bold;
     font-size: 15px;
@@ -1026,7 +1024,7 @@
 
 #poi-event-overlay .wrap .content .func ul {
     float: right;
-    padding: 12px 0 0;
+    padding: 14px 0 0;
 }
 
 #poi-event-overlay .wrap .content .func ul li {
@@ -1052,7 +1050,6 @@ body.from-poi-edit-mode #poi-event-overlay .wrap .content .func ul li.notice {
 
 #poi-event-overlay .wrap .content .func ul li a {
     padding: 6px 11px 0;
-    color: #555;
     font-size: 15px;
 }
 
@@ -1155,8 +1152,8 @@ body.from-poi-edit-mode #poi-event-overlay .wrap .content .func ul li.notice {
     border: none;
     background-repeat: repeat-x;
     background-position: 0 -60px;
-    color: #555;
     font: 13px/30px Arial, Helvetica;
+	color: #555;
 }
 
 #poi-event-overlay .wrap .content .event-input .fminput p.text span .text.poll-text {
@@ -1173,8 +1170,12 @@ body.from-poi-edit-mode #poi-event-overlay .wrap .content .func ul li.notice {
     background: url(../images/btn_close.png) no-repeat 0 0;
     width: 15px;
     height: 16px;
-    top: -30px;
-    left: 101px;
+    top: -28px;
+    left: 100px;
+}
+
+#poi-event-overlay .wrap .content .event-input .fminput p.text a.poll-button-del:hover {
+    background: url(../images/btn_close.png) no-repeat 0 -16px;
 }
 
 #poi-event-overlay .wrap .content .event-input .fminput p.text .poll-button-del.deletable {
@@ -1454,10 +1455,10 @@ body.from-poi-edit-mode #poi-event-overlay .wrap .content .func ul li.notice {
     padding: 3px;
     border: none;
     background-color: transparent;
-    color: #555;
     font-family: Arial, Helvetica;
     font-size: 13px;
     resize: none;
+	color: #555;
 }
 
 #poi-event-overlay .wrap .content .event .mobile-edit .notification h4 a .tip {
@@ -1584,9 +1585,9 @@ body.from-poi-edit-mode #poi-event-overlay .wrap .content .func ul li.notice {
     display: none;
     position: absolute;
     top: 27px;
-    left: 1px;
+    left: 0;
     z-index: 60;
-    width: 80px;
+    width: 81px;
     border: 1px solid #b2b2b2;
     -moz-border-radius: 0 0 5px 5px;
     -webkit-border-radius: 0 0 5px 5px;
@@ -1610,7 +1611,7 @@ body.from-poi-edit-mode #poi-event-overlay .wrap .content .func ul li.notice {
 }
 
 #poi-event-overlay .wrap .content .event .mobile-edit .notification .time-wrap .select .select-list p {
-    width: 62px;
+    width: 63px;
     height: 28px;
     margin: 0;
     padding: 0 9px;

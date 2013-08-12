@@ -39,9 +39,18 @@
            // $('#title-func h2.poi-edit em').width('auto');
        // }
        // $('#channel-poi .edit-block').height(contentHeight);
+	   	$('#content-main-wrap').perfectScrollbar({marginBottom:63});
+		$page.handleButtonPosition();
     };
 	
-	$('#content-main-wrap').perfectScrollbar({marginBottom:63});
+    $page.handleButtonPosition = function() {
+        // Handle cancel/create buttons position according to scollbar displayed or not.
+        if ($('#content-main-wrap').height()>=$('div.constrain').outerHeight()) {
+            $('#content-main-wrap').addClass('fixed');
+        } else {
+            $('#content-main-wrap').removeClass('fixed');
+        }
+    };	
 
     $page.chkPoiPointData = function (fm) {
         fm.poiName.value = $.trim(fm.poiName.value);

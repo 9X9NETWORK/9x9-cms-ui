@@ -711,7 +711,7 @@
         }
         $('#storyboard-length').text(leftLength);
         $('#storyboard-duration').text(durationHou + ':' + durationMin + ':' + durationSec);
-        $('#storyboard-list .notice').css('left', parseInt((114 * length) + 9, 10) + 'px');
+        $('#storyboard-list .notice').css('left', parseInt((123 * length) + 13, 10) + 'px');
         $('#storyboard-listing li').removeClass('last last2');
         $('#storyboard-listing li').eq(48).addClass('last2');
         $('#storyboard-listing li').eq(49).addClass('last');
@@ -982,7 +982,7 @@
                     button_width:               '129',
                     button_height:              '29',
                     button_text:                '<span class="uploadstyle">' + nn._(['upload', 'Upload']) + '</span>',
-                    button_text_style:          '.uploadstyle { color: #555555; font-family: Arial, Helvetica; font-size: 15px; text-align: center; } .uploadstyle:hover { color: #999999; }',
+                    button_text_style:          '.uploadstyle { color: #555555; font-family: Arial, Helvetica; font-size: 15px; text-align: center; } .uploadstyle:hover { color: #555555; }',
                     button_text_top_padding:    1,
                     button_action:              SWFUpload.BUTTON_ACTION.SELECT_FILE,
                     button_cursor:              SWFUpload.CURSOR.HAND,

@@ -1,20 +1,12 @@
-﻿Date: 2013/8/12 Yifan
+﻿Date: 2013/08/12 Cunnie
 Changes:
-* Commented out jquery cycle plugin scrollHorz overflow setting.
+* Change style.css, lightbox.css, channel.css, channel-poi.css, ep-curation.css and epcurate-publish.css.
+* Change channel-poi.html and epcurate-curation.html.
+* Change domready.channel-poi.js, domready.channel-poi.js and func.curation.js.
+* Change bg_sub_ep_on.png, btns.png and icon_nav.png in images folder.
+* Add icon_frame.png and icon_poi.png.
+* Remove icon-frame.png.
 
-Date: 2013/8/9 Yifan
-Changes:
-* Added delete button style for POI poll button.
-
-作者: mars
-日期: 2013/8/9 11:11
-訊息:
-bug fix
-1. Episode description項目，在文字欄輸入大量文字與多次換行時，版面會異常。（請看附件）
-2. Publish status的"Draft", "Published", "Scheduled to return"三個文字的位置有點跑掉。（請看附件）
-----
-異動 : /stylesheetsv3/style.css
-異動 : /stylesheetsv3/epcurate-publish.css
 
 作者: mars
 日期: 2013/8/8 17:52
@@ -23,6 +15,7 @@ bug fix
 ----
 新增 : images/banner_ch_01.png , images/banner_ch_02.png , stylesheetsv3/com-9x9-cycle.css
 新增 : index.html , javascript/v3/func.index.js
+
 
 Date: 2013/8/8 Yifan
 Changes:

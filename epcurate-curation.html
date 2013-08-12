@@ -478,9 +478,16 @@
 <ol>
 {{each poiItem}}
     <li>
-        <p>${name}</p>
+        <div class="icon hyper">
+			<span><a href="#!pid=${targetId}&id=${id}" data-program-id="${targetId}" data-poi-point-id="${id}" class="edit">${name}</a></span>
+			<div class="tip-white">
+				<p class="left"></p>
+				<p class="center">Hyper Link</p>
+				<p class="right"></p>
+			</div>
+			<div class="tip-bottom"></div>
+		</div>
         <p class="func">
-            <a href="#!pid=${targetId}&id=${id}" data-program-id="${targetId}" data-poi-point-id="${id}" class="edit">Edit</a>
             <a href="#!pid=${targetId}&id=${id}" data-program-id="${targetId}" data-poi-point-id="${id}" class="btn-del">Delete</a>
         </p>
     </li>
@@ -822,23 +829,27 @@
                     <label for="poll_button_text"><acronym title="Required field" class="mark-required">*</acronym>${nn._([cms.global.PAGE_ID, 'poi-event', 'Button text'])}:</label>
                     <p class="text poll">
                         <span>
-                            <input type="text" name="btnText" id="poll_button_text" maxlength="20" value="${button}" placeholder="${nn._([cms.global.PAGE_ID, 'poi-event', 'Input display text'])}" class="text poll-button" />                    
+                            <input type="text" name="btnText" id="poll_button_text" maxlength="20" value="${button}" placeholder="${nn._([cms.global.PAGE_ID, 'poi-event', 'Input button text'])}" class="text poll-button" />
                         </span>
+						<a class="poll-button-del" href="#"></a>
                     </p>
                     <p class="text poll">
                         <span>
-                            <input type="text" name="btnText" id="poll_button_text" maxlength="20" value="${button}" placeholder="${nn._([cms.global.PAGE_ID, 'poi-event', 'Input display text'])}" class="text poll-button" />                    
+                            <input type="text" name="btnText" id="poll_button_text" maxlength="20" value="${button}" placeholder="${nn._([cms.global.PAGE_ID, 'poi-event', 'Input button text'])}" class="text poll-button" />
                         </span>
+						<a class="poll-button-del" href="#"></a>
                     </p>
                     <p class="text poll">
                         <span>
-                            <input type="text" name="btnText" id="poll_button_text" maxlength="20" value="${button}" placeholder="${nn._([cms.global.PAGE_ID, 'poi-event', 'Input display text'])}" class="text poll-button" />                    
+                            <input type="text" name="btnText" id="poll_button_text" maxlength="20" value="${button}" placeholder="${nn._([cms.global.PAGE_ID, 'poi-event', 'Input button text'])}" class="text poll-button" />
                         </span>
+						<a class="poll-button-del" href="#"></a>
                     </p>
                     <p class="text poll">
                         <span>
-                            <input type="text" name="btnText" id="poll_button_text" maxlength="20" value="${button}" placeholder="${nn._([cms.global.PAGE_ID, 'poi-event', 'Input display text'])}" class="text poll-button" />                    
+                            <input type="text" name="btnText" id="poll_button_text" maxlength="20" value="${button}" placeholder="${nn._([cms.global.PAGE_ID, 'poi-event', 'Input button text'])}" class="text poll-button" />
                         </span>
+						<a class="poll-button-del" href="#"></a>
                     </p>
                     <div class="btn-gray">
                         <p class="left"></p>
@@ -970,6 +981,7 @@
                             {{else}}
                                 <span class="color{{if cms.config.COLOR_MAP[color]}} ${cms.config.COLOR_MAP[color]}{{/if}}"></span>
                             {{/if}}
+							<span class="bg"></span>
                             <ul class="color-list">
                                 <li class="c-fff" data-meta="#ffffff">#ffffff</li>
                                 <li class="c-eee" data-meta="#eeeeee">#eeeeee</li>
@@ -1050,6 +1062,7 @@
                 {{else}}
                     <span{{if cms.config.COLOR_MAP[bgColor]}} class="${cms.config.COLOR_MAP[bgColor]}"{{/if}}></span>
                 {{/if}}
+				<span class="bg"></span>
                 <ul class="color-list">
                     <li class="c-fff" data-meta="#ffffff">#ffffff</li>
                     <li class="c-eee" data-meta="#eeeeee">#eeeeee</li>
@@ -1138,8 +1151,8 @@
     <p class="episode-storyboard">
         ${nn._([cms.global.PAGE_ID, 'episode-storyboard', 'Episode storyboard'])} (<em id="storyboard-length">50</em> ${nn._([cms.global.PAGE_ID, 'episode-storyboard', 'videos left'])})<span>${nn._([cms.global.PAGE_ID, 'episode-storyboard', 'Duration'])} <em id="storyboard-duration">00:00:00</em></span>
     </p>
-    <div class="channel-name"><p class="title">${nn._([cms.global.PAGE_ID, 'episode-storyboard', 'Channel:'])}</p><p id="channel-name" data-meta="${chName}">${chName}</p></div>
-    <div class="episode-name"><p class="title">${nn._([cms.global.PAGE_ID, 'episode-storyboard', 'Episode:'])}</p><p id="episode-name" data-meta="${epName}">${epName}</p></div>
+    <div class="channel-name"><span class="title">${nn._([cms.global.PAGE_ID, 'episode-storyboard', 'Channel:'])}</span><span id="channel-name" data-meta="${chName}">${chName}</span></div>
+    <div class="episode-name"><span class="title">${nn._([cms.global.PAGE_ID, 'episode-storyboard', 'Episode:'])}</span><span id="episode-name" data-meta="${epName}">${epName}</span></div>
 </div>
 </script>
 
@@ -1177,13 +1190,13 @@
         <h4 class="ellipsis multiline">${name}</h4>
     {{else}}
         {{if isEmbedLimited}}
-            <h4>[${nn._([cms.global.PAGE_ID, 'episode-storyboard', 'Non-embeddable video'])}]</h4>
+            <h4 class="ellipsis multiline">[${nn._([cms.global.PAGE_ID, 'episode-storyboard', 'Non-embeddable video'])}]</h4>
         {{else isPrivateVideo}}
-            <h4>[${nn._([cms.global.PAGE_ID, 'episode-storyboard', 'Private video'])}]</h4>
+            <h4 class="ellipsis multiline">[${nn._([cms.global.PAGE_ID, 'episode-storyboard', 'Private video'])}]</h4>
         {{else isInvalid}}
-            <h4>[${nn._([cms.global.PAGE_ID, 'episode-storyboard', 'Invalid video'])}]</h4>
+            <h4 class="ellipsis multiline">[${nn._([cms.global.PAGE_ID, 'episode-storyboard', 'Invalid video'])}]</h4>
         {{else isUnplayableVideo}}
-            <h4>[${nn._([cms.global.PAGE_ID, 'episode-storyboard', 'Unplayable video'])}]</h4>
+            <h4 class="ellipsis multiline">[${nn._([cms.global.PAGE_ID, 'episode-storyboard', 'Unplayable video'])}]</h4>
         {{/if}}
     {{/if}}
     <p class="title">
