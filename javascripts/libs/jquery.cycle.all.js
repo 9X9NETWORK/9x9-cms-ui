@@ -1149,7 +1149,7 @@ $.fn.cycle.transitions.scrollRight = function($cont, $slides, opts) {
 	opts.animOut.left = w;
 };
 $.fn.cycle.transitions.scrollHorz = function($cont, $slides, opts) {
-	$cont.css('overflow','hidden').width();
+	// $cont.css('overflow','hidden').width();
 	opts.before.push(function(curr, next, opts, fwd) {
 		if (opts.rev)
 			fwd = !fwd;

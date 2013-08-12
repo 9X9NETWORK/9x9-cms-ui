@@ -1,4 +1,8 @@
-﻿Date: 2013/8/9 Yifan
+﻿Date: 2013/8/12 Yifan
+Changes:
+* Commented out jquery cycle plugin scrollHorz overflow setting.
+
+Date: 2013/8/9 Yifan
 Changes:
 * Added delete button style for POI poll button.
 
