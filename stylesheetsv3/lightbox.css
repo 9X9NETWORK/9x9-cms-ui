@@ -1633,3 +1633,21 @@ body.from-poi-edit-mode #poi-event-overlay .wrap .content .func ul li.notice {
     color: #999;
     cursor: default;
 }
+
+/* Place holder */
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #555;
+	opacity: 1;
+}
+input:-moz-placeholder, textarea:-moz-placeholder { 
+    color: #555;
+	opacity: 1;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+    color: #555;
+	opacity: 1;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
+    color: #555;
+	opacity: 1;
+}
