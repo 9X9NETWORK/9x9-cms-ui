@@ -45,10 +45,6 @@ body.mac #title-func h2 {
     display: block;
 }
 
-#title-func .btns {
-    width: 162px;
-}
-
 /* Channel list */
 #channel-list {
     padding-top: 2px;

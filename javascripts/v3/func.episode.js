@@ -141,7 +141,7 @@
                                 });
                                 $('#episode-list').sortable('disable');
 
-                                $('#content-main-wrap').perfectScrollbar({marginTop: 50, marginBottom: 60});
+                                $('#content-main-wrap').perfectScrollbar({marginTop: 30, marginBottom: 63});
 
                             } else {
                                 $('#episode-first-tmpl').tmpl({

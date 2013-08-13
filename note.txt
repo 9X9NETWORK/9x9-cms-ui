@@ -1,4 +1,13 @@
-﻿Date: 2013/08/12 Cunnie
+﻿Date: 2013/08/14 Cunnie
+Changes:
+* Change epcurate-publish.css, ep-curation.css, style.css, channel.css and episode.css.
+* Change index.html and episode-list.html.
+* Change func.episode.js, domready.index.js and func.index.js.
+* Change bg_tip_l.png.
+* Add bg_tip_left.png.
+
+
+Date: 2013/08/12 Cunnie
 Changes:
 * Change style.css, lightbox.css, channel.css, channel-poi.css, ep-curation.css and epcurate-publish.css.
 * Change channel-poi.html and epcurate-curation.html.

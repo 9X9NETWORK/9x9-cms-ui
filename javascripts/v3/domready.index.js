@@ -8,9 +8,9 @@ $(function () {
     var $page = cms.index,
         $common = cms.common;
 
-    $page.setFormHeight();
-    $common.autoHeight();
-    $common.scrollbar('#content-main', '#content-main-wrap', '#main-wrap-slider');
+    // $page.setFormHeight();
+    // $common.autoHeight();
+    // $common.scrollbar('#content-main', '#content-main-wrap', '#main-wrap-slider');
 
     // common unblock
     $('body').keyup(function (e) {
@@ -141,10 +141,11 @@ $(function () {
 
     // NOTE: Keep Window Resize Event at the bottom of this file
     $(window).resize(function () {
-        $page.setFormHeight();
-        $common.autoHeight();
-        $common.scrollbar('#content-main', '#content-main-wrap', '#main-wrap-slider');
-        if ('none' === $('#main-wrap-slider').css('display')) {
+        // $page.setFormHeight();
+        // $common.autoHeight();
+        // $common.scrollbar('#content-main', '#content-main-wrap', '#main-wrap-slider');
+        $('#content-main-wrap').perfectScrollbar('update');
+		if ('none' === $('#main-wrap-slider').css('display')) {
             $('#main-wrap-slider .slider-vertical').slider('destroy');
             $('#main-wrap-slider .slider-vertical').slider();
             $('#main-wrap-slider').hide();
