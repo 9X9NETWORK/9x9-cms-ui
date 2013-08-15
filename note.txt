@@ -1,4 +1,9 @@
-﻿Date: 2013/08/14 Cunnie
+﻿Date: 2013/08/15 Cunnie
+Changes:
+* Change icon_nav.png.
+
+
+Date: 2013/08/14 Cunnie
 Changes:
 * Change epcurate-publish.css, ep-curation.css, style.css, channel.css and episode.css.
 * Change index.html and episode-list.html.
