@@ -1,4 +1,12 @@
-﻿Date: 2013/08/15 Cunnie
+﻿作者: mars
+日期: 2013/8/19 10:38
+訊息:
+1. episode-curation storyboard css 調整
+----
+修改 : /images/icon_play.png
+修改 : /stylesheetsv3/ep-curation.css
+
+Date: 2013/08/15 Cunnie
 Changes:
 * Change icon_nav.png.
 
