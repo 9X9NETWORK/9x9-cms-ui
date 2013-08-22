@@ -1,4 +1,11 @@
 ﻿作者: mars
+日期: 2013/8/22 17:08
+訊息:
+1. poi icon add null-icon class for preload
+----
+修改 : /stylesheetsv3/style.css
+
+作者: mars
 日期: 2013/8/19 10:38
 訊息:
 1. episode-curation storyboard css 調整
