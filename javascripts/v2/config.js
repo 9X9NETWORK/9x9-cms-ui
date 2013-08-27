@@ -324,7 +324,7 @@ var cms = {};
     switch (cms.config.CMS_ENV) {
     case 'prototype':
         cms.config.IS_DEBUG = true;
-        cms.config.API_BASE = 'http://demo.doubleservice.com/9x9_CMS-1-0-teltel_ui2/';
+        cms.config.API_BASE = 'http://9x9.wwwbuy.tw/cmsUI/';
         cms.config.API_PACK = cms.config.PROTOTYPE_PACK;
         cms.config.FB_APP_ID = '367878243223232';
         break;
