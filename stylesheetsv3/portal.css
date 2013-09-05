@@ -1386,6 +1386,7 @@ a.switch-off {
 }
 #content-wrap.system #store-constrain {
 	margin: 26px 0 0 0;
+	display: block;
 }
 #content-wrap.system #store-layer.collapse #store-constrain {
 	margin: 0 0 0 0;

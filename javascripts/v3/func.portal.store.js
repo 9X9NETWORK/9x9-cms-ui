@@ -120,6 +120,7 @@
 		$('#store-category-li-tmpl').tmpl(inCategory, {
             actCat: inCatId
         }).appendTo('#store-category-ul');
+		
 		if($('#content-wrap').hasClass('system')){
  			$(".btn-gray.expand .center .icon").text($("#store-category-ul li.on").text());
 			}
@@ -265,7 +266,7 @@
 		if($('#content-wrap').hasClass('system')){
 			$('.intro span').text('There are over 1000 FREE channels for your selection, you can activate system categories to enrich your channel store.');
 			$('.form-content').text('All channels are automatically updated by system.');
-			$(".btn-gray.expand .center .icon").text($("#store-category-ul li.on").text());
+			$(".btn-gray.expand .center .icon").text($("#store-category-ul li.on").text());	
 			}
 		else {
 			$('.intro span').text('Promotion category provides the best channel impression in channel store.');

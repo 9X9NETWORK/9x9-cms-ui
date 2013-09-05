@@ -121,13 +121,13 @@ $(function () {
         $('body').removeClass('has-change');
     });
 
-    $(document).on("click", ".catLi", function (event) {
+    $(document).on("click", ".catLi a", function (event) {
         if ($('body').hasClass('has-change')) {
             // Unsaved changes will be lost, are you sure you want to leave?
             $(".btn-leave").data("meta", $(this).data("meta"));
             $common.showUnsaveOverlay();
         } else {
-            $page.catLiClick($(this).data("meta"));
+            $page.catLiClick($(this).parents("li").data("meta"));
         }
     });
 
