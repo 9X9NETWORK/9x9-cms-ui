@@ -51,6 +51,14 @@ $(function () {
             thisDiv.find("p.center").text(nn._([cms.global.PAGE_ID, 'channel-list', 'Add channel']));
         }
     });
+	
+	// Add Channels for Promotion Category
+    $(document).on('click', '#empty_channel', function (event) {
+        // search layout
+        var cntChannel = $('#channelCnt').text();
+        $('#search-title').html(nn._([cms.global.PAGE_ID, 'portal-add-layer', 'Add channels into your “<span>Promotion 1</span>”'], [$('#setName').val()]));
+        $('#portal-add-layer').fadeIn();
+    });
 
     // $(document).on("click", ".load", function (event) {
     //     var pageTotal = 0,
@@ -153,10 +161,10 @@ $(function () {
     $(document).on("click", "#store-category .btn-gray", function (event) {
         if ($("#store-layer").hasClass("collapse")) {
             $("#store-category ul").slideDown(400);
-            $('#store-constrain').animate({top:'+=90'}, 400);
+            $('#store-constrain').animate({top:'+=84'}, 400);		
         } else {
             $("#store-category ul").slideUp(400);
-            $('#store-constrain').animate({top:'-=90'}, {
+            $('#store-constrain').animate({top:'-=84'}, {
                 complete: function() {
                     // If the page isn't filled with channels (no scrollbar && pageCurrent < pageTotal)
                     if ($('#store-list').height() >= $('#store-list')[0].scrollHeight - $('#store-list .load').height() && 

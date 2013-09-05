@@ -553,6 +553,30 @@
     line-height: 28px;
 }
 
+/* Switch */
+a.switch-on,
+a.switch-off {
+    width: 63px;
+    height: 24px;
+    background: url(../images/setting_btn_control.png) no-repeat 0 0;
+    color: #555;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 26px;
+    text-decoration: none;
+}
+
+a.switch-on {
+    color: #fff;
+    text-indent: -29px;
+    text-shadow: 0 0 10px #fff;
+}
+
+a.switch-off {
+    background-position: 0 -24px;
+    text-indent: 29px;
+}
+
 .setup-notice p.fb-connect a.switch-on,
 .setup-notice p.fb-connect a.switch-off {
     float: left;

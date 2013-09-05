@@ -1,4 +1,13 @@
-﻿作者: mars
+﻿Date: 2013/08/28 Cunnie
+Changes:
+* Change icon_nav.png and add icon_translation.png.
+* Delete portal-set.html.
+* Change portal-manage.html and store-manage.html.
+* Change lightbox.css, episode.css, portal.css and channel.css.
+* Change func.portal.store.js
+
+
+作者: mars
 日期: 2013/8/22 17:08
 訊息:
 1. poi icon add null-icon class for preload

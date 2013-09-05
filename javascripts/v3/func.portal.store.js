@@ -64,7 +64,16 @@
                 tmpArr.msoMinus = strMinus;
                 outChannels.push(tmpArr);
             }
-            $('#store-chanels-li-tmpl').tmpl(outChannels).appendTo('.channel-list');
+			
+            $('#store-empty-chanels-tmpl').tmpl([{
+            	cntChanels: 1
+            }]).appendTo('#store-layer .channel-list');
+
+            $('#store-chanels-li-tmpl').tmpl(outChannels).appendTo('#store-layer .channel-list');
+			
+			$('#change-category-overlay .overlay-container').html('');
+        	$('#change-category-overlay-tmpl').tmpl().appendTo('#change-category-overlay .overlay-container');
+			
             // $common.autoHeight();
             // $common.scrollbar("#store-constrain", "#store-list", "#store-slider");
             $('#store-list').perfectScrollbar('update');
@@ -90,7 +99,7 @@
             }
         });
     };
-
+	
     $page.getMoreChannels = function () {
         var pageTotal = 0,
             pageNext = 0;
@@ -105,10 +114,18 @@
 
     $page.listCategory = function (inCategory, inCatId) {
         $("#store-category-ul").html('');
-        $('#store-category-li-tmpl').tmpl(inCategory, {
+		
+		$('#store-empty-category-li-tmpl').tmpl().appendTo('#store-category-ul');		
+		
+		$('#store-category-li-tmpl').tmpl(inCategory, {
             actCat: inCatId
         }).appendTo('#store-category-ul');
-        $(".func_name").text($("#store-category-ul li.on").text());
+		if($('#content-wrap').hasClass('system')){
+ 			$(".btn-gray.expand .center .icon").text($("#store-category-ul li.on").text());
+			}
+		else {
+			$(".btn-gray.expand .center .icon").text($('#store-category ul li.empty').text());
+			}
     };
 
     $page.listCatChannel = function (inMsoId, inCatId, inPageSize) {
@@ -121,7 +138,7 @@
             var cntChannelSource = channels.length;
             $('#portal-manage').html('');
             if (cntChannelSource > 0) {
-                $(".form-title").text(nn._([cms.global.PAGE_ID, 'store-layer', "xxx channels in category:"], [cntChannelSource]));
+                $("#store-category .form-title").text(nn._([cms.global.PAGE_ID, 'store-layer', "xxx channels in category:"], [cntChannelSource]));
 
                 pageInfo["pageTotal"] = Math.ceil(cntChannelSource / inPageSize);
                 pageInfo["pageCurrent"] = 1;
@@ -160,10 +177,13 @@
         var msoId = 0;
         msoId = cms.global.MSO;
         $common.showProcessingOverlay();
-        $(".catLi ").removeClass("on");
+        $(".catLi").removeClass("on");
         $("#catLi_" + inObj).addClass("on");
-        $(".func_name").text($("#catLi_" + inObj).text());
+        $(".btn-gray.expand .center .icon ").text($("#catLi_" + inObj).text());
         $('.channel-list li').remove();
+		$('#store-layer').addClass('collapse');
+		$('#store-category-ul').hide();
+		$('#store-constrain').animate({top:'-=84'}, 400);
 
         // if ('none' !== $('#store-slider').css('display')) {
         //     $('#store-slider .slider-vertical').slider('value', 100);
@@ -233,6 +253,55 @@
             $('#store-list').perfectScrollbar({ marginTop: 25, marginBottom: 63 });
         }
     };
+	
+	// Exchanege Promotion and System Category
+	$('#func-nav ul li a').click(function() {
+		
+		$('.categry-type').text($(this).text());
+		$('.sub-nav li').toggleClass('active');
+		$('#content-wrap').toggleClass('system');
+		$('#store-list').perfectScrollbar('update');
+
+		if($('#content-wrap').hasClass('system')){
+			$('.intro span').text('There are over 1000 FREE channels for your selection, you can activate system categories to enrich your channel store.');
+			$('.form-content').text('All channels are automatically updated by system.');
+			$(".btn-gray.expand .center .icon").text($("#store-category-ul li.on").text());
+			}
+		else {
+			$('.intro span').text('Promotion category provides the best channel impression in channel store.');
+			$('.form-content').text('Sorted by: Updated time');
+			$(".btn-gray.expand .center .icon").text($('#store-category ul li.empty').text());
+			}
+	});
+
+	// Switch ON/OFF in System Category
+	$('.intro a.switch-on').click(function() {
+		$(this).addClass('hide');
+		$('.intro a.switch-off.hide').removeClass('hide');
+ 		$('#store-layer').hide();
+		$('.intro .msg-error').show();
+ 	});
+	
+	$('.intro a.switch-off').click(function() {
+		$(this).addClass('hide');
+		$('.intro a.switch-on.hide').removeClass('hide');
+		$('#store-layer').show();
+		$('.intro .msg-error').hide();
+		$('#store-list').perfectScrollbar('update');
+ 	});
+
+	// Change Category	
+	$('#content-main').on('click', '#store-category ul li .btn-edit, #store-category ul li.empty', function () {
+        $.blockUI({
+            message: $('#change-category-overlay')
+        });
+        return false;
+    });
+	
+	$('#change-category-overlay').on('click', '.btn-cancel, .btn-close', function () {
+        $.unblockUI();
+        return false;
+    });
 
     // NOTE: remember to change page-key to match file-name
 }(cms.namespace('store-manage')));
