@@ -4449,8 +4449,6 @@
                         </li>
                     </ul>
                 </div>
-                <div class="ps-scrollbar-x" style="left: 0px; bottom: 3px; width: 0px;"></div>
-                <div class="ps-scrollbar-y" style="top: 10px; right: 15px; height: 142px;"></div>
             </div>
         </div>
     </div>
@@ -4583,52 +4581,12 @@
     <script src="javascripts/v3/domready.get-url.js?v=1278"></script>
     <script src="javascripts/v3/domready.index.js?v=1278"></script>
     -->
+    <script src="javascripts/v3/main.js"></script>
     <script>
         $('#content-main-wrap').perfectScrollbar();
 
         $(window).resize(function () {
             $('#content-main-wrap').perfectScrollbar('update');
-        });
-
-        // header profile dropdown
-        $('#btn-profile, #selected-profile').click(function (event) {
-            showDropdown('#btn-profile');
-            $('#footer p.select-btn').removeClass('on');
-            event.stopPropagation();
-        });
-        $('#profile-dropdown li').click(function () {
-            $('#btn-profile').removeClass('on');
-            $('#profile-dropdown').hide();
-        });
-
-        // common dropdown (share with header, footer, channel-add and channel-setting)
-        function showDropdown(btn) {
-            var str = '',
-                id = '';
-            // $common.hideFbPageList();
-            $('.dropdown, .select-list').hide();
-            $('.dropdown')
-                .parents('li:not(' + btn + ')').removeClass('on')
-                .children('.on:not(' + btn + ')').removeClass('on');
-            $(btn).toggleClass('on');
-            str = $(btn).attr('id');
-            if (str.search('btn') === 0) {
-                // slice(4) for btn-xxx
-                str = $(btn).attr('id').slice(4);
-            }
-            id = '#' + str + '-dropdown';
-            if ($(btn).hasClass('on')) {
-                $(id).show();
-            } else {
-                $(id).hide();
-            }
-        }
-        $('body').click(function () {
-            $('.dropdown').hide();
-            $('.dropdown').parents('li').removeClass('on').children('.on').removeClass('on');
-            $('.select-list').hide();
-            $('.select-list').parents().removeClass('on').children('.on').removeClass('on');
-            // $common.hideFbPageList();
         });
 
         // channel list sorting
@@ -4640,7 +4598,7 @@
             }
         });
         $('#channel-list').sortable('disable');
-        // channel list sorting
+        
         $('#title-func').on('click', 'p.order a.reorder', function () {
             $(this).text('Save order').removeClass('reorder').addClass('save');
             $('#channel-list').sortable('enable');
@@ -4663,15 +4621,11 @@
             }
             if ($('body').hasClass('has-change') && null !== parameter) {
                 showSavingOverlay();
-                // nn.api('PUT', cms.reapi('/api/users/{userId}/channels/sorting', {
-                //     userId: cms.global.USER_DATA.id
-                // }), parameter, function (data) {
-                    $('#overlay-s').fadeOut(1000, function () {
-                        $this.text('Reorder channels').removeClass('save').addClass('reorder');
-                        $('#channel-list').sortable('disable');
-                        $('body').removeClass('has-change');
-                    });
-                // });
+                $('#overlay-s').fadeOut(1000, function () {
+                    $this.text('Reorder channels').removeClass('save').addClass('reorder');
+                    $('#channel-list').sortable('disable');
+                    $('body').removeClass('has-change');
+                });
             } else {
                 $this.text('Reorder channels').removeClass('save').addClass('reorder');
                 $('#channel-list').sortable('disable');
@@ -4679,11 +4633,6 @@
             }
             return false;
         });
-
-        var showSavingOverlay = function () {
-            $('#overlay-s .overlay-middle').html('<img src="images/icon_load_l.gif" alt="" />' + 'Saving...');
-            $('#overlay-s').fadeIn().css('z-index', '1200');
-        };
     </script>
 </body>
 </html>
