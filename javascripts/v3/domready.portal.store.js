@@ -124,7 +124,7 @@ $(function () {
     $(document).on("click", ".catLi a", function (event) {
         if ($('body').hasClass('has-change')) {
             // Unsaved changes will be lost, are you sure you want to leave?
-            $(".btn-leave").data("meta", $(this).data("meta"));
+            $(".btn-leave").data("meta", $(this).parents("li").data("meta"));
             $common.showUnsaveOverlay();
         } else {
             $page.catLiClick($(this).parents("li").data("meta"));

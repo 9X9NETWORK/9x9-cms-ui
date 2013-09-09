@@ -195,6 +195,7 @@
         $page.listCatChannel(msoId, inObj, $page.channelPageSize);
         $('#store-list').scrollTop(0);
         $('#store-list').perfectScrollbar('update');
+ 		$(".btn-gray.expand .center .icon").text($("#store-category-ul li.on").text());
     };
 
     // NOTE: page entry point (keep at the bottom of this file)
