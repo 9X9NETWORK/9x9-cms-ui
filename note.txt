@@ -1,4 +1,9 @@
-﻿Date: 2013/09/09 yifan
+﻿Date: 2013/09/10 yifan
+Changes:
+* Add store-manage-promotion-static.html.
+* Add store-manage-system-static.html.
+
+Date: 2013/09/09 yifan
 Changes:
 * Add portal-manage-static.html.
 * Add portal-manage-empty-static.html.
