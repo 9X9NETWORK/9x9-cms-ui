@@ -84,7 +84,8 @@
     <!-- Navigation Layer End -->
 
     <!-- Content Layer Begin -->
-    <div id="content-wrap">
+    <!-- With channels -->
+    <div id="content-wrap" style="display: none;">
         <!-- Content Nav Layer Begin -->
         <div id="content-nav">
             <div id="func-nav">
@@ -1010,6 +1011,133 @@
                                     </div>
                                 </div>
                                 <p class="ch-title">abc</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Portal Layer End -->
+        </div>
+    </div>
+    <!-- Empty -->
+    <div id="content-wrap">
+        <!-- Content Nav Layer Begin -->
+        <div id="content-nav">
+            <div id="func-nav">
+                <ul>
+                    <li>
+                        <a href="portal-manage.html" class="portal langkey">My Portal</a>
+                        <ul class="sub-nav">
+                            <li class=""><a href="portal-manage.html?id=33">中文</a>
+                            </li>
+                            <li class="active"><a href="portal-manage.html?id=34">專題報導專題報導專題報導</a>
+                            </li>
+                            <li class=""><a href="portal-manage.html?id=35">語言學院</a>
+                            </li>
+                            <li class=""><a href="portal-manage.html?id=36">通識中心</a>
+                            </li>
+                            <li class=""><a href="portal-manage.html?id=37">經典愛情</a>
+                            </li>
+                            <li class=""><a href="portal-manage.html?id=38">倫理劇情</a>
+                            </li>
+                            <li class=""><a href="portal-manage.html?id=39">偶像戲劇</a>
+                            </li>
+                            <li class=""><a href="portal-manage.html?id=40">分類新聞</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="store-manage.html" class="store langkey">Channel Store</a>
+                    </li>
+                    <li><a href="brand-setting.html" class="brand langkey">Brand Settings</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Content Nav Layer End -->
+        <div id="portal-slider" class="slider-wrap">
+            <div class="slider-vertical"></div>
+        </div>
+        <div id="content-main">
+            <div id="title-func" class="clearfix">
+                <h2>
+                    <span class="langkey">My Portal</span>
+                    &gt;
+                    <span class="set_name">中文</span>
+                </h2>
+                <ul>
+                    <li class="hide">
+                        <p class="btns">
+                            <span><a href="javascript:void(0)" id="set-preview" target="_blank" class="langkey">Preview</a>
+                            </span>
+                        </p>
+                    </li>
+                    <li id="set-save" class="last">
+                        <p class="btns">
+                            <span><a href="javascript:void(0)" class="langkey">Save</a>
+                            </span>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <!-- Portal Layer Begin -->
+            <div id="portal-layer">
+                <form id="portal-manage" onsubmit="return false;">
+                    <input type="hidden" name="id" value="34">
+                    <input type="hidden" id="sortingType" name="sortingType" value="2">
+                    <div class="clearfix">
+                        <span class="required-field">*</span>
+                        <span class="form-title">Set Name :</span>
+                        <div class="input-white" id="set-title">
+                            <p class="left"></p>
+                            <input id="setName" name="name" value="專題報導專題報導專題報導" class="center">
+                            <p class="right"></p>
+                        </div>
+                        <span class="notice">
+                            <span id="name-charcounter">12</span>Best within 20 characters</span>
+                        <span id="msg-portal" class="msg-error"></span>
+                    </div>
+                    <div class="clearfix sort">
+                        <span class="form-title">Channel List :</span>
+                        <p class="number">
+                            <span id="channelCnt">0</span>Channels</p>
+                        <ul class="sort-list">
+                            <li class="head">Sorted by:</li>
+                            <li tvalue="2" class="sType on">Updated time</li>
+                            <li tvalue="1" class="sType ">Customized Order</li>
+                        </ul>
+                    </div>
+                </form>
+                <h2 id="cntChannelEmpty" style="" class="langkey">My portal provides the first impact and best channel impression when viewers launch your apps.</h2>
+                <div id="portal-constrain">
+                    <div id="portal-list">
+                        <ul id="channel-list" class="channel-list">
+                            <li id="empty_channel" class="empty">
+                                <div class="thumb">
+                                    <div class="btn-top">
+                                        <div class="icon-holder"></div>
+                                        <div class="tip-white">
+                                            <p class="left"></p>
+                                            <p class="center">Set on top</p>
+                                            <p class="right"></p>
+                                        </div>
+                                        <div class="tip-top"></div>
+                                    </div>
+                                    <div class="btn-remove">
+                                        <div class="icon-holder"></div>
+                                        <div class="tip-white">
+                                            <p class="left"></p>
+                                            <p class="center">Remove</p>
+                                            <p class="right"></p>
+                                        </div>
+                                        <div class="tip-top"></div>
+                                    </div>
+                                    <img src="images/icon_playlist.png" alt="" class="watermark">
+                                    <div class="ch">
+                                        <img src="thumbnail/ch_default.png" alt="">
+                                    </div>
+                                </div>
+                                <p class="ch-title addChanel">+ Add
+                                    <br>&nbsp;&nbsp;&nbsp;channels</p>
                             </li>
                         </ul>
                     </div>

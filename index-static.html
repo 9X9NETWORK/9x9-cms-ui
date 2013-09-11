@@ -98,7 +98,8 @@
         <div id="main-wrap-slider" class="slider-wrap">
             <div class="slider-vertical"></div>
         </div>
-        <div id="content-main">
+        <!-- With channels -->
+        <div id="content-main" style="display: none;">
             <div id="title-func" class="clearfix">
                 <h2>
                     My Channels (
@@ -4451,6 +4452,73 @@
                 </div>
             </div>
         </div>
+        <!-- Empty -->
+        <div id="content-main">
+            <div id="title-func" class="clearfix">
+                <h2>My Channels (
+                    <span id="channel-counter">0</span>)</h2>
+                <ul>
+                    <li>
+                        <p class="curate btns">
+                            <span><a href="channel-add.html">Create a new channel</a>
+                            </span>
+                        </p>
+                    </li>
+                    <li class="last">
+                        <p class="order btns" style="display: none;">
+                            <span><a href="javascript:void(0);" class="reorder">Reorder channels</a>
+                            </span>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div id="content-main-wrap" class="ps-container">
+                <div class="constrain">
+                    <div id="com-9x9-cycle-list">
+                        <h3>You don't have any channels yet</h3>
+                        <p class="btns">
+                            <span><a href="channel-add.html">Create a new channel</a>
+                            </span>
+                        </p>
+                        <div id="com-9x9-cycle">
+                            <p class="cycle-pager"><a href="#" class="">1</a><a href="#" class="active">2</a>
+                            </p>
+                            <div class="wrapper">
+                                <ul class="content" style="position: relative; overflow: hidden;">
+                                    <li style="position: absolute; top: 0px; left: -781px; display: none; z-index: 2; opacity: 1;">
+                                        <div class="img">
+                                            <a href="epcurate-curation.html?cid=25892">
+                                                <img src="images/banner_ch_01.png" alt="" width="781" height="274">
+                                            </a>
+                                        </div>
+                                        <div class="desc">
+                                            <p>
+                                                <span>Create your own
+                                                    <strong>personal and unique</strong>channel.</span>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li style="position: absolute; top: 0px; left: 0px; display: block; z-index: 3; opacity: 1; width: 781px; height: 275px;">
+                                        <div class="img">
+                                            <a href="epcurate-curation.html?cid=25892">
+                                                <img src="images/banner_ch_02.png" alt="" width="781" height="274">
+                                            </a>
+                                        </div>
+                                        <div class="desc">
+                                            <p>
+                                                <span>And online videos into episode and start to
+                                                    <strong>curate your own channel.</strong>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- Content Layer End -->
 
@@ -4559,15 +4627,26 @@
     <div id="tmpHtml2" style="display: none"></div>
     <div id="tmpHtml" style="display: none"></div>
 
+    <div id="lightbox-create-channel" class="lightbox-content" style="">
+        <h3 class="index-collect-title">Collect and Curate!</h3>
+        <p class="desc">CMS is the management center for your 9x9.tv list-form channels!</p>
+        <p class="create"> <a href="channel-add.html">create             <img src="images/icon_add.png" alt="">             <span>Create a<br>new channel</span>         </a> 
+        </p>
+        <p class="btns unblock">
+            <span><a href="#">Not right now, thanks!</a>
+            </span>
+        </p>
+    </div>
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-    <script src="javascripts/libs/jquery.mousewheel.min.js?v=1278"></script>
+    <script src="javascripts/libs/jquery.mousewheel.min.js"></script>
     <script src="javascripts/libs/perfect-scrollbar.js"></script>
+    <script src="javascripts/libs/jquery.blockUI.min.js"></script>
+    <script src="javascripts/libs/jquery.cycle.all.min.js"></script>
     <!--
     <script src="javascripts/libs/nn-sdk.prototype.js?v=1278"></script>
     <script src="javascripts/libs/jquery.ellipsis.min.js?v=1278"></script>
-    <script src="javascripts/libs/jquery.blockUI.min.js?v=1278"></script>
-    <script src="javascripts/libs/jquery.cycle.all.min.js?v=1278"></script>
     <script src="javascripts/libs/jquery.charcounter.min.js?v=1278"></script>
     <script src="javascripts/libs/jquery.tmpl.min.js?v=1278"></script>
     <script src="javascripts/libs/jquery.cookie.min.js?v=1278"></script>
@@ -4583,7 +4662,7 @@
     -->
     <script src="javascripts/v3/main.js"></script>
     <script>
-        $('#content-main-wrap').perfectScrollbar();
+        $('#content-main-wrap').perfectScrollbar({marginTop: 10, marginBottom: 63});
 
         $(window).resize(function () {
             $('#content-main-wrap').perfectScrollbar('update');
@@ -4632,6 +4711,35 @@
                 $('body').removeClass('has-change');
             }
             return false;
+        });
+
+        // Cycle
+        $('#com-9x9-cycle p.cycle-pager').html('');
+        $('#com-9x9-cycle .wrapper ul.content').cycle({
+            pager: '.cycle-pager',
+            activePagerClass: 'active',
+            updateActivePagerLink: null,
+            fx: 'scrollHorz',
+            speed: 1000,
+            timeout: 6000,
+            pagerEvent: 'mouseover',
+            pause: 1,
+            cleartypeNoBg: true
+        });
+
+        // Tutorial
+        function showCreateChannelTutorial() {
+            // $('#lightbox-create-channel').remove();
+            // $('#lightbox-create-channel-tmpl').tmpl().prependTo('body');
+            $('.blockOverlay').height($(window).height() - 45);
+            $.blockUI.defaults.overlayCSS.opacity = '0.9';
+            $.blockUI({
+                message: $('#lightbox-create-channel')
+            });
+        };
+        showCreateChannelTutorial();
+        $('p.btns.unblock').click(function() {
+            $.unblockUI();
         });
     </script>
 </body>

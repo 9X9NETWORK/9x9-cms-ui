@@ -4843,6 +4843,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <script src="javascripts/libs/jquery.mousewheel.min.js?v=1278"></script>
     <script src="javascripts/libs/perfect-scrollbar.js"></script>
+    <script src="javascripts/libs/jquery.blockUI.min.js"></script>
     <!--
     <script src="javascripts/libs/nn-sdk.prototype.js?v=1278"></script>
     <script src="javascripts/libs/jquery.ellipsis.min.js?v=1278"></script>
@@ -4914,6 +4915,25 @@
                 upLi.addClass("minus");
                 thisDiv.find("p.center").text('Add channel');
             }
+        });
+
+        // 'Add category' modal.  
+        $('#content-main').on('click', '#store-category ul li .btn-edit, #store-category ul li.empty', function () {
+            $.blockUI({
+                message: $('#change-category-overlay')
+            });
+            return false;
+        });
+        
+        $('#change-category-overlay').on('click', '.btn-cancel, .btn-close', function () {
+            $.unblockUI();
+            return false;
+        });
+
+        // Change promotion/system.
+        $('#func-nav .sub-nav li').click(function() {
+            $('#func-nav .sub-nav li').toggleClass('active');
+            $('#content-wrap').toggleClass('system');
         });
     </script>
 </body>

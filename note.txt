@@ -1,4 +1,10 @@
-﻿Date: 2013/09/10 yifan
+﻿Date: 2013/09/11 yifan
+Changes:
+* Add brand-settings-static.html.
+* Combine separate portal and store static pages.
+* Revise index-static.html to show empty channel list.
+
+Date: 2013/09/10 yifan
 Changes:
 * Add store-manage-promotion-static.html.
 * Add store-manage-system-static.html.
