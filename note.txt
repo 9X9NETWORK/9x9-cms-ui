@@ -1,4 +1,9 @@
-﻿Date: 2013/09/12 yifan
+﻿Date: 2013/09/13 yifan
+Changes:
+* Add channel-poi-static.html.
+* Add episode-list-static.html.
+
+Date: 2013/09/12 yifan
 Changes:
 * Add channel-add-static.html.
 * Add channel-setting-static.html.
