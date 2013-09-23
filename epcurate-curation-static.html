@@ -94,11 +94,11 @@
                                         <span><a href="#cur-edit" class="cur-edit langkey">Edit</a>
                                         </span>
                                     </li>
-                                    <li class="poi">
+                                    <li class="poi last">
                                         <span><a href="#cur-poi" class="cur-poi langkey">POI &amp; interactive event</a>
                                         </span>
                                     </li>
-                                    <li class="edit-poi last">
+                                    <li class="edit-poi last hide">
                                         <span>
                                             <a href="#cur-edit-poi" class="cur-edit-poi">
                                                 <img src="images/icon_edit.png" alt="" width="16" height="16">
@@ -126,7 +126,7 @@
                                         <!-- <p class="btns btn-add"><span><a href="#" id="btn-add-videourl" class="langkey">Add</a></span></p> -->
                                     </div>
                                 </div>
-                                <div id="cur-edit" class="tab-content clearfix hide">
+                                <div id="cur-edit" class="tab-content clearfix">
                                     <div id="video-info" class="edit-time">
                                         <div id="video-info-wrap">
                                             <h3>
@@ -529,7 +529,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="cur-poi-edit" class="tab-content clearfix edit">
+                                <div id="cur-poi-edit" class="tab-content clearfix edit hide">
                                     <div id="poi-point-edit-wrap" class="content" data-program-id="98231" data-poi-point-id="1" data-starttime="11">
                                         <h3>Create POI &amp; interactive event</h3>
                                         <h3 class="edit">Edit POI &amp; interactive event</h3>
@@ -665,7 +665,7 @@
                                         </span>
                                     </p>
                                     <div class="channel-name">
-                                        <span class="title">Channel:</span>
+                                        <span class="title">Program:</span>
                                         <span id="channel-name" data-meta="&lt;Kuso&gt;CH test &quot;en&quot; 很長很長的節目名稱很長很長的節目名稱很長很長的節目名稱很長很長的節目名稱很長很長的節目名稱很長很長的節目名稱很長很長的節目名稱">&lt;Kuso&gt;CH test "en" 很長很長的節目名稱很長很長的節目名稱很長很長的節目名稱很長很長的節目名稱很長很長的節目名稱很長很長的節目名稱很長很長的節目名稱</span>
                                     </div>
                                     <div class="episode-name">
@@ -674,7 +674,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="storyboard-wrap" class="storyboard-list ps-container">
+                            <div id="storyboard-wrap" class="storyboard-list">
                                 <div id="storyboard-list">
                                     <p class="notice langkey" style="left: 997px;">+ Add videos here</p>
                                     <ul id="storyboard-listing" class="ui-sortable">
@@ -834,8 +834,6 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="ps-scrollbar-x" style="left: 0px; bottom: 3px; width: 302px;"></div>
-                                <div class="ps-scrollbar-y" style="top: 0px; right: 10px; height: 0px;"></div>
                             </div>
                             <p class="auto-height"></p>
                             <div id="storyboard-slider">
@@ -1124,7 +1122,7 @@
                                 <div class="img hyper">
                                     <h4>Hyper Link</h4>
                                 </div>
-                                <p>User can go to watch another 9x9.tv channel or episode.</p>
+                                <p>User can go to watch another 9x9.tv program or episode.</p>
                             </div>
                         </li>
                         <li class="event-scheduled">
@@ -1188,7 +1186,7 @@
                                 <!--[if lt IE 10]><style type="text/css">.manual-icon.enter-button ,.manual-icon.ok-button {background-image: none!important;} .poi-blue{background-color: #83B6CE;} .poi-red{ background-color: #BC7173;} .poi-yellow{background-color: #D6BD47;}.poi-green{background-color: #A4BA8E;}</style><![endif]-->
                                 <div id="poi-layer">
                                     <div id="poi-line" class="poi-blue"></div>
-                                    <h1 id="poi-msg">Hyper to related channel to watch more and more!!!</h1>
+                                    <h1 id="poi-msg">Hyper to related program to watch more and more!!!</h1>
                                     <div id="poi-btn">
                                         <div id="poi-btn-holder" class="poi-blue-button">
                                             <a id="poi-enter" class="enter-button"></a>
@@ -1208,7 +1206,7 @@
                                     <acronym title="Required field" class="mark-required">*</acronym>Display text:</label>
                                 <p class="text">
                                     <span>
-                                        <input type="text" name="displayText" id="hyper_display_text" value="Hyper to related channel to watch more and more!!!" placeholder="Input display text" class="text">
+                                        <input type="text" name="displayText" id="hyper_display_text" value="Hyper to related program to watch more and more!!!" placeholder="Input display text" class="text">
                                     </span>
                                 </p>
                             </div>
@@ -1227,7 +1225,7 @@
                                     <acronym title="Required field" class="mark-required">*</acronym>Hyper link:</label>
                                 <p class="text">
                                     <span>
-                                        <input type="text" name="channelUrl" id="hyper_link" maxlength="100" value="http://www.9x9.tv/view?ch=8758" placeholder="Input 9x9 channel or episode URL" class="text">
+                                        <input type="text" name="channelUrl" id="hyper_link" maxlength="100" value="http://www.9x9.tv/view?ch=8758" placeholder="Input 9x9 program or episode URL" class="text">
                                     </span>
                                 </p>
                                 <span class="notice">Invalid 9x9 URL, please try again.</span>
@@ -1273,7 +1271,7 @@
                                         <acronym title="Required field" class="mark-required">*</acronym>Display text:</label>
                                     <p class="text">
                                         <span>
-                                            <input type="text" name="displayText" id="schedule_display_text" value="Hyper to related channel to watch more and more!!!" placeholder="Input display text" class="text">
+                                            <input type="text" name="displayText" id="schedule_display_text" value="Hyper to related program to watch more and more!!!" placeholder="Input display text" class="text">
                                         </span>
                                     </p>
                                 </div>
@@ -1592,7 +1590,7 @@
                                     <acronym title="Required field" class="mark-required">*</acronym>Display text:</label>
                                 <p class="text">
                                     <span>
-                                        <input type="text" name="displayText" id="poll_display_text" value="Hyper to related channel to watch more and more!!!" placeholder="Input display text" class="text poll-text">
+                                        <input type="text" name="displayText" id="poll_display_text" value="Hyper to related program to watch more and more!!!" placeholder="Input display text" class="text poll-text">
                                     </span>
                                 </p>
                             </div>
@@ -1674,7 +1672,7 @@
                                         <acronym title="Required field" class="mark-required">*</acronym>Display text:</label>
                                     <p class="text">
                                         <span>
-                                            <input type="text" name="displayText" id="instant_display_text" value="Hyper to related channel to watch more and more!!!" placeholder="Input display text" class="text">
+                                            <input type="text" name="displayText" id="instant_display_text" value="Hyper to related program to watch more and more!!!" placeholder="Input display text" class="text">
                                         </span>
                                     </p>
                                 </div>
@@ -1782,6 +1780,7 @@
     <script src="javascripts/libs/perfect-scrollbar.min.js"></script>
     <script src="javascripts/libs/jquery.datepick.min.js"></script>
     <script src="javascripts/libs/jquery.ellipsis.min.js"></script>
+    <script src="javascripts/libs/jquery.cycle.all.js"></script>
     <!--
     <script src="javascripts/libs/nn-sdk.prototype.js?v=1278"></script>
     <script src="javascripts/libs/jquery.charcounter.min.js?v=1278"></script>
@@ -1792,7 +1791,6 @@
     <script src="javascripts/libs/jquery.cookie.min.js?v=1278"></script>
     <script src="javascripts/libs/jquery.countdown.js?v=1278"></script>
     <script src="javascripts/libs/jquery.autotab.min.js?v=1278"></script>
-    <script src="javascripts/libs/jquery.cycle.all.js?v=1278"></script>
     <script src="javascripts/libs/json2.min.js?v=1278"></script>
     <script src="javascripts/libs/purl.min.js?v=1278"></script>
     <script src="javascripts/libs/swfupload/swfupload.js?v=1278"></script>
@@ -1805,6 +1803,7 @@
     <script src="javascripts/v3/main.js"></script>
     -->
     <script>
+    $('#storyboard-wrap').perfectScrollbar(); 
     // storyboard sortable
     $('#storyboard-listing').sortable({
         cursor: 'move',
@@ -1818,6 +1817,26 @@
         //     $('#storyboard-listing li').eq(48).addClass('last2');
         //     $('#storyboard-listing li').eq(49).addClass('last');
         // }
+    });
+
+    // video play
+    $('#storyboard').on('click', '.storyboard-list ul li .hover-func a.video-play', function (e) {
+        // switch tab and content
+        if ($('#epcurate-curation > .curation-content > ul.tabs > li.poi').hasClass('hide')) {
+            $('#epcurate-curation ul.tabs li').removeClass('on');
+            $('#epcurate-curation ul.tabs li a.cur-add').parent().parent().removeClass('last');
+            $('#epcurate-curation ul.tabs li a.cur-edit').parent().parent().removeClass('hide last').addClass('on');
+            $('#epcurate-curation ul.tabs li a.cur-poi').parent().parent().removeClass('hide');
+            $('#epcurate-curation .tab-content').addClass('hide');
+            $('#cur-edit').removeClass('hide');
+            $('#cur-edit .edit-time').removeClass('hide');
+            $('#cur-edit .edit-title').addClass('hide');
+            $('#video-control').show();
+            $('#btn-play').addClass('hide');
+            $('#btn-pause').addClass('hide');
+        }
+
+        return false;
     });
 
     // main tabs - Common
@@ -1907,6 +1926,132 @@
     $('#epcurate-curation ul.tabs li a.cur-edit-poi').click(function(e) {
         return false;
     });
+
+    // Trim time - buttons
+    $('#cur-edit').on('click', '.edit-time .btn-wrap .btns', function () {
+        $('#cur-edit .edit-time .btn-wrap .btns').toggleClass('hide');
+        $('#cur-edit .edit-time .time-wrap .total-time').toggleClass('hide');
+        $('#cur-edit .edit-time .time-wrap .time').toggleClass('disable');
+        $( "#cur-edit .edit-time .time-wrap .time input" ).prop( "disabled", function( i, val ) {
+            return !val;
+        });
+    });
+
+    // POI Add button
+    $('#cur-poi').on('click', '.btn-add-poi a', function () {
+        // Tab
+        $('#epcurate-curation ul.tabs li.poi').removeClass('last on');
+        $('#epcurate-curation ul.tabs li.edit-poi').removeClass('hide');
+        $('#epcurate-curation ul.tabs li.edit-poi').addClass('last on');
+        // Content
+        $('#cur-poi').addClass('hide');
+        $('#cur-poi-edit').removeClass('edit').removeClass('hide');
+        return false;
+    });
+    // POI Edit button
+    $('#cur-poi').on('click', '.poi-list a.edit', function () {
+        // Tab
+        $('#epcurate-curation ul.tabs li.poi').removeClass('last on');
+        $('#epcurate-curation ul.tabs li.edit-poi').removeClass('hide');
+        $('#epcurate-curation ul.tabs li.edit-poi').addClass('last on');
+        // Content
+        $('#cur-poi').addClass('hide');
+        $('#cur-poi-edit').removeClass('edit').removeClass('hide');
+        return false;
+    });
+        // POI cycle
+        $('#cur-poi .poi-list ul').cycle({
+            activePagerClass: 'active',
+            updateActivePagerLink: null,
+            next: '#cur-poi .poi-list .next',
+            prev: '#cur-poi .poi-list .prev',
+            fx: 'scrollHorz',
+            before: function () {
+                $('#cur-poi .poi-list .prev, #cur-poi .poi-list .next').hide();
+            },
+            after: function (curr, next, opts) {
+                var index = opts.currSlide;
+                $('#cur-poi .poi-list .prev')[index === 0 ? 'hide' : 'show']();
+                $('#cur-poi .poi-list .next')[index === opts.slideCount - 1 ? 'hide' : 'show']();
+            },
+            speed: 1000,
+            timeout: 0,
+            pause: 1,
+            cleartypeNoBg: true
+        });
+
+        $('#poi-point-wrap .btn-next').click(function() {
+            $.blockUI({
+                message: $('#poi-event-overlay'),
+                onBlock: function () {
+                    var currentFrameMonth = '';
+                    // $('body').addClass('from-poi-overlay-edit-mode');
+                    $('#poi-event-overlay .event').addClass('hide');
+                    if ($('#cur-poi-edit').hasClass('edit')) {
+                        // update mode
+                        $('#poi-event-overlay').addClass('edit');
+                        $('#' + poiEventTypeKey).removeClass('hide');
+                        if (false === hasPoiEventCache) {
+                            $page.playPoiEventAndVideo(poiEventTypeKey);
+                        }
+                    } else {
+                        // insert mode
+                        $('#poi-event-overlay').removeClass('edit');
+                        if (poiEventTypeKey && cms.config.POI_TYPE_MAP[poiEventTypeKey]) {
+                            $('#' + poiEventTypeKey).removeClass('hide');
+                        } else {
+                            $('#event-select').removeClass('hide');
+                        }
+                    }
+                    $('#poi-event-overlay input[name=btnText]').charCounter(20, {
+                        container: '<span class="hide"><\/span>',
+                        format: '%1 characters to go!',
+                        delay: 0,
+                        multibyte: true
+                    });
+                    $('#poi-event-overlay .datepicker').datepick({
+                        changeMonth: false,
+                        dateFormat: 'yyyy/mm/dd',
+                        monthNames: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                        dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+                        multiSelect: 999,
+                        onChangeMonthYear: function (year, month) {
+                            currentFrameMonth = month;
+                        },
+                        onDate: function (date) {
+                            var selectedList = $('#datepicker_selected').val().split(','),
+                                currentDate = $.datepick.formatDate('yyyy/mm/dd', date),
+                                currentMonth = date.getMonth() + 1;
+                            return (date >= $.datepick.today()) ? {} : {
+                                dateClass: ((-1 !== $.inArray(currentDate, selectedList) && currentMonth === currentFrameMonth) ? 'datepick-selected' : ''),
+                                selectable: false
+                            };
+                        },
+                        onSelect: function (dates) {
+                            $('body').addClass('has-poi-change');
+                            $('body').addClass('has-change');
+                            $('#poi-event-overlay .event .func ul li.notice').hide();
+                            var selectedDate = '',
+                                selectedList = [],
+                                scheduleDate = '',
+                                scheduleList = [],
+                                timestampList = [];
+                            $.each(dates, function (i, dateItem) {
+                                selectedDate = $.datepick.formatDate('yyyy/mm/dd', dateItem);
+                                selectedList.push(selectedDate);
+                                scheduleDate = selectedDate + ' ' + $('#time_hour').text() + ':' + $('#time_min').text() + ':00';
+                                scheduleList.push(scheduleDate);
+                                timestampList.push(Date.parse(scheduleDate));
+                            });
+                            $('#datepicker_selected').val(selectedList.join(','));
+                            $('#schedule_selected').val(scheduleList.join(','));
+                            $('#timestamp_selected').val(timestampList.join(','));
+                        }
+                    });
+                    $('#schedule-mobile .notification .time .hour').perfectScrollbar();
+                }
+            });
+        });
     </script>
 </body>
 
