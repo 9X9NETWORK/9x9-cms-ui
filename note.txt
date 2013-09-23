@@ -1,4 +1,10 @@
-﻿Date: 2013/09/13 yifan
+﻿Date: 2013/09/23 yifan
+Changes:
+* Working on static episode curation page.
+* Change 'Set' to 'Channel' and 'Channel' to 'Program'.
+* Add btn-gray disabled style.
+
+Date: 2013/09/13 yifan
 Changes:
 * Add channel-poi-static.html.
 * Add episode-list-static.html.
