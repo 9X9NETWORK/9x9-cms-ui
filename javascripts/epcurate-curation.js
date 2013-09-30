@@ -144,7 +144,7 @@ $('#cur-poi').on('click', '.btn-add-poi a', function() {
     return false;
 });
 // POI Edit button
-$('#cur-poi').on('click', '.poi-list a.edit', function() {
+$('#cur-poi').on('click', '.poi-list a.edit, #poi-list-page > li > ol > li > div', function() {
     // Tab
     $('#epcurate-curation ul.tabs li.poi').removeClass('last on');
     $('#epcurate-curation ul.tabs li.edit-poi').removeClass('hide');
@@ -176,34 +176,12 @@ $('#cur-poi .poi-list ul').cycle({
 });
 
 $('#poi-point-wrap .btn-next').click(function() {
+    $('#poi-event-overlay .event').addClass('hide');
+    $('#event-select').removeClass('hide');
     $.blockUI({
         message: $('#poi-event-overlay'),
         onBlock: function() {
             var currentFrameMonth = '';
-            // $('body').addClass('from-poi-overlay-edit-mode');
-            $('#poi-event-overlay .event').addClass('hide');
-            if ($('#cur-poi-edit').hasClass('edit')) {
-                // update mode
-                $('#poi-event-overlay').addClass('edit');
-                $('#' + poiEventTypeKey).removeClass('hide');
-                if (false === hasPoiEventCache) {
-                    $page.playPoiEventAndVideo(poiEventTypeKey);
-                }
-            } else {
-                // insert mode
-                $('#poi-event-overlay').removeClass('edit');
-                if (poiEventTypeKey && cms.config.POI_TYPE_MAP[poiEventTypeKey]) {
-                    $('#' + poiEventTypeKey).removeClass('hide');
-                } else {
-                    $('#event-select').removeClass('hide');
-                }
-            }
-            $('#poi-event-overlay input[name=btnText]').charCounter(20, {
-                container: '<span class="hide"><\/span>',
-                format: '%1 characters to go!',
-                delay: 0,
-                multibyte: true
-            });
             $('#poi-event-overlay .datepicker').datepick({
                 changeMonth: false,
                 dateFormat: 'yyyy/mm/dd',
@@ -246,4 +224,87 @@ $('#poi-point-wrap .btn-next').click(function() {
             $('#schedule-mobile .notification .time .hour').perfectScrollbar();
         }
     });
+});
+
+$('#event-select li').click(function () {
+    var eventType = $(this).prop('className');
+    var POI_TYPE_MAP = {
+            0: '',
+            1: 'event-hyper',
+            2: 'event-instant',
+            3: 'event-scheduled',
+            4: 'event-poll',
+            'event-hyper': {
+                code: 1,
+                plugin: 'hyperChannel',
+                formId: 'eventHyperForm'
+            },
+            'event-instant': {
+                code: 2,
+                plugin: 'shoppingInfo',
+                formId: 'eventInstantForm'
+            },
+            'event-scheduled': {
+                code: 3,
+                plugin: 'tvShowNotice',
+                formId: 'eventScheduledForm'
+            },
+            'event-poll': {
+                code: 4,
+                plugin: 'poll',
+                formId: 'eventPollForm'
+            }
+        };
+    var buttons = eventType !== 'event-poll' ? ['Button text'] : ['Button text', 'Button text'];
+    $('#event-select').addClass('hide');
+    $('#' + eventType).removeClass('hide');
+    $('#poi-event-overlay #' + eventType + ' .video-wrap .poi-display').html('');
+    $('#poi-event-overlay #' + eventType + ' .video-wrap .poi-display').poi({
+        type: POI_TYPE_MAP[eventType].plugin,
+        displayText: 'Input display text',
+        buttons: buttons,
+        duration: -1
+    });
+});
+
+// $('#poi-event-overlay-wrap .btn-cancel').click(function () {
+//     $('#poi-event-overlay .event').addClass('hide');
+//     $('#event-select').removeClass('hide');
+// });
+
+$('#eventPollForm .fminput .btn-gray').click(function () {    
+    var pollItemList = $('#eventPollForm p.text.poll').not('.hide');
+
+    if (pollItemList.length < 4) {
+        if (pollItemList.length === 3) {
+            $(this).addClass('disabled');
+        }
+        // Add a poll item.
+        $('#eventPollForm p.text.poll:eq(' + pollItemList.length + ')').removeClass('hide');
+        $('#poi-event-overlay #event-poll .video-wrap .poi-display').poi('addButton', 'Button text');
+    }
+
+    $('.poll-button-del').addClass('deletable');
+});
+
+$('#eventScheduledForm .btn-next, #eventInstantForm .btn-next').click(function () {
+    $(this).parents('form').find('> div').toggleClass('hide');
+});
+
+$('#eventScheduledForm .mobile ul li, #eventInstantForm .mobile ul li').click(function () {
+    $(this).parent('ul').find('li').toggleClass('on');
+    $(this).parents('div.mobile').find('> div').toggleClass('hide');
+});
+
+$('#poi-event-overlay-wrap .btn-save, #poi-event-overlay-wrap .overlay-btn-close, #poi-event-overlay-wrap .btn-cancel').click(function(){
+    $.unblockUI();
+    $('#epcurate-curation .tab-content').addClass('hide');
+    $('#cur-poi').removeClass('hide');
+    $('#epcurate-curation ul.tabs li.poi').addClass('last on');
+    $('#epcurate-curation ul.tabs li.edit-poi').addClass('hide');
+    $('#epcurate-curation ul.tabs li.edit-video').removeClass('on');
+});
+
+$('.time-wrap div.select').click(function(){
+    $(this).find('.select-list').slideToggle();
 });

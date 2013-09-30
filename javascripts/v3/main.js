@@ -44,7 +44,7 @@ $('#footer-list li .select-list li a').click(function () {
     $(this).parents('.select-list').slideToggle();
 });
 
-// Copied from webapp js. Better refactor it later.
+// Copied from webapp repository js file. Better refactor it later.
 // common dropdown (share with header, footer, channel-add and channel-setting)
 function showDropdown(btn) {
     var str = '',
