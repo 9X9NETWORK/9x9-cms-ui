@@ -84,7 +84,6 @@
                     <div class="constrain">
                         <div id="epcurate-curation" class="clearfix">
                             <div class="curation-content clearfix">
-                                <!-- <p class="auto-height"></p> -->
                                 <ul class="tabs">
                                     <li class="first">
                                         <span><a href="#cur-add" class="cur-add langkey">Add Video</a>
@@ -123,7 +122,6 @@
                                             </p>
                                             <p class="right"></p>
                                         </div>
-                                        <!-- <p class="btns btn-add"><span><a href="#" id="btn-add-videourl" class="langkey">Add</a></span></p> -->
                                     </div>
                                 </div>
                                 <div id="cur-edit" class="tab-content clearfix">
@@ -243,13 +241,62 @@
                                                                     </span>
                                                                 </span>
                                                             </li>
-                                                            <li> <a href="#" class="font-color">Font color                                                              <span class="color c-ff0"></span>                                     <span class="bg"></span>                             <ul class="color-list">                                 <li class="c-fff" data-meta="#ffffff">#ffffff</li>                                 <li class="c-eee" data-meta="#eeeeee">#eeeeee</li>                                 <li class="c-bbb" data-meta="#bbbbbb">#bbbbbb</li>                                 <li class="c-777" data-meta="#777777">#777777</li>                                 <li class="c-333" data-meta="#333333">#333333</li>                                 <li class="c-000" data-meta="#000000">#000000</li>                                 <li class="c-f00" data-meta="#ff0000">#ff0000</li>                                 <li class="c-f60" data-meta="#ff6600">#ff6600</li>                                 <li class="c-ff0" data-meta="#ffff00">#ffff00</li>                                 <li class="c-090" data-meta="#009900">#009900</li>                                 <li class="c-03f" data-meta="#0033ff">#0033ff</li>                                 <li class="c-60f" data-meta="#6600ff">#6600ff</li>                             </ul>                             <span class="tip"><img src="images/bg_tip_bottom.png" alt=""><span class="tip-left"><span class="tip-right"><span class="tip-middle">Font color</span></span></span></span>                         </a> 
-                                                                <input type="hidden" name="fontColor" id="fontColor" value="#ffff00">
+                                                            <li>
+                                                                <a href="#" class="font-color">
+                                                                    Font color
+                                                                    <span class="color c-ff0"></span>
+                                                                    <span class="bg"></span>
+                                                                    <ul class="color-list">
+                                                                        <li class="c-fff" data-meta="#ffffff">#ffffff</li>
+                                                                        <li class="c-eee" data-meta="#eeeeee">#eeeeee</li>
+                                                                        <li class="c-bbb" data-meta="#bbbbbb">#bbbbbb</li>
+                                                                        <li class="c-777" data-meta="#777777">#777777</li>
+                                                                        <li class="c-333" data-meta="#333333">#333333</li>
+                                                                        <li class="c-000" data-meta="#000000">#000000</li>
+                                                                        <li class="c-f00" data-meta="#ff0000">#ff0000</li>
+                                                                        <li class="c-f60" data-meta="#ff6600">#ff6600</li>
+                                                                        <li class="c-ff0" data-meta="#ffff00">#ffff00</li>
+                                                                        <li class="c-090" data-meta="#009900">#009900</li>
+                                                                        <li class="c-03f" data-meta="#0033ff">#0033ff</li>
+                                                                        <li class="c-60f" data-meta="#6600ff">#6600ff</li>
+                                                                    </ul>
+                                                                    <span class="tip">
+                                                                        <img src="images/bg_tip_bottom.png" alt="">                                                            
+                                                                        <span class="tip-left">
+                                                                            <span class="tip-right">
+                                                                                <span class="tip-middle">Font color</span>
+                                                                            </span>
+                                                                        </span>
+                                                                    </span>
+                                                                </a>
+                                                                <input type="hidden" name="fontColor" id="fontColor" value="#ffff00">                                                            
                                                                 <input type="hidden" name="fontSize" id="fontSize" value="21">
                                                             </li>
-                                                            <li><a href="#" class="font-l enable">Font size +<span class="tip"><img src="images/bg_tip_bottom.png" alt=""><span class="tip-left"><span class="tip-right"><span class="tip-middle">Font size +</span></span></span></span></a>
+                                                            <li>
+                                                                <a href="#" class="font-l enable">
+                                                                    Font size +
+                                                                    <span class="tip">
+                                                                        <img src="images/bg_tip_bottom.png" alt="">                                                            
+                                                                        <span class="tip-left">
+                                                                            <span class="tip-right">
+                                                                                <span class="tip-middle">Font size +</span>
+                                                                            </span>
+                                                                        </span>
+                                                                    </span>
+                                                                </a>
                                                             </li>
-                                                            <li><a href="#" class="font-s enable">Font size -<span class="tip"><img src="images/bg_tip_bottom.png" alt=""><span class="tip-left"><span class="tip-right"><span class="tip-middle">Font size -</span></span></span></span></a>
+                                                            <li>
+                                                                <a href="#" class="font-s enable">
+                                                                    Font size -
+                                                                    <span class="tip">
+                                                                        <img src="images/bg_tip_bottom.png" alt="">                                                            
+                                                                        <span class="tip-left">
+                                                                            <span class="tip-right">
+                                                                                <span class="tip-middle">Font size -</span>
+                                                                            </span>
+                                                                        </span>
+                                                                    </span>
+                                                                </a>
                                                             </li>
                                                             <li class="align-left">
                                                                 <div class="radio" id="uniform-align_left">
@@ -327,38 +374,53 @@
                                                 <h5>Background</h5>
                                                 <p class="radio-list">
                                                     <label for="bg_color" class="first checked">
-                                                        <div class="radio" id="uniform-bg_color">
-                                                            <span class="checked">
-                                                                <input type="radio" name="bg" value="color" id="bg_color" checked="checked">
-                                                            </span>
-                                                        </div>Color</label>
+                                                        <input type="radio" name="bg" value="color" id="bg_color" checked="checked">
+                                                        Color
+                                                    </label>
                                                     <label for="bg_image">
-                                                        <div class="radio" id="uniform-bg_image">
-                                                            <span>
-                                                                <input type="radio" name="bg" value="image" id="bg_image">
-                                                            </span>
-                                                        </div>Image</label>
+                                                        <input type="radio" name="bg" value="image" id="bg_image">
+                                                        Image
+                                                    </label>
                                                 </p>
-                                                <div class="bg-color"> <a href="#">Background color                                      <span class="c-333"></span>                      <span class="bg"></span>                 <ul class="color-list">                     <li class="c-fff" data-meta="#ffffff">#ffffff</li>                     <li class="c-eee" data-meta="#eeeeee">#eeeeee</li>                     <li class="c-bbb" data-meta="#bbbbbb">#bbbbbb</li>                     <li class="c-777" data-meta="#777777">#777777</li>                     <li class="c-333" data-meta="#333333">#333333</li>                     <li class="c-000" data-meta="#000000">#000000</li>                     <li class="c-f00" data-meta="#ff0000">#ff0000</li>                     <li class="c-f60" data-meta="#ff6600">#ff6600</li>                     <li class="c-ff0" data-meta="#ffff00">#ffff00</li>                     <li class="c-090" data-meta="#009900">#009900</li>                     <li class="c-03f" data-meta="#0033ff">#0033ff</li>                     <li class="c-60f" data-meta="#6600ff">#6600ff</li>                 </ul>             </a> 
+                                                <div class="bg-color">
+                                                    <a href="#">
+                                                        Background color
+                                                        <span class="c-333"></span>
+                                                        <span class="bg"></span>
+                                                        <ul class="color-list">
+                                                            <li class="c-fff" data-meta="#ffffff">#ffffff</li>
+                                                            <li class="c-eee" data-meta="#eeeeee">#eeeeee</li>
+                                                            <li class="c-bbb" data-meta="#bbbbbb">#bbbbbb</li>
+                                                            <li class="c-777" data-meta="#777777">#777777</li>
+                                                            <li class="c-333" data-meta="#333333">#333333</li>
+                                                            <li class="c-000" data-meta="#000000">#000000</li>
+                                                            <li class="c-f00" data-meta="#ff0000">#ff0000</li>
+                                                            <li class="c-f60" data-meta="#ff6600">#ff6600</li>
+                                                            <li class="c-ff0" data-meta="#ffff00">#ffff00</li>
+                                                            <li class="c-090" data-meta="#009900">#009900</li>
+                                                            <li class="c-03f" data-meta="#0033ff">#0033ff</li>
+                                                            <li class="c-60f" data-meta="#6600ff">#6600ff</li>
+                                                        </ul>
+                                                    </a>
                                                     <input type="hidden" name="backgroundColor" id="backgroundColor" value="#333333">
                                                 </div>
                                                 <div class="bg-img hide">
                                                     <p class="img">
-                                                        <img id="thumbnail-backgroundImage" src="images/black_box.png" alt="" width="95" height="59" class="thumbnail">
+                                                        <img id="thumbnail-backgroundImage" src="images/black_box.png" alt="" width="95" height="59" class="thumbnail">                                                
                                                         <img src="images/black_box_loading.gif" alt="" class="loading">
                                                     </p>
                                                     <object id="SWFUpload_1" type="application/x-shockwave-flash" data="javascripts/libs/swfupload/swfupload.swf?preventswfcaching=1380534968095" width="129" height="29" class="swfupload" style="display: none !important;">
-                                                        <param name="wmode" value="transparent">
-                                                        <param name="movie" value="javascripts/libs/swfupload/swfupload.swf?preventswfcaching=1380534968095">
-                                                        <param name="quality" value="high">
-                                                        <param name="menu" value="false">
-                                                        <param name="allowScriptAccess" value="always">
+                                                        <param name="wmode" value="transparent">                                                
+                                                        <param name="movie" value="javascripts/libs/swfupload/swfupload.swf?preventswfcaching=1380534968095">                                                
+                                                        <param name="quality" value="high">                                                
+                                                        <param name="menu" value="false">                                                
+                                                        <param name="allowScriptAccess" value="always">                                                
                                                         <param name="flashvars" value="movieName=SWFUpload_1&amp;uploadURL=http%3A%2F%2F9x9tmp-dev.s3.amazonaws.com%2F&amp;useQueryString=false&amp;requeueOnError=false&amp;httpSuccess=201&amp;assumeSuccessTimeout=0&amp;params=&amp;filePostName=file&amp;fileTypes=*.jpg%3B%20*.png%3B%20*.gif&amp;fileTypesDescription=Thumbnail&amp;fileSizeLimit=20485760&amp;fileUploadLimit=0&amp;fileQueueLimit=0&amp;debugEnabled=false&amp;buttonImageURL=%2Fimages%2Fbtn-load.png&amp;buttonWidth=129&amp;buttonHeight=29&amp;buttonText=%3Cspan%20class%3D%22uploadstyle%22%3EUpload%3C%2Fspan%3E&amp;buttonTextTopPadding=1&amp;buttonTextLeftPadding=0&amp;buttonTextStyle=.uploadstyle%20%7B%20color%3A%20%23555555%3B%20font-family%3A%20Arial%2C%20Helvetica%3B%20font-size%3A%2015px%3B%20text-align%3A%20center%3B%20%7D%20.uploadstyle%3Ahover%20%7B%20color%3A%20%23555555%3B%20%7D&amp;buttonAction=-100&amp;buttonDisabled=false&amp;buttonCursor=-2">
                                                     </object>
                                                     <div class="fc-panel fc-icon" style="top: auto; left: auto; float: none; z-index: auto; margin: 0px; position: relative; width: 129px; height: 29px;"></div>
                                                     <p class="notice">Better results with 720x405 image.</p>
                                                     <p class="notice highlight hide">Please upload jpeg, png, or gif file.</p>
-                                                    <input type="hidden" name="backgroundImage" id="backgroundImage" value="http://s3.amazonaws.com/9x9ui/war/v0/images/titlecard-default.png">
+                                                    <input type="hidden" name="backgroundImage" id="backgroundImage" value="http://s3.amazonaws.com/9x9ui/war/v0/images/titlecard-default.png">                                                
                                                     <input type="hidden" name="backgroundImageOld" id="backgroundImageOld" value="http://s3.amazonaws.com/9x9ui/war/v0/images/titlecard-default.png">
                                                 </div>
                                             </div>
@@ -822,10 +884,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <p class="auto-height clear"></p> -->
                             </div>
                             <div id="video-player" data-width="400" data-height="269">
-                                <!-- <div id="video-container"> -->
                                 <div class="video">
                                     <object data="http://www.youtube.com/v/UwsDgiZ_y10?version=3&amp;enablejsapi=1&amp;autohide=0&amp;fs=0&amp;playerapiid=player" type="application/x-shockwave-flash" id="youTubePlayer" width="588" height="605" style="vertical-align: middle;">
                                         <param name="name" value="ytid-UwsDgiZ_y10">
@@ -855,7 +915,6 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <!-- </div> -->
                             </div>
                         </div>
                         <div id="storyboard">
@@ -1553,142 +1612,6 @@
                                             </a>
                                         </h4>
                                         <div class="datepicker">
-                                            <!--  <div class="datepick" style="width: 190px;">
-                                                <div class="datepick-nav"><a href="javascript:void(0)" title="Show the previous month" class="datepick-cmd datepick-cmd-prev ">&lt;Prev</a><a href="javascript:void(0)" title="Show today's month" class="datepick-cmd datepick-cmd-today ">Today</a><a href="javascript:void(0)" title="Show the next month" class="datepick-cmd datepick-cmd-next ">Next&gt;</a>
-                                                </div>
-                                                <div class="datepick-month-row">
-                                                    <div class="datepick-month">
-                                                        <div class="datepick-month-header">Sep 2013</div>
-                                                        <table>
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>
-                                                                        <span class="datepick-dow-0" title="Sunday">S</span>
-                                                                    </th>
-                                                                    <th>
-                                                                        <span class="datepick-dow-1" title="Monday">M</span>
-                                                                    </th>
-                                                                    <th>
-                                                                        <span class="datepick-dow-2" title="Tuesday">T</span>
-                                                                    </th>
-                                                                    <th>
-                                                                        <span class="datepick-dow-3" title="Wednesday">W</span>
-                                                                    </th>
-                                                                    <th>
-                                                                        <span class="datepick-dow-4" title="Thursday">T</span>
-                                                                    </th>
-                                                                    <th>
-                                                                        <span class="datepick-dow-5" title="Friday">F</span>
-                                                                    </th>
-                                                                    <th>
-                                                                        <span class="datepick-dow-6" title="Saturday">S</span>
-                                                                    </th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>
-                                                                        <span class="dp1378008000000  datepick-weekend">1</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="dp1378094400000 ">2</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="dp1378180800000 ">3</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="dp1378267200000 ">4</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="dp1378353600000 ">5</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="dp1378440000000 ">6</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="dp1378526400000  datepick-weekend">7</span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <span class="dp1378612800000  datepick-weekend">8</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="dp1378699200000 ">9</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="dp1378785600000 ">10</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="dp1378872000000 ">11</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="dp1378958400000 ">12</span>
-                                                                    </td>
-                                                                    <td><a href="javascript:void(0)" class="dp1379044800000   datepick-today datepick-highlight" title="Select Friday, Sep 13, 2013">13</a>
-                                                                    </td>
-                                                                    <td><a href="javascript:void(0)" class="dp1379131200000   datepick-weekend" title="Select Saturday, Sep 14, 2013">14</a>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><a href="javascript:void(0)" class="dp1379217600000   datepick-weekend" title="Select Sunday, Sep 15, 2013">15</a>
-                                                                    </td>
-                                                                    <td><a href="javascript:void(0)" class="dp1379304000000  " title="Select Monday, Sep 16, 2013">16</a>
-                                                                    </td>
-                                                                    <td><a href="javascript:void(0)" class="dp1379390400000  " title="Select Tuesday, Sep 17, 2013">17</a>
-                                                                    </td>
-                                                                    <td><a href="javascript:void(0)" class="dp1379476800000  " title="Select Wednesday, Sep 18, 2013">18</a>
-                                                                    </td>
-                                                                    <td><a href="javascript:void(0)" class="dp1379563200000  " title="Select Thursday, Sep 19, 2013">19</a>
-                                                                    </td>
-                                                                    <td><a href="javascript:void(0)" class="dp1379649600000  " title="Select Friday, Sep 20, 2013">20</a>
-                                                                    </td>
-                                                                    <td><a href="javascript:void(0)" class="dp1379736000000   datepick-weekend" title="Select Saturday, Sep 21, 2013">21</a>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><a href="javascript:void(0)" class="dp1379822400000   datepick-weekend" title="Select Sunday, Sep 22, 2013">22</a>
-                                                                    </td>
-                                                                    <td><a href="javascript:void(0)" class="dp1379908800000  " title="Select Monday, Sep 23, 2013">23</a>
-                                                                    </td>
-                                                                    <td><a href="javascript:void(0)" class="dp1379995200000  " title="Select Tuesday, Sep 24, 2013">24</a>
-                                                                    </td>
-                                                                    <td><a href="javascript:void(0)" class="dp1380081600000  " title="Select Wednesday, Sep 25, 2013">25</a>
-                                                                    </td>
-                                                                    <td><a href="javascript:void(0)" class="dp1380168000000  " title="Select Thursday, Sep 26, 2013">26</a>
-                                                                    </td>
-                                                                    <td><a href="javascript:void(0)" class="dp1380254400000  " title="Select Friday, Sep 27, 2013">27</a>
-                                                                    </td>
-                                                                    <td><a href="javascript:void(0)" class="dp1380340800000   datepick-weekend" title="Select Saturday, Sep 28, 2013">28</a>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><a href="javascript:void(0)" class="dp1380427200000   datepick-weekend" title="Select Sunday, Sep 29, 2013">29</a>
-                                                                    </td>
-                                                                    <td><a href="javascript:void(0)" class="dp1380513600000  " title="Select Monday, Sep 30, 2013">30</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="dp1380600000000  datepick-other-month">&nbsp;</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="dp1380686400000  datepick-other-month">&nbsp;</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="dp1380772800000  datepick-other-month">&nbsp;</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="dp1380859200000  datepick-other-month">&nbsp;</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="dp1380945600000  datepick-weekend datepick-other-month">&nbsp;</span>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <div class="datepick-clear-fix"></div>
-                                            </div> -->
                                         </div>
                                         <input type="hidden" name="datepicker" id="datepicker_selected" value="">
                                         <input type="hidden" name="schedule" id="schedule_selected" value="">
@@ -1974,10 +1897,10 @@
     <script src="javascripts/libs/jquery.ellipsis.min.js"></script>
     <script src="javascripts/libs/jquery.cycle.all.js"></script>
     <script src="javascripts/libs/jquery.titlecard.min.js"></script>
+    <script src="javascripts/libs/jquery.uniform.min.js"></script>
     <!--
     <script src="javascripts/libs/nn-sdk.prototype.js?v=1278"></script>
     <script src="javascripts/libs/jquery.charcounter.min.js?v=1278"></script>
-    <script src="javascripts/libs/jquery.uniform.min.js?v=1278"></script>
     <script src="javascripts/libs/jquery.swfobject.min.js?v=1278"></script>
     <script src="javascripts/libs/jquery.tmpl.min.js?v=1278"></script>
     <script src="javascripts/libs/jquery.cookie.min.js?v=1278"></script>
