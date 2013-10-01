@@ -197,7 +197,210 @@
                                         </div>
                                     </div>
                                     <div class="edit-title hide disable">
-                                        <!-- template = #titlecard-edit-tmpl -->
+                                        <div class="wrap">
+                                            <div class="text-container">
+                                                <h5>Text</h5>
+                                                <p class="textarea">
+                                                    <span>
+                                                        <span>
+                                                            <textarea name="text" id="text" cols="80" class="textarea uniform">TheVoice01-01 hello world test test</textarea>
+                                                        </span>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                            <div class="font-container">
+                                                <h5>Font</h5>
+                                                <div class="text-func clearfix">
+                                                    <div class="func-wrap clearfix">
+                                                        <ul>
+                                                            <li class="font-weight">
+                                                                <div class="checker" id="uniform-fontWeight">
+                                                                    <span class="checked">
+                                                                        <input type="checkbox" name="fontWeight" value="bold" id="fontWeight" checked="checked">
+                                                                    </span>
+                                                                </div>Bold
+                                                                <span class="tip">
+                                                                    <img src="images/bg_tip_bottom.png" alt="">
+                                                                    <span class="tip-left">
+                                                                        <span class="tip-right">
+                                                                            <span class="tip-middle">Bold</span>
+                                                                        </span>
+                                                                    </span>
+                                                                </span>
+                                                            </li>
+                                                            <li class="font-style">
+                                                                <div class="checker" id="uniform-fontStyle">
+                                                                    <span class="checked">
+                                                                        <input type="checkbox" name="fontStyle" value="italic" id="fontStyle" checked="checked">
+                                                                    </span>
+                                                                </div>Italics
+                                                                <span class="tip">
+                                                                    <img src="images/bg_tip_bottom.png" alt="">
+                                                                    <span class="tip-left">
+                                                                        <span class="tip-right">
+                                                                            <span class="tip-middle">Italics</span>
+                                                                        </span>
+                                                                    </span>
+                                                                </span>
+                                                            </li>
+                                                            <li> <a href="#" class="font-color">Font color                                                              <span class="color c-ff0"></span>                                     <span class="bg"></span>                             <ul class="color-list">                                 <li class="c-fff" data-meta="#ffffff">#ffffff</li>                                 <li class="c-eee" data-meta="#eeeeee">#eeeeee</li>                                 <li class="c-bbb" data-meta="#bbbbbb">#bbbbbb</li>                                 <li class="c-777" data-meta="#777777">#777777</li>                                 <li class="c-333" data-meta="#333333">#333333</li>                                 <li class="c-000" data-meta="#000000">#000000</li>                                 <li class="c-f00" data-meta="#ff0000">#ff0000</li>                                 <li class="c-f60" data-meta="#ff6600">#ff6600</li>                                 <li class="c-ff0" data-meta="#ffff00">#ffff00</li>                                 <li class="c-090" data-meta="#009900">#009900</li>                                 <li class="c-03f" data-meta="#0033ff">#0033ff</li>                                 <li class="c-60f" data-meta="#6600ff">#6600ff</li>                             </ul>                             <span class="tip"><img src="images/bg_tip_bottom.png" alt=""><span class="tip-left"><span class="tip-right"><span class="tip-middle">Font color</span></span></span></span>                         </a> 
+                                                                <input type="hidden" name="fontColor" id="fontColor" value="#ffff00">
+                                                                <input type="hidden" name="fontSize" id="fontSize" value="21">
+                                                            </li>
+                                                            <li><a href="#" class="font-l enable">Font size +<span class="tip"><img src="images/bg_tip_bottom.png" alt=""><span class="tip-left"><span class="tip-right"><span class="tip-middle">Font size +</span></span></span></span></a>
+                                                            </li>
+                                                            <li><a href="#" class="font-s enable">Font size -<span class="tip"><img src="images/bg_tip_bottom.png" alt=""><span class="tip-left"><span class="tip-right"><span class="tip-middle">Font size -</span></span></span></span></a>
+                                                            </li>
+                                                            <li class="align-left">
+                                                                <div class="radio" id="uniform-align_left">
+                                                                    <span>
+                                                                        <input type="radio" name="align" value="left" id="align_left">
+                                                                    </span>
+                                                                </div>Align left
+                                                                <span class="tip">
+                                                                    <img src="images/bg_tip_bottom.png" alt="">
+                                                                    <span class="tip-left">
+                                                                        <span class="tip-right">
+                                                                            <span class="tip-middle">Align left</span>
+                                                                        </span>
+                                                                    </span>
+                                                                </span>
+                                                            </li>
+                                                            <li class="align-center">
+                                                                <div class="radio" id="uniform-align_center">
+                                                                    <span class="checked">
+                                                                        <input type="radio" name="align" value="center" id="align_center" checked="checked">
+                                                                    </span>
+                                                                </div>Align center
+                                                                <span class="tip">
+                                                                    <img src="images/bg_tip_bottom.png" alt="">
+                                                                    <span class="tip-left">
+                                                                        <span class="tip-right">
+                                                                            <span class="tip-middle">Align center</span>
+                                                                        </span>
+                                                                    </span>
+                                                                </span>
+                                                            </li>
+                                                            <li class="align-right">
+                                                                <div class="radio" id="uniform-align_right">
+                                                                    <span>
+                                                                        <input type="radio" name="align" value="right" id="align_right">
+                                                                    </span>
+                                                                </div>Align right
+                                                                <span class="tip">
+                                                                    <img src="images/bg_tip_bottom.png" alt="">
+                                                                    <span class="tip-left">
+                                                                        <span class="tip-right">
+                                                                            <span class="tip-middle">Align right</span>
+                                                                        </span>
+                                                                    </span>
+                                                                </span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="effect-container">
+                                                <h5>Effect</h5>
+                                                <p class="effect-demo">
+                                                    <span>
+                                                        <em>9x9.tv</em>
+                                                    </span>
+                                                </p>
+                                                <div class="select enable">
+                                                    <p class="select-btn"></p>
+                                                    <div class="select-txt"><a href="#">Drop</a>
+                                                    </div>
+                                                    <ul class="select-list" style="display: none;">
+                                                        <li data-meta="none">None</li>
+                                                        <li data-meta="fade">Fade</li>
+                                                        <li data-meta="blind">Blind</li>
+                                                        <li data-meta="clip">Clip</li>
+                                                        <li data-meta="drop">Drop</li>
+                                                    </ul>
+                                                    <input type="hidden" name="effect" id="effect" value="drop">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="wrap last">
+                                            <div class="background-container">
+                                                <h5>Background</h5>
+                                                <p class="radio-list">
+                                                    <label for="bg_color" class="first checked">
+                                                        <div class="radio" id="uniform-bg_color">
+                                                            <span class="checked">
+                                                                <input type="radio" name="bg" value="color" id="bg_color" checked="checked">
+                                                            </span>
+                                                        </div>Color</label>
+                                                    <label for="bg_image">
+                                                        <div class="radio" id="uniform-bg_image">
+                                                            <span>
+                                                                <input type="radio" name="bg" value="image" id="bg_image">
+                                                            </span>
+                                                        </div>Image</label>
+                                                </p>
+                                                <div class="bg-color"> <a href="#">Background color                                      <span class="c-333"></span>                      <span class="bg"></span>                 <ul class="color-list">                     <li class="c-fff" data-meta="#ffffff">#ffffff</li>                     <li class="c-eee" data-meta="#eeeeee">#eeeeee</li>                     <li class="c-bbb" data-meta="#bbbbbb">#bbbbbb</li>                     <li class="c-777" data-meta="#777777">#777777</li>                     <li class="c-333" data-meta="#333333">#333333</li>                     <li class="c-000" data-meta="#000000">#000000</li>                     <li class="c-f00" data-meta="#ff0000">#ff0000</li>                     <li class="c-f60" data-meta="#ff6600">#ff6600</li>                     <li class="c-ff0" data-meta="#ffff00">#ffff00</li>                     <li class="c-090" data-meta="#009900">#009900</li>                     <li class="c-03f" data-meta="#0033ff">#0033ff</li>                     <li class="c-60f" data-meta="#6600ff">#6600ff</li>                 </ul>             </a> 
+                                                    <input type="hidden" name="backgroundColor" id="backgroundColor" value="#333333">
+                                                </div>
+                                                <div class="bg-img hide">
+                                                    <p class="img">
+                                                        <img id="thumbnail-backgroundImage" src="images/black_box.png" alt="" width="95" height="59" class="thumbnail">
+                                                        <img src="images/black_box_loading.gif" alt="" class="loading">
+                                                    </p>
+                                                    <object id="SWFUpload_1" type="application/x-shockwave-flash" data="javascripts/libs/swfupload/swfupload.swf?preventswfcaching=1380534968095" width="129" height="29" class="swfupload" style="display: none !important;">
+                                                        <param name="wmode" value="transparent">
+                                                        <param name="movie" value="javascripts/libs/swfupload/swfupload.swf?preventswfcaching=1380534968095">
+                                                        <param name="quality" value="high">
+                                                        <param name="menu" value="false">
+                                                        <param name="allowScriptAccess" value="always">
+                                                        <param name="flashvars" value="movieName=SWFUpload_1&amp;uploadURL=http%3A%2F%2F9x9tmp-dev.s3.amazonaws.com%2F&amp;useQueryString=false&amp;requeueOnError=false&amp;httpSuccess=201&amp;assumeSuccessTimeout=0&amp;params=&amp;filePostName=file&amp;fileTypes=*.jpg%3B%20*.png%3B%20*.gif&amp;fileTypesDescription=Thumbnail&amp;fileSizeLimit=20485760&amp;fileUploadLimit=0&amp;fileQueueLimit=0&amp;debugEnabled=false&amp;buttonImageURL=%2Fimages%2Fbtn-load.png&amp;buttonWidth=129&amp;buttonHeight=29&amp;buttonText=%3Cspan%20class%3D%22uploadstyle%22%3EUpload%3C%2Fspan%3E&amp;buttonTextTopPadding=1&amp;buttonTextLeftPadding=0&amp;buttonTextStyle=.uploadstyle%20%7B%20color%3A%20%23555555%3B%20font-family%3A%20Arial%2C%20Helvetica%3B%20font-size%3A%2015px%3B%20text-align%3A%20center%3B%20%7D%20.uploadstyle%3Ahover%20%7B%20color%3A%20%23555555%3B%20%7D&amp;buttonAction=-100&amp;buttonDisabled=false&amp;buttonCursor=-2">
+                                                    </object>
+                                                    <div class="fc-panel fc-icon" style="top: auto; left: auto; float: none; z-index: auto; margin: 0px; position: relative; width: 129px; height: 29px;"></div>
+                                                    <p class="notice">Better results with 720x405 image.</p>
+                                                    <p class="notice highlight hide">Please upload jpeg, png, or gif file.</p>
+                                                    <input type="hidden" name="backgroundImage" id="backgroundImage" value="http://s3.amazonaws.com/9x9ui/war/v0/images/titlecard-default.png">
+                                                    <input type="hidden" name="backgroundImageOld" id="backgroundImageOld" value="http://s3.amazonaws.com/9x9ui/war/v0/images/titlecard-default.png">
+                                                </div>
+                                            </div>
+                                            <div class="duration-container">
+                                                <h5>Duration</h5>
+                                                <div class="select enable">
+                                                    <p class="select-btn"></p>
+                                                    <div class="select-txt"><a href="#">10</a>
+                                                    </div>
+                                                    <ul class="select-list" style="display: none;">
+                                                        <li data-meta="5">5</li>
+                                                        <li data-meta="6">6</li>
+                                                        <li data-meta="7">7</li>
+                                                        <li data-meta="8">8</li>
+                                                        <li data-meta="9">9</li>
+                                                        <li data-meta="10">10</li>
+                                                        <li data-meta="12">12</li>
+                                                        <li data-meta="14">14</li>
+                                                        <li data-meta="16">16</li>
+                                                        <li data-meta="18">18</li>
+                                                    </ul>
+                                                    <input type="hidden" name="duration" id="duration" value="10">
+                                                </div>
+                                                <p class="notice hide">Invalid duration, please try again.</p>
+                                            </div>
+                                            <div class="btn-container">
+                                                <p class="btn-del"><a href="#">Del</a>
+                                                </p>
+                                                <p class="btns btn-cancel">
+                                                    <span><a href="#">Cancel</a>
+                                                    </span>
+                                                </p>
+                                                <p class="btns btn-done">
+                                                    <span><a href="#">Done</a>
+                                                    </span>
+                                                </p>
+                                                <p class="btns btn-edit">
+                                                    <span><a href="#">Edit Title</a>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div id="cur-poi" class="tab-content clearfix hide">
@@ -1350,7 +1553,7 @@
                                             </a>
                                         </h4>
                                         <div class="datepicker">
-                                           <!--  <div class="datepick" style="width: 190px;">
+                                            <!--  <div class="datepick" style="width: 190px;">
                                                 <div class="datepick-nav"><a href="javascript:void(0)" title="Show the previous month" class="datepick-cmd datepick-cmd-prev ">&lt;Prev</a><a href="javascript:void(0)" title="Show today's month" class="datepick-cmd datepick-cmd-today ">Today</a><a href="javascript:void(0)" title="Show the next month" class="datepick-cmd datepick-cmd-next ">Next&gt;</a>
                                                 </div>
                                                 <div class="datepick-month-row">
@@ -1770,12 +1973,12 @@
     <script src="javascripts/libs/jquery.datepick.min.js"></script>
     <script src="javascripts/libs/jquery.ellipsis.min.js"></script>
     <script src="javascripts/libs/jquery.cycle.all.js"></script>
+    <script src="javascripts/libs/jquery.titlecard.min.js"></script>
     <!--
     <script src="javascripts/libs/nn-sdk.prototype.js?v=1278"></script>
     <script src="javascripts/libs/jquery.charcounter.min.js?v=1278"></script>
     <script src="javascripts/libs/jquery.uniform.min.js?v=1278"></script>
     <script src="javascripts/libs/jquery.swfobject.min.js?v=1278"></script>
-    <script src="javascripts/libs/jquery.titlecard.min.js?v=1278"></script>
     <script src="javascripts/libs/jquery.tmpl.min.js?v=1278"></script>
     <script src="javascripts/libs/jquery.cookie.min.js?v=1278"></script>
     <script src="javascripts/libs/jquery.countdown.js?v=1278"></script>
