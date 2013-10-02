@@ -1,0 +1,6 @@
+/* Titlecard hide */
+#storyboard .storyboard-list ul li p.title,
+#storyboard .storyboard-list ul li p.hover-func .begin-title,
+#storyboard .storyboard-list ul li p.hover-func .end-title {
+    display: none !important;
+}
