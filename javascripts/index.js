@@ -110,4 +110,4 @@ $('.create-new-program').click(function(){
     });
 });
 
-$('#terms-overlay .text-container').perfectScrollbar();
+$('#terms-overlay .terms-container').perfectScrollbar();
