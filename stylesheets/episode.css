@@ -34,6 +34,15 @@ div.constrain {
     float: left;
 }
 
+.sync-time {
+    float: right;
+    color: #555;
+    font-size: 13px;
+    font-weight: bold;
+    padding-top: 7px;
+    padding-bottom: 10px;
+}
+
 /* ep time list */
 #ep-time-list,
 #ep-no {
