@@ -103,3 +103,11 @@ showCreateChannelTutorial();
 $('p.btns.unblock').click(function() {
     $.unblockUI();
 });
+
+$('.create-new-program').click(function(){
+    $.blockUI({
+        message: $('#terms-overlay')
+    });
+});
+
+$('#terms-overlay .text-container').perfectScrollbar();
