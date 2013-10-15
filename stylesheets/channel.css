@@ -337,6 +337,11 @@ body.mac #title-func h2 {
     font-size: 13px;
 }
 
+#channel-list li .func-wrap p.time img {
+    margin-left: 5px;
+    vertical-align: bottom;
+}
+
 #channel-list li .func-wrap .func-btns {
     position: absolute;
     bottom: 10px;
@@ -465,6 +470,20 @@ body.mac #title-func h2 {
 
 #channel-list li .func-wrap .func-btns .btn-wrap ul li a.url:hover {
     background-position: -23px -122px;
+}
+
+#channel-list li .func-wrap .func-btns .btn-wrap ul li a.sync {
+    background-position: 0 -197px;
+}
+
+#channel-list li .func-wrap .func-btns .btn-wrap ul li a.sync.disable,
+#channel-list li .func-wrap .func-btns .btn-wrap ul li a.sync.disable:hover {
+    background-position: -46px -197px;
+    cursor: default;
+}
+
+#channel-list li .func-wrap .func-btns .btn-wrap ul li a.sync:hover {
+    background-position: -23px -197px;
 }
 
 #channel-list li .func-wrap .func-btns .btn-wrap ul li a .tip {
