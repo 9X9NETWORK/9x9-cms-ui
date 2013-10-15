@@ -2,7 +2,7 @@
 
 /* Rounded corner overlay styles ordered by outer/inner shadow > height. */
 
-/* Need further refactoring. */
+/* Need further refactoring to make these overlay generic. */
 
 /* Generic button style & position */
 .overlay-button-close {
@@ -46,6 +46,67 @@
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0.4);
     height: 40px;
     line-height: 40px;
+}
+
+.overlay-subtitle {
+    font-size: 13px;
+    color: #555;
+}
+
+/* Overlay with height 172px */
+.overlay-h172 {
+    margin: -86px 0 0 -100px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+}
+.overlay-h172-left {
+    background: url(../images/bg_popup_box_s_left.png) no-repeat;
+    height: 172px;
+    width: 10px;
+    float: left;
+}
+.overlay-h172-right {
+    background: url(../images/bg_popup_box_s_right.png) no-repeat;
+    height: 172px;
+    width: 10px;
+    float: left;
+}
+.overlay-h172-center {
+    background: url(../images/bg_popup_box_s_middle.png) repeat-x;
+    height: 148px;
+    position: relative;
+    width: 180px;
+    float: left;
+    padding: 24px 0 0px;
+}
+
+/* Overlay with height 316px */
+.overlay-h316 {
+    margin: -158px 0 0 -226px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+}
+.overlay-h316-left {
+    background: url(../images/overlay_bg_m_l.png) no-repeat;
+    height: 316px;
+    width: 11px;
+    float: left;
+}
+.overlay-h316-right {
+    background: url(../images/overlay_bg_m_r.png) no-repeat;
+    height: 316px;
+    width: 11px;
+    float: left;
+}
+.overlay-h316-center {
+    background: url(../images/overlay_bg_m_c.png) repeat-x;
+    height: 292px;
+    position: relative;
+    width: 430px;
+    float: left;
+    padding: 24px 0 0px;
 }
 
 /* Overlay with height 501px */
