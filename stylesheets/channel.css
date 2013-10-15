@@ -70,6 +70,15 @@ body.mac #title-func h2 {
     width: 87px;
 }
 
+#content-main-wrap .constrain h3 {
+    margin: 10px 0 10px 10px;
+    font-weight: bold;
+    font-size: 30px;
+    /*text-align: center;*/
+    color: #b4b4b4;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
 #channel-name {
     display: block;
 }

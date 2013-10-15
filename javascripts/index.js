@@ -14,6 +14,21 @@ $('p.radio-list label').click(function(){
     $(this).addClass('checked');
 });
 
+$('#filter_all').change(function(){
+    $('#content-main-wrap .constrain > h3').addClass('hide');
+    $('#content-main-wrap .constrain > ul').removeClass('hide');
+});
+
+$('#filter_9x9').change(function(){
+    $('#content-main-wrap .constrain > *').addClass('hide');
+    $('#content-main-wrap .constrain > h3:eq(0)').removeClass('hide');
+});
+
+$('#filter_youtube').change(function(){
+    $('#content-main-wrap .constrain > *').addClass('hide');
+    $('#content-main-wrap .constrain > h3:eq(1)').removeClass('hide');
+});
+
 // channel list sorting
 $('#channel-list').sortable({
     cursor: 'move',
