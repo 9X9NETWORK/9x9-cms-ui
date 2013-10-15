@@ -1,6 +1,6 @@
 /* Channel list common */
 #content-main-wrap {
-	top: 65px;	
+	top: 85px;	
 }
 
 div.constrain {
@@ -22,6 +22,27 @@ div.constrain {
 	line-height: 27px;
 	left: 0px;
 	right: 280px;
+}
+
+#title-func p.radio-list {
+    clear: both;
+    padding: 7px 0 0 10px;
+    font-size: 14px;
+}
+
+#title-func p.radio-list span {
+    float: left;
+    font-weight: bold;
+}
+
+#title-func p.radio-list label {
+    font-weight: normal;
+    float: left;
+    padding-left: 10px;
+}
+
+#title-func p.radio-list label.checked {
+    font-weight: bold;
 }
 
 #channel-name {

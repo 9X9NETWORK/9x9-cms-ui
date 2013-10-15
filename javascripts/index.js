@@ -7,6 +7,13 @@ $(window).resize(function() {
     $('#content-main-wrap').perfectScrollbar('update');
 });
 
+$('p.radio-list input').uniform();
+
+$('p.radio-list label').click(function(){
+    $('p.radio-list label').removeClass('checked');
+    $(this).addClass('checked');
+});
+
 // channel list sorting
 $('#channel-list').sortable({
     cursor: 'move',

@@ -12,7 +12,6 @@ $('#thumbnail-list ul').cycle({
     }
 });
 
-
 $('p.radio-list input').uniform();
 
 $('#date-time .datepicker').datepicker({

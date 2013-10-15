@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="stylesheets/perfect-scrollbar.css" />
     <link rel="stylesheet" href="stylesheets/style.css" />
     <link rel="stylesheet" href="stylesheets/lightbox.css" />
+    <link rel="stylesheet" href="stylesheets/uniform.css" />
     <link rel="stylesheet" href="stylesheets/channel.css" />
     <link rel="stylesheet" href="stylesheets/com-9x9-cycle.css" />
     <title>9x9.tv - My Programs</title>
 </head>
-<body class="mac" style="">
+<body class="mac">
 
     <div id="fb-root"></div>
 
@@ -99,7 +100,7 @@
             <div class="slider-vertical"></div>
         </div>
         <!-- With channels -->
-        <div id="content-main" style="display: none;">
+        <div id="content-main">
             <div id="title-func" class="clearfix">
                 <h2>
                     My Programs (
@@ -122,6 +123,22 @@
                         </p>
                     </li>
                 </ul>
+             <!--    <br style="clear:both;"> -->
+                <p class="radio-list">
+                    <span>Filtered by:</span>
+                    <label for="filter_all" class="checked">
+                        <input type="radio" name="filter" value="all" id="filter_all" checked="checked">
+                        All
+                    </label>
+                    <label for="filter_9x9">
+                        <input type="radio" name="filter" value="9x9" id="filter_9x9">
+                        9x9 programs
+                    </label>
+                    <label for="filter_youtube">
+                        <input type="radio" name="filter" value="youtube" id="filter_youtube">
+                        Youtube sync programs
+                    </label>
+                </p>
             </div>
             <div id="content-main-wrap" class="ps-container">
                 <div class="constrain">
@@ -4453,7 +4470,7 @@
             </div>
         </div>
         <!-- Empty -->
-        <div id="content-main">
+        <div id="content-main" style="display: none;">
             <div id="title-func" class="clearfix">
                 <h2>My Programs (
                     <span id="channel-counter">0</span>)</h2>
@@ -4637,7 +4654,7 @@
         </div>
     </div>
     <!-- Unsave Prompt Layer End -->
-
+    
     <div id="tmpHtml2" style="display: none"></div>
     <div id="tmpHtml" style="display: none"></div>
 
@@ -4658,6 +4675,7 @@
     <script src="javascripts/libs/perfect-scrollbar.js"></script>
     <script src="javascripts/libs/jquery.blockUI.min.js"></script>
     <script src="javascripts/libs/jquery.cycle.all.min.js"></script>
+    <script src="javascripts/libs/jquery.uniform.min.js"></script>
     <!--
     <script src="javascripts/libs/nn-sdk.prototype.js"></script>
     <script src="javascripts/libs/jquery.ellipsis.min.js"></script>
