@@ -6,12 +6,12 @@
     <meta http-equiv="pragma" content="no-cache" />
     <meta http-equiv="expires" content="0" />
     <link rel="stylesheet" href="stylesheets/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="stylesheets/overlay.css" />
     <link rel="stylesheet" href="stylesheets/style.css" />
     <link rel="stylesheet" href="stylesheets/lightbox.css" />
     <link rel="stylesheet" href="stylesheets/uniform.css" />
     <link rel="stylesheet" href="stylesheets/channel.css" />
     <link rel="stylesheet" href="stylesheets/com-9x9-cycle.css" />
-    <link rel="stylesheet" href="stylesheets/overlay.css" />
     <title>9x9.tv - My Programs</title>
 </head>
 <body class="mac">
@@ -4721,6 +4721,40 @@
             </div>
         </div>
         <div class="overlay-h501-right"></div>
+    </div>
+
+    <!-- Create a new program overlay -->
+    <div id="create-program-overlay" class="overlay-h316">
+        <div class="overlay-h316-left"></div>
+        <div class="overlay-h316-center">
+            <p class="overlay-button-close"></p>
+            <h2 class="overlay-title">Create a New Program</h2>
+            <h3 class="overlay-subtitle">Choose a type</h3>
+            <div id="create-9x9-program" class="btn-large btn-create">
+                <div class="left"></div>
+                <div class="center">    
+                    <p>9x9<br>Program </p> 
+                    <img src="images/icon_9x9.png" alt="">               
+                </div>
+                <div class="right"></div>
+            </div>
+            <div id="create-youtube-program" class="btn-large btn-create">
+                <div class="left"></div>
+                <div class="center">
+                    <p>Youtube Sync<br>Program</p>    
+                    <img src="images/icon_youtube.png" alt="">                   
+                </div>
+                <div class="right"></div>
+            </div>
+            <div class="overlay-button-holder">
+                <div class="btn-gray">
+                    <p class="left"></p>
+                    <p id="cancel-create-program" class="center langkey">Cancel</p>
+                    <p class="right"></p>
+                </div>
+            </div>
+        </div>
+        <div class="overlay-h316-right"></div>
     </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>

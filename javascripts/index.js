@@ -111,3 +111,18 @@ $('.create-new-program').click(function(){
 });
 
 $('#terms-overlay .terms-container').perfectScrollbar();
+
+$('.overlay-button-close, #disagree-terms, #cancel-create-program').click(function(){
+    $.unblockUI();
+});
+
+$('#agree-terms').click(function(){
+    // $.unblockUI();
+    $.blockUI({
+        message: $('#create-program-overlay')
+    });
+});
+
+$('#create-9x9-program, #create-youtube-program').click(function(){
+    window.location.href = 'channel-add.html';
+});

@@ -1374,6 +1374,22 @@ body.mac #title-func h2 {
     width: 95%;
 }
 
+/* Create new program */
+.btn-create {
+    margin: 20px 15px;
+}
+.btn-create .center {
+    font-size: 15px;
+    line-height: 20px;
+    color: #555;
+    width: 160px;
+}
+.btn-create img {
+    position: absolute;
+    bottom: 25px;
+    margin-left: -24px;
+}
+
 @media only screen and (max-width: 1016px) {
 #content-main-wrap form .fminput .fmfield p.text span .text {
     width: 99.4%;
