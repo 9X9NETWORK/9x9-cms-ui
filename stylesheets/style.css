@@ -1788,6 +1788,50 @@ body.mac #title-func ul li p span a {
     color: #999;
 }
 
+/* Btn large */
+.btn-large {
+    cursor: pointer;
+    font-size: 15px;
+    display: inline-block;
+}
+.btn-large .left {
+    cursor: pointer;
+    position: relative;
+    float: left;
+    width: 6px;
+    height: 127px;
+    background: url(../images/bg_select_program.png) no-repeat;
+}
+.btn-large .right {
+    cursor: pointer;
+    position: relative;
+    float: left;
+    width: 6px;
+    height: 127px;
+    background: url(../images/bg_select_program.png) no-repeat 0 -127px;
+}
+.btn-large .center {
+    cursor: pointer;
+    position: relative;
+    float: left;
+    height: 117px;
+    white-space: nowrap;
+    background: url(../images/bg_select_program.png) repeat-x 0 -254px;
+    padding: 10px 0 0;
+    text-align: center;
+    min-width: 64px;
+}
+.btn-large:hover .left {
+    background: url(../images/bg_select_program.png) no-repeat 0 -381px;
+}
+.btn-large:hover .right {
+    background: url(../images/bg_select_program.png) no-repeat 0 -508px;
+}
+.btn-large:hover .center {
+    background: url(../images/bg_select_program.png) repeat-x 0 -635px;
+    color: #999;
+}
+
 /* Input White */
 .input-white {
     height: 30px;
