@@ -1,4 +1,18 @@
-﻿Date: 2013/10/02 yifan
+﻿Date: 2013/10/15 yifan
+Changes:
+* Add images for cms youtube sync.
+* Add youtube sync carousel item.
+* Add filter radio list in index.html.
+* Add empty program captions.
+* Add youtube sync program item styles.
+* Add terms of use overlay in index.html.
+* Refactor generic overlay from channel.css.
+* Add create program overlay in index.html.
+* Add generic overlay with height 172px and 316px.
+* Add btn-large style.
+* Revise terms of use text.
+
+Date: 2013/10/02 yifan
 Changes:
 * Finish static signin page.
 * Change page names and external links.
