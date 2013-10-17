@@ -53,6 +53,41 @@
     color: #555;
 }
 
+/* Overlay with height 60px */
+.overlay-h60 {
+    /*margin: -86px 0 0 -100px;
+    position: fixed;
+    left: 50%;
+    top: 50%;*/
+    /*min-width: 68px;*/
+    height: 60px;
+    /*display: inline-block;*/
+}
+.overlay-h60-left {
+    /*position: relative;*/
+    background: url(../images/bg_bubble_left_l.png) no-repeat;
+    height: 60px;
+    width: 4px;
+    float: left;
+}
+.overlay-h60-right {
+    /*position: relative;*/
+    background: url(../images/bg_bubble_right_l.png) no-repeat;
+    height: 60px;
+    width: 4px;
+    float: left;
+}
+.overlay-h60-center {
+    /*position: relative;*/
+    background: url(../images/bg_bubble_middle_l.png) repeat-x;
+    height: 52px;
+    /*width: 180px;*/
+    /*max-width: 95%;*/
+    /*min-width: 60px;*/
+    float: left;
+    padding: 4px 0;
+}
+
 /* Overlay with height 172px */
 .overlay-h172 {
     margin: -86px 0 0 -100px;
@@ -78,7 +113,7 @@
     position: relative;
     width: 180px;
     float: left;
-    padding: 24px 0 0px;
+    padding: 24px 0 0 0;
 }
 
 /* Overlay with height 316px */
