@@ -630,6 +630,19 @@ body.mac #title-func h2 {
     font: 13px/30px Arial, Helvetica;
 }
 
+#content-main-wrap form .fminput .fmfield p.text.disabled {
+    background-position: 0 -90px;
+}
+
+#content-main-wrap form .fminput .fmfield p.text.disabled span {
+    background-position: right -120px;
+}
+
+#content-main-wrap form .fminput .fmfield p.text.disabled span .text {
+    background-position: 0 -150px;
+    color: #999;
+}
+
 /* Channel settingForm textarea */
 #content-main-wrap form .fminput .fmfield p.textarea,
 #content-main-wrap form .fminput .fmfield p.textarea span {
@@ -671,6 +684,22 @@ body.mac #title-func h2 {
     font-family: Arial, Helvetica;
     font-size: 13px;
     resize: none;
+}
+
+#content-main-wrap form .fminput .fmfield p.textarea.disabled {
+    background-position: 0 -276x;
+}
+
+#content-main-wrap form .fminput .fmfield p.textarea.disabled span {
+    background-position: right -368px;
+}
+
+#content-main-wrap form .fminput .fmfield p.textarea.disabled span span {
+    background-position: 0 -460px;
+}
+
+#content-main-wrap form .fminput .fmfield p.textarea.disabled span .textarea {
+    color: #999;
 }
 
 /* Channel settingForm thumbnail */
@@ -936,6 +965,19 @@ body.mac #title-func h2 {
     line-height: 25px;
     text-decoration: none;
     text-indent: 33px;
+}
+
+#content-main-wrap form .fminput .fmfield a.switch-on {
+    float: left;
+    width: 63px;
+    height: 25px;
+    margin: 3px 5px 0 0;
+    background: url(../images/btn_on.png) no-repeat 0 0;
+    color: #fff;
+    line-height: 25px;
+    text-decoration: none;
+    text-indent: 8px;
+    margin-right: 14px;
 }
 
 /* Channel settingForm fb connect */
@@ -1388,6 +1430,30 @@ body.mac #title-func h2 {
     position: absolute;
     bottom: 25px;
     margin-left: -24px;
+}
+
+/* Youtube sync tip */
+.youtube-sync-tip {
+    display: none;
+    position: absolute;
+    /*clear: both;*/
+    top: 30px;
+    left: -70px;
+    width: 300px;
+    text-decoration: none;
+    color: #555;
+    line-height: 17px;
+}
+.youtube-sync-tip .overlay-h60-center {
+    width: 292px;
+}
+.youtube-sync-tip .up-arrow {
+    position: absolute;
+    top: -14px;
+    left: 72px;
+}
+#content-main-wrap form .fminput .fmfield .connected .share-item a:hover .youtube-sync-tip {
+    display: block;
 }
 
 @media only screen and (max-width: 1016px) {

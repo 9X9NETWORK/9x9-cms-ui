@@ -7,6 +7,7 @@
     <meta http-equiv="pragma" content="no-cache" />
     <meta http-equiv="expires" content="0" />
     <link rel="stylesheet" href="stylesheets/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="stylesheets/overlay.css" />
     <link rel="stylesheet" href="stylesheets/style.css" />
     <link rel="stylesheet" href="stylesheets/lightbox.css" />
     <link rel="stylesheet" href="stylesheets/uniform.css" />
@@ -106,7 +107,7 @@
                 <p class="required">
                     <acronym title="Required field" class="mark-required">*</acronym>Required field</p>
             </div>
-            <div id="content-main-wrap" class="footer-on fixed ps-container">
+            <div id="content-main-wrap" class="footer-on ps-container">
                 <div class="constrain">
                     <form name="settingForm" id="settingForm" method="get" action="" data-height="361">
                         <input type="hidden" name="isPublic" id="isPublic" value="true">
@@ -116,7 +117,7 @@
                             <div class="fmfield">
                                 <p class="text disabled">
                                     <span>
-                                        <input type="text" name="name" id="name" maxlength="100" value="" class="text">
+                                        <input type="text" name="name" id="name" maxlength="100" value="My demo Youtube sync program" class="text">
                                     </span>
                                 </p>
                                 <!-- <span class="notice">
@@ -357,6 +358,32 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="fminput clearfix">
+                            <label>Auto sync with Youtube</label>
+                            <div class="fmfield">
+                                <div class="connected brand">
+                                    <div class="share-item first">
+                                        <img alt="youtube" src="images/icon_youtube_sm.png">
+                                        <a href="#" class="switch-on">ON</a> 
+                                        <a id="fb-reconnect" href="javascript:void(0);">
+                                            <img src="images/icon_question.png" alt="">
+                                            <!-- <span class="tip">
+                                                <img src="images/bg_tip_top.png" alt="">
+                                                <span class="tip-right">
+                                                    <span class="tip-middle">Program will automatically synchronize with YouTube at 9 AM, 2 PM and 8 PM every day. Manually do so by clicking "Sync" in program list.</span>
+                                                </span>
+                                            </span> -->
+                                            <div class="overlay-h60 youtube-sync-tip">
+                                                <img src="images/bg_tip_top.png" alt="" class="up-arrow">
+                                                <div class="overlay-h60-left"></div>
+                                                <div class="overlay-h60-center">Program will automatically synchronize with YouTube at 9 AM, 2 PM and 8 PM every day. Manually do so by clicking "Sync" in program list.</div>
+                                                <div class="overlay-h60-right"></div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-btn">
                             <div class="form-btn-wrap">
                                 <p class="notice hide">Please fill in all required fields.</p>
@@ -370,7 +397,7 @@
                                 <p class="btns btn-create enable">
                                     <span class="btn-right">
                                         <span class="btn-middle">
-                                            <input type="button" value="Create">
+                                            <input type="button" value="Save">
                                         </span>
                                     </span>
                                 </p>
