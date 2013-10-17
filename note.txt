@@ -1,4 +1,17 @@
-﻿Date: 2013/10/15 yifan
+﻿Date: 2013/10/17 yifan
+Changes:
+* Add input-white-large style for textarea.
+* Revise channel-setting.html for 9x9 program.
+* Add channel-setting-youtube-sync.html.
+* Revise channel-setting.html.
+* Add overlay height 60px style.
+* Add youtube sync layout and style for channel setting.
+* Add youtube sync alert overlay.
+* Revise channel-add.html.
+* Add channel-add-youtube-sync.html.
+* Finish channel-add.html youtube sync ui-coding.
+
+Date: 2013/10/15 yifan
 Changes:
 * Add images for cms youtube sync.
 * Add youtube sync carousel item.
