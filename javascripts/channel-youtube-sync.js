@@ -125,7 +125,7 @@ $('#youtube-sync-switch').click(function(){
     });
 });
 
-$('.overlay-button-close').click(function(){
+$('#synchronizing-ok, .overlay-button-close').click(function(){
     $.unblockUI();
 });
 
@@ -141,4 +141,10 @@ $('#yes-sync').click(function(){
     $('#youtube-sync-switch').removeClass('switch-off');
     $('#youtube-sync-switch').addClass('switch-on');
     $('#youtube-sync-switch').text('On');
+});
+
+$('.btns.btn-create').click(function(){
+    $.blockUI({
+        message: $('#youtube-synchronizing-overlay')
+    });
 });

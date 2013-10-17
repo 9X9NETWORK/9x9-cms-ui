@@ -43,6 +43,10 @@ abbr, acronym {
     opacity: 0.9;
 }
 
+.validation-failed {
+    color: #f00;
+}
+
 /* loading overlay */
 #overlay-s {
     display: none;

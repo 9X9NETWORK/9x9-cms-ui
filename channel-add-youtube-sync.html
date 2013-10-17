@@ -92,7 +92,7 @@
         </div>
         <div id="content-main">
             <div id="title-func" class="clearfix">
-                <h2>My Programs &gt; Create a new 9x9 program</h2>
+                <h2>My Programs &gt; Create a new Youtube sync program</h2>
                 <p class="required">
                     <acronym title="Required field" class="mark-required">*</acronym>Required field</p>
             </div>
@@ -102,18 +102,21 @@
                         <input type="hidden" name="isPublic" id="isPublic" value="true">
                         <div class="fminput clearfix">
                             <label for="name">
-                                <acronym title="Required field" class="mark-required">*</acronym>Title</label>
+                                <acronym title="Required field" class="mark-required">*</acronym>Add Youtube channel or playlist URL</label>
                             <div class="fmfield">
                                 <p class="text">
                                     <span>
                                         <input type="text" name="name" id="name" maxlength="100" value="" class="text">
                                     </span>
                                 </p>
-                                <span class="notice">
-                                    <span id="name-charcounter">0</span>　Best within 10 characters</span>
+                                <!-- <span class="notice">
+                                    <span id="name-charcounter">0</span>　Best within 10 characters</span> -->
+                                <div class="clear">
+                                    <p class="validation-failed">Invalid URL, please check the URL and try again.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="fminput clearfix">
+                        <!-- <div class="fminput clearfix">
                             <label>Program logo</label>
                             <div class="fmfield upload-img">
                                 <div class="thumbnail">
@@ -144,7 +147,7 @@
                                 <span class="notice">
                                     <span id="intro-charcounter">0</span>　Best within 52 characters</span>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="fminput clearfix">
                             <label>
                                 <acronym title="Required field" class="mark-required">*</acronym>Program language</label>
@@ -346,9 +349,35 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="fminput clearfix">
+                            <label>Auto sync with Youtube</label>
+                            <div class="fmfield">
+                                <div class="connected brand">
+                                    <div class="share-item first">
+                                        <img alt="youtube" src="images/icon_youtube_sm.png">
+                                        <a id="youtube-sync-switch" href="#" class="switch-off">OFF</a> 
+                                        <a id="fb-reconnect" href="javascript:void(0);">
+                                            <img src="images/icon_question.png" alt="">
+                                            <!-- <span class="tip">
+                                                <img src="images/bg_tip_top.png" alt="">
+                                                <span class="tip-right">
+                                                    <span class="tip-middle">Program will automatically synchronize with YouTube at 9 AM, 2 PM and 8 PM every day. Manually do so by clicking "Sync" in program list.</span>
+                                                </span>
+                                            </span> -->
+                                            <div class="overlay-h60 youtube-sync-tip">
+                                                <img src="images/bg_tip_top.png" alt="" class="up-arrow">
+                                                <div class="overlay-h60-left"></div>
+                                                <div class="overlay-h60-center">Program will automatically synchronize with YouTube at 9 AM, 2 PM and 8 PM every day. Manually do so by clicking "Sync" in program list.</div>
+                                                <div class="overlay-h60-right"></div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-btn">
                             <div class="form-btn-wrap">
-                                <p class="notice hide">Please fill in all required fields.</p>
+                                <p class="notice">Please fill in all required fields.</p>
                                 <p class="btns btn-cancel enable">
                                     <span class="btn-right">
                                         <span class="btn-middle">
@@ -458,6 +487,47 @@
         </div>
     </div>
     <!-- Facebook Connect Failed2 Layer End -->
+
+    <!-- Youtube synchronizing overlay -->
+    <div id="youtube-synchronizing-overlay" class="overlay-h172 youtube-synchronizing">
+        <div class="overlay-h172-left"></div>
+        <div class="overlay-h172-center">
+            <p class="overlay-button-close"></p>
+            <img src="images/icon_load_l.gif" alt="">
+            <p>Synchronizing. This may take a few minutes.</p>
+            <div class="overlay-button-holder">
+                <div class="btn-gray">
+                    <p class="left"></p>
+                    <p id="synchronizing-ok" class="center langkey">OK</p>
+                    <p class="right"></p>
+                </div>
+            </div>
+        </div>
+        <div class="overlay-h172-right"></div>
+    </div>
+
+    <!-- Youtube sync alert overlay -->
+    <div id="youtube-sync-alert-overlay" class="overlay-h172 youtube-sync-alert">
+        <div class="overlay-h172-left"></div>
+        <div class="overlay-h172-center">
+            <p class="overlay-button-close"></p>
+            <img src="images/icon_warning_lg.png" alt="">
+            <p>This program will automatically synchronize information and videos from YouTube at 9 AM, 2 PM and 8 PM every day. Are you sure to auto sync?</p>
+            <div class="overlay-button-holder">
+                <div class="btn-gray">
+                    <p class="left"></p>
+                    <p id="no-sync" class="center langkey">No</p>
+                    <p class="right"></p>
+                </div>
+                <div class="btn-gray">
+                    <p class="left"></p>
+                    <p id="yes-sync" class="center langkey">Yes</p>
+                    <p class="right"></p>
+                </div>
+            </div>
+        </div>
+        <div class="overlay-h172-right"></div>
+    </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
