@@ -1417,16 +1417,16 @@ body.mac #title-func h2 {
 }
 
 /* Create new program */
-.btn-create {
+.btn-large.btn-create {
     margin: 20px 15px;
 }
-.btn-create .center {
+.btn-large.btn-create .center {
     font-size: 15px;
     line-height: 20px;
     color: #555;
     width: 160px;
 }
-.btn-create img {
+.btn-large.btn-create img {
     position: absolute;
     bottom: 25px;
     margin-left: -24px;
