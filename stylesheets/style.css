@@ -1864,6 +1864,16 @@ body.mac #title-func ul li p span a {
     border: 0;
     color: #555;
 }
+.input-white.disabled .left {
+    background: url(../images/input_white.png) repeat-x 0 -90px;
+
+} 
+.input-white.disabled .right {
+    background: url(../images/input_white.png) repeat-x 0 -120px;
+} 
+.input-white.disabled .center {
+    background: url(../images/input_white.png) repeat-x 0 -150px;
+} 
 .icon-set {
     width: 16px;
     height: 16px;
@@ -1880,6 +1890,49 @@ body.mac #title-func ul li p span a {
     left: 3px;
     z-index: 2;
 }
+
+/* Input White Large for textarea */
+.input-white-large {
+    height: 92px;
+    position: relative;
+    margin: 0 8px 0 0;
+}
+.input-white-large .left {
+    position: relative;
+    float: left;
+    width: 3px;
+    height: 92px;
+    background: url(../images/input_white_lg.png) no-repeat;
+}
+.input-white-large .right {
+    position: relative;
+    float: left;
+    width: 3px;
+    height: 92px;
+    background: url(../images/input_white_lg.png) no-repeat 0 -92px;
+}
+.input-white-large .center {
+    position: relative;
+    float: left;
+    width: 230px;
+    height: 92px;
+    line-height: 30px;
+    text-indent:6px;
+    background: url(../images/input_white_lg.png) repeat-x 0 -184px;
+    text-align:left;
+    border: 0;
+    color: #555;
+}
+.input-white-large.disabled .left {
+    background: url(../images/input_white_lg.png) repeat-x 0 -276px;
+
+} 
+.input-white-large.disabled .right {
+    background: url(../images/input_white_lg.png) repeat-x 0 -368px;
+} 
+.input-white-large.disabled .center {
+    background: url(../images/input_white_lg.png) repeat-x 0 -460px;
+} 
 
 /* Input Gray */
 #portal-add-layer .input-gray .center .textfield {
