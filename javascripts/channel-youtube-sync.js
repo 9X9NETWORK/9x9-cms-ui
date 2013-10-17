@@ -118,3 +118,27 @@ $('.page-list').click(function() {
         $('#fb-page-list').slideToggle();
     }
 });
+
+$('#youtube-sync-switch').click(function(){
+    $.blockUI({
+        message: $('#youtube-sync-alert-overlay')
+    });
+});
+
+$('.overlay-button-close').click(function(){
+    $.unblockUI();
+});
+
+$('#no-sync, .overlay-button-close').click(function(){
+    $.unblockUI();
+    $('#youtube-sync-switch').removeClass('switch-on');
+    $('#youtube-sync-switch').addClass('switch-off');
+    $('#youtube-sync-switch').text('OFF');
+});
+
+$('#yes-sync').click(function(){
+    $.unblockUI();
+    $('#youtube-sync-switch').removeClass('switch-off');
+    $('#youtube-sync-switch').addClass('switch-on');
+    $('#youtube-sync-switch').text('On');
+});

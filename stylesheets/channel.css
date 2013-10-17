@@ -1452,6 +1452,25 @@ body.mac #title-func h2 {
     top: -14px;
     left: 72px;
 }
+
+/* Youtube sync alert */
+.youtube-sync-alert {
+    position: fixed;
+    margin: -86px 0 0 -231px;
+    top: 50%;
+    left: 50%;
+}
+
+.youtube-sync-alert .overlay-h172-center {
+    width: 463px;
+    font-size: 13px;
+    color: #555;
+}
+
+.youtube-sync-alert .overlay-h172-center img {
+    margin-bottom: 15px;
+}
+
 #content-main-wrap form .fminput .fmfield .connected .share-item a:hover .youtube-sync-tip {
     display: block;
 }
