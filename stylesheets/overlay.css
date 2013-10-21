@@ -119,10 +119,6 @@
 
 /* Overlay with height 316px */
 .overlay-h316 {
-    margin: -158px 0 0 -226px;
-    position: fixed;
-    left: 50%;
-    top: 50%;
 }
 .overlay-h316-left {
     background: url(../images/overlay_bg_m_l.png) no-repeat;
@@ -147,11 +143,6 @@
 
 /* Overlay with height 501px */
 .overlay-h501 {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin: -250px 0 0 -355px;
-    overflow: hidden;
 }
 .overlay-h501-left {
     display: block;
@@ -205,4 +196,26 @@
     float: left;
     width: 10px;
     height: 362px;
+}
+
+/* Page specific overlay styles */
+
+.terms-overlay,
+.create-program-overlay {
+    display: none;
+}
+
+.terms-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -250px 0 0 -355px;
+    overflow: hidden;
+}
+
+.create-program-overlay {
+    margin: -158px 0 0 -226px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
 }
