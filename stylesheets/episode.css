@@ -1109,6 +1109,10 @@ div.constrain {
     text-align: left;
 }
 
+.youtube-program #ep-list .get-url {
+    left: 270px;
+}
+
 #ep-list.favorite .get-url {
     left: 263px;
 }
