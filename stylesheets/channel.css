@@ -584,6 +584,11 @@ body.mac #title-func h2 {
     font-size: 13px;
 }
 
+#content-main-wrap form .fmfield label {
+    width: auto;
+    font-weight: normal;
+}
+
 #content-main-wrap form .fminput label acronym {
     margin-left: -10px;
 }
@@ -1028,11 +1033,20 @@ body.mac #title-func h2 {
     cursor: pointer;
 }
 
+div.checker span,
 #content-main-wrap form .fminput .fmfield .connected .share-item .checker span {
     display: block;
     width: 14px;
     height: 15px;
     background: url(../images/bg_checkbox.png) no-repeat 0 0;
+}
+
+div.checker input {
+    cursor: pointer;
+}
+
+div.checker span.checked {
+    background: url(../images/check_box_check.png) no-repeat 0 0;
 }
 
 #content-main-wrap form .fminput .fmfield .connected .share-item .checker input {

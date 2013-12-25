@@ -105,7 +105,7 @@ $('.connect-switch').click(function() {
     $('.connected').toggleClass('hide');
 });
 
-$('#fbPage-label').click(function() {
+$('#fbPage-label, #emailNotification-label').click(function() {
     $(this).toggleClass('checked');
     $(this).find('span').toggleClass('checked');
     $('.page-list').toggleClass('enable');

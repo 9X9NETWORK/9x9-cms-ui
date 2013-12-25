@@ -29,6 +29,11 @@ $('#filter_youtube').change(function(){
     $('#content-main-wrap .constrain > h3:eq(1)').removeClass('hide');
 });
 
+$('#filter_live').change(function(){
+    $('#content-main-wrap .constrain > *').addClass('hide');
+    $('#content-main-wrap .constrain > h3:eq(2)').removeClass('hide');
+});
+
 // channel list sorting
 $('#channel-list').sortable({
     cursor: 'move',
