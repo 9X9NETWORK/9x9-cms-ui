@@ -1,0 +1,159 @@
+
+
+
+@import compass/css3
+
+
+
+
+$notice-color: #ed1a1b
+$btns-text-color: #555 !default
+$btns-text-color-hover: #999 !default
+$btns-font-size: 15px !default
+
+
+%input-style
+    border-radius: 2px
+    box-shadow: 0 1px 0 rgba(252,252,252,.85),  inset 0 1px 1px rgba(0,0,0,.3), inset 0 -1px 1px rgba(0,0,0,.24),inset 0 1px 3px rgba(0,0,0,.3)
+    background-color: #fbfbfb
+    border: none
+    padding: 4px 8px
+
+
+.normal-btn
+    font-size: $btns-font-size
+    color: $btns-text-color
+    display: inline-block
+    border-radius: 2px
+    background-color: #d2d2d2
+    +box-shadow(0 3px 4px rgba(0,0,0,.11), inset 0 1px 1px rgba(255,255,255,.1),0 1px 1px rgba(0,0,0,.4))
+    +background-image(linear-gradient(to top, #ddd, #fcfcfc))
+    text-decoration: none
+    padding: 4px 10px
+    &:hover,&.on
+        color: $btns-text-color-hover
+        background-color: #d2d2d2
+        +box-shadow(0 1px #fff, inset 0 1px 1px rgba(0,0,0,.5), inset 0 0 5px rgba(0,0,0,.06))
+        +background-image(linear-gradient(to bottom, rgba(0,0,0,.1), rgba(255,255,255,.1)))
+
+.normal-margin
+    margin-top: 1rem
+    margin-bottom: 1rem
+
+.normal-list
+    > li
+        display: block
+        border-bottom: solid 1px rgba(255,255,255,0.7s)
+        +box-shadow(inset 0 -1px 0 #bbb)
+        padding-top: 0.5em
+        padding-bottom: 0.5em
+
+
+
+
+//reset
+fieldset
+    border: 0
+    margin: 0
+    padding: 0
+textarea
+    resize: none
+input,textarea
+    font-family: sans-serif
+    &::-webkit-input-placeholder
+        color: #999
+    &:-moz-placeholder
+        color: #999
+    &::-moz-placeholder 
+        color: #999
+    &:-ms-input-placeholder 
+        color: #999   
+
+
+
+
+//form
+.form-title
+    display: none
+
+.form-group
+
+    margin-bottom: 1.5rem
+    padding-left: 1.5rem
+ 
+    &.required-field
+        color: $btns-text-color
+        line-height: normal
+        position: relative 
+        left: auto
+        &::before
+            content: "*"
+            color: $notice-color
+            position: absolute
+            left: 0.65rem
+    .form-label
+        float: left
+        width: 10rem
+        display: block
+        font-weight: bolder
+        font-size: 0.85rem
+    .form-elements
+        margin-left: 11rem
+        display: block
+    .notice
+        position: absolute
+        font-size: 0.8rem
+        width: 13rem
+        top: 0
+        right: 0
+    textarea
+        min-height: 5rem
+        
+
+    input[type="text"],textarea
+        @extend %input-style
+
+    input[type="radio"]
+        display: none
+        //margin-bottom: 1rem
+        & + label
+            margin-right: 1.5rem
+
+    .radio-btn
+        display: inline-block
+        margin-bottom: 0.5rem
+        cursor: pointer
+        
+    .radio-btn:before
+        +box-sizing(border-box)
+        display: inline-block
+        width: 0.8rem
+        height: 0.8rem
+        border: 0.19rem solid #f9f9f9
+        background-color: #f9f9f9
+        box-shadow: 0 1px 1px rgba(0,0,0,0.6)
+        margin-right: 0.5rem
+        border-radius: 100%
+        content: ""
+
+        input[type="radio"]:checked + .radio-btn
+            color: #fff
+            font-weight: bold
+            
+    input[type="radio"]:checked + .radio-btn:before
+        background-color: #333  
+    input[type="radio"].on + .radio-btn:before
+        box-shadow: inset 0 1px 1px rgba(0,0,0,0.6),0 0 1rem rgba(255,255,255,0.7),0 0 0.5rem rgba(255,255,255,0.9) 
+        border-color: #fff
+
+.form-submit-wrap
+    text-align: right
+    .normal-btn
+        margin-left: 1rem
+        min-width: 4rem
+        text-align: center
+
+
+
+
+
