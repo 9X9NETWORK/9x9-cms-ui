@@ -18,6 +18,10 @@ $btns-font-size: 15px !default
     background-color: #fbfbfb
     border: none
     padding: 4px 8px
+    &.disable
+        +background-image(linear-gradient(to top, #e6e6e6, #e9e9e9 51%, #ebebeb 81%, #e2e2e2))
+        box-shadow: 0 1px 0 rgba(252,252,252,.35),  inset 0 1px 1px rgba(0,0,0,.15), inset 0 -1px 1px rgba(0,0,0,.1),inset 0 1px 3px rgba(0,0,0,.1)
+        cursor: default
 
 
 .normal-btn
@@ -35,6 +39,14 @@ $btns-font-size: 15px !default
         background-color: #d2d2d2
         +box-shadow(0 1px #fff, inset 0 1px 1px rgba(0,0,0,.5), inset 0 0 5px rgba(0,0,0,.06))
         +background-image(linear-gradient(to bottom, rgba(0,0,0,.1), rgba(255,255,255,.1)))
+    &.disable
+        background-color: rgba(210,210,210,0.8)
+        +box-shadow(inset 0 1px 1px rgba(255,255,255,.25))
+        border: solid 1px rgba(0,0,0,.15)
+        color: #999
+        cursor: default
+        background-image: none
+
 
 .normal-margin
     margin-top: 1rem
@@ -145,6 +157,13 @@ input,textarea
     input[type="radio"].on + .radio-btn:before
         box-shadow: inset 0 1px 1px rgba(0,0,0,0.6),0 0 1rem rgba(255,255,255,0.7),0 0 0.5rem rgba(255,255,255,0.9) 
         border-color: #fff
+    .radio-btn.disable
+        color: #999
+        cursor: default
+        &:before
+            background-color: #e9e9e9 !important
+            border: 0.19rem solid #e9e9e9
+            box-shadow: 0 1px 1px rgba(0,0,0,0.2)
 
 .form-submit-wrap
     text-align: right
