@@ -22,8 +22,14 @@
   display: inline-block;
 }
 
-/* line 19, ../sass/cms-notification.sass */
+/* line 18, ../sass/cms-notification.sass */
 .form-group input[type="text"], .form-group textarea {
   width: calc(100% - 18em);
   font-size: 0.85rem;
+}
+
+/* line 25, ../sass/cms-notification.sass */
+#func-nav ul li a.disable {
+  color: #dddddd !important;
+  background-position: 0 -999px !important;
 }
