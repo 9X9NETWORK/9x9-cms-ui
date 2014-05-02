@@ -247,6 +247,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 
 /* line 183, ../sass/cms-component.sass */
 .tooltip-wrap {
+  display: none;
   position: absolute;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
