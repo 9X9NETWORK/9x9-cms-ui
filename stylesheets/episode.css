@@ -181,11 +181,11 @@ div.constrain {
     position: relative;
 }
 
-#ep-list ul,
-#ep-list ul.un-pub,
-#ep-list ul li.title,
-#ep-list ul li .container,
-#ep-list ul li .container-bottom {
+#ep-list > ul,
+#ep-list > ul.un-pub,
+#ep-list > ul li.title,
+#ep-list > ul li .container,
+#ep-list > ul li .container-bottom {
     background: url(../images/bg_divider.png) repeat-x 0 bottom;
 }
 
@@ -1197,6 +1197,16 @@ div.constrain {
 }
 
 
+.btns .tooltip-wrap{
+
+    font-size: 13px;
+    text-align: left;
+    bottom: 5px;
+    z-index: 5;
+    left: calc(100% + 10px);
+}
+
+
 /* 1358 */
 @media only screen and (min-width: 1358px) {
 #channel-name {
@@ -1204,3 +1214,5 @@ div.constrain {
     margin-right: 5px;
 	max-width: 82%;
 }
+
+
