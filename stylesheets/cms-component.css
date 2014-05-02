@@ -248,6 +248,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 /* line 183, ../sass/cms-component.sass */
 .tooltip-wrap {
   display: none;
+  font-size: 13px;
   position: absolute;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -265,33 +266,48 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   background-image: linear-gradient(to top, #dddddd, #fcfcfc);
   padding: 10px;
 }
-/* line 191, ../sass/cms-component.sass */
+/* line 192, ../sass/cms-component.sass */
 .tooltip-wrap:after {
   content: "";
-  bottom: 12px;
   display: block;
-  left: -7px;
   position: absolute;
   width: 0;
   height: 0;
+  bottom: 12px;
+  left: -7px;
   border-top: 10px solid transparent;
   border-right: 8px solid #ededed;
   border-bottom: 8px solid transparent;
 }
-/* line 208, ../sass/cms-component.sass */
+/* line 209, ../sass/cms-component.sass */
 .tooltip-wrap .tooltip-content-list {
   background-image: none;
 }
-/* line 210, ../sass/cms-component.sass */
+/* line 211, ../sass/cms-component.sass */
 .tooltip-wrap .tooltip-content-list li {
   margin-bottom: 0.5rem;
   white-space: nowrap;
 }
-/* line 213, ../sass/cms-component.sass */
+/* line 214, ../sass/cms-component.sass */
 .tooltip-wrap .tooltip-content-list li:last-child {
   margin-bottom: 0;
 }
-/* line 215, ../sass/cms-component.sass */
+/* line 216, ../sass/cms-component.sass */
 .tooltip-wrap .input-gray {
   height: auto;
+}
+/* line 219, ../sass/cms-component.sass */
+.tooltip-wrap.show-top {
+  bottom: calc(100% + 10px);
+  right: 0;
+  left: auto;
+}
+/* line 223, ../sass/cms-component.sass */
+.tooltip-wrap.show-top:after {
+  bottom: -16px;
+  left: auto;
+  right: 15px;
+  border-top: 8px solid #e3e3e3;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
 }

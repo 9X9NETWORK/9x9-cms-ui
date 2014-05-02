@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="stylesheets/uniform.css" />
     <link rel="stylesheet" href="stylesheets/channel.css" />
     <link rel="stylesheet" href="stylesheets/com-9x9-cycle.css" />
+    <link rel="stylesheet" href="stylesheets/cms-component.css" />
     <title>9x9.tv - My Programs</title>
 </head>
 <body class="mac">
@@ -101,7 +102,7 @@
             <div class="slider-vertical"></div>
         </div>
         <!-- With channels -->
-        <div id="content-main" style="display: none;">
+        <div id="content-main">
             <div id="title-func" class="clearfix">
                 <h2>
                     My Programs (
@@ -351,7 +352,7 @@
                                                     </p>
                                                 </div>
                                                 <div class="func-wrap">
-                                                    <div id="get-url-8790" class="get-url" data-metain="0" data-metaep="0" data-metach="8790">
+                                                    <!-- <div id="get-url-8790" class="get-url" data-metain="0" data-metaep="0" data-metach="8790">
                                                         <div class="tip-white-l">
                                                             <div class="left"></div>
                                                             <div class="center">
@@ -377,7 +378,8 @@
                                                             <div class="right"></div>
                                                         </div>
                                                         <div class="tip-bottom"></div>
-                                                    </div>
+                                                    </div> -->
+                                                    
                                                     <p class="time">Update: 2012-10-18 15:14<img src="images/icon_live_program_sm.png"></p>
                                                     <div class="func-btns">
                                                         <div class="btn-wrap enable">
@@ -462,6 +464,17 @@
                                                                 </li>
                                                             </ul>
                                                         </div>
+                                                    <!-- tooltip showtop start-->
+                                                    <div class="tooltip-wrap show-top">
+                                                                <ul class="tooltip-content-list">
+                                                            
+                                                                    <li>
+                                                                        <label class="title">URL</label>
+                                                                        <input class="input-gray" onclick="this.select()" value="http://www.9x9.tv/view?brand=9x9.tv&amp;ch=xxxx&amp;ep=xxxx">
+                                                                    </li>
+                                                                </ul>  
+                                                    </div>
+                                                    <!-- tooltip showtop end-->
                                                     </div>
                                                 </div>
                                             </div>
@@ -4478,7 +4491,7 @@
             </div>
         </div>
         <!-- Empty -->
-        <div id="content-main">
+        <div style="display: none">
             <div id="title-func" class="clearfix">
                 <h2>My Programs (
                     <span id="channel-counter">0</span>
