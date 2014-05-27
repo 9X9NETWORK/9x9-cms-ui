@@ -1,24 +1,50 @@
 @import "compass/typography/text/ellipsis"
 
 .notify-list-title
-	font-size: 0.85rem
-	margin-bottom: 1rem 
+    font-size: 0.85rem
+    margin-bottom: 1rem 
 
 .notify-list
-	font-size: 0.85rem
-	display: block
-	overflow: hidden
+    font-size: 0.85rem
+    display: block
+    overflow: hidden
+
+    .func-btns
+        float: right
+        margin-top: -22px
+        position: relative
+        z-index: 20
+    .notice
+        color: red
+        float: right
+        margin-top: -15px
+        margin-right: 8px 
+
+    > li.disable
+        color: #999
+        .del
+            background-position: -46px -97px
+            cursor: default
+
 .notify-content
-	+ellipsis
-	width: 100%
-	display: inline-block
+    +ellipsis
+    width: 100%
+    display: inline-block
+
 
 
 .form-group
-	input[type="text"],textarea
-		width: calc(100% - 18em)
-		font-size: 0.85rem
+    input[type="text"],textarea
+        width: calc(100% - 18em)
+        font-size: 0.85rem
+
+.normal-btn + .icon-question
+    line-height: 25px
+    vertical-align: middle
+    margin-left: 5px
 
 
 
-
+//temp
+.notify-intro-image
+    display: none

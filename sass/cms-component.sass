@@ -2,6 +2,8 @@
 
 
 @import compass/css3
+@import compass/utilities/general/clearfix
+@import compass/typography/text/ellipsis
 
 
 
@@ -63,8 +65,8 @@ $btns-font-size: 15px !default
         display: block
         border-bottom: solid 1px rgba(255,255,255,0.7s)
         +box-shadow(inset 0 -1px 0 #bbb)
-        padding-top: 0.5em
-        padding-bottom: 0.5em
+        padding: 0.5em 1em
+
 
 
 
@@ -229,3 +231,76 @@ input,textarea
             border-left: 8px solid transparent
 
 
+.icon-question
+    background: transparent url('../images/icon_question.png') no-repeat 0 0
+    width: 16px
+    height: 16px
+    display: inline-block
+    &.is-with-tooltip
+        position: relative
+        .tooltip-wrap
+            white-space: nowrap
+            left: 28px
+            top: -16px
+        &:hover
+            > .tooltip-wrap
+                display: block
+.nav-tabs
+
+    //clear: both
+    +clearfix
+    position: relative
+    padding-bottom: 20px
+    &:after
+        content: ''
+        display: block
+        position: absolute
+        background-color: #e2e2e2
+        border: 1px solid #999
+        height: 10px
+        width: 100%
+        bottom: 10px
+        box-sizing: border-box
+        z-index: -1
+        +box-shadow(0px 3px 10px rgba(0, 0, 0, 0.15))
+
+
+    .tab-item
+        float: left
+        margin-bottom: -1px
+        a
+            text-decoration: none
+            color: $btns-text-color
+            //margin-right: 2px
+            line-height: 1.2
+            border: 1px solid #999
+            border-radius: 4px 4px 0 0
+            position: relative
+            display: block
+            padding: 8px 25px
+            background-color: #fff
+            &:hover
+                color: $btns-text-color-hover
+        &.on
+            a
+                background-color: #e2e2e2
+                border-bottom: 1px solid #e2e2e2
+                cursor: default 
+                &:hover
+                    color: $btns-text-color
+.func-btns
+
+    .del
+        display: block
+        width: 22px
+        height: 24px
+        margin: 2px 0 0
+        background: url(../images/btn_func.png) no-repeat
+        text-decoration: none
+        text-indent: -100000px
+        background-position: 0 -97px
+        &:hover
+            background-position: -23px -97px
+
+.btn-item
+    display: inline-block
