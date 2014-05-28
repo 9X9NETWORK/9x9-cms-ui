@@ -62,3 +62,8 @@
 .notify-intro-image {
   display: none;
 }
+
+/* line 51, ../sass/cms-notification.sass */
+.notify-list-wrap {
+  display: none;
+}
