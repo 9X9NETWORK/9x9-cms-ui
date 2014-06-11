@@ -72,11 +72,11 @@
 }
 
 /* line 56, ../sass/cms-notification.sass */
-#list-history > li {
+.notify-list.notify-history > li {
   cursor: default;
 }
 /* line 58, ../sass/cms-notification.sass */
-#list-history > li:hover {
+.notify-list.notify-history > li:hover {
   font-weight: normal;
 }
 
