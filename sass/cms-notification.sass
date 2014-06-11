@@ -9,6 +9,7 @@
     display: block
     overflow: hidden
 
+
     .func-btns
         float: right
         margin-top: -22px
@@ -19,9 +20,17 @@
         float: right
         margin-top: -15px
         margin-right: 8px 
+    >li
+        cursor: pointer
+        &:hover
+            font-weight: bold
 
     > li.disable
+        cursor: default
         color: #999
+        &:hover
+            font-weight: normal
+
         .del
             background-position: -46px -97px
             cursor: default
