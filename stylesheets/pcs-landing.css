@@ -1,0 +1,42 @@
+/* line 4, ../sass/pcs-landing.scss */
+.nav-left {
+  float: left;
+  padding: 0 12px;
+}
+
+/* line 9, ../sass/pcs-landing.scss */
+.cms-nav.jumbotron {
+  padding-top: 68px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+/* line 18, ../sass/pcs-landing.scss */
+.main-logo {
+  background: url(../images/logo.png) 0 50% no-repeat;
+  cursor: pointer;
+}
+
+/* line 24, ../sass/pcs-landing.scss */
+.cms-icon {
+  display: inline-block;
+  background: transparent url(../images/icon_studio.png) no-repeat 0 0;
+  height: 23px;
+  padding: 0 0 0 28px;
+  font-size: 22px;
+  color: #555;
+  font-weight: bold;
+}
+
+/* line 34, ../sass/pcs-landing.scss */
+.sub-title {
+  display: block;
+  font-size: 11px;
+  font-weight: normal;
+  line-height: 16px;
+}
+
+/* line 42, ../sass/pcs-landing.scss */
+.affix {
+  top: 80px;
+}
