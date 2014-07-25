@@ -8,5 +8,10 @@ $(function() {
 	// 	}
 	// });
 
-	console.log('gg');
+	console.log('g');
+	$('[data-toggle=popover]').popover({
+		html: true,
+  		trigger: 'hover'
+
+	})
 })

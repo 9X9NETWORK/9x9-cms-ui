@@ -1,6 +1,14 @@
 ///for all pages
 $images-base: "../";
 
+@import "compass/css3";
+
+//set textarea border-radius
+textarea{
+  border-radius: 4px;
+}
+
+
 .nav-left{
   float: left;
   padding: 0 12px;
@@ -38,12 +46,55 @@ $images-base: "../";
   line-height: 16px;
 }
 
+@mixin centerX{
+    left: 50%;
+    @include transform(translateX(-50%));
+  }
+@mixin centerY{
+    top: 50%;
+    @include transform(translateY(-50%));
+  }
+@mixin centerXY{
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%,-50%));
+  }
+
+.empty-add{
+  cursor: pointer;
+  position: relative;
+  border: 1px dashed #dddddd;
+  border-radius: 4px;
+  .empty-add-text{
+
+    position: absolute;
+    white-space: nowrap;
+    @include centerXY;
+
+
+  }
+}
+
+//for pcs-landing page
+
+//for footer
+footer.navbar{
+  border-radius: 0;
+  margin-bottom: 0px;
+  margin-top: 20px;
+}
+
 
 .affix{
   top:80px;
 }
 
-//for pcs-landing page
+.thumbnail.empty-add{
 
+  height: 28.7em
 
+}
+.form-group .empty-add {
+  min-height: 2.3em;
+}
 
