@@ -1,3 +1,44 @@
+@import "cmsfont";
+
+
+
+//reset theme
+$default-link-color: #777;
+$default-link-hover-color: #333;
+
+a{
+  color: $default-link-color;
+  text-decoration: none;
+
+  &:hover{
+    color: $default-link-hover-color;
+  }
+}
+
+
+body{
+  background-color: #EEE;
+}
+.cms-nav {
+  background-color: #fff;
+}
+
+
+.nav-sidebar [class^="icon-"]:before{
+  font-size: 1.2em;
+  padding-right: 1.2em;
+}
+
+.thumbnail img{
+  width: 100%;
+}
+
+.btn-thumbnail{
+  position: absolute;
+  bottom: 240px;
+  left: 25px;
+}
+
 ///for all pages
 $images-base: "../";
 
@@ -91,10 +132,11 @@ footer.navbar{
 
 .thumbnail.empty-add{
 
-  height: 28.7em
+  height: 26.2em
 
 }
 .form-group .empty-add {
   min-height: 2.3em;
+  background-color: #fff;
 }
 

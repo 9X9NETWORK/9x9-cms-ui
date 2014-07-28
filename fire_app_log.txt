@@ -426,3 +426,52 @@
 2014-07-24 17:46:05 overwrite stylesheets/pcs-landing.css 
 2014-07-24 17:46:38 overwrite stylesheets/pcs-landing.css 
 2014-07-24 17:46:53 overwrite stylesheets/pcs-landing.css 
+2014-07-28 10:41:31     error sass/pcs-landing.scss (Line 3: Invalid CSS after "a": expected selector or at-rule, was "{")
+2014-07-28 10:41:31 overwrite stylesheets/pcs-landing.css 
+2014-07-28 10:41:38 overwrite stylesheets/pcs-landing.css 
+2014-07-28 10:42:33     error sass/pcs-landing.scss (Line 7: Invalid CSS after "    color:": expected pseudoclass or pseudoelement, was " $default-link-...")
+2014-07-28 10:42:33 overwrite stylesheets/pcs-landing.css 
+2014-07-28 10:42:39     error sass/pcs-landing.scss (Line 7: Invalid CSS after "    color:": expected pseudoclass or pseudoelement, was " $default-link-...")
+2014-07-28 10:42:39 identical stylesheets/pcs-landing.css 
+2014-07-28 10:43:00     error sass/pcs-landing.scss (Line 8: Invalid CSS after "    color:": expected pseudoclass or pseudoelement, was " $default-link-...")
+2014-07-28 10:43:00 overwrite stylesheets/pcs-landing.css 
+2014-07-28 10:43:15     error sass/pcs-landing.scss (Line 8: Invalid CSS after "    color:": expected pseudoclass or pseudoelement, was " $default-link-...")
+2014-07-28 10:43:15 identical stylesheets/pcs-landing.css 
+2014-07-28 10:43:31 overwrite stylesheets/pcs-landing.css 
+2014-07-28 10:44:03 overwrite stylesheets/pcs-landing.css 
+2014-07-28 10:47:27 overwrite stylesheets/pcs-landing.css 
+2014-07-28 10:48:15 overwrite stylesheets/pcs-landing.css 
+2014-07-28 10:48:55 overwrite stylesheets/pcs-landing.css 
+2014-07-28 10:49:24 overwrite stylesheets/pcs-landing.css 
+2014-07-28 10:49:39 overwrite stylesheets/pcs-landing.css 
+2014-07-28 10:53:33 overwrite stylesheets/pcs-landing.css 
+2014-07-28 11:36:14     error sass/pcs-landing.scss (Line 3: Invalid CSS after "//reset theme": expected selector or at-rule, was "$default-link-c...")
+2014-07-28 11:36:14 overwrite stylesheets/pcs-landing.css 
+2014-07-28 11:48:06 overwrite stylesheets/pcs-landing.css 
+2014-07-28 11:48:35     error sass/pcs-landing.scss (Line 3: Invalid CSS after "//reset theme": expected selector or at-rule, was "$default-link-c...")
+2014-07-28 11:48:35 overwrite stylesheets/pcs-landing.css 
+2014-07-28 11:48:50     error sass/pcs-landing.scss (Line 3: Invalid CSS after "//reset theme": expected selector or at-rule, was "$default-link-c...")
+2014-07-28 11:48:51 identical stylesheets/pcs-landing.css 
+2014-07-28 11:49:26     error sass/pcs-landing.scss (Line 3: Invalid CSS after "//reset theme": expected selector or at-rule, was "$default-link-c...")
+2014-07-28 11:49:27 identical stylesheets/pcs-landing.css 
+2014-07-28 11:49:30     error sass/pcs-landing.scss (Line 3: Invalid CSS after "//reset theme": expected selector or at-rule, was "$default-link-c...")
+2014-07-28 11:49:30 overwrite stylesheets/pcs-landing.css 
+2014-07-28 11:49:30     error sass/pcs-landing.scss (Line 3: Invalid CSS after "//reset theme": expected selector or at-rule, was "$default-link-c...")
+2014-07-28 11:49:30 overwrite stylesheets/pcs-landing.css 
+2014-07-28 11:49:40     error sass/pcs-landing.scss (Line 3: Invalid CSS after "//reset theme": expected selector or at-rule, was "$default-link-c...")
+2014-07-28 11:49:40 overwrite stylesheets/pcs-landing.css 
+2014-07-28 11:49:50     error sass/pcs-landing.scss (Line 4: Invalid CSS after "//reset theme": expected selector or at-rule, was "$default-link-c...")
+2014-07-28 11:49:51 overwrite stylesheets/pcs-landing.css 
+2014-07-28 11:51:38     error sass/pcs-landing.scss (Line 4: Invalid CSS after "//reset theme": expected selector or at-rule, was "$default-link-c...")
+2014-07-28 11:51:39 identical stylesheets/pcs-landing.css 
+2014-07-28 11:51:43     error sass/pcs-landing.scss (Line 4: Invalid CSS after "//reset theme": expected selector or at-rule, was "$default-link-c...")
+2014-07-28 11:51:43 identical stylesheets/pcs-landing.css 
+2014-07-28 11:54:09     error sass/pcs-landing.scss (Line 4: Invalid CSS after "//reset theme": expected selector or at-rule, was "$default-link-c...")
+2014-07-28 11:54:09 identical stylesheets/pcs-landing.css 
+2014-07-28 13:59:33 overwrite stylesheets/pcs-landing.css 
+2014-07-28 14:00:35 overwrite stylesheets/pcs-landing.css 
+2014-07-28 14:00:47 overwrite stylesheets/pcs-landing.css 
+2014-07-28 14:06:58 overwrite stylesheets/pcs-landing.css 
+2014-07-28 14:07:56 overwrite stylesheets/pcs-landing.css 
+2014-07-28 14:17:11 overwrite stylesheets/pcs-landing.css 
+2014-07-28 14:19:44 overwrite stylesheets/pcs-landing.css 
