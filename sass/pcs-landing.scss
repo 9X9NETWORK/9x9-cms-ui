@@ -1,6 +1,14 @@
+@import "compass/css3";
+
 @import "cmsfont";
 
-
+//reset modal-dialog
+.modal.fade .modal-dialog.modal-center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include transform3d(translate3d(-50%,-50%,0));
+}
 
 //reset theme
 $default-link-color: #777;
@@ -42,12 +50,13 @@ body{
 ///for all pages
 $images-base: "../";
 
-@import "compass/css3";
+
 
 //set textarea border-radius
 textarea{
   border-radius: 4px;
 }
+
 
 
 .nav-left{
@@ -68,7 +77,10 @@ textarea{
   background: url(#{$images-base}images/logo.png) 0 50% no-repeat;
   cursor: pointer;
 }
-
+.app-thumbnail{
+  width: 110px;
+  height: 110px;
+}
 
 .cms-icon {
   display: inline-block;
