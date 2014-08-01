@@ -489,3 +489,27 @@
 2014-07-30 17:52:05 overwrite stylesheets/pcs-landing.css 
 2014-07-30 18:03:41 overwrite stylesheets/pcs-landing.css 
 2014-07-30 18:04:50 overwrite stylesheets/pcs-landing.css 
+2014-08-01 16:38:19     error sass/pcs-landing.scss (Line 17 of sass/_pcs-component.scss: Invalid CSS after "input.": expected class name, was ".placeholder-li...")
+2014-08-01 16:38:19 overwrite stylesheets/pcs-landing.css 
+2014-08-01 16:39:02     error sass/pcs-landing.scss (Line 17 of sass/_pcs-component.scss: Invalid CSS after "input.": expected class name, was ".placeholder-li...")
+2014-08-01 16:39:02 identical stylesheets/pcs-landing.css 
+2014-08-01 16:39:06     error sass/pcs-landing.scss (Line 16 of sass/_pcs-component.scss: Invalid CSS after "input.": expected class name, was ".placeholder-li...")
+2014-08-01 16:39:06 overwrite stylesheets/pcs-landing.css 
+2014-08-01 16:39:15 overwrite stylesheets/pcs-landing.css 
+2014-08-01 16:44:05     error sass/pcs-landing.scss (Line 17 of sass/_pcs-component.scss: Invalid CSS after "    input.": expected class name, was "&:-moz-placehol...")
+2014-08-01 16:44:05 overwrite stylesheets/pcs-landing.css 
+2014-08-01 16:44:29     error sass/pcs-landing.scss (Line 17 of sass/_pcs-component.scss: Invalid CSS after "    input": expected "{", was "&:-moz-placehol..."
+
+"&:-moz-placeholder::before" may only be used at the beginning of a compound selector.)
+2014-08-01 16:44:29 overwrite stylesheets/pcs-landing.css 
+2014-08-01 16:44:34 overwrite stylesheets/pcs-landing.css 
+2014-08-01 16:44:56     error sass/pcs-landing.scss (Line 17 of sass/_pcs-component.scss: Invalid CSS after "    input#{": expected expression (e.g. 1px, bold), was "&}:-moz-placeho...")
+2014-08-01 16:44:56 overwrite stylesheets/pcs-landing.css 
+2014-08-01 16:45:19     error sass/pcs-landing.scss (Line 17 of sass/_pcs-component.scss: Invalid CSS after "    input{#": expected id name, was "&}:-moz-placeho...")
+2014-08-01 16:45:19 overwrite stylesheets/pcs-landing.css 
+2014-08-01 16:46:02 overwrite stylesheets/pcs-landing.css 
+2014-08-01 16:46:08 identical stylesheets/pcs-landing.css 
+2014-08-01 16:46:29 overwrite stylesheets/pcs-landing.css 
+2014-08-01 17:03:31 overwrite stylesheets/pcs-landing.css 
+2014-08-01 17:05:28 overwrite stylesheets/pcs-landing.css 
+2014-08-01 17:06:08 identical stylesheets/pcs-landing.css 

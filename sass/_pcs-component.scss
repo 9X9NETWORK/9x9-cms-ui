@@ -1,0 +1,29 @@
+@mixin placeholder-before {
+    &::-webkit-input-placeholder::before  {
+        @content;
+    }
+
+    &:-moz-placeholder::before  { /* Firefox 18- */
+        @content;
+    }
+
+    &::-moz-placeholder::before  {  /* Firefox 19+ */
+        @content;
+    }
+
+    &:-ms-input-placeholder::before  {
+        @content;
+    }
+}
+
+//placeholder link icon
+.placeholder-link{
+
+    @include placeholder-before{
+        font-family: 'Glyphicons Halflings';
+        content: '\e144  ';
+        vertical-align: middle;
+
+    }
+    
+}
