@@ -1,0 +1,63 @@
+@import compass/css3
+
+=centerXY
+    top: 50%
+    left: 50%
+    +transform(translate(-50%,-50%))
+  
+
+#portal-constrain
+    position: static
+#portal-constrain
+    position: static
+#portal-list
+    position: static
+    .channel-list
+        padding-top: 40px
+#store-layer
+    position: static
+
+.banner-wrap
+    position: relative
+    width: 45%
+    padding-right: 3%
+    margin-right: 2%
+    float: left
+    max-width: 500px
+    padding: 4px
+    //background-color: #fff
+    cursor: pointer 
+.banner-text
+    padding: 5px
+.thumb-wrap
+    border: 4px solid #fff
+    position: relative
+    background-color: rgba(173,173,173,.8)
+    +background-image(linear-gradient(to bottom, rgba(0,0,0,.1), rgba(255,255,255,.1)))
+    min-height: 150px
+    img
+        width: 100%
+.thumb-inner-text
+    font-size: 18px
+    position: absolute
+    +centerXY
+.thumb-hover-wrap
+    position: absolute
+    bottom: 0
+    width: 100%
+    height: 40px
+    line-height: 40px
+    color: transparent
+    background: transparent url('../images/baenner-upload.gif') no-repeat 8px 8px
+    transition: all 0.5s ease
+    .banner-wrap:hover &
+        background-color: rgba(0,0,0,0.6)
+        color: #fff
+
+.thumb-inner-warning
+    position: absolute
+    color: red
+    top: 70%
+    left: 50%
+    width: 90%
+    +transform(translate(-50%,-50%))
