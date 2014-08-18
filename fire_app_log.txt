@@ -567,3 +567,41 @@
 2014-08-08 11:05:56 overwrite stylesheets/old-portal-manage-add.css 
 2014-08-08 11:06:08 overwrite stylesheets/old-portal-manage-add.css 
 2014-08-08 11:06:21 overwrite stylesheets/old-portal-manage-add.css 
+2014-08-18 14:22:43     error sass/pcs-landing.scss (Line 33 of sass/_pcs-component.scss: Invalid CSS after ".help-block": expected "{", was "@include text-e...")
+2014-08-18 14:22:43 overwrite stylesheets/pcs-landing.css 
+2014-08-18 14:23:09     error sass/pcs-landing.scss (Line 35 of sass/_pcs-component.scss: Invalid CSS after "...$brand-primary)": expected selector or at-rule, was "@include text-e...")
+2014-08-18 14:23:09 overwrite stylesheets/pcs-landing.css 
+2014-08-18 14:24:40     error sass/pcs-landing.scss (Line 33 of sass/_pcs-component.scss: Invalid CSS after "...trap/variables"": expected selector or at-rule, was "@import "bootst...")
+2014-08-18 14:24:40 overwrite stylesheets/pcs-landing.css 
+2014-08-18 14:25:46     error sass/pcs-landing.scss (Line 33 of sass/_pcs-component.scss: Invalid CSS after "...trap/variables"": expected selector or at-rule, was "@import "bootst...")
+2014-08-18 14:25:46 identical stylesheets/pcs-landing.css 
+2014-08-18 14:26:18     error sass/pcs-landing.scss (Line 33 of sass/_pcs-component.scss: Invalid CSS after "...trap/variables"": expected selector or at-rule, was "@import "bootst...")
+2014-08-18 14:26:18 identical stylesheets/pcs-landing.css 
+2014-08-18 14:27:01     error sass/pcs-landing.scss (Line 33 of sass/_pcs-component.scss: Invalid CSS after "...trap/variables"": expected selector or at-rule, was "@import "bootst...")
+2014-08-18 14:27:01 identical stylesheets/pcs-landing.css 
+2014-08-18 14:27:25     error sass/pcs-landing.scss (Line 2 of sass/_pcs-component.scss: Invalid CSS after "...trap/variables"": expected selector or at-rule, was "@import "bootst...")
+2014-08-18 14:27:25 overwrite stylesheets/pcs-landing.css 
+2014-08-18 14:27:36     error sass/pcs-landing.scss (Line 2 of sass/_pcs-component.scss: Invalid CSS after "...trap/variables"": expected selector or at-rule, was "@import "bootst...")
+2014-08-18 14:27:36 identical stylesheets/pcs-landing.css 
+2014-08-18 14:29:18     error sass/pcs-landing.scss (Line 4 of sass/_pcs-component.scss: Invalid CSS after "...otstrap/mixins"": expected selector or at-rule, was "@mixin placehol...")
+2014-08-18 14:29:18 overwrite stylesheets/pcs-landing.css 
+2014-08-18 14:29:25     error sass/pcs-landing.scss (Line 2 of sass/_pcs-component.scss: Invalid CSS after "...trap/variables"": expected selector or at-rule, was "@import "bootst...")
+2014-08-18 14:29:25 overwrite stylesheets/pcs-landing.css 
+2014-08-18 14:29:52     error sass/pcs-landing.scss (Line 8 of sass/bootstrap/stylesheets/bootstrap/mixins/_text-emphasis.scss: Invalid CSS after "a": expected "{", was "&.text-primary:..."
+
+"&.text-primary:hover" may only be used at the beginning of a compound selector.)
+2014-08-18 14:29:52 overwrite stylesheets/pcs-landing.css 
+2014-08-18 14:30:06     error sass/pcs-landing.scss (Line 8 of sass/bootstrap/stylesheets/bootstrap/mixins/_text-emphasis.scss: Invalid CSS after "a": expected "{", was "&.text-primary:..."
+
+"&.text-primary:hover" may only be used at the beginning of a compound selector.)
+2014-08-18 14:30:06 identical stylesheets/pcs-landing.css 
+2014-08-18 14:30:21     error sass/pcs-landing.scss (Line 8 of sass/bootstrap/stylesheets/bootstrap/mixins/_text-emphasis.scss: Invalid CSS after "a": expected "{", was "&.text-primary:..."
+
+"&.text-primary:hover" may only be used at the beginning of a compound selector.)
+2014-08-18 14:30:21 overwrite stylesheets/pcs-landing.css 
+2014-08-18 14:30:30     error sass/pcs-landing.scss (Line 8 of sass/bootstrap/stylesheets/bootstrap/mixins/_text-emphasis.scss: Invalid CSS after "a": expected "{", was "&.text-primary:..."
+
+"&.text-primary:hover" may only be used at the beginning of a compound selector.)
+2014-08-18 14:30:30 overwrite stylesheets/pcs-landing.css 
+2014-08-18 14:31:25 overwrite stylesheets/pcs-landing.css 
+2014-08-18 14:39:30 overwrite stylesheets/pcs-landing.css 

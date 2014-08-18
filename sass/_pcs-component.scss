@@ -1,3 +1,5 @@
+
+
 @mixin placeholder-before {
     &::-webkit-input-placeholder::before  {
         @content;
@@ -27,3 +29,25 @@
     }
     
 }
+
+//add text color class for help-desk
+
+@import "bootstrap/stylesheets/bootstrap/variables";
+@import "bootstrap/stylesheets/bootstrap/mixins";
+
+
+@include text-emphasis-variant('.help-block.text-primary', $brand-primary);
+
+@include text-emphasis-variant('.help-block.text-success', $state-success-text);
+
+@include text-emphasis-variant('.help-block.text-info', $state-info-text);
+
+@include text-emphasis-variant('.help-block.text-warning', $state-warning-text);
+
+@include text-emphasis-variant('.help-block.text-danger', $state-danger-text);
+
+
+.btn .btn-inner-image{
+    height: 18px;
+}
+
