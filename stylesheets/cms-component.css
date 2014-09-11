@@ -546,89 +546,90 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 .upload-progress-wrap.is-success .overlay-button-close {
   text-indent: 0;
   background-image: none;
+  cursor: default;
 }
-/* line 417, ../sass/cms-component.sass */
+/* line 418, ../sass/cms-component.sass */
 .upload-progress-wrap.is-success .overlay-button-close:before {
   content: "✔";
   color: green;
   position: absolute;
 }
 
-/* line 424, ../sass/cms-component.sass */
+/* line 425, ../sass/cms-component.sass */
 .upload-video-btn {
   line-height: 40px;
   text-align: center;
   border-radius: 4px;
   margin-bottom: 1em;
 }
-/* line 433, ../sass/cms-component.sass */
+/* line 434, ../sass/cms-component.sass */
 .upload-video-btn:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
-/* line 435, ../sass/cms-component.sass */
+/* line 436, ../sass/cms-component.sass */
 .upload-video-btn .title {
   position: relative;
   line-height: 40px;
   vertical-align: middle;
 }
-/* line 439, ../sass/cms-component.sass */
+/* line 440, ../sass/cms-component.sass */
 .upload-video-btn .title img {
   vertical-align: middle;
   transform: scale(0.7);
 }
 
-/* line 456, ../sass/cms-component.sass */
+/* line 457, ../sass/cms-component.sass */
 .edit-episode-infomation .overlay-h316-center {
   padding: 24px 10px 0px;
 }
-/* line 459, ../sass/cms-component.sass */
+/* line 460, ../sass/cms-component.sass */
 .edit-episode-infomation .thumb-wrap {
   width: 25%;
   float: left;
   position: relative;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
-/* line 466, ../sass/cms-component.sass */
+/* line 467, ../sass/cms-component.sass */
 .edit-episode-infomation .thumb-wrap:hover .thumb-hover-wrap {
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
 }
-/* line 470, ../sass/cms-component.sass */
+/* line 471, ../sass/cms-component.sass */
 .edit-episode-infomation .img-wrap {
   background-color: #fff;
   width: 100%;
   padding: 5px;
   box-sizing: border-box;
 }
-/* line 475, ../sass/cms-component.sass */
+/* line 476, ../sass/cms-component.sass */
 .edit-episode-infomation .img-wrap img {
   width: 100%;
 }
-/* line 477, ../sass/cms-component.sass */
+/* line 478, ../sass/cms-component.sass */
 .edit-episode-infomation .form-group {
   margin-bottom: 1em;
   padding-left: 0.5em;
 }
-/* line 480, ../sass/cms-component.sass */
+/* line 481, ../sass/cms-component.sass */
 .edit-episode-infomation .form-wrap {
   width: 70%;
   float: left;
 }
-/* line 483, ../sass/cms-component.sass */
+/* line 484, ../sass/cms-component.sass */
 .edit-episode-infomation .form-elements {
   margin-left: 1em;
   width: 100%;
 }
-/* line 486, ../sass/cms-component.sass */
+/* line 487, ../sass/cms-component.sass */
 .edit-episode-infomation .form-elements textarea, .edit-episode-infomation .form-elements input[type="text"] {
   width: 100%;
 }
-/* line 488, ../sass/cms-component.sass */
+/* line 489, ../sass/cms-component.sass */
 .edit-episode-infomation .form-label {
   padding-left: 1.2em;
   text-align: left;
 }
-/* line 491, ../sass/cms-component.sass */
+/* line 492, ../sass/cms-component.sass */
 .edit-episode-infomation .thumb-hover-wrap {
   font-size: 0.75rem;
   position: absolute;
@@ -641,7 +642,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   transition: all 0.5s ease;
 }
 
-/* line 502, ../sass/cms-component.sass */
+/* line 503, ../sass/cms-component.sass */
 .is-right {
   float: right;
 }
