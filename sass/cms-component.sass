@@ -410,11 +410,23 @@ input,textarea
     .overlay-button-close
         right: 0
         top: 4px
+    &.is-success
+        .overlay-button-close
+            text-indent: 0
+            background-image: none
+            &:before
+                content: "✔"
+                color: green
+                position: absolute
+
+
+
 .upload-video-btn
 
     line-height: 40px
     text-align: center
     border-radius: 4px
+    margin-bottom: 1em
     
 
     
@@ -487,3 +499,5 @@ input,textarea
         background: transparent url("../images/baenner-upload.gif") no-repeat 8px 6px
         transition: all 0.5s ease
         
+.is-right
+    float: right
