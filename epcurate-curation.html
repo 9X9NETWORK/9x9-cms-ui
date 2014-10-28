@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="stylesheets/perfect-scrollbar.css" />
     <link rel="stylesheet" href="stylesheets/epcurate.css" />
     <link rel="stylesheet" href="stylesheets/ep-curation.css" />
+    <link rel="stylesheet" href="stylesheets/cms-component.css" />
 </head>
 
 <body class="scrollable">
@@ -1454,22 +1455,35 @@
                         <div class="event-input">
                             <div class="fminput">
                                 <label for="hyper_display_text">
-                                    <acronym title="Required field" class="mark-required">*</acronym>Display text:</label>
-                                <p class="text">
+                                    <acronym title="Required field" class="mark-required">*</acronym>Display:</label>
+                                <!-- <p class="text">
                                     <span>
                                         <input type="text" name="displayText" id="hyper_display_text" value="Input display text" placeholder="Input display text" class="text">
                                     </span>
-                                </p>
+                                </p> -->
+
+
+
+                                <select class="form-control input-gray with-left-icon">                                  
+                                  <option>Text</option>
+                                  <option>Image</option>
+                                </select>
+                                <p class="select-btn"></p>
+
                             </div>
+
                             <div class="fminput even">
-                                <label for="hyper_button_text">
-                                    <acronym title="Required field" class="mark-required">*</acronym>Button text:</label>
+                                <!-- <input type="text" class="form-control input-gray"> -->
                                 <p class="text">
+
                                     <span>
                                         <input type="text" name="btnText" id="hyper_button_text" maxlength="20" value="Button text" placeholder="Input button text" class="text">
-                                        <span class="hide charcounter">11 characters to go!</span>
+                                        <p class="edit-icon"></p>
+                                       
                                     </span>
+
                                 </p>
+                                <span class="hide charcounter">11 characters to go!</span>
                             </div>
                             <div class="fminput">
                                 <label for="hyper_link">
