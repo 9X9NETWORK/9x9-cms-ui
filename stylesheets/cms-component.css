@@ -719,12 +719,14 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   top: 3px;
   z-index: 10;
   cursor: pointer;
+  -moz-pointer-events: none;
+  pointer-events: none;
 }
-/* line 562, ../sass/cms-component.sass */
+/* line 566, ../sass/cms-component.sass */
 .style-select:hover:after {
   background-position: 0 -451px;
 }
-/* line 566, ../sass/cms-component.sass */
+/* line 570, ../sass/cms-component.sass */
 .style-select select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -733,7 +735,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   width: 120px;
 }
 
-/* line 581, ../sass/cms-component.sass */
+/* line 585, ../sass/cms-component.sass */
 .edit-icon {
   background-image: url("../images/btns.png");
   background-position: 0 -1060px;
@@ -747,12 +749,12 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   z-index: 55;
 }
 
-/* line 592, ../sass/cms-component.sass */
+/* line 596, ../sass/cms-component.sass */
 .edit-icon:hover, .edit-icon.on {
   background-position: -23px -1060px;
 }
 
-/* line 597, ../sass/cms-component.sass */
+/* line 601, ../sass/cms-component.sass */
 .fminput .charcounter {
   position: absolute;
   white-space: nowrap;
