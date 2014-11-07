@@ -59,3 +59,44 @@
     left: 50%
     width: 90%
     +transform(translate(-50%,-50%))
+
+
+
+// for item list
+.itemList,.list-holder
+    .badge
+        position: absolute
+        z-index: 10
+        bottom: 7px
+        left: 7px
+        display: inline-block
+        min-width: 10px
+        padding: 3px 7px
+        font-size: 12px
+        font-weight: 700
+        line-height: 1
+        color: #fff
+        text-align: center
+        white-space: nowrap
+        vertical-align: baseline
+        background-color: #777
+        border-radius: 5px
+        &.danger
+            background-color: #ef4913
+    .cover-text
+        position: absolute
+        z-index: 20
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        background-color: rgba(0,0,0,0.5)
+        color: #fff
+        font-size: 15px
+        .inner-text
+            position: absolute
+            top: 50%
+            left: 50%
+            +transform(translate3d(-50%,-50%,0))
+
+

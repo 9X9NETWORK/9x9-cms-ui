@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="stylesheets/lightbox.css" />
     <link rel="stylesheet" href="stylesheets/uniform.css" />
     <link rel="stylesheet" href="stylesheets/channel.css" />
+    <link rel="stylesheet" href="stylesheets/old-channel.css" />
+    <link rel="stylesheet" href="stylesheets/cms-component.css" />
     <title>9x9.tv - Program settings</title>
 </head>
 
@@ -102,7 +104,10 @@
         </div> -->
         <div id="content-main">
             <div id="title-func" class="clearfix">
-                <h2 style="width: auto; padding-right: 81px;"><span id="channel-name" data-width="">My demo 9x9 program</span><span class="title-crumb">&gt; Settings</span></h2>
+                <h2 style="width: auto; padding-right: 81px;">
+                    <span id="channel-name" data-width="">My demo 9x9 program</span>
+                    <span class="title-crumb">&gt; Settings</span>
+                </h2>
                 <p class="required">
                     <acronym title="Required field" class="mark-required">*</acronym>Required field</p>
             </div>
@@ -110,6 +115,30 @@
                 <div class="constrain">
                     <form name="settingForm" id="settingForm" method="get" action="" data-height="361">
                         <input type="hidden" name="isPublic" id="isPublic" value="true">
+                        <div class="fminput clearfix">
+                            <label for="name">
+                                <acronym title="Required field" class="mark-required">*</acronym>Promotion banner</label>
+                            <div class="fmfield upload-img banner-thumb">
+                                <div class="thumbnail ">
+                                    <div class="img-wrap">
+
+                                    </div>
+                                    <img src="images/loading.gif" alt="" class="loading">
+                                </div>
+                                <p>Upload</p>
+                                <p class="notice img-upload">Better results with 640 x 360 resolution image</p>
+                                <p class="notice upload-notice hide">Please upload jpeg, png, or gif files.</p>
+                                <input type="hidden" name="imageUrl" id="imageUrl" value="">
+                                <input type="hidden" name="imageUrlOld" id="imageUrlOld" value="">
+                                <a href="" class="icon-question is-with-tooltip">
+                                    <div class="tooltip-wrap">
+                                        This banner will be used in some information pages, such as paid program preview page.
+                                    </div>
+                                </a>
+
+                            </div>
+
+                        </div>
                         <div class="fminput clearfix">
                             <label for="name">
                                 <acronym title="Required field" class="mark-required">*</acronym>Title</label>
@@ -278,6 +307,115 @@
                                     </ul>
                                 </div>
                             </div>
+                        </div>
+                        <div class="fminput clearfix">
+                            <label>Program price</label>
+                            <div class="fmfield clearfix">
+                                <div class="select enable">
+                                    <p class="select-btn"></p>
+                                    <p class="select-txt"><a href="#">Free programe</a>
+                                    </p>
+                                    <ul id="lang-select-list" class="select-list">
+                                        <li data-meta="free">Free programe</li>
+                                        <li data-meta="paid">Paid programe</li>
+
+                                    </ul>
+                                    <input type="hidden" name="price" value="" class="select-meta">
+                                </div>
+
+                            </div>
+                            <div class="fmfield clearfix">
+                                <div class="fminput clearfix">
+                                    <label>Program price</label>
+                                </div>
+                                <div class="fminput clearfix">
+                                    <label>1. Price</label>
+                                    <div class="fmfield">
+                                        <div class="select enable">
+                                            <p class="select-btn"></p>
+                                            <p class="select-txt"><a href="#">Select a price</a>
+                                            </p>
+                                            <ul id="lang-select-list" class="select-list">
+                                                <li data-meta="">$ 0.99 USD</li>
+                                                <li data-meta="">$ 1.99 USD</li>
+                                                <li data-meta="">$ 2.99 USD</li>
+                                                <li data-meta="">$ 3.99 USD</li>
+                                                <li data-meta="">$ 4.99 USD</li>
+                                                <li data-meta="">$ 5.99 USD</li>
+                                                <li data-meta="">$ 6.99 USD</li>
+                                                <li data-meta="">$ 7.99 USD</li>
+                                                <li data-meta="">$ 8.99 USD</li>
+                                                <li data-meta="">$ 9.99 USD</li>
+                                                <li data-meta="">$ 0.99 USD</li>
+
+
+                                            </ul>
+
+                                            <input type="hidden" name="price" value="" class="select-meta">
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fminput clearfix">
+                                    <label>2. Publication name</label>
+                                    <div class="fmfield">
+                                        <p class="text">
+                                            <span>
+                                                <input type="text" maxlength="100" value="" class="text">
+                                            </span>
+                                        </p>
+                                    </div>
+
+                                </div>
+                                <div class="fminput clearfix">
+                                    <label>3. Description</label>
+                                    <div class="fmfield">
+                                        <p class="textarea">
+                                            <span>
+                                                <span>
+                                                    <textarea name="intro" cols="80" class="textarea"></textarea>
+                                                </span>
+                                            </span>
+                                        </p>
+                                    </div>
+
+                                </div>
+                                <div class="fminput clearfix">
+                                    <label>4. Picture for review</label>
+                                    <div class="fmfield upload-img banner-thumb review-thumb">
+                                        <div class="thumbnail ">
+                                            <div class="img-wrap">
+
+                                            </div>
+                                            <img src="images/loading.gif" alt="" class="loading">
+                                        </div>
+                                        <p>Upload</p>
+                                        <p class="notice img-upload">Better results with 640 x 360 resolution image</p>
+                                        <p class="notice upload-notice hide">Please upload a screenshot which is at least 640 x 920 pixels and at least 72 dpi.</p>
+                                        <input type="hidden"   value="">
+                                        <input type="hidden"   value="">
+                                        <a href="" class="icon-question is-with-tooltip">
+                                            <div class="tooltip-wrap">
+                                                Upload a screenshot of the product as it appears on the device. This screenshot is used for Apple’s review only and is not displayed on the App Store.
+                                            </div>
+                                        </a>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <a href="" class="fmfield clearfix icon-exclamation">
+                                <span>If you want to delete the product from App store or Google play please contact with us before a month.</span>
+
+                            </a>
+
+
+
+
+
+
                         </div>
                         <div class="fminput clearfix">
                             <label>Select brand to auto share</label>

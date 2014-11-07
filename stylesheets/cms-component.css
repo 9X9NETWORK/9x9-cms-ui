@@ -337,13 +337,19 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 
 /* line 249, ../sass/cms-component.sass */
+.icon-exclamation {
+  background: transparent url("../images/icon_exclamation.png") no-repeat 0 10px;
+  padding: 10px 20px;
+}
+
+/* line 257, ../sass/cms-component.sass */
 .nav-tabs {
   overflow: hidden;
   *zoom: 1;
   position: relative;
   padding-bottom: 20px;
 }
-/* line 255, ../sass/cms-component.sass */
+/* line 263, ../sass/cms-component.sass */
 .nav-tabs:after {
   content: "";
   display: block;
@@ -359,12 +365,12 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
 }
-/* line 269, ../sass/cms-component.sass */
+/* line 277, ../sass/cms-component.sass */
 .nav-tabs .tab-item {
   float: left;
   margin-bottom: -1px;
 }
-/* line 272, ../sass/cms-component.sass */
+/* line 280, ../sass/cms-component.sass */
 .nav-tabs .tab-item a {
   text-decoration: none;
   color: #555;
@@ -376,22 +382,22 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   padding: 8px 25px;
   background-color: #fff;
 }
-/* line 283, ../sass/cms-component.sass */
+/* line 291, ../sass/cms-component.sass */
 .nav-tabs .tab-item a:hover {
   color: #999;
 }
-/* line 286, ../sass/cms-component.sass */
+/* line 294, ../sass/cms-component.sass */
 .nav-tabs .tab-item.on a {
   background-color: #e2e2e2;
   border-bottom: 1px solid #e2e2e2;
   cursor: default;
 }
-/* line 290, ../sass/cms-component.sass */
+/* line 298, ../sass/cms-component.sass */
 .nav-tabs .tab-item.on a:hover {
   color: #555;
 }
 
-/* line 294, ../sass/cms-component.sass */
+/* line 302, ../sass/cms-component.sass */
 .func-btns .del {
   display: block;
   width: 22px;
@@ -402,17 +408,17 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   text-indent: -100000px;
   background-position: 0 -97px;
 }
-/* line 303, ../sass/cms-component.sass */
+/* line 311, ../sass/cms-component.sass */
 .func-btns .del:hover {
   background-position: -23px -97px;
 }
 
-/* line 306, ../sass/cms-component.sass */
+/* line 314, ../sass/cms-component.sass */
 .btn-item {
   display: inline-block;
 }
 
-/* line 310, ../sass/cms-component.sass */
+/* line 318, ../sass/cms-component.sass */
 .central-l {
   top: 50%;
   left: 50%;
@@ -422,24 +428,24 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   transform: translate3D(-50%, -50%, 0);
 }
 
-/* line 315, ../sass/cms-component.sass */
+/* line 323, ../sass/cms-component.sass */
 .fixed-l {
   position: fixed;
 }
 
-/* line 317, ../sass/cms-component.sass */
+/* line 325, ../sass/cms-component.sass */
 .align-center {
   text-align: center;
 }
 
-/* line 322, ../sass/cms-component.sass */
+/* line 330, ../sass/cms-component.sass */
 .progress {
   position: absolute;
   width: 100%;
   top: 0;
 }
 
-/* line 329, ../sass/cms-component.sass */
+/* line 337, ../sass/cms-component.sass */
 .progress-bar {
   float: left;
   width: 0;
@@ -456,7 +462,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   transition: width 0.6s ease;
 }
 
-/* line 345, ../sass/cms-component.sass */
+/* line 353, ../sass/cms-component.sass */
 .progress-striped .progress-bar, .progress-bar-striped {
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
@@ -465,7 +471,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   background-size: 40px 40px;
 }
 
-/* line 353, ../sass/cms-component.sass */
+/* line 361, ../sass/cms-component.sass */
 .btn-upload-flash {
   width: 100%;
   height: 100%;
@@ -474,13 +480,13 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   cursor: pointer;
 }
 
-/* line 360, ../sass/cms-component.sass */
+/* line 368, ../sass/cms-component.sass */
 .btn-dash {
   cursor: pointer;
   border: 3px dashed #fff;
 }
 
-/* line 365, ../sass/cms-component.sass */
+/* line 373, ../sass/cms-component.sass */
 .title-func {
   position: relative;
   position: relative;
@@ -488,7 +494,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   z-index: 99;
   padding: 26px 0 17px;
 }
-/* line 371, ../sass/cms-component.sass */
+/* line 379, ../sass/cms-component.sass */
 .title-func h2 {
   float: left;
   font-weight: 500;
@@ -504,24 +510,24 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   right: 350px;
 }
 
-/* line 386, ../sass/cms-component.sass */
+/* line 394, ../sass/cms-component.sass */
 .intro {
   margin: 0 30px 0 0;
   font-size: 13px;
   height: 41px;
   line-height: 41px;
 }
-/* line 391, ../sass/cms-component.sass */
+/* line 399, ../sass/cms-component.sass */
 .intro span {
   float: left;
 }
 
-/* line 395, ../sass/cms-component.sass */
+/* line 403, ../sass/cms-component.sass */
 .upload-progress-wrap {
   margin-bottom: 1.5em;
   position: relative;
 }
-/* line 398, ../sass/cms-component.sass */
+/* line 406, ../sass/cms-component.sass */
 .upload-progress-wrap .progress {
   position: relative;
   height: 30px;
@@ -533,56 +539,56 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   width: calc(100% - 35px);
 }
-/* line 408, ../sass/cms-component.sass */
+/* line 416, ../sass/cms-component.sass */
 .upload-progress-wrap .progress-bar {
   line-height: 30px;
 }
-/* line 410, ../sass/cms-component.sass */
+/* line 418, ../sass/cms-component.sass */
 .upload-progress-wrap .overlay-button-close {
   right: 0;
   top: 4px;
 }
-/* line 414, ../sass/cms-component.sass */
+/* line 422, ../sass/cms-component.sass */
 .upload-progress-wrap.is-success .overlay-button-close {
   text-indent: 0;
   background-image: none;
   cursor: default;
 }
-/* line 418, ../sass/cms-component.sass */
+/* line 426, ../sass/cms-component.sass */
 .upload-progress-wrap.is-success .overlay-button-close:before {
   content: "✔";
   color: green;
   position: absolute;
 }
 
-/* line 425, ../sass/cms-component.sass */
+/* line 433, ../sass/cms-component.sass */
 .upload-video-btn {
   line-height: 40px;
   text-align: center;
   border-radius: 4px;
   margin-bottom: 1em;
 }
-/* line 434, ../sass/cms-component.sass */
+/* line 442, ../sass/cms-component.sass */
 .upload-video-btn:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
-/* line 436, ../sass/cms-component.sass */
+/* line 444, ../sass/cms-component.sass */
 .upload-video-btn .title {
   position: relative;
   line-height: 40px;
   vertical-align: middle;
 }
-/* line 440, ../sass/cms-component.sass */
+/* line 448, ../sass/cms-component.sass */
 .upload-video-btn .title img {
   vertical-align: middle;
   transform: scale(0.7);
 }
 
-/* line 457, ../sass/cms-component.sass */
+/* line 465, ../sass/cms-component.sass */
 .edit-episode-infomation .overlay-h316-center {
   padding: 24px 10px 0px;
 }
-/* line 460, ../sass/cms-component.sass */
+/* line 468, ../sass/cms-component.sass */
 .edit-episode-infomation .thumb-wrap {
   width: 25%;
   float: left;
@@ -592,47 +598,47 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   max-height: 165px;
   overflow: hidden;
 }
-/* line 470, ../sass/cms-component.sass */
+/* line 478, ../sass/cms-component.sass */
 .edit-episode-infomation .thumb-wrap:hover .thumb-hover-wrap {
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
 }
-/* line 474, ../sass/cms-component.sass */
+/* line 482, ../sass/cms-component.sass */
 .edit-episode-infomation .img-wrap {
   background-color: #fff;
   width: 100%;
   padding: 5px;
   box-sizing: border-box;
 }
-/* line 479, ../sass/cms-component.sass */
+/* line 487, ../sass/cms-component.sass */
 .edit-episode-infomation .img-wrap img {
   width: 100%;
 }
-/* line 481, ../sass/cms-component.sass */
+/* line 489, ../sass/cms-component.sass */
 .edit-episode-infomation .form-group {
   margin-bottom: 1em;
   padding-left: 0.5em;
 }
-/* line 484, ../sass/cms-component.sass */
+/* line 492, ../sass/cms-component.sass */
 .edit-episode-infomation .form-wrap {
   width: 70%;
   float: left;
 }
-/* line 487, ../sass/cms-component.sass */
+/* line 495, ../sass/cms-component.sass */
 .edit-episode-infomation .form-elements {
   margin-left: 1em;
   width: 100%;
 }
-/* line 490, ../sass/cms-component.sass */
+/* line 498, ../sass/cms-component.sass */
 .edit-episode-infomation .form-elements textarea, .edit-episode-infomation .form-elements input[type="text"] {
   width: 100%;
 }
-/* line 492, ../sass/cms-component.sass */
+/* line 500, ../sass/cms-component.sass */
 .edit-episode-infomation .form-label {
   padding-left: 1.2em;
   text-align: left;
 }
-/* line 495, ../sass/cms-component.sass */
+/* line 503, ../sass/cms-component.sass */
 .edit-episode-infomation .thumb-hover-wrap {
   font-size: 0.75rem;
   position: absolute;
@@ -644,7 +650,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   background: transparent url("../images/baenner-upload.gif") no-repeat 8px 6px;
   transition: all 0.5s ease;
 }
-/* line 505, ../sass/cms-component.sass */
+/* line 513, ../sass/cms-component.sass */
 .edit-episode-infomation .notice {
   color: #f00;
   font-size: 13px;
@@ -652,22 +658,22 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   margin-bottom: 5px;
 }
 
-/* line 511, ../sass/cms-component.sass */
+/* line 519, ../sass/cms-component.sass */
 .is-right {
   float: right;
 }
 
-/* line 514, ../sass/cms-component.sass */
+/* line 522, ../sass/cms-component.sass */
 .fminput {
   position: relative;
 }
 
-/* line 517, ../sass/cms-component.sass */
+/* line 525, ../sass/cms-component.sass */
 .input-gray {
   height: auto;
 }
 
-/* line 523, ../sass/cms-component.sass */
+/* line 531, ../sass/cms-component.sass */
 .form-control.input-gray {
   font-size: 14px;
   color: #555;
@@ -690,16 +696,16 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
-/* line 538, ../sass/cms-component.sass */
+/* line 546, ../sass/cms-component.sass */
 .form-control.input-gray.with-left-icon {
   padding: 4px 24px 4px 8px;
 }
-/* line 541, ../sass/cms-component.sass */
+/* line 549, ../sass/cms-component.sass */
 .form-control.input-gray + .select-btn {
   right: 12px;
 }
 
-/* line 545, ../sass/cms-component.sass */
+/* line 553, ../sass/cms-component.sass */
 .style-select {
   float: left;
   width: 100px;
@@ -707,7 +713,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   border-radius: 2px;
   position: relative;
 }
-/* line 551, ../sass/cms-component.sass */
+/* line 559, ../sass/cms-component.sass */
 .style-select:after {
   content: "";
   display: block;
@@ -722,11 +728,11 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   -moz-pointer-events: none;
   pointer-events: none;
 }
-/* line 566, ../sass/cms-component.sass */
+/* line 574, ../sass/cms-component.sass */
 .style-select:hover:after {
   background-position: 0 -451px;
 }
-/* line 570, ../sass/cms-component.sass */
+/* line 578, ../sass/cms-component.sass */
 .style-select select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -735,7 +741,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   width: 120px;
 }
 
-/* line 585, ../sass/cms-component.sass */
+/* line 593, ../sass/cms-component.sass */
 .edit-icon {
   background-image: url("../images/btns.png");
   background-position: 0 -1060px;
@@ -749,12 +755,12 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   z-index: 55;
 }
 
-/* line 596, ../sass/cms-component.sass */
+/* line 604, ../sass/cms-component.sass */
 .edit-icon:hover, .edit-icon.on {
   background-position: -23px -1060px;
 }
 
-/* line 601, ../sass/cms-component.sass */
+/* line 609, ../sass/cms-component.sass */
 .fminput .charcounter {
   position: absolute;
   white-space: nowrap;

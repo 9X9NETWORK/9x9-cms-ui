@@ -1,0 +1,47 @@
+
+.banner-thumb
+    .thumbnail
+        width: 320px !important
+        height: 160px !important
+    .img-wrap
+        background-color: #aaa
+        width: 100% !important
+        height: 100% !important
+        background-image: url('../images/thumbnail_icon.png')
+        background-repeat: no-repeat
+        background-position: 50% 50%
+    .notice
+        position: static !important
+    &.review-thumb
+        .thumbnail
+            width: 80px !important
+            height: 115px !important
+
+.tip-anchor
+    position: relative
+    .tip       
+        display: none
+        position: absolute
+        top: -66px
+        left: -94px
+        z-index: 1000
+        height: 60px
+        padding-left: 4px
+        background: url(../images/bg_bubble_left_l.png) no-repeat 0 0
+    .tip-right
+        display: block
+        padding-right: 4px
+        background: url(../images/bg_bubble_right_l.png) no-repeat right 0
+    .tip-middle
+        display: block
+        width: 233px
+        height: 57px
+        padding: 3px 5px 0
+        background: url(../images/bg_bubble_middle_l.png) repeat-x
+        color: #555
+        font: 13px/17px Arial, Helvetica
+        text-align: justify
+    &:hover
+        .tip
+            display: block
+
