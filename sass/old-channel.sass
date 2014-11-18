@@ -3,19 +3,31 @@
     .thumbnail
         width: 320px !important
         height: 160px !important
-    .img-wrap
-        background-color: #aaa
-        width: 100% !important
-        height: 100% !important
-        background-image: url('../images/thumbnail_icon.png')
-        background-repeat: no-repeat
-        background-position: 50% 50%
     .notice
         position: static !important
     &.review-thumb
         .thumbnail
             width: 80px !important
             height: 115px !important
+
+.img-wrap
+    background-color: #aaa
+    width: 100% !important
+    height: 100% !important
+    background-image: url('../images/thumbnail_icon.png')
+    background-repeat: no-repeat
+    background-position: 50% 50%
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    background-size: cover
+    &.no-image
+        background-image: url('../images/thumbnail_icon.png')!important
+        background-size: auto
+    &.is-loading
+        background-image: url('../images/loading.gif')!important
+        background-size: auto
+
+
 
 .tip-anchor
     position: relative
