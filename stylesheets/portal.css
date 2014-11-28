@@ -947,7 +947,7 @@ span.sType {
     position: absolute;
     left: 0;
     top: 0;
-    z-index: 4;
+    z-index: 30;
 }
 /* Dropdown Gray */
 #dropdown-portal-ch.on {
